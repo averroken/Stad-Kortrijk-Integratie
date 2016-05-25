@@ -18,5 +18,6 @@ namespace ASP_WEB.Models
         public string PhoneNumber { get; set; }
         public string OpeningHours { get; set; }
         public string EmailAddress { get; set; }
+        public virtual ICollection<Subtheme> Subtheme { get; set; }
     }
 }
