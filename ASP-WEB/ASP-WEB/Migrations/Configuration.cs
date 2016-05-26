@@ -1,21 +1,18 @@
 namespace ASP_WEB.Migrations
 {
-    using DAL.Context;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<IntegratieContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ASP_WEB.DAL.Context.IntegratieContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(IntegratieContext context)
+        protected override void Seed(ASP_WEB.DAL.Context.IntegratieContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -29,8 +26,6 @@ namespace ASP_WEB.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            ApplicationDbContext appContext = ApplicationDbContext.Create();
-            appContext.Roles.AddOrUpdate(new IdentityRole { Name = "admin" });
         }
     }
 }
