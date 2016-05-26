@@ -46,7 +46,7 @@ namespace ASP_WEB.Controllers
 
         public ActionResult FAQ()
         {
-            IEnumerable<Faq> faq = repoFaq.All();
+            IEnumerable<Faq> faq = repoFaq.All().OrderBy(f => f.SubthemeID).OrderBy(f=>f.Theme);
             return View(faq);
         }
 
