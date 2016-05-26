@@ -27,5 +27,13 @@ namespace ASP_WEB.Controllers
             }
             return RedirectToAction("Index", "Subtheme", new { id = id });
         }
+
+        public ActionResult List()
+        {
+            IEnumerable<Theme> Themes = new List<Theme>();
+            Themes = repoTheme.All();
+
+            return View(Themes);
+        }
     }
 }
