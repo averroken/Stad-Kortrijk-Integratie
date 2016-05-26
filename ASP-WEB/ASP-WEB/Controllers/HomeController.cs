@@ -11,7 +11,7 @@ namespace ASP_WEB.Controllers
     public class HomeController : Controller
     {
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
-        GenericRepository<Faq> repoFaq = new GenericRepository<Faq>();
+        FaqRepository repoFaq = new FaqRepository();
         SubthemeRepository repoSubtheme = new SubthemeRepository();
 
         public ActionResult Index()
@@ -58,7 +58,10 @@ namespace ASP_WEB.Controllers
             }
             //TODO: searchstring eventueel bewerken
             List<Subtheme> subthemes = repoSubtheme.Search(searchString);
-
+            List<Faq> faqs = repoFaq.Search(searchString);
+            FaqSubtheme list = new FaqSubtheme();
+            list.Faq = faqs;
+            list.Subtheme = subthemes;
             return View(subthemes);
         }
     }
