@@ -35,5 +35,12 @@ namespace ASP_WEB.Controllers
 
             return View(Themes);
         }
+
+        public ActionResult Map()
+        {
+            return View();
+        }
+
+       
     }
 }

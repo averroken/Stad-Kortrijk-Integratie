@@ -259,6 +259,7 @@
     <Content Include="Views\Subtheme\Index.cshtml" />
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Subtheme\Details.cshtml" />
+    <Content Include="Views\Home\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
