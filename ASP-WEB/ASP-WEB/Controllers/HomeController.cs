@@ -23,7 +23,9 @@ namespace ASP_WEB.Controllers
         {
             if (!id.HasValue)
             {
+                return RedirectToAction("Index");
             }
+            return RedirectToAction("Index", "Subtheme", new { id = id });
         }
     }
 }
