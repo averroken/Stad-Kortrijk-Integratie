@@ -1,4 +1,5 @@
-﻿using ASP_WEB.Models;
+﻿using ASP_WEB.DAL.Repository;
+using ASP_WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace ASP_WEB.Controllers
     {
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
         GenericRepository<Faq> repoFaq = new GenericRepository<Faq>();
+        SubthemeRepository repoSubtheme = new SubthemeRepository();
 
         public ActionResult Index()
         {
@@ -46,6 +48,18 @@ namespace ASP_WEB.Controllers
         {
             IEnumerable<Faq> faq = repoFaq.All();
             return View(faq);
+        }
+
+        public ActionResult Search(string searchString)
+        {
+            if (String.IsNullOrWhiteSpace(searchString))
+            {
+                return RedirectToAction("Index");
+            }
+            //TODO: searchstring eventueel bewerken
+            List<Subtheme> subthemes = repoSubtheme.Search(searchString);
+
+            return View(subthemes);
         }
     }
 }

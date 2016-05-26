@@ -1,6 +1,8 @@
 namespace ASP_WEB.Migrations
 {
     using DAL.Context;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -27,7 +29,8 @@ namespace ASP_WEB.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            
+            ApplicationDbContext appContext = ApplicationDbContext.Create();
+            appContext.Roles.AddOrUpdate(new IdentityRole { Name = "admin" });
         }
     }
 }

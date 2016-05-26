@@ -13,7 +13,7 @@ namespace ASP_WEB.DAL.Repository
     {
         public List<Subtheme> GetSubthemeByTheme(int themeID)
         {
-            using (IntegratieContext context= new IntegratieContext())
+            using (IntegratieContext context = new IntegratieContext())
             {
                 return context.Subtheme.Where(st => st.ThemeID == themeID).ToList<Subtheme>();
             }
@@ -28,5 +28,12 @@ namespace ASP_WEB.DAL.Repository
             }
         }
 
+        public List<Subtheme> Search(string searchString)
+        {
+            using (IntegratieContext context = new IntegratieContext())
+            {
+                return context.Subtheme.Where(st => st.Description.Contains(searchString)).Include(st => st.Office).Include(st => st.Theme).ToList<Subtheme>();
+            }
+        }
     }
 }
