@@ -260,6 +260,7 @@
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Subtheme\Details.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

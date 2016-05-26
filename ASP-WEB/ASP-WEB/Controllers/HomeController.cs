@@ -10,6 +10,7 @@ namespace ASP_WEB.Controllers
     public class HomeController : Controller
     {
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
+        GenericRepository<Faq> repoFaq = new GenericRepository<Faq>();
 
         public ActionResult Index()
         {
@@ -41,6 +42,10 @@ namespace ASP_WEB.Controllers
             return View();
         }
 
-       
+        public ActionResult FAQ()
+        {
+            IEnumerable<Faq> faq = repoFaq.All();
+            return View(faq);
+        }
     }
 }
