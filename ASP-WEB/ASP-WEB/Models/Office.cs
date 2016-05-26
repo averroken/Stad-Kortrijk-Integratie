@@ -13,7 +13,7 @@ namespace ASP_WEB.Models
         public string URL { get; set; }
         public string Street { get; set; }
         public string HouseNumber { get; set; }
-        public int ZipCode { get; set; }
+        public String ZipCode { get; set; }
         public string City { get; set; }
         public string PhoneNumber { get; set; }
         public string OpeningHours { get; set; }
