@@ -23,5 +23,19 @@ namespace ASP_WEB.Controllers
             Subthemes = repoSubtheme.GetSubthemeByTheme(themeID);
             return View(Subthemes);
         }
+
+        public ActionResult Details(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            int subthemeID = (int)id;
+            Subtheme subtheme = repoSubtheme.GetByID(subthemeID);
+            // ICollection<Office> Offices = subtheme.Office.ToList();
+            return View(subtheme);
+
+        }
     }
 }

@@ -19,5 +19,14 @@ namespace ASP_WEB.DAL.Repository
             }
         }
 
+        public override Subtheme GetByID(object id)
+        {
+            using (IntegratieContext context = new IntegratieContext())
+            {
+                int ID = Convert.ToInt32(id.ToString());
+                return context.Subtheme.Where(st => st.SubthemeID == ID).Include(st => st.Office).Include(st => st.Theme).SingleOrDefault<Subtheme>();
+            }
+        }
+
     }
 }
