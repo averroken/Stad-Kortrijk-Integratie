@@ -203,7 +203,7 @@ namespace ASP_WEB.Controllers
         {
             if (!id.HasValue)
             {
-                return RedirectToAction("Offices");
+                return RedirectToAction(nameof(Offices));
             }
             int ID = (int)id;
             Office office = repoOffice.GetByID(ID);
@@ -213,21 +213,21 @@ namespace ASP_WEB.Controllers
         [HttpPost]
         public ActionResult EditOffice(FormCollection frm)
         {
-            Office office = repoOffice.GetByID(Convert.ToInt32(frm["OfficeID"]));
-            office.Name = frm["Name"];
-            office.City = frm["City"];
-            office.EmailAddress = frm["EmailAddress"];
-            office.HouseNumber = frm["HouseNumber"];
-            office.OpeningHours = frm["OpeningHours"];
-            office.PhoneNumber = frm["PhoneNumber"];
-            office.Street = frm["Street"];
-            office.URL = frm["URL"];
-            office.ZipCode = Convert.ToInt32(frm["ZipCode"]);
+            Office office = repoOffice.GetByID(Convert.ToInt32(frm[nameof(Office.OfficeID)]));
+            office.Name = frm[nameof(Office.Name)];
+            office.City = frm[nameof(Office.City)];
+            office.EmailAddress = frm[nameof(Office.EmailAddress)];
+            office.HouseNumber = frm[nameof(Office.HouseNumber)];
+            office.OpeningHours = frm[nameof(Office.OpeningHours)];
+            office.PhoneNumber = frm[nameof(Office.PhoneNumber)];
+            office.Street = frm[nameof(Office.Street)];
+            office.URL = frm[nameof(Office.URL)];
+            office.ZipCode = Convert.ToInt32(frm[nameof(Office.ZipCode)]);
 
             repoOffice.Update(office);
             repoOffice.SaveChanges();
 
-            return RedirectToAction("Offices");
+            return RedirectToAction(nameof(Offices));
         }
 
         public ActionResult CreateOffice()
@@ -239,26 +239,26 @@ namespace ASP_WEB.Controllers
         public ActionResult CreateOffice(FormCollection frm)
         {
             Office office = new Office();
-            office.Name = frm["Name"];
-            office.City = frm["City"];
-            office.EmailAddress = frm["EmailAddress"];
-            office.HouseNumber = frm["HouseNumber"];
-            office.OpeningHours = frm["OpeningHours"];
-            office.PhoneNumber = frm["PhoneNumber"];
-            office.Street = frm["Street"];
-            office.URL = frm["URL"];
-            office.ZipCode = Convert.ToInt32(frm["ZipCode"]);
+            office.Name = frm[nameof(Office.Name)];
+            office.City = frm[nameof(Office.City)];
+            office.EmailAddress = frm[nameof(Office.EmailAddress)];
+            office.HouseNumber = frm[nameof(Office.HouseNumber)];
+            office.OpeningHours = frm[nameof(Office.OpeningHours)];
+            office.PhoneNumber = frm[nameof(Office.PhoneNumber)];
+            office.Street = frm[nameof(Office.Street)];
+            office.URL = frm[nameof(Office.URL)];
+            office.ZipCode = Convert.ToInt32(frm[nameof(Office.ZipCode)]);
             repoOffice.Insert(office);
             repoOffice.SaveChanges();
 
-            return RedirectToAction("Offices");
+            return RedirectToAction(nameof(Offices));
         }
 
         public ActionResult DetailsOffice(int? id)
         {
             if (!id.HasValue)
             {
-                return RedirectToAction("Offices");
+                return RedirectToAction(nameof(Offices));
             }
             int ID = (int)id;
             Office office = repoOffice.GetByID(ID);
