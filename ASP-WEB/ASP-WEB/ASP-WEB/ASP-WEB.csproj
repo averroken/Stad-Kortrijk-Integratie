@@ -178,6 +178,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SubthemeController.cs" />
@@ -263,6 +264,10 @@
     <Content Include="Views\Subtheme\Details.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Admin\Themes.cshtml" />
+    <Content Include="Views\Admin\DetailsTheme.cshtml" />
+    <Content Include="Views\Admin\EditTheme.cshtml" />
+    <Content Include="Views\Admin\CreateTheme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
