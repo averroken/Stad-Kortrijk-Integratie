@@ -155,16 +155,29 @@ namespace ASP_WEB.Controllers
 
             return RedirectToAction(nameof(Subthemes));
         }
-
+        //TODO Check
         public ActionResult CreateSubtheme()
         {
-            return View();
+            SubthemesEditViewModel vm = new SubthemesEditViewModel();
+
+            vm.themes = repoTheme.All().ToList();
+            vm.offices = repoOffice.All().ToList();
+
+            return View(vm);
         }
         //TODO CreateSubtheme
         [HttpPost]
         public ActionResult CreateSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
-
+            SubthemesEditViewModel vm = new SubthemesEditViewModel();
+            vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
+            foreach (int item in frm[nameof(vm.subtheme.OfficeID)])
+            {
+                vm.subtheme.OfficeID.Add(item);
+            }
+            vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
+            repoSubtheme.Insert(vm.subtheme);
+            repoSubtheme.SaveChanges();
             return RedirectToAction(nameof(Subthemes));
         }
         public ActionResult DetailsSubtheme(int? id)
