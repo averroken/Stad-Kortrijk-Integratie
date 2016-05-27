@@ -7,7 +7,7 @@
 <h2>Subthemes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateSubtheme")
 </p>
 <table class="table">
     <tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.FotoURL)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SubthemeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SubthemeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SubthemeID })
+            @Html.ActionLink("Edit", "EditSubtheme", new { id=item.SubthemeID }) |
+            @Html.ActionLink("Details", "DetailsSubtheme", new { id=item.SubthemeID }) |
+            @Html.ActionLink("Delete", "DeleteSubtheme", new { id=item.SubthemeID })
         </td>
     </tr>
 }

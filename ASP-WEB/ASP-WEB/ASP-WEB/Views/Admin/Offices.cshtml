@@ -7,7 +7,7 @@
 <h2>Offices</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateOffice")
 </p>
 <table class="table">
     <tr>
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.EmailAddress)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OfficeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OfficeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OfficeID })
+            @Html.ActionLink("Edit", "EditOffice", new { id=item.OfficeID }) |
+            @Html.ActionLink("Details", "DetailsOffice", new { id=item.OfficeID }) |
+            @Html.ActionLink("Delete", "DeleteOffice", new { id=item.OfficeID })
         </td>
     </tr>
 }

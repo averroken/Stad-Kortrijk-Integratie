@@ -58,7 +58,6 @@ namespace ASP_WEB.Controllers
                 CloudBlobContainer container = blobClient.GetContainerReference("images");
                 container.CreateIfNotExists();
 
-
                 string[] url = frm["FotoURL"].Split('.');
                 //oude fotourl
                 CloudBlockBlob oudeBlob = container.GetBlockBlobReference(theme.FotoURL);
@@ -66,13 +65,11 @@ namespace ASP_WEB.Controllers
                 //nieuwe fotourl
                 theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
 
-
-                repoTheme.Update(theme);
-                repoTheme.SaveChanges();
-
                 CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
                 blockBlob.UploadFromStream(file.InputStream);
             }
+            repoTheme.Update(theme);
+            repoTheme.SaveChanges();
             return RedirectToAction("Themes");
         }
         public ActionResult CreateTheme()
@@ -121,12 +118,13 @@ namespace ASP_WEB.Controllers
             CloudBlobContainer container = blobClient.GetContainerReference("images");
 
             container.CreateIfNotExists();
-
+            if (theme.FotoURL == null) theme.FotoURL = "hallo.png";
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
 
-            blockBlob.Delete();
+            blockBlob.DeleteIfExists();
 
             repoTheme.Delete(ID);
+            repoTheme.SaveChanges();
 
             return RedirectToAction("Themes");
         }
@@ -265,6 +263,18 @@ namespace ASP_WEB.Controllers
             int ID = (int)id;
             Office office = repoOffice.GetByID(ID);
             return View(office);
+        }
+
+        public ActionResult DeleteOffice(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(Offices));
+            }
+            int ID = (int)id;
+            repoOffice.Delete(ID);
+            repoOffice.SaveChanges();
+            return RedirectToAction(nameof(Offices));
         }
         #endregion
         //TODO FAQ
