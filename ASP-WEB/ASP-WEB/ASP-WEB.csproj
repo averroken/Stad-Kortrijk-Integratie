@@ -181,15 +181,16 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SubthemeController.cs" />
+    <Compile Include="DAL\Repository\FaqRepository.cs" />
     <Compile Include="DAL\Repository\GenericRepository.cs" />
     <Compile Include="DAL\Repository\IGenericRepository.cs" />
     <Compile Include="DAL\Repository\SubthemeRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605251324039_InitDB.cs" />
-    <Compile Include="Migrations\201605251324039_InitDB.Designer.cs">
-      <DependentUpon>201605251324039_InitDB.cs</DependentUpon>
+    <Compile Include="Migrations\201605261341588_InitDB.cs" />
+    <Compile Include="Migrations\201605261341588_InitDB.Designer.cs">
+      <DependentUpon>201605261341588_InitDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201605261323470_test.cs" />
     <Compile Include="Migrations\201605261323470_test.Designer.cs">
@@ -215,6 +216,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="DAL\Context\IntegratieContext.cs" />
     <Compile Include="Models\Faq.cs" />
+    <Compile Include="Models\FaqSubthemeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Office.cs" />
@@ -298,8 +300,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605251324039_InitDB.resx">
-      <DependentUpon>201605251324039_InitDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605261341588_InitDB.resx">
+      <DependentUpon>201605261341588_InitDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605261323470_test.resx">
       <DependentUpon>201605261323470_test.cs</DependentUpon>
