@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ASP_WEB.Models.Theme>
+
+@{
+    ViewBag.Title = "Themes";
+}
+
+<h2>Themes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateTheme")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FotoURL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FotoURL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditTheme", new { id=item.ThemeID }) |
+            @Html.ActionLink("Details", "DetailsTheme", new { id=item.ThemeID }) |
+            @Html.ActionLink("Delete", "DeleteTheme", new { id=item.ThemeID })
+        </td>
+    </tr>
+}
+
+</table>
