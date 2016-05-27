@@ -1,4 +1,6 @@
 ﻿using ASP_WEB.Models;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,8 @@ namespace ASP_WEB.Controllers
     public class AdminController : Controller
     {
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=integratiekortrijk;AccountKey=W0gcFRQX42eNg/msSVLvYydtYY3stHagwjVDaFvsFoaLEUjXuQ4rJHavDn8pwfrggkN8qyZJDMkOyAYIcwJt0Q==");
+
         // GET: Admin
         /// <summary>
         /// Shows list of different editing and adding possibilities
@@ -50,11 +54,17 @@ namespace ASP_WEB.Controllers
                 string[] url = frm["FotoURL"].Split('.');
 
                 theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
-            }
 
-            repoTheme.Update(theme);
-            repoTheme.SaveChanges();
-            //TODO file save to cloud blob storage + change filename to theme.FotoURL
+
+                repoTheme.Update(theme);
+                repoTheme.SaveChanges();
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
+                container.CreateIfNotExists();
+
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
+                blockBlob.UploadFromStream(file.InputStream);
+            }
             return RedirectToAction("Themes");
         }
         public ActionResult CreateTheme()
@@ -70,7 +80,12 @@ namespace ASP_WEB.Controllers
             theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
             repoTheme.Insert(theme);
             repoTheme.SaveChanges();
-            //TODO file save to cloud blob storage + change filename to theme.FotoURL
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("images");
+            container.CreateIfNotExists();
+
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
+            blockBlob.UploadFromStream(file.InputStream);
             return RedirectToAction("Themes");
         }
         public ActionResult DetailsTheme(int? id)
