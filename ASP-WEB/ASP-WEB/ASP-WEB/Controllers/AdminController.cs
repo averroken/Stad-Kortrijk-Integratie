@@ -131,7 +131,7 @@ namespace ASP_WEB.Controllers
             return RedirectToAction("Themes");
         }
         #endregion
-        //TODO
+
         #region Subthemes
         public ActionResult Subthemes()
         {
@@ -141,19 +141,28 @@ namespace ASP_WEB.Controllers
 
         public ActionResult EditSubtheme(int? id)
         {
-
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(Subthemes));
+            }
+            int ID = (int)id;
+            Subtheme subtheme = repoSubtheme.GetByID(ID);
+            return View(subtheme);
         }
-
+        //TODO EditSubtheme
         [HttpPost]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
+
+
             return RedirectToAction(nameof(Subthemes));
         }
-        public ActionResult CreateSubtheme(int? id)
+
+        public ActionResult CreateSubtheme()
         {
-
+            return View();
         }
-
+        //TODO CreateSubtheme
         [HttpPost]
         public ActionResult CreateSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
@@ -162,11 +171,25 @@ namespace ASP_WEB.Controllers
         }
         public ActionResult DetailsSubtheme(int? id)
         {
-
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(Subthemes));
+            }
+            int ID = (int)id;
+            Subtheme subtheme = repoSubtheme.GetByID(ID);
+            return View(subtheme);
         }
+
         [HttpPost]
         public ActionResult DeleteSubtheme(int? id)
         {
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(Subthemes));
+            }
+            int ID = (int)id;
+            repoSubtheme.Delete(ID);
+
             return RedirectToAction(nameof(Subthemes));
         }
         #endregion
@@ -244,7 +267,7 @@ namespace ASP_WEB.Controllers
             return View(office);
         }
         #endregion
-        //TODO
+        //TODO FAQ
         #region FAQ
 
         #endregion

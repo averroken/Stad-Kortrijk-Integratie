@@ -94,7 +94,11 @@ namespace ASP_WEB.DAL.Repository
 
             // base.Update(entityToUpdate);
         }
-
+        public override void Delete(object id)
+        {
+            Subtheme subtheme = new Subtheme { SubthemeID = Convert.ToInt32(id.ToString()) };
+            Delete(subtheme);
+        }
         public override void Delete(Subtheme subtheme)
         {
             using (IntegratieContext context = new IntegratieContext())
