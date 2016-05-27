@@ -42,12 +42,14 @@ namespace ASP_WEB.Controllers
         [HttpPost]
         public ActionResult EditTheme(FormCollection frm, HttpPostedFileBase file)
         {
-            Theme theme = repoTheme.GetByID(frm["id"]);
-            theme.Name = frm["name"];
+            Theme theme = repoTheme.GetByID(Convert.ToInt32(frm["ThemeID"]));
+            theme.Name = frm["Name"];
 
-            if (theme.FotoURL != frm["fotoURL"])
+            if (theme.FotoURL != frm["FotoURL"])
             {
-                theme.FotoURL = new Guid().ToString();
+                string[] url = frm["FotoURL"].Split('.');
+
+                theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
             }
 
             repoTheme.Update(theme);
@@ -64,7 +66,8 @@ namespace ASP_WEB.Controllers
         {
             Theme theme = new Theme();
             theme.Name = frm["name"];
-            theme.FotoURL = new Guid().ToString();
+            string[] url = file.FileName.Split('.');
+            theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
             repoTheme.Insert(theme);
             repoTheme.SaveChanges();
             //TODO file save to cloud blob storage + change filename to theme.FotoURL
