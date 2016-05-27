@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ASP_WEB.Models.Subtheme>
+
+@{
+    ViewBag.Title = "Subthemes";
+}
+
+<h2>Subthemes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThemeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FotoURL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThemeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FotoURL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SubthemeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SubthemeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SubthemeID })
+        </td>
+    </tr>
+}
+
+</table>

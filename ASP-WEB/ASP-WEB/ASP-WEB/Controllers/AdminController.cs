@@ -1,4 +1,5 @@
-﻿using ASP_WEB.Models;
+﻿using ASP_WEB.DAL.Repository;
+using ASP_WEB.Models;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -14,6 +15,7 @@ namespace ASP_WEB.Controllers
     {
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
         GenericRepository<Office> repoOffice = new GenericRepository<Office>();
+        SubthemeRepository repoSubtheme = new SubthemeRepository();
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=integratiekortrijk;AccountKey=W0gcFRQX42eNg/msSVLvYydtYY3stHagwjVDaFvsFoaLEUjXuQ4rJHavDn8pwfrggkN8qyZJDMkOyAYIcwJt0Q==");
 
         // GET: Admin
@@ -52,16 +54,21 @@ namespace ASP_WEB.Controllers
 
             if (theme.FotoURL != frm["FotoURL"])
             {
-                string[] url = frm["FotoURL"].Split('.');
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
+                container.CreateIfNotExists();
 
+
+                string[] url = frm["FotoURL"].Split('.');
+                //oude fotourl
+                CloudBlockBlob oudeBlob = container.GetBlockBlobReference(theme.FotoURL);
+                oudeBlob.DeleteIfExists();
+                //nieuwe fotourl
                 theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
 
 
                 repoTheme.Update(theme);
                 repoTheme.SaveChanges();
-                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-                CloudBlobContainer container = blobClient.GetContainerReference("images");
-                container.CreateIfNotExists();
 
                 CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
                 blockBlob.UploadFromStream(file.InputStream);
@@ -99,11 +106,71 @@ namespace ASP_WEB.Controllers
             Theme theme = repoTheme.GetByID(ID);
             return View(theme);
         }
+
+        public ActionResult DeleteTheme(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Themes");
+            }
+
+            int ID = (int)id;
+            Theme theme = repoTheme.GetByID(ID);
+
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("images");
+
+            container.CreateIfNotExists();
+
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
+
+            blockBlob.Delete();
+
+            repoTheme.Delete(ID);
+
+            return RedirectToAction("Themes");
+        }
         #endregion
         //TODO
         #region Subthemes
+        public ActionResult Subthemes()
+        {
+            IEnumerable<Subtheme> subthemes = repoSubtheme.All();
+            return View(subthemes);
+        }
+
+        public ActionResult EditSubtheme(int? id)
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
+        {
+            return RedirectToAction(nameof(Subthemes));
+        }
+        public ActionResult CreateSubtheme(int? id)
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult CreateSubtheme(FormCollection frm, HttpPostedFileBase file)
+        {
+
+            return RedirectToAction(nameof(Subthemes));
+        }
+        public ActionResult DetailsSubtheme(int? id)
+        {
+
+        }
+        [HttpPost]
+        public ActionResult DeleteSubtheme(int? id)
+        {
+            return RedirectToAction(nameof(Subthemes));
+        }
         #endregion
-        
+
         #region Office
         public ActionResult Offices()
         {
@@ -138,15 +205,15 @@ namespace ASP_WEB.Controllers
 
             repoOffice.Update(office);
             repoOffice.SaveChanges();
-            
+
             return RedirectToAction("Offices");
         }
-        
+
         public ActionResult CreateOffice()
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult CreateOffice(FormCollection frm)
         {
@@ -162,10 +229,10 @@ namespace ASP_WEB.Controllers
             office.ZipCode = Convert.ToInt32(frm["ZipCode"]);
             repoOffice.Insert(office);
             repoOffice.SaveChanges();
-            
+
             return RedirectToAction("Offices");
         }
-        
+
         public ActionResult DetailsOffice(int? id)
         {
             if (!id.HasValue)
@@ -179,6 +246,9 @@ namespace ASP_WEB.Controllers
         #endregion
         //TODO
         #region FAQ
+
         #endregion
+
+
     }
 }
