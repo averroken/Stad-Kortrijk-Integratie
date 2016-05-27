@@ -305,6 +305,10 @@
     <Content Include="Views\Admin\DetailsTheme.cshtml" />
     <Content Include="Views\Admin\EditTheme.cshtml" />
     <Content Include="Views\Admin\CreateTheme.cshtml" />
+    <Content Include="Views\Admin\Offices.cshtml" />
+    <Content Include="Views\Admin\EditOffice.cshtml" />
+    <Content Include="Views\Admin\CreateOffice.cshtml" />
+    <Content Include="Views\Admin\DetailsOffice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

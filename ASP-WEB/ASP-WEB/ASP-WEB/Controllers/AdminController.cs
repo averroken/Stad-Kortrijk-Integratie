@@ -13,6 +13,7 @@ namespace ASP_WEB.Controllers
     public class AdminController : Controller
     {
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
+        GenericRepository<Office> repoOffice = new GenericRepository<Office>();
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=integratiekortrijk;AccountKey=W0gcFRQX42eNg/msSVLvYydtYY3stHagwjVDaFvsFoaLEUjXuQ4rJHavDn8pwfrggkN8qyZJDMkOyAYIcwJt0Q==");
 
         // GET: Admin
@@ -98,6 +99,86 @@ namespace ASP_WEB.Controllers
             Theme theme = repoTheme.GetByID(ID);
             return View(theme);
         }
+        #endregion
+        //TODO
+        #region Subthemes
+        #endregion
+        
+        #region Office
+        public ActionResult Offices()
+        {
+            IEnumerable<Office> offices = repoOffice.All();
+            return View(offices);
+        }
+
+        public ActionResult EditOffice(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Offices");
+            }
+            int ID = (int)id;
+            Office office = repoOffice.GetByID(ID);
+            return View(office);
+
+        }
+        [HttpPost]
+        public ActionResult EditOffice(FormCollection frm)
+        {
+            Office office = repoOffice.GetByID(Convert.ToInt32(frm["OfficeID"]));
+            office.Name = frm["Name"];
+            office.City = frm["City"];
+            office.EmailAddress = frm["EmailAddress"];
+            office.HouseNumber = frm["HouseNumber"];
+            office.OpeningHours = frm["OpeningHours"];
+            office.PhoneNumber = frm["PhoneNumber"];
+            office.Street = frm["Street"];
+            office.URL = frm["URL"];
+            office.ZipCode = Convert.ToInt32(frm["ZipCode"]);
+
+            repoOffice.Update(office);
+            repoOffice.SaveChanges();
+            
+            return RedirectToAction("Offices");
+        }
+        
+        public ActionResult CreateOffice()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult CreateOffice(FormCollection frm)
+        {
+            Office office = new Office();
+            office.Name = frm["Name"];
+            office.City = frm["City"];
+            office.EmailAddress = frm["EmailAddress"];
+            office.HouseNumber = frm["HouseNumber"];
+            office.OpeningHours = frm["OpeningHours"];
+            office.PhoneNumber = frm["PhoneNumber"];
+            office.Street = frm["Street"];
+            office.URL = frm["URL"];
+            office.ZipCode = Convert.ToInt32(frm["ZipCode"]);
+            repoOffice.Insert(office);
+            repoOffice.SaveChanges();
+            
+            return RedirectToAction("Offices");
+        }
+        
+        public ActionResult DetailsOffice(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Offices");
+            }
+            int ID = (int)id;
+            Office office = repoOffice.GetByID(ID);
+            return View(office);
+        }
+        #endregion
+        //TODO
+        #region FAQ
         #endregion
     }
 }
