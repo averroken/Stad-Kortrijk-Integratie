@@ -15,7 +15,15 @@ namespace ASP_WEB.DAL.Repository
         {
             using (IntegratieContext context = new IntegratieContext())
             {
-                return context.Subtheme.Where(st => st.ThemeID == themeID).ToList<Subtheme>();
+                return context.Subtheme.Where(st => st.ThemeID == themeID).Include(st => st.Office).Include(st => st.Theme).ToList<Subtheme>();
+            }
+        }
+
+        public override IEnumerable<Subtheme> All()
+        {
+            using (IntegratieContext context = new IntegratieContext())
+            {
+                return context.Subtheme.Include(st => st.Office).Include(st => st.Theme).ToList<Subtheme>();
             }
         }
 

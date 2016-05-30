@@ -118,7 +118,7 @@ namespace ASP_WEB.Controllers
             CloudBlobContainer container = blobClient.GetContainerReference("images");
 
             container.CreateIfNotExists();
-            if (theme.FotoURL == null) theme.FotoURL = "hallo.png";
+            if (theme.FotoURL == null) theme.FotoURL = "012345678909876543210.png";
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
 
             blockBlob.DeleteIfExists();
@@ -151,9 +151,32 @@ namespace ASP_WEB.Controllers
         [HttpPost]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
+            SubthemesEditViewModel vm = new SubthemesEditViewModel();
+            string[] url = file.FileName.Split('.');
+            vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+            vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
+            vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
+            foreach (int item in frm[nameof(vm.subtheme.OfficeID)])
+            {
+                vm.subtheme.OfficeID.Add(item);
+            }
+            vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
+            repoSubtheme.Update(vm.subtheme);
+            
+            repoSubtheme.SaveChanges();
 
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("images");
+            container.CreateIfNotExists();
+
+
+
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+            blockBlob.UploadFromStream(file.InputStream);
 
             return RedirectToAction(nameof(Subthemes));
+
+
         }
         //TODO Check
         public ActionResult CreateSubtheme()
@@ -165,12 +188,18 @@ namespace ASP_WEB.Controllers
 
             return View(vm);
         }
-        //TODO CreateSubtheme
+        //TODO Check
         [HttpPost]
         public ActionResult CreateSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
+
+
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
+
+            string[] url = file.FileName.Split('.');
+            vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
+            vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             foreach (int item in frm[nameof(vm.subtheme.OfficeID)])
             {
                 vm.subtheme.OfficeID.Add(item);
@@ -178,8 +207,17 @@ namespace ASP_WEB.Controllers
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
             repoSubtheme.Insert(vm.subtheme);
             repoSubtheme.SaveChanges();
+
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("images");
+            container.CreateIfNotExists();
+
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+            blockBlob.UploadFromStream(file.InputStream);
+
             return RedirectToAction(nameof(Subthemes));
         }
+        //TODO Check
         public ActionResult DetailsSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -190,7 +228,7 @@ namespace ASP_WEB.Controllers
             Subtheme subtheme = repoSubtheme.GetByID(ID);
             return View(subtheme);
         }
-
+        //TODO Check
         [HttpPost]
         public ActionResult DeleteSubtheme(int? id)
         {
@@ -199,7 +237,18 @@ namespace ASP_WEB.Controllers
                 return RedirectToAction(nameof(Subthemes));
             }
             int ID = (int)id;
+            Subtheme sub = repoSubtheme.GetByID(ID);
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("images");
+
+            container.CreateIfNotExists();
+            if (sub.FotoURL == null) sub.FotoURL = "012345678909876543210.png";
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(sub.FotoURL);
+
+            blockBlob.DeleteIfExists();
+            
             repoSubtheme.Delete(ID);
+            repoSubtheme.SaveChanges();
 
             return RedirectToAction(nameof(Subthemes));
         }
@@ -290,9 +339,23 @@ namespace ASP_WEB.Controllers
             return RedirectToAction(nameof(Offices));
         }
         #endregion
+
         //TODO FAQ
         #region FAQ
+        /*
+        public ActionResult CreateFaq()
+        {
 
+        }
+        public ActionResult EditFaq()
+        {
+
+        }
+        public ActionResult DeleteFaq()
+        {
+
+        }*/
+        public ActionResult
         #endregion
 
 

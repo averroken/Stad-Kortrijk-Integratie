@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ThemeID)
+            @Html.DisplayNameFor(model => model.Theme.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FotoURL)
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ThemeID)
+            @Html.DisplayFor(modelItem => item.Theme.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FotoURL)
