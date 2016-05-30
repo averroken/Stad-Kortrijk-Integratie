@@ -313,6 +313,9 @@
     <Content Include="Views\Admin\Subthemes.cshtml" />
     <Content Include="Views\Admin\DetailsSubtheme.cshtml" />
     <Content Include="Views\Admin\EditSubtheme.cshtml" />
+    <Content Include="Views\Admin\Faqs.cshtml" />
+    <Content Include="Views\Admin\CreateFaq.cshtml" />
+    <Content Include="Views\Admin\EditFaq.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

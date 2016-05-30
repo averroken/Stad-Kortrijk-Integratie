@@ -10,5 +10,7 @@ namespace ASP_WEB.Models
     {
         public List<Faq> Faq { get; set; }
         public List<Subtheme> Subtheme { get; set; }
+        public List<Theme> Theme { get; set; }
+        public Faq faqEen { get; set; }
     }
 }

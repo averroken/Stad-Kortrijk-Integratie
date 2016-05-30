@@ -79,7 +79,7 @@ namespace ASP_WEB.DAL.Repository
             return subtheme;
             //return base.Insert(entity);
         }
-
+        //TODO: Waarschijnlijk fout
         public override void Update(Subtheme subtheme)
         {
             using (IntegratieContext context = new IntegratieContext())

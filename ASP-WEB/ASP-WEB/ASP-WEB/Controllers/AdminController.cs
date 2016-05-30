@@ -16,6 +16,7 @@ namespace ASP_WEB.Controllers
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
         GenericRepository<Office> repoOffice = new GenericRepository<Office>();
         SubthemeRepository repoSubtheme = new SubthemeRepository();
+        FaqRepository repoFaq = new FaqRepository();
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=integratiekortrijk;AccountKey=W0gcFRQX42eNg/msSVLvYydtYY3stHagwjVDaFvsFoaLEUjXuQ4rJHavDn8pwfrggkN8qyZJDMkOyAYIcwJt0Q==");
 
         // GET: Admin
@@ -162,7 +163,7 @@ namespace ASP_WEB.Controllers
             }
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
             repoSubtheme.Update(vm.subtheme);
-            
+
             repoSubtheme.SaveChanges();
 
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -246,7 +247,7 @@ namespace ASP_WEB.Controllers
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(sub.FotoURL);
 
             blockBlob.DeleteIfExists();
-            
+
             repoSubtheme.Delete(ID);
             repoSubtheme.SaveChanges();
 
@@ -342,20 +343,72 @@ namespace ASP_WEB.Controllers
 
         //TODO FAQ
         #region FAQ
-        /*
+
+        public ActionResult Faqs()
+        {
+            return View(repoFaq.All());
+        }
+
         public ActionResult CreateFaq()
         {
+            FaqSubtheme vm = new FaqSubtheme();
+            vm.Subtheme = repoSubtheme.All().ToList();
+            vm.Theme = repoTheme.All().ToList();
+            return View(vm);
+        }
+        [HttpPost]
+        public ActionResult CreateFaq(FormCollection frm)
+        {
+            Faq faq = new Faq();
+            faq.Question = frm[nameof(faq.Question)];
+            faq.SubthemeID = Convert.ToInt32(frm[nameof(faq.SubthemeID)]);
+            faq.ThemeID = Convert.ToInt32(frm[nameof(faq.ThemeID)]);
+            repoFaq.Insert(faq);
+            repoFaq.SaveChanges();
+            return RedirectToAction(nameof(Faqs));
+        }
+        public ActionResult EditFaq(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(Faqs));
+            }
+
+            int ID = (int)id;
+            Faq faq = repoFaq.GetByID(ID);
+            FaqSubtheme vm = new FaqSubtheme();
+            vm.faqEen = faq;
+            vm.Subtheme = repoSubtheme.All().ToList();
+            vm.Theme = repoTheme.All().ToList();
+
+            return View(vm);
 
         }
-        public ActionResult EditFaq()
-        {
 
+        public ActionResult EditFaq(FormCollection frm)
+        {
+            Faq faq = new Faq();
+            faq.Answer = frm[nameof(faq.Answer)];
+            faq.FaqID = Convert.ToInt32(frm[nameof(faq.FaqID)]);
+            faq.Question = frm[nameof(faq.Question)];
+            faq.SubthemeID = Convert.ToInt32(frm[nameof(faq.SubthemeID)]);
+            faq.ThemeID = Convert.ToInt32(frm[nameof(faq.ThemeID)]);
+            repoFaq.Update(faq);
+
+            return RedirectToAction(nameof(Faqs));
         }
-        public ActionResult DeleteFaq()
+        [HttpPost]
+        public ActionResult DeleteFaq(int? id)
         {
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(Faqs));
+            }
+            int ID = (int)id;
+            repoFaq.Delete(ID);
 
-        }*/
-        public ActionResult
+            return RedirectToAction(nameof(Faqs));
+        }
         #endregion
 
 
