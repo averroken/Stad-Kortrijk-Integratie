@@ -28,7 +28,7 @@ namespace ASP_WEB.Controllers
         {
             return View();
         }
-
+        //DONE
         #region Themes
         public ActionResult Themes()
         {
@@ -53,13 +53,13 @@ namespace ASP_WEB.Controllers
             Theme theme = repoTheme.GetByID(Convert.ToInt32(frm["ThemeID"]));
             theme.Name = frm["Name"];
 
-            if (theme.FotoURL != frm["FotoURL"])
+            if (file != null)
             {
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
                 CloudBlobContainer container = blobClient.GetContainerReference("images");
                 container.CreateIfNotExists();
 
-                string[] url = frm["FotoURL"].Split('.');
+                string[] url = file.FileName.Split('.');
                 //oude fotourl
                 CloudBlockBlob oudeBlob = container.GetBlockBlobReference(theme.FotoURL);
                 oudeBlob.DeleteIfExists();
@@ -69,6 +69,7 @@ namespace ASP_WEB.Controllers
                 CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
                 blockBlob.UploadFromStream(file.InputStream);
             }
+
             repoTheme.Update(theme);
             repoTheme.SaveChanges();
             return RedirectToAction("Themes");
@@ -104,7 +105,6 @@ namespace ASP_WEB.Controllers
             Theme theme = repoTheme.GetByID(ID);
             return View(theme);
         }
-
         public ActionResult DeleteTheme(int? id)
         {
             if (!id.HasValue)
@@ -341,7 +341,6 @@ namespace ASP_WEB.Controllers
         }
         #endregion
 
-        //TODO FAQ
         #region FAQ
 
         public ActionResult Faqs()
@@ -397,7 +396,6 @@ namespace ASP_WEB.Controllers
 
             return RedirectToAction(nameof(Faqs));
         }
-        [HttpPost]
         public ActionResult DeleteFaq(int? id)
         {
             if (!id.HasValue)

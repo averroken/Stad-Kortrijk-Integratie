@@ -5,11 +5,11 @@
 }
 
 <h2>EditTheme</h2>
-
+@*
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>Theme</h4>
         <hr />
@@ -39,7 +39,19 @@
         </div>
     </div>
 }
+*@
 
+<form action="EditTheme" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@Model.ThemeID" name="ThemeID"/>
+    <label for="Name">Naam</label>
+    <input type="text" value="@Model.Name" name="Name" id="Name" />
+
+    <label for="file">Foto kiezen</label>
+    <input type="file" name="file" />
+
+    <input type="submit" value="Create" class="btn btn-default" />
+</form>
 <div>
     @Html.ActionLink("Back to List", "Themes")
 </div>
