@@ -28,7 +28,7 @@ namespace ASP_WEB.Controllers
         {
             return View();
         }
-        //DONE
+
         #region Themes
         public ActionResult Themes()
         {
@@ -83,16 +83,27 @@ namespace ASP_WEB.Controllers
         {
             Theme theme = new Theme();
             theme.Name = frm["name"];
-            string[] url = file.FileName.Split('.');
-            theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+
+
+            if (file != null)
+            {
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
+                container.CreateIfNotExists();
+
+                string[] url = file.FileName.Split('.');
+                //oude fotourl
+                if (theme.FotoURL == null) theme.FotoURL = "123";
+                CloudBlockBlob oudeBlob = container.GetBlockBlobReference(theme.FotoURL);
+                oudeBlob.DeleteIfExists();
+                //nieuwe fotourl
+                theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
+                blockBlob.UploadFromStream(file.InputStream);
+            }
             repoTheme.Insert(theme);
             repoTheme.SaveChanges();
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("images");
-            container.CreateIfNotExists();
-
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
-            blockBlob.UploadFromStream(file.InputStream);
             return RedirectToAction("Themes");
         }
         public ActionResult DetailsTheme(int? id)
@@ -166,7 +177,7 @@ namespace ASP_WEB.Controllers
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
                 CloudBlobContainer container = blobClient.GetContainerReference("images");
                 container.CreateIfNotExists();
-                if (vm.subtheme.FotoURL == null) vm.subtheme.FotoURL = "12345678987654321.png";
+                if (vm.subtheme.FotoURL == null) vm.subtheme.FotoURL = "123";
                 CloudBlockBlob oudeBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
                 oudeBlob.DeleteIfExists();
 
@@ -176,15 +187,15 @@ namespace ASP_WEB.Controllers
                 blockBlob.UploadFromStream(file.InputStream);
 
             }
-            
+
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
-            
+
             foreach (var item in frm.GetValues("OfficeIDs"))
             {
                 vm.subtheme.OfficeID.Add(Convert.ToInt32(item));
             }
-            if(vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
+            if (vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
             foreach (var item in vm.subtheme.OfficeID)
             {
                 vm.subtheme.Office.Add(repoOffice.GetByID(item));
@@ -199,7 +210,7 @@ namespace ASP_WEB.Controllers
 
 
         }
-        
+
         public ActionResult CreateSubtheme()
         {
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
@@ -217,8 +228,6 @@ namespace ASP_WEB.Controllers
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
             vm.subtheme = new Subtheme();
             vm.subtheme.OfficeID = new List<int>();
-            string[] url = file.FileName.Split('.');
-            vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             foreach (int item in frm[nameof(vm.subtheme.OfficeID)])
@@ -226,19 +235,29 @@ namespace ASP_WEB.Controllers
                 vm.subtheme.OfficeID.Add(item);
             }
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
+
+            if (file != null)
+            {
+
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
+                container.CreateIfNotExists();
+                if (vm.subtheme.FotoURL == null) vm.subtheme.FotoURL = "123";
+                CloudBlockBlob oudeBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+                oudeBlob.DeleteIfExists();
+
+                string[] url = file.FileName.Split('.');
+                vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+                blockBlob.UploadFromStream(file.InputStream);
+
+            }
             repoSubtheme.Insert(vm.subtheme);
             repoSubtheme.SaveChanges();
 
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("images");
-            container.CreateIfNotExists();
-
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
-            blockBlob.UploadFromStream(file.InputStream);
-
             return RedirectToAction(nameof(Subthemes));
         }
-        
+
         public ActionResult DetailsSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -249,7 +268,7 @@ namespace ASP_WEB.Controllers
             Subtheme subtheme = repoSubtheme.GetByID(ID);
             return View(subtheme);
         }
-        
+
         public ActionResult DeleteSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -439,6 +458,7 @@ namespace ASP_WEB.Controllers
             return View(faq);
         }
         #endregion
+
 
 
     }

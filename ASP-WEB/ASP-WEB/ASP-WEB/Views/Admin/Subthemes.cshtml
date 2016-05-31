@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.Theme.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FotoURL)
+            <img src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.FotoURL Photo" />
         </td>
         <td>
             @Html.ActionLink("Edit", "EditSubtheme", new { id=item.SubthemeID }) |
