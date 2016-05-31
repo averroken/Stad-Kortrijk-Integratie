@@ -427,6 +427,17 @@ namespace ASP_WEB.Controllers
             repoFaq.SaveChanges();
             return RedirectToAction(nameof(Faqs));
         }
+        public ActionResult DetailsFaq(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(Faqs));
+            }
+            int ID = (int)id;
+            Faq faq = new Faq();
+            faq = repoFaq.GetByID(ID);
+            return View(faq);
+        }
         #endregion
 
 
