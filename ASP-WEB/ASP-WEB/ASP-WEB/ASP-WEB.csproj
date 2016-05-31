@@ -214,9 +214,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605261341588_InitDB.cs" />
-    <Compile Include="Migrations\201605261341588_InitDB.Designer.cs">
-      <DependentUpon>201605261341588_InitDB.cs</DependentUpon>
+    <Compile Include="Migrations\201605311144423_Init2.cs" />
+    <Compile Include="Migrations\201605311144423_Init2.Designer.cs">
+      <DependentUpon>201605311144423_Init2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -237,10 +237,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="CSV\DienstCSV1.txt" />
-    <Content Include="CSV\DienstSubthemaCSV1.txt" />
-    <Content Include="CSV\SubthemaCSV1.txt" />
-    <Content Include="CSV\ThemaCSV1.txt" />
+    <Content Include="CSVfiles\DienstCSV1.txt" />
+    <Content Include="CSVfiles\DienstSubthemaCSV1.txt" />
+    <Content Include="CSVfiles\SubthemaCSV1.txt" />
+    <Content Include="CSVfiles\ThemaCSV1.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -334,8 +334,8 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605261341588_InitDB.resx">
-      <DependentUpon>201605261341588_InitDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605311144423_Init2.resx">
+      <DependentUpon>201605311144423_Init2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

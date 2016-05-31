@@ -7,13 +7,13 @@ namespace ASP_WEB.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitDB : IMigrationMetadata
+    public sealed partial class Init2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605261341588_InitDB"; }
+            get { return "201605311144423_Init2"; }
         }
         
         string IMigrationMetadata.Source

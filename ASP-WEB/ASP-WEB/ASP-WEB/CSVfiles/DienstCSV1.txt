@@ -13,7 +13,7 @@ ID;Naam;URL;Email;Straat;Huisnummer;Postcode;Gemeente;Telefoonnummer;Openingsure
 12;Vlaamse Maatschappij voor watervoorziening;;;Roggelaan;2;8500;Kortrijk;056/ 23 17 11;
 13;Huis van het Nederlands;;kortrijk@hvn-wvl.be;Wijngaardstraat;11;8500;Kortrijk;0478/ 804 395;
 14;VDAB - Werkwinkel - Kinderopvang;;;Lekkerbeetstraat;5-7;8500;Kortrijk;056/ 26 67 60;
-15;Kind en Gezin-Lijn;www.kindengezin.be;info@kindengezin.be;;;0;;;
+15;Kind en Gezin-Lijn;www.kindengezin.be;info@kindengezin.be;;;;;;
 16;Meldpunt Kinderopvang;www.kortrijk.be/kinderopvang;;Lekkerbeetstraat;5-7;8500;Kortrijk;056/ 26 67 84;
 17;V.T.I. Kortrijk;;;Oudenaardsesteenweg;168;8500;Kortrijk;056/ 21 23 01;
 18;Middenschool Drie Hofsteden;;;Hugo Verriestlaan;155;8500;Kortrijk;056/ 21 40 79;
@@ -25,8 +25,8 @@ ID;Naam;URL;Email;Straat;Huisnummer;Postcode;Gemeente;Telefoonnummer;Openingsure
 24;Stedelijke dienst Sport en recreatie;;;Bad Godesberglaan;22;8500;Kortrijk;056/ 27 80 00;
 25;Stedelijke cultuurdienst (Stadhuis);;;Grote Markt;54;8500;Kortrijk;056/ 27 74 00;
 26;Sociaal Huis;www.sociaalhuiskortrijk.be;info@sociaalhuiskortrijk.be.;Budastraat;27;8500;Kortrijk;056/ 24 42 22;
-27;Dokter van Wacht (centraal nummer Kortrijk);;;;;0;;056/ 25 39 99;
-28;NOODNUMMER;;;;;0;;100 of 112 met een GSM, ;
+27;Dokter van Wacht (centraal nummer Kortrijk):;;;;;;;056/ 25 39 99;
+28;NOODNUMMER;;;;;;;100 of 112 met een GSM, ;
 29;vzw AZ Groeninge;www.azgroeninge.be;info@azgroeninge.be;President Kennedylaan;4;8500;Kortrijk;Algemeen telefoonnummer: 056/ 63 63 63, Spoedopname (Loofstraat 43): 056/ 63 61 12;
 30;CAW Stimulans vzw;;;President Rooseveltplein;12A;8500;Kortrijk;056/ 53 21 51;
 31;CAW Piramide;;;Overleiestraat;45;8500;Kortrijk;056/27 73 80;
@@ -38,7 +38,7 @@ ID;Naam;URL;Email;Straat;Huisnummer;Postcode;Gemeente;Telefoonnummer;Openingsure
 37;VDAB;;;Rijselsestraat;57;8500;Kortrijk;056/ 24 74 00;
 38;Werkwinkel;;;Lekkerbeetstraat;5-7;8500;Kortrijk;056/ 26 67 60;
 39;A.B.V.V.;;;Conservatoriumplein;9;8500;Kortrijk;056/ 26 82 00;
-40;A.C.V.;;;Sint-Janslaan;6;8500;Kortrijk;056/ 21 92 45;
+40;A.C.V.;;;St.-Janslaan;6;8500;Kortrijk;056/ 21 92 45;
 41;A.C.L.V.B.;;;Groeningelaan;40;8500;Kortrijk;056/ 22 10 62;
 42;Toerisme Kortrijk en Streekbezoekerscentrum voor Kortrijk en de Leiestreek;www.kortrijk.be/toerisme;toerisme@kortrijk.be;Begijnhofpark;;8500;Kortrijk;056/ 27 78 40;
 43;Stedelijke cultuurdienst (Stadhuis);;;Grote Markt;54;8500;Kortrijk;056/ 27 74 00;

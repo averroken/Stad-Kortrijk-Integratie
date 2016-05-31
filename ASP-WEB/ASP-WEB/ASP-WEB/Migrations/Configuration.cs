@@ -4,8 +4,10 @@ namespace ASP_WEB.Migrations
     using Models;
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Data.SqlClient;
     using System.IO;
     using System.Linq;
 
@@ -30,8 +32,110 @@ namespace ASP_WEB.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            
+
+            AddData(context);
         }
-        
+        private void AddData(IntegratieContext context)
+        {
+            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\ThemaCSV1.txt"))
+            {
+                string line;
+                sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] linesplit = line.Split(';');
+                    context.Theme.AddOrUpdate<Theme>(new Theme() { Name = linesplit[1], FotoURL = linesplit[2] });
+                }
+                context.SaveChanges();
+            }
+
+            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\DienstCSV1.txt"))
+            {
+                string line;
+                sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] linesplit = line.Split(';');
+                    int zip = 0;
+                    Int32.TryParse(linesplit[6], out zip);
+                    context.Office.AddOrUpdate<Office>(new Office()
+                    {
+                        Name = linesplit[1],
+                        URL = linesplit[2],
+                        EmailAddress = linesplit[3],
+                        Street = linesplit[4],
+                        HouseNumber = linesplit[5],
+                        ZipCode = zip,
+                        City = linesplit[7],
+                        PhoneNumber = linesplit[8],
+                        OpeningHours = linesplit[9]
+                    });
+                }
+                context.SaveChanges();
+            }
+            
+            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\DienstSubthemaCSV1.txt"))
+            {
+                string line;
+                string CONNECTIONSTRING = ConfigurationManager.ConnectionStrings["IntegratieContext"].ConnectionString;
+                
+                sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] linesplit = line.Split(';');
+                    using (SqlConnection connection = new SqlConnection(CONNECTIONSTRING))
+                    {
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand())
+                        {
+                            command.Connection = connection;
+                            string sql = "INSERT INTO OfficeSubthemes VALUES (@Office_OfficeID, @Subtheme_SubthemeID);select @@IDENTITY";
+                            command.CommandText = sql;
+
+                            command.Parameters.AddWithValue("@Office_OfficeID", Convert.ToInt32(linesplit[1]));
+                            command.Parameters.AddWithValue("@Subtheme_SubthemeID", Convert.ToInt32(linesplit[2]));
+                            object result = command.ExecuteScalar();
+                            //return int.Parse(result.ToString());
+                        }
+                    }
+                }
+
+            }
+            
+            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\SubthemaCSV1.txt"))
+            {
+                string line;
+                sr.ReadLine();
+
+                ICollection<int> col = new List<int>();
+                string[] splitofficeid;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] linesplit = line.Split(';');
+                    if (!String.IsNullOrWhiteSpace(linesplit[4]))
+                    {
+                        splitofficeid = linesplit[4].Split('-');
+                    }
+                    else
+                    {
+                        splitofficeid = new string[0];
+                    }
+
+                    foreach (string id in splitofficeid)
+                    {
+                        col.Add(Convert.ToInt32(id));
+                    }
+                    context.Subtheme.AddOrUpdate<Subtheme>(o => o.ThemeID, new Subtheme()
+                    {
+                        ThemeID = Convert.ToInt32(linesplit[1]),
+                        Name = linesplit[2],
+                        Description = linesplit[3],
+                        OfficeID = col,
+                        FotoURL = linesplit[5]
+                    });
+                }
+                context.SaveChanges();
+            }
+        }
     }
 }
