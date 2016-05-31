@@ -152,7 +152,7 @@ namespace ASP_WEB.Controllers
             vm.themes = repoTheme.All().ToList();
             return View(vm);
         }
-        
+        //TODO Repository in orde maken
         [HttpPost]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
@@ -381,6 +381,7 @@ namespace ASP_WEB.Controllers
             faq.Question = frm[nameof(faq.Question)];
             faq.SubthemeID = Convert.ToInt32(frm[nameof(faq.SubthemeID)]);
             faq.ThemeID = Convert.ToInt32(frm[nameof(faq.ThemeID)]);
+            faq.Answer = frm[nameof(faq.Answer)];
             repoFaq.Insert(faq);
             repoFaq.SaveChanges();
             return RedirectToAction(nameof(Faqs));
