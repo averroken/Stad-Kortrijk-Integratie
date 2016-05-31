@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Answer)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FaqID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FaqID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FaqID })
+            @Html.ActionLink("Edit", "EditFaq", new { id=item.FaqID }) |
+            @Html.ActionLink("Details", "DetailsFaq", new { id=item.FaqID }) |
+            @Html.ActionLink("Delete", "DeleteFaq", new { id=item.FaqID })
         </td>
     </tr>
 }

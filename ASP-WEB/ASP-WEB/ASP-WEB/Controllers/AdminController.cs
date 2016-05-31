@@ -403,7 +403,7 @@ namespace ASP_WEB.Controllers
             return View(vm);
 
         }
-
+        [HttpPost]
         public ActionResult EditFaq(FormCollection frm)
         {
             Faq faq = new Faq();
@@ -411,9 +411,9 @@ namespace ASP_WEB.Controllers
             faq.FaqID = Convert.ToInt32(frm[nameof(faq.FaqID)]);
             faq.Question = frm[nameof(faq.Question)];
             faq.SubthemeID = Convert.ToInt32(frm[nameof(faq.SubthemeID)]);
-            faq.ThemeID = Convert.ToInt32(frm[nameof(faq.ThemeID)]);
+            faq.ThemeID = Convert.ToInt32(frm.GetValues("ThemeID")[0]);
             repoFaq.Update(faq);
-
+            repoFaq.SaveChanges();
             return RedirectToAction(nameof(Faqs));
         }
         public ActionResult DeleteFaq(int? id)
@@ -424,7 +424,7 @@ namespace ASP_WEB.Controllers
             }
             int ID = (int)id;
             repoFaq.Delete(ID);
-
+            repoFaq.SaveChanges();
             return RedirectToAction(nameof(Faqs));
         }
         #endregion

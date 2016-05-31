@@ -48,7 +48,8 @@ namespace ASP_WEB.DAL.Repository
         {
             using (IntegratieContext context = new IntegratieContext())
             {
-                return context.Faq.Where(f => f.FaqID == Convert.ToInt32(id.ToString())).Include(f => f.Theme).Include(f => f.Subtheme).SingleOrDefault<Faq>();
+                int ID = Convert.ToInt32(id.ToString());
+                return context.Faq.Where(f => f.FaqID == ID).Include(f => f.Theme).Include(f => f.Subtheme).SingleOrDefault<Faq>();
             }
         }
     }

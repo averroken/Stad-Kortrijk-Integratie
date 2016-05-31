@@ -56,6 +56,7 @@
 
 <form enctype="multipart/form-data" method="post">
     @Html.AntiForgeryToken()
+   
     <label for="ThemeID">Kies een thema: </label>
     <select name="ThemeID">
         @foreach (var item in Model.Theme)
