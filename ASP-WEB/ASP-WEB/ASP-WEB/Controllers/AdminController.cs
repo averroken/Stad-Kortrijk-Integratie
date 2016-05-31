@@ -146,40 +146,60 @@ namespace ASP_WEB.Controllers
             }
             int ID = (int)id;
             Subtheme subtheme = repoSubtheme.GetByID(ID);
-            return View(subtheme);
+            SubthemesEditViewModel vm = new SubthemesEditViewModel();
+            vm.subtheme = subtheme;
+            vm.offices = repoOffice.All().ToList();
+            vm.themes = repoTheme.All().ToList();
+            return View(vm);
         }
-        //TODO EditSubtheme
+        
         [HttpPost]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
-            string[] url = file.FileName.Split('.');
-            vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+            vm.subtheme = new Subtheme();
+            vm.subtheme.OfficeID = new List<int>();
+            vm.subtheme.SubthemeID = Convert.ToInt32(frm[nameof(vm.subtheme.SubthemeID)]);
+            if (file != null)
+            {
+
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
+                container.CreateIfNotExists();
+                if (vm.subtheme.FotoURL == null) vm.subtheme.FotoURL = "12345678987654321.png";
+                CloudBlockBlob oudeBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+                oudeBlob.DeleteIfExists();
+
+                string[] url = file.FileName.Split('.');
+                vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+                blockBlob.UploadFromStream(file.InputStream);
+
+            }
+            
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
-            foreach (int item in frm[nameof(vm.subtheme.OfficeID)])
+            
+            foreach (var item in frm.GetValues("OfficeIDs"))
             {
-                vm.subtheme.OfficeID.Add(item);
+                vm.subtheme.OfficeID.Add(Convert.ToInt32(item));
+            }
+            if(vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
+            foreach (var item in vm.subtheme.OfficeID)
+            {
+                vm.subtheme.Office.Add(repoOffice.GetByID(item));
             }
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
             repoSubtheme.Update(vm.subtheme);
 
             repoSubtheme.SaveChanges();
 
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("images");
-            container.CreateIfNotExists();
-
-
-
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
-            blockBlob.UploadFromStream(file.InputStream);
 
             return RedirectToAction(nameof(Subthemes));
 
 
         }
-        //TODO Check
+        
         public ActionResult CreateSubtheme()
         {
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
@@ -189,14 +209,14 @@ namespace ASP_WEB.Controllers
 
             return View(vm);
         }
-        //TODO Check
         [HttpPost]
         public ActionResult CreateSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
 
 
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
-
+            vm.subtheme = new Subtheme();
+            vm.subtheme.OfficeID = new List<int>();
             string[] url = file.FileName.Split('.');
             vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
@@ -218,7 +238,7 @@ namespace ASP_WEB.Controllers
 
             return RedirectToAction(nameof(Subthemes));
         }
-        //TODO Check
+        
         public ActionResult DetailsSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -229,8 +249,7 @@ namespace ASP_WEB.Controllers
             Subtheme subtheme = repoSubtheme.GetByID(ID);
             return View(subtheme);
         }
-        //TODO Check
-        [HttpPost]
+        
         public ActionResult DeleteSubtheme(int? id)
         {
             if (!id.HasValue)

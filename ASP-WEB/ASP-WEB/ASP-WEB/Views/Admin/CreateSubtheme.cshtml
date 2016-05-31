@@ -1,10 +1,10 @@
 ﻿@model ASP_WEB.Models.SubthemesEditViewModel
 
-@{
-    ViewBag.Title = "EditSubtheme";
-}
+    @{
+        ViewBag.Title = "CreateSubtheme";
+    }
 
-<h2>EditSubtheme</h2>
+    <h2>CreateSubtheme</h2>
 @*
     @using (Html.BeginForm())
     {
@@ -14,8 +14,6 @@
             <h4>Subtheme</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.SubthemeID)
-
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -50,36 +48,31 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
-*@
-
+    *@
 
 <form enctype="multipart/form-data" method="post">
     @Html.AntiForgeryToken()
-    <input type="hidden" value="@Model.subtheme.SubthemeID" name="SubthemeID"/>
-
     <label for="Name">Name</label>
-    <input type="text" value="@Model.subtheme.Name"  name="Name" />
+    <input type="text" name="Name"/>
 
     <label for="Description">Description</label>
-    <input type="text" name="Description" value="@Model.subtheme.Description" />
+    <input type="text" name="Description" value="" />
 
     <select name="ThemeID">
         @foreach (var item in Model.themes)
         {
-
             <option value="@item.ThemeID">@item.Name</option>
         }
     </select>
 
-    <select multiple name="OfficeIDs">
+    <select multiple name="OfficeID">
         @foreach (var item in Model.offices)
         {
-
             <option value="@item.OfficeID">@item.Name</option>
         }
     </select>
@@ -90,6 +83,6 @@
 
     <input type="submit" name="submit" value="Submit" />
 </form>
-<div>
-    @Html.ActionLink("Back to List", "Subthemes")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

@@ -40,7 +40,7 @@ namespace ASP_WEB.DAL.Repository
         {
             using (IntegratieContext context = new IntegratieContext())
             {
-                return context.Subtheme.Where(st => st.Description.Contains(searchString)).Include(st => st.Office).Include(st => st.Theme).ToList<Subtheme>();
+                return context.Subtheme.Where(st => st.Description.Contains(searchString) || st.Name.Contains(searchString)).Include(st => st.Office).Include(st => st.Theme).ToList<Subtheme>();
             }
         }
 
@@ -82,24 +82,64 @@ namespace ASP_WEB.DAL.Repository
         //TODO: Waarschijnlijk fout
         public override void Update(Subtheme subtheme)
         {
+            //    using (IntegratieContext context = new IntegratieContext())
+            //    {
+
+            //        var currentSubtheme = (from s in context.Subtheme.Include(s => s.Office)
+            //                               where s.SubthemeID == subtheme.SubthemeID
+            //                               select s).SingleOrDefault<Subtheme>();
+            //        currentSubtheme.Office.Clear();
+            //    }
+            //    using (IntegratieContext context = new IntegratieContext())
+            //    {
+            //        foreach (var office in subtheme.Office)
+            //        {
+            //            context.Entry<Office>(office).State = EntityState.Added;
+            //        }
+            //        context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
+            //        context.SaveChanges();
+            //    }
+
+
+            //     public void UpdateContact(Contact contact)
+            //{
+            //    using (Labo1Context context = new Labo1Context())
+            //    {
+            //        var currentContact = (from c in context.Contacts.Include(c => c.Departement)
+            //                              where c.ContactId == contact.ContactId
+            //                              select c).SingleOrDefault<Contact>();
+            //        currentContact.Departement.Clear();
+            //        context.SaveChanges();
             using (IntegratieContext context = new IntegratieContext())
             {
-                var currentSubtheme = (from s in context.Subtheme.Include(s => s.Office)
-                                       where s.OfficeID == subtheme.OfficeID
-                                       select s).SingleOrDefault<Subtheme>();
+                var currentSubtheme = (from c in context.Subtheme.Include(c => c.Office)
+                                       where c.SubthemeID == subtheme.SubthemeID
+                                       select c).SingleOrDefault<Subtheme>();
                 currentSubtheme.Office.Clear();
                 context.SaveChanges();
             }
             using (IntegratieContext context = new IntegratieContext())
             {
-                foreach (var office in subtheme.Office)
+                //if (subtheme.Office == null) subtheme.Office = new List<Office>();
+                foreach (var dep in subtheme.Office)
                 {
-                    context.Entry<Office>(office).State = EntityState.Added;
+                    context.Entry<Office>(dep).State = EntityState.Added;
+                    context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
+                    context.SaveChanges();
                 }
-                context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
-                context.SaveChanges();
             }
 
+            //    }
+
+            //    using (Labo1Context context = new Labo1Context())
+            //    {
+            //        foreach (var dep in contact.Departement)
+            //            context.Entry<Departement>(dep).State = EntityState.Added;
+            //        context.Entry<Contact>(contact).State = EntityState.Modified;
+            //        context.SaveChanges();
+            //    }
+
+            //}
             // base.Update(entityToUpdate);
         }
         public override void Delete(object id)

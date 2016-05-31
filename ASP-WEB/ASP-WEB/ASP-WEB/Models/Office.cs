@@ -11,7 +11,7 @@ namespace ASP_WEB.Models
     {
         public int OfficeID { get; set; }
         public string Name { get; set; }
-        [Url]
+        //[Url]
         public string URL { get; set; }
         public string Street { get; set; }
         public string HouseNumber { get; set; }
@@ -19,7 +19,7 @@ namespace ASP_WEB.Models
         public string City { get; set; }
         public string PhoneNumber { get; set; }
         public string OpeningHours { get; set; }
-        [EmailAddress]
+        //[EmailAddress]
         public string EmailAddress { get; set; }
         public virtual ICollection<Subtheme> Subtheme { get; set; }
     }

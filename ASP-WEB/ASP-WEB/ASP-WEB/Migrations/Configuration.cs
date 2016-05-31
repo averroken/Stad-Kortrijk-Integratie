@@ -1,8 +1,12 @@
 namespace ASP_WEB.Migrations
 {
+    using DAL.Context;
+    using Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.IO;
     using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ASP_WEB.DAL.Context.IntegratieContext>
@@ -26,6 +30,8 @@ namespace ASP_WEB.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            
         }
+        
     }
 }
