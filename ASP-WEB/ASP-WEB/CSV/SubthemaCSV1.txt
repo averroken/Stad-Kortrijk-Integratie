@@ -1,0 +1,275 @@
+ID;ThemaID;Naam;Beschrijving;DienstSubthemaID;FotoURL
+1;1;Nieuw in België;"Wanneer je als niet-Belg nieuw aankomt in Kortrijk, dan geef je het adres door waar
+je woont aan de dienst Vreemdelingen.
+Deze inschrijving is verplicht. Breng je identiteitsdocumenten (reispas+visum) mee.
+De wijkagent komt langs om te controleren of je op het opgegeven adres woont. Daarna
+nodigt de dienst vreemdelingen je uit om je verblijfsdocumenten in orde te maken._ Denk er ook aan je adres door te geven aan alle diensten of organisaties waar je
+contact mee hebt (bv. ziekenfonds, werkgever, bank, watermaatschappij, Gaselwest-
+Electrabel, Commissariaat voor Vluchtelingen en Staatslozen , desgevallend
+O.C.M.W., Dienst Vreemdelingenzaken, …). Ben je nieuw in België, dan kan je terecht
+bij Onthaalbureau Inburgering West-Vlaanderen – regio Kortrijk.
+Het inburgeringsbeleid is bedoeld voor vreemdelingen die zich langdurig in Vlaanderen
+komen vestigen. Ook Belgen die niet in België geboren zijn en van wie minstens
+één van de ouders niet in België geboren is, hebben recht op een inburgeringstraject.
+Voor nieuwkomers die minder dan één jaar in België wonen of voor personen die
+maximum één jaar terug erkend zijn als vluchteling is dit programma verplicht. Hij/zij
+dient zich binnen 3 maanden op het onthaalbureau Inburgering aan te melden.";1;subnieuwbelgie.png
+2;1;Onthaalprogramma;"Het onthaalprogramma bestaat uit volgende onderdelen:
+- Het volgen van een cursus maatschappelijke oriëntatie waarin je allerlei informatie
+krijgt over wonen en werken in België, onderwijs, vervoer, gezondheidszorg, …
+- Een geschikte cursus Nederlands die wordt gekozen op basis van het advies van
+het Huis van het Nederlands.
+- Een aanbod loopbaanoriëntatie in samenwerking met de VDAB om je kansen op
+het vinden van werk te vergroten._
+Er wordt van jou verwacht dat je het volledige pakket volgt en met regelmaat aanwezig
+bent. Daarnaast kan je er ook terecht voor administratieve zaken zoals gelijkschakeling
+van je diploma, een school of opvang voor je kinderen, …
+Verder word je zo veel mogelijk geholpen om de weg te vinden naar de vele diensten
+en organisaties waarmee je te maken krijgt.";2;subonthaalprog.png
+3;2;Wat mee hebben;"Deze documenten moet je altijd op zak hebben:
+- V erblijfsdocument/identiteitskaart (iedereen, vanaf 12 jaar)
+- S .I.S.-kaart (ziekteverzekeringskaart, zie ‘gezondheidszorg’)";;subwatmee.png
+4;2;Aktes uit het buitenland;"Aktes uit het buitenland
+Aktes uit het land van herkomst kunnen enkel beoordeeld worden indien ze voldoende
+gelegaliseerd zijn en in het Nederlands, Frans, Engels of Duits opgemaakt
+of vertaald zijn. De dienst behoudt zich echter het recht om – indien aktes bvb. niet
+voldoende begrijpbaar zijn – een Nederlandse vertaling te kunnen vragen.
+OPGELET: Om geldig te zijn moeten het origineel en de vertaling steeds aan elkaar gehecht
+zijn. Met een stempel van de beëdigd vertaler, door het origineel en de vertaling._
+Voor bepaalde procedures moet de akte steeds vertaald zijn in het Nederlands door
+een beëdigd vertaler in België, bvb. voor het samenstellen van een huwelijksdossier,
+voor een nationaliteitsverklaring,…
+De dienst Vreemdelingen heeft een lijst liggen met daarop alle beëdigde vertalers in
+het arrondissement Kortrijk.";1;subaktesbuitenland.png
+5;2;Verblijfsstatuten;"Alle Verblijfsstatuten
+Voor informatie en advies omtrent alle verblijfsstatuten kan je terecht bij de dienst
+Vreemdelingen.";1;subverblijfsstatuten.png
+6;2;Rijden;"Rijden
+- Je moet altijd een geldig rijbewijs bij hebben, ook voor sommige bromfietsen heb
+je een rijbewijs nodig.
+- Personen afkomstig uit bepaalde landen kunnen in sommige gevallen hun geldig
+en erkend buitenlands nationaal rijbewijs inruilen bij de dienst Rijbewijzen. Informatie
+via het centraal informatiepunt, Nieuw Stadhuis. Anderen moeten opnieuw
+hun theoretisch en praktisch examen doen.";3;subrijden.png
+7;2;Diploma's;"Diploma’s
+Voor informatie over het erkennen van diploma’s of getuigschriften in België
+(homologeren) kan je terecht bij:";2;subdiploma's.png
+8;2;Asielprocedure;"Asielprocedure
+Om asiel aan te vragen in België, moet je je persoonlijk melden bij de Dienst Vreemdelingenzaken in Brussel:";4-5-1-6;subasielprocedure.png
+9;3;Gratis juridische bijstand;"Gratis juridische bijstand
+Mensen met een laag inkomen (bijvoorbeeld OCMW – cliënten) kunnen gratis juridische
+bijstand vragen (pro-deo advocaat). Hiervoor kan je terecht in het bureau voor
+Juridische Bijstand, enkel op dinsdag om 11u00 of op donderdag om 11u00.
+Het is belangrijk dat je een recent attest van gezinssamenstelling mee brengt en
+stavingstukken voor je inkomsten._De dienst Rechtshulp (van het OCMW) verstrekt gratis juridisch advies over:
+• bemiddeling bij de tegenpartij
+• informatie en advies bij alle juridische problemen
+• hulp bij verwijzing naar een advocaat, notaris, bevoegde dienst of instantie
+• hulp bij een aanvraag voor gratis rechtspleging en/of een advocaat pro deo
+• collectieve schuldenregeling";8-6;subgratisjuridischbijstand.png
+10;3;Algemene eerste vragen;"Bij diverse organisaties kan je terecht voor gratis juridisch advies. De Huurdersbond
+behandelt huurproblemen (zie hoofdstuk Wonen). Met problemen op het werk kan
+je terecht bij ondermeer de vakbond (zie hoofdstuk Werken)_
+Bij een notaris verkrijg je advies over aankoop huis, leningen, erfenissen,…
+De lijst van notarissen vind je in de telefoongids bij de vrije beroepen._
+In het Justitiehuis krijg je algemeen juridisch advies door justitieassistenten.
+Indien nodig word je doorverwezen naar een advocaat of een gespecialiseerde dienst.
+De advocaat geeft je enkel een eerste advies over een juridisch probleem.";7;subalgemenevragen.png
+11;4;Hoe zoek je een woning;"Hoe zoek je een woning?
+- Kijk rond in de stad, meestal zie je een bord ‘te huur’
+- Kijk in de krant, de week- en advertentiebladen
+- Gespecialiseerde kantoren (immobiliënkantoren) helpen je zoeken
+- Je kan je ook inschrijven voor een sociale woning. Die is over het algemeen goed
+koper, maar is niet altijd onmiddellijk beschikbaar. Je doet best zo vlug mogelijk je
+aanvraag, en dan word je op een wachtlijst gezet. Voor een sociale woning kan je
+terecht bij Sociaal Verhuurkantoor ‘De Poort’ vzw, sociale huisvestingsmaatschappijen
+en het Vlaams Woningfonds van de Grote Gezinnen.";9;subwoningzoeken.png
+12;4;Als je een woning wil huren;"Als je een woning wil huren…
+- Maakt de verhuurder een geschreven huurcontract op.
+- Maak je afspraken over de huurprijs, de waarborg, de duur van de huur, de kosten
+van water, elektriciteit en verwarming, herstellingen, …
+- Maak je een beschrijving van de toestand van de woning ( opsomming alle gebreken).
+- Moet de huurder een waarborg betalen. Deze bedraagt maximaal 3 maanden
+huurgeld.
+- De waarborg wordt volgens de wet op een rekening geplaatst. De waarborg kan
+je terugkrijgen als huurder én verhuurder akkoord zijn.
+Kortrijk voor nieuwe inwoners-Ned-2012.indd 10 7/12/12 11:21
+11
+Sociale woningen zijn niet altijd onmiddellijk beschikbaar. Je doet best zo vlug mogelijk
+je aanvraag, en dan word je op een wachtlijst gezet. Alle informatie betreffende premies
+zoals verhuis-, installatie, - en huurtoelage kan je krijgen bij de dienst huisvesting._Bij de Huurdersbond West-Vlaanderen kan je terecht met allerlei juridische vragen
+rond huurcontracten, rechten en plichten van de huurder, huurprijsberekening, model
+van huurovereenkomst,…";1-10;subwoninghuren.png
+13;4;Nutsvoorzieningen;"Nutsvoorzieningen
+Voor de aansluiting van nutsvoorzieningen als aardgas, elektriciteit en TV-distributie
+heb je heel veel verschillende aanbieders. Voor vragen over nieuwe aansluitingen,
+verzwaren van aansluitingen, verplaatsen en vervangen van meters, opneming
+van meterstanden, rationeel energiegebruik (REG), budgetmeter kan je eerst
+informeren bij:";11;subnutsvoorzieningen.png
+14;4;Drinkwater;;12;subdrinkwater.png
+15;4;Telefoon;"Er zijn heen veel bedrijven die telefoonvoorzieningen aanbieden; voor meer informatie
+kan je terecht bij private telefoonwinkels of in de Telefoongids.";;subtelefoon.png
+16;4;Huisafval;"In Kortrijk wordt het afval van huishoudens gesorteerd.
+Het afval hoort in officiële zakken, en wordt op vaste dagen opgehaald.
+Op de afvalkalender staat wanneer welke fracties in uw straat worden opgehaald.
+Sorteren gaat als volgt:Met afval dat niet tot deze fracties behoort zoals olie, groot afval of klein gevaarlijk
+afval kan je op de containerparken terecht.";;subhuisafval.png
+17;5;Cursussen;"Je zoekt contact met je buren, je gaat naar de winkel … je wil Nederlands leren.
+Er zijn verschillende cursussen. Zowel verschillend wat betreft de duur, de moeilijkheidsgraad
+als het aantal uren les per week.
+Voor je begint ga je eerst langs het Huis van het Nederlands, dat is het informatiepunt
+voor het aanbod Nederlandse lessen voor anderstaligen. De educatieve consulente
+van het Huis informeert je over het aanbod en adviseert op basis van een test
+en gesprek welke cursus het best aansluit bij je mogelijkheden en profiel.";13;subcursussen.png
+18;5;In functie van tewerkstelling of opleiding;"Heb je basiskennis van het Nederlands, maar je wil Nederlands leren in functie van
+een tewerkstelling of een opleiding, dan kan je terecht bij de VDAB.";14;subtewerkstelling.png
+19;6;Wat moet je doen bij de geboorte van een kind?;"• De moeder en/of vader geeft de baby aan bij de burgerlijke stand van de geboorteplaats.
+De vader kan alleen de aangifte doen zonder de moeder als hij met haar
+gehuwd is en nog steeds met haar samenwoont of als hij het kind voor de geboorte
+heeft erkend.
+• Doe dit binnen de 15 dagen na de geboorte
+• Neem mee: je identiteitsdocument, het geboorteattest (afgegeven door het ziekenhuis)
+en je trouwboekje (indien gehuwd in België) of een gelegaliseerde en
+vertaal de huwelijksakte (indien gehuwd in het buitenland) of een bewijs van erkenning
+(als het kind voor de geboorte erkend is)
+• Vraag na of je recht hebt op kraam- en kindergeld.";;subwatdoengeboortekind.png
+20;6;0-3 jaar;"Voorkomen is beter dan genezen. Daarom is het belangrijk dat je kindje regelmatig
+onderzocht wordt door de dokter en gevaccineerd wordt. Dit kan bij je huisarts,
+maar het kan ook gratis bij de arts van het consultatiebureau van Kind en Gezin.
+De vaccinatie tegen polio (kinderverlamming) is wettelijk verplicht. Bij de geboorteaangifte
+op het gemeentehuis ontvang je een document waarop de arts de data
+van de poliovaccinaties (3 vaccinaties) moet invullen. Zodra je kind volledig ingeënt
+is tegen polio, bezorg je dit document terug aan de dienst Burgerzaken op het gemeentehuis.
+Kind en Gezin raadt ook de andere vaccinaties aan.
+Kind en Gezin is een Vlaams agentschap dat gratis diensten aanbiedt aan aanstaande
+ouders en ouders van kinderen tot 3 jaar. Je kan er terecht voor vragen over gezonde
+voeding, veiligheid, verzorging, opvoeding, ontwikkeling, vaccinaties, geboortebeperking,
+zwangerschap en bevalling.";15;subkindtot3jaar.png
+21;6;Kinderopvang;"Zoek je opvang voor je kind? Ga dan naar het meldpunt Kinderopvang.
+Daar vind je een overzicht van het volledige aanbod, alle contactgegevens en kan je
+zoeken naar vrije plaatsen. Voor wie minder vertrouwd is met kinderopvang krijgt er
+uitleg over hoe (een dag) kinderopvang werkt en hoe de zorg in elkaar steekt.";16;subkinderopvang.png
+22;6;Onderwijs voor kinderen;"Kinderen tussen 6 en 18 jaar zijn in België verplicht naar school te gaan. Een schooljaar
+duurt van 1 september tot 30 juni. Kinderen starten in de kleuterschool. Het
+kleuteronderwijs is voor kinderen van 2,5 tot 5 jaar en is niet verplicht. Kinderen van
+6 tot 12 jaar gaan naar het basisonderwijs. Sommige scholen bieden extra hulp aan
+of hebben een onthaalklas. Voor de algemene vakken volgt je kind zijn klasgroep.
+Daarna volgt het secundair onderwijs van 12 tot 18 jaar. In de OKAN-klas wordt er
+samen met andere anderstalige nieuwkomers (tussen 12 en 18 jaar) intensief geoefend
+in het praktisch Nederlands taalgebruik. Het is de bedoeling dat de leerlingen
+na één jaar de “schooltaal” begrijpen en kunnen spreken. Na dit schooljaar gaat je
+kind over naar het algemeen onderwijs, waar je kind nog 1 schooljaar extra ondersteuning
+krijgt. Daarna gaat je kind over naar het algemeen secundair onderwijs. Als
+je kind slaagt in het secundair onderwijs kan hij/zij verder studeren aan een hogeschool
+of aan de universiteit. Er zijn in Kortrijk 2 OKAN-klassen:";17-18;subonderwijs.png
+23;6;Advies voor jongeren;"Advies en informatie over scholen en studeren kan je vragen in de Centra voor Leerlingenbegeleiding
+(C.L.B.). Maar ook het onderwijsopbouwwerk (enkel voor het basisonderwijs)
+kan je daarbij helpen. Het onderwijsopbouwwerk kan hulp bieden bij
+de zoektocht naar een school voor je kind of met allerhande vragen in verband met
+het onderwijs van de kinderen (vragen over de schoolrekening, brieven die je niet
+begrijpt, invullen van formulieren van de school).";19-20-21-22;subadvies.png
+24;6;Jeugdbeweging;"Na schooltijd kunnen kinderen en jongeren deelnemen aan talrijke activiteiten. Er zijn
+jeugd, cultuur –en sportverenigingen. In de vakanties worden er talrijke kampen en activiteiten
+georganiseerd. Informatie kan je vragen bij de jeugd, cultuur - en de sportdienst.";23-24-25;subjeugdbeweging.png
+25;7;Sociale dienstverlening (welzijn);"In het Sociaal Huis kan je terecht voor informatie over:
+• kinderopvang, diensten voor senioren, thuiszorg, poetshulp, maaltijden-aan-huis, ...
+• sociale huisvesting en woonbegeleiding, huisvesting voor ouderen, dagverzorgingscentra,
+dienstencentra, ...
+• specifieke hulp zoals: financiële steun, individuele toelages, schuldhulpverlening,
+budgetmeter, crisisopvang, ondersteuning, zorgkas,...
+• sociale rechten, noden en problemen
+Maar ook voor:
+• gratis juridische info en advies;
+• hulp bij het invullen van allerlei papieren en formulieren;
+• consultaties van diensten zoals: het fonds voor arbeidsongevallen, de Rijksdienst
+voor Sociale Verzekeringen der Zelfstandigen, de dienst personen met een handicap, ...";26;subsociale.png
+26;7;Ziekteverzekering;"- Een ziekteverzekering is verplicht (behalve voor de niet-ontvankelijk verklaarde asielzoeker).
+- E r zijn verschillende ziekenfondsen. Je kiest waar je lid wordt. Bij de dokter betaal je
+zelf de volledige rekening, het ziekenfonds betaalt achteraf het grootste deel terug.
+- Alle leden van een ziekenfonds krijgen een S.I.S.-kaart (: sociale identiteitskaart).
+Hou deze kaart steeds bij, je gebruikt ze bij de apotheker, in het ziekenhuis …";;subziekteverzekering.png
+27;7;Ziekte;"Als je ziek bent, ga je naar een huisarts in je buurt. Als je zelf niet kan gaan, zal je dokter
+op huisbezoek komen. Indien nodig, verwijst de dokter je door naar een specialist of
+ziekenhuis. Huisdokters herken je aan een uithangbord aan de deur waarop ook hun
+“bezoekuren” staan. In telefoonboeken vind je steeds dokterslijsten (zie vrije beroepen).
+Op zaterdag-, zon- en feestagen is er voor de dokters en apothekers een wachtdienst
+waar je terecht kan. Je belt het nummer van je eigen dokter of apotheker, je wordt
+onmiddellijk verbonden met de dokter van wacht. Ook aan de apotheker vind je het
+adres van de “apotheker van wacht”.
+Na 22.00 uur kan je bellen naar het nummer 056/ 22 95 80";27-28-29;subziekte.png
+28;7;Psychosociale hulp;"Heb je een vraag of een probleem rond jouw woning, papieren of administratie, jouw
+kinderen, financies, de relatie met jouw partner, tewerkstelling? Zoek je praktische
+hulp, een plaats om te douchen of te wassen, vrije tijdsbesteding, een plaats om andere
+mensen te ontmoeten? De CAW’s zoeken samen met jou naar een antwoord. Soms
+kunnen we jou zelf verder helpen, soms zullen we samen met jou kijken welke dienst
+jou het best verder kan helpen.";30-31-32-33;subpsychosociale.png
+29;8;Met de fiets;"Je kan een fiets huren bij Mobiel vzw fietsencentrum. Het is ook mogelijk om een
+fiets gratis te lenen voor één dag bij Mobiel vzw fietsencentrum maar dit op een
+ander adres. Je moet wel je identiteitskaart kunnen voorleggen. Bij Mobiel kan je
+ook een fietscursus volgen.";34;submetfiets.png
+30;8;Met de bus;Een overzicht van de busregelingen en prijstarieven vraag je in de Lijnwinkel:;35;submetbus.png
+31;8;Met de trein;"Er zijn verschillende soorten treinkaarten: per leeftijd, weekendbiljetten, 10-beurtenkaarten,
+familiebiljetten... . Zoek de goedkoopste manier. Vraag dit na in het station._Wanneer je vervoersproblemen hebt bij het volgen van een opleiding, om te solliciteren
+of op het werk te geraken dan kan je een fiets of snorfiets lenen bij de VDAB,
+of zij kunnen voor jou een netabonnement bij de LIJN aanvragen. Je moet hiervoor
+wel ingeschreven zijn als werkzoekende bij de VDAB. Informatie kan je krijgen bij je
+VDAB consulent of in de dichtstbijzijnde werkwinkel of je kan bellen naar het gratis
+nummer 0800/ 30 700 (tussen 8 en 20 uur).";36;submettrein.png
+32;9;Informatie of je mag werken;"In België kan je niet zomaar werken. Je hebt nodig:
+- een geldig verblijfsdocument
+- meestal een geldige arbeidsvergunning en een geldige arbeidskaart
+- je kan je diploma laten erkennen in België (daarvoor kan je terecht bij het Onthaalbureau
+Inburgering West-Vlaanderen, vestiging Kortrijk).
+S oms moet je extra cursussen volgen en examens afleggen.
+Ben je op zoek naar meer informatie of je al dan niet mag kan gaan werken:";37;subinformatiemagwerken.png
+33;9;Op zoek naar werk;"Ben je op zoek naar werk? Informeer je bij de werkwinkel In een W.I.S.-computer (= Werk Informatie Systeem) kan je werkaanbiedingen zoeken
+en je registreren als werkzoekende en een opleiding aanvragen..
+Je vindt een W.I.S.- computer in:
+- S tation, Stationsplein 7, 8500 Kortrijk
+- W erkwinkel, Koning Albertstraat 12, 8500 Kortrijk
+- V DAB Kortrijk, Rijselsestraat 57, 8500 Kortrijk
+Surf naar www.vdab.be bij je thuis of in de bibliotheek van Kortrijk, deze site biedt
+meer mogelijkheden en info aan dan de WIS._
+Wanneer je vervoersproblemen hebt bij het volgen van een opleiding, om te solliciteren
+of op het werk te geraken dan kan je een snorfiets lenen bij SNORKO (Werkwinkel
+Kortrijk, contactpersoon Bruno Messiaen - tel 056 26 67 88).
+Ook kan je een netabonnement bij de LIJN aanvragen. Je moet hiervoor wel ingeschreven
+zijn als werkzoekende bij de VDAB. Informatie kan je krijgen bij je VDAB consulent of
+in de dichtstbijzijnde werkwinkel of je kan bellen naar 0800 / 30 700 (tussen 8 en 20 uur)_
+Heb je basiskennis van het Nederlands, maar je wil Nederlands leren in functie van
+een tewerkstelling of een opleiding, dan kan je terecht bij de VDAB/Werkwinkel.
+Wanneer je werkt of werkloos bent dan kan je je ook aansluiten bij een vakbond. Bij
+hun kan je terecht voor informatie, klachten en problemen rond arbeidsrecht, sociale
+zekerheid en werkloosheid. De drie belangrijkste vakbonden zijn:";38-39-40-41;subopzoekwerk.png
+34;10;Toerisme;;;subtoerisme.png
+35;10;Cultuur;"Daarnaast zijn er ook zelforganisaties van allochtonen. Informatie hiervoor kan je
+krijgen bij de stedelijke integratiedienst. Deze dienst ondersteunte de zelforganisaties
+en organiseert soms samen met hen activiteiten.
+Er is ook een integratieraad, voor iedereen die wil mee werken aan een positief integratiebeleid
+(bevorderen integratie tussen allochtonen en autochtonen). Meer
+informatie over de integratieraad vind je eveneens bij de stedelijke integratiedienst.";45;subcultuur.png
+36;10;Sport;"Mensen ontmoeten kan op verschillende manieren. Er is een rijk cultureel leven in
+Kortrijk. Je hebt verschillende musea en verenigingen: culturele, sportverenigingen,
+jeugdverenigingen, hobbyclubs,….
+Informatie kan je krijgen bij de dienst toerisme, specifieke informatie over culturele
+verenigingen en hun activiteiten krijg je bij de dienst cultuur. Specifieke informatie
+over sportverenigingen en hun activiteiten krijg je bij de sportdienst.";42-43-44;subsport.png
+37;10;Jeugdbeweging;;;subjeugdbeweging.png
+38;11;Hoe betalen;"In België wordt, net zoals in veel andere Europese landen, betaald met de EURO ._
+Je kan een bank- of postrekening openen bij een financiële instelling die je zelf kiest.
+Dan krijg je een bank-of postkaart. Met deze bankkaart haal je geld van je rekening
+uit een geldautomaat en kan je in de meeste winkels betalen._
+De openingsuren van de banken vind je meestal aan de deur van het kantoor.";;subhoebetalen.png
+39;11;Welke munt;;;subwelkemunt.png
+40;12;Marktdagen;"Op maandagmorgen (8 – 13 uur) is er markt in het Stadscentrum van Kortrijk (Grote
+Markt en schouwburgplein).
+Op dinsdagmorgen (8 - 12 uur) is er markt op de parking Rietput te Bissegem.
+Op vrijdagnamiddag vanaf 16 uur is er markt op het Sint-Amandsplein Overleie.";;submarktdagen.png
+41;12;Meubels, kledij en huisraad;"Meubels en huisraad zijn te koop voor een lage prijs in verkoopzalen of in tweedehandswinkels.
+Adressen vind je in de advertentiebladen of in de telefoongids onder
+de rubriek Verkoopzalen. Je vindt tweedehandsspullen (meubels, huishoudgerief,
+elektrische toestellen, fietsen, kledij) bij de volgende organisaties:";47-48;submeubelshuisraad.png
+42;12;Voedsel;"Heb je een tekort aan voedsel, doe dan een beroep op volgende voorzieningen.
+Bij Poverello kan je terecht voor een goedkope maaltijd._Bij de andere organisaties kan je terecht voor een voedselkaart. Met die kaart kan
+je een voedselpakket krijgen. De voedselkaart wordt pas gegeven na een sociaal
+onderzoek, je kunt maar één kaart krijgen en misbruik wordt streng bestraft.";49-50;subvoedsel.png
