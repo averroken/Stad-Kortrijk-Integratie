@@ -62,7 +62,7 @@ namespace ASP_WEB.Controllers
             FaqSubtheme list = new FaqSubtheme();
             list.Faq = faqs;
             list.Subtheme = subthemes;
-            return View(subthemes);
+            return View(list);
         }
     }
 }

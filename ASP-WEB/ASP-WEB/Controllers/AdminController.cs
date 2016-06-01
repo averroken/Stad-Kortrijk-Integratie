@@ -1,5 +1,8 @@
 ﻿using ASP_WEB.DAL.Repository;
+using ASP_WEB.Helpers;
 using ASP_WEB.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -176,14 +179,14 @@ namespace ASP_WEB.Controllers
                 blockBlob.UploadFromStream(file.InputStream);
 
             }
-            
+
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
             foreach (int item in frm["OfficeID[]"])
             {
                 vm.subtheme.OfficeID.Add(item);
             }
-            if(vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
+            if (vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
             foreach (var item in vm.subtheme.OfficeID)
             {
                 vm.subtheme.Office.Add(repoOffice.GetByID(item));
@@ -428,6 +431,69 @@ namespace ASP_WEB.Controllers
         }
         #endregion
 
+        #region Users and Roles
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+        public ActionResult Users()
+        {
+            List<User> vm = new List<User>();
+            List<ApplicationUser> users = UserManager.Users.ToList();
+            foreach (var gebruiker in users)
+            {
+                User user = new User();
+                user.ID = gebruiker.Id;
+                user.Email = gebruiker.Email;
+                user.UserName = gebruiker.UserName;
+                var inrole = UserManager.IsInRole(user.ID, Roles.ADMINISTRATOR.ToString());
+                if (inrole) user.IsAdmin = true;
+                else user.IsAdmin = false;
+                if (!String.IsNullOrWhiteSpace(gebruiker.PasswordHash)) vm.Add(user);
+                
+            }
+            return View(vm);
+        }
+
+        public ActionResult DeleteUser(string id)
+        {
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                UserManager.RemovePassword(id);
+            }
+            return RedirectToAction(nameof(Users));
+        }
+
+        public ActionResult ToAdmin(string id)
+        {
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                IdentityResult removeFromRole = UserManager.RemoveFromRole(id, Roles.USER.ToString());
+                UserManager.AddToRole(id, Roles.ADMINISTRATOR.ToString());
+                
+            }
+            return RedirectToAction(nameof(Users));
+        }
+
+        public ActionResult ToUser(string id)
+        {
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                IdentityResult removeFromRole = UserManager.RemoveFromRole(id, Roles.ADMINISTRATOR.ToString());
+                UserManager.AddToRole(id, Roles.USER.ToString());
+            }
+            return RedirectToAction(nameof(Users));
+        }
+        #endregion
 
     }
 }
