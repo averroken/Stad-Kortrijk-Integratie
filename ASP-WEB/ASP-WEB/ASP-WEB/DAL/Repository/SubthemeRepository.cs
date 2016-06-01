@@ -3,6 +3,7 @@ using ASP_WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,7 @@ namespace ASP_WEB.DAL.Repository
 
         public override Subtheme Insert(Subtheme subtheme)
         {
+            #region Comments
             /*
              public void AddContact(Contact contact)
         {
@@ -64,6 +66,8 @@ namespace ASP_WEB.DAL.Repository
             }
         }
              */
+            #endregion
+
             using (IntegratieContext context = new IntegratieContext())
             {
                 if (subtheme.Office != null)
@@ -78,28 +82,49 @@ namespace ASP_WEB.DAL.Repository
             }
             return subtheme;
             //return base.Insert(entity);
+
+
         }
-        //TODO: Waarschijnlijk fout
+
         public override void Update(Subtheme subtheme)
         {
-            //    using (IntegratieContext context = new IntegratieContext())
-            //    {
+            
+            //Volgens voorbeeld van Gunther
+            using (IntegratieContext context = new IntegratieContext())
+            {
 
-            //        var currentSubtheme = (from s in context.Subtheme.Include(s => s.Office)
-            //                               where s.SubthemeID == subtheme.SubthemeID
-            //                               select s).SingleOrDefault<Subtheme>();
-            //        currentSubtheme.Office.Clear();
-            //    }
-            //    using (IntegratieContext context = new IntegratieContext())
-            //    {
-            //        foreach (var office in subtheme.Office)
-            //        {
-            //            context.Entry<Office>(office).State = EntityState.Added;
-            //        }
-            //        context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
-            //        context.SaveChanges();
-            //    }
+                var currentSubtheme = (from s in context.Subtheme.Include(s => s.Office)
+                                       where s.SubthemeID == subtheme.SubthemeID
+                                       select s).SingleOrDefault<Subtheme>();
+                currentSubtheme.Office.Clear();
+                context.SaveChanges();
+            }
 
+            using (IntegratieContext context = new IntegratieContext())
+            {
+                
+                var currentSubtheme = context.Subtheme.AsNoTracking().Include(s => s.Office).Where(s => s.SubthemeID == subtheme.SubthemeID).FirstOrDefault();
+                foreach (var office in subtheme.Office)
+                {
+                    if (context.Entry<Office>(office).State == EntityState.Detached)
+                    {
+                        //context.objectContext.Detach(office);
+                        context.Office.Attach(office);
+                    }
+
+                    currentSubtheme.Office.Add(office);
+
+                }
+                context.SaveChanges();
+
+            }
+            using (IntegratieContext context = new IntegratieContext())
+            {
+                context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+
+            #region Comments
 
             //     public void UpdateContact(Contact contact)
             //{
@@ -110,24 +135,26 @@ namespace ASP_WEB.DAL.Repository
             //                              select c).SingleOrDefault<Contact>();
             //        currentContact.Departement.Clear();
             //        context.SaveChanges();
-            using (IntegratieContext context = new IntegratieContext())
-            {
-                var currentSubtheme = (from c in context.Subtheme.Include(c => c.Office)
-                                       where c.SubthemeID == subtheme.SubthemeID
-                                       select c).SingleOrDefault<Subtheme>();
-                currentSubtheme.Office.Clear();
-                context.SaveChanges();
-            }
-            using (IntegratieContext context = new IntegratieContext())
-            {
-                //if (subtheme.Office == null) subtheme.Office = new List<Office>();
-                foreach (var dep in subtheme.Office)
-                {
-                    context.Entry<Office>(dep).State = EntityState.Added;
-                    context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
-                    context.SaveChanges();
-                }
-            }
+            //using (IntegratieContext context = new IntegratieContext())
+            //{
+            //    var currentSubtheme = (from c in context.Subtheme.Include(c => c.Office)
+            //                           where c.SubthemeID == subtheme.SubthemeID
+            //                           select c).SingleOrDefault<Subtheme>();
+            //    currentSubtheme.Office.Clear();
+            //    context.SaveChanges();
+            //}
+            //if (subtheme.Office != null)
+            //{
+            //    using (IntegratieContext context = new IntegratieContext())
+            //    {
+            //        //if (subtheme.Office == null) subtheme.Office = new List<Office>();
+            //        foreach (var dep in subtheme.Office)
+            //        {
+            //            context.Entry<Office>(dep).State = EntityState.Added;
+            //            context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
+            //            context.SaveChanges();
+            //        }
+            //    }
 
             //    }
 
@@ -140,7 +167,11 @@ namespace ASP_WEB.DAL.Repository
             //    }
 
             //}
-            // base.Update(entityToUpdate);
+            //         base.Update(entityToUpdate);
+            //    }
+            //}
+            #endregion
+
         }
         public override void Delete(object id)
         {
@@ -156,5 +187,7 @@ namespace ASP_WEB.DAL.Repository
             }
             // base.Delete(entityToDelete);
         }
+
+
     }
 }

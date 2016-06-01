@@ -11,15 +11,16 @@ namespace ASP_WEB.Models
     {
         public int OfficeID { get; set; }
         public string Name { get; set; }
-        //[Url]
+        [Url]
         public string URL { get; set; }
         public string Street { get; set; }
         public string HouseNumber { get; set; }
         public int ZipCode { get; set; }
         public string City { get; set; }
+        //[Phone]
         public string PhoneNumber { get; set; }
         public string OpeningHours { get; set; }
-        //[EmailAddress]
+        [EmailAddress]
         public string EmailAddress { get; set; }
         public virtual ICollection<Subtheme> Subtheme { get; set; }
     }

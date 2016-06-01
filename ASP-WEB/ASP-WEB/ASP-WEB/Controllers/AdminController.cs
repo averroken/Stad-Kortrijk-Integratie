@@ -1,8 +1,12 @@
 ﻿using ASP_WEB.DAL.Repository;
 using ASP_WEB.Models;
+<<<<<<< HEAD
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+=======
+using Microsoft.Ajax.Utilities;
+>>>>>>> master
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -166,7 +170,7 @@ namespace ASP_WEB.Controllers
             vm.themes = repoTheme.All().ToList();
             return View(vm);
         }
-        //TODO Repository in orde maken
+        
         [HttpPost]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
@@ -174,6 +178,7 @@ namespace ASP_WEB.Controllers
             vm.subtheme = new Subtheme();
             vm.subtheme.OfficeID = new List<int>();
             vm.subtheme.SubthemeID = Convert.ToInt32(frm[nameof(vm.subtheme.SubthemeID)]);
+            #region Foto Bijwerken
             if (file != null)
             {
 
@@ -190,27 +195,33 @@ namespace ASP_WEB.Controllers
                 blockBlob.UploadFromStream(file.InputStream);
 
             }
-
+            else
+            {
+                vm.subtheme.FotoURL = repoSubtheme.GetByID(vm.subtheme.SubthemeID).FotoURL;
+            }
+            #endregion
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
+            if (frm.AllKeys.Contains("OfficeIDs"))
+            {
+                foreach (var item in frm.GetValues("OfficeIDs"))
+                {
+                    vm.subtheme.OfficeID.Add(Convert.ToInt32(item));
+                }
 
-            foreach (var item in frm.GetValues("OfficeIDs"))
-            {
-                vm.subtheme.OfficeID.Add(Convert.ToInt32(item));
+                if (vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
+                foreach (var item in vm.subtheme.OfficeID)
+                {
+                    vm.subtheme.Office.Add(repoOffice.GetByID(item));
+                }
             }
-            if (vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
-            foreach (var item in vm.subtheme.OfficeID)
-            {
-                vm.subtheme.Office.Add(repoOffice.GetByID(item));
-            }
+            
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
             repoSubtheme.Update(vm.subtheme);
 
             repoSubtheme.SaveChanges();
-
-
+            
             return RedirectToAction(nameof(Subthemes));
-
 
         }
 
@@ -238,7 +249,7 @@ namespace ASP_WEB.Controllers
                 vm.subtheme.OfficeID.Add(item);
             }
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
-
+            #region Foto Bijwerken
             if (file != null)
             {
 
@@ -255,6 +266,7 @@ namespace ASP_WEB.Controllers
                 blockBlob.UploadFromStream(file.InputStream);
 
             }
+            #endregion
             repoSubtheme.Insert(vm.subtheme);
             repoSubtheme.SaveChanges();
 
