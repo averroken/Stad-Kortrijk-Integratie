@@ -99,7 +99,6 @@ namespace ASP_WEB.Migrations
                         }
                     }
                 }
-
             }
             
             using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\SubthemaCSV1.txt"))

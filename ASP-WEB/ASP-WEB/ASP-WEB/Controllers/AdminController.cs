@@ -1,12 +1,15 @@
 ﻿using ASP_WEB.DAL.Repository;
 using ASP_WEB.Models;
+using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using ASP_WEB.Helper;
 
 namespace ASP_WEB.Controllers
 {
@@ -460,8 +463,71 @@ namespace ASP_WEB.Controllers
         #endregion
 
         #region Users and Roles
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
 
+        [HttpGet]
+        public ActionResult GetAllUsers()
+        {
+            List<User> lstUsers = new List<User>();
+            var userlijst = UserManager.Users.ToList();
+            foreach (var user in userlijst)
+            {
+                User newUser = new User();
+                newUser.Id = user.Id;
+                newUser.Email = user.Email;
+                newUser.UserName = user.UserName;
+                newUser.Pass = user.PasswordHash;
+                var inrole = UserManager.IsInRole(newUser.Id, "Admin");
+                if (inrole)
+                {
+                    newUser.IsAdmin = true;
+                } else
+                {
+                    newUser.IsAdmin = false;
+                }
+                if (!String.IsNullOrEmpty(newUser.Pass))
+                {
+                    lstUsers.Add(newUser);
+                }
+            }
+            return View(lstUsers);
+        }
+
+        [HttpGet]
+        public ActionResult DeleteUser(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                UserManager.RemovePassword(id);
+            }
+            return RedirectToAction("GetAllUsers");
+        }
+
+        [HttpGet]
+        public ActionResult ToAdminrol(string id)
+        {
+            IdentityResult removeFromRole = UserManager.RemoveFromRole(id, Roles.GEBRUIKER);
+            UserManager.AddToRole(id, Roles.ADMINISTRATOR);
+            return RedirectToAction("GetAllUsers");
+        }
+
+        public ActionResult ToGebruikerrol(string id)
+        {
+            IdentityResult removeFromRole = UserManager.RemoveFromRole(id, Roles.ADMINISTRATOR);
+            UserManager.AddToRole(id, Roles.GEBRUIKER);
+            return RedirectToAction("GetAllUsers");
+        }
         #endregion
-
     }
 }

@@ -207,6 +207,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SubthemeController.cs" />
+    <Compile Include="DAL\Repository\AdminRepository.cs" />
     <Compile Include="DAL\Repository\FaqRepository.cs" />
     <Compile Include="DAL\Repository\GenericRepository.cs" />
     <Compile Include="DAL\Repository\IGenericRepository.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Roles.cs" />
     <Compile Include="Migrations\201605311144423_Init2.cs" />
     <Compile Include="Migrations\201605311144423_Init2.Designer.cs">
       <DependentUpon>201605311144423_Init2.cs</DependentUpon>
@@ -229,6 +231,7 @@
     <Compile Include="Models\Subtheme.cs" />
     <Compile Include="Models\SubthemesEditViewModel.cs" />
     <Compile Include="Models\Theme.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -324,6 +327,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\CreateSubtheme.cshtml" />
     <Content Include="Views\Admin\DetailsFaq.cshtml" />
+    <Content Include="Views\Admin\GetAllUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
