@@ -351,7 +351,7 @@ C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\bin\ru\System.Spatial.r
 C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\bin\zh-Hans\System.Spatial.resources.dll
 C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\bin\zh-Hant\System.Spatial.resources.dll
 C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.csprojResolveAssemblyReference.cache
-C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP_WEB.Migrations.Init2.resources
-C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.csproj.GenerateResource.Cache
 C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.dll
 C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.pdb
+C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP_WEB.Migrations.initdb.resources
+C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.csproj.GenerateResource.Cache

@@ -207,7 +207,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SubthemeController.cs" />
-    <Compile Include="DAL\Repository\AdminRepository.cs" />
     <Compile Include="DAL\Repository\FaqRepository.cs" />
     <Compile Include="DAL\Repository\GenericRepository.cs" />
     <Compile Include="DAL\Repository\IGenericRepository.cs" />
@@ -216,9 +215,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\Roles.cs" />
-    <Compile Include="Migrations\201605311144423_Init2.cs" />
-    <Compile Include="Migrations\201605311144423_Init2.Designer.cs">
-      <DependentUpon>201605311144423_Init2.cs</DependentUpon>
+    <Compile Include="Migrations\201606010753259_initdb.cs" />
+    <Compile Include="Migrations\201606010753259_initdb.Designer.cs">
+      <DependentUpon>201606010753259_initdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -338,8 +337,8 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605311144423_Init2.resx">
-      <DependentUpon>201605311144423_Init2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606010753259_initdb.resx">
+      <DependentUpon>201606010753259_initdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
