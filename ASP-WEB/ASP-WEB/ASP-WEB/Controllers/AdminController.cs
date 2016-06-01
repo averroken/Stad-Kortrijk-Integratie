@@ -1,12 +1,9 @@
 ﻿using ASP_WEB.DAL.Repository;
 using ASP_WEB.Models;
-<<<<<<< HEAD
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-=======
 using Microsoft.Ajax.Utilities;
->>>>>>> master
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;

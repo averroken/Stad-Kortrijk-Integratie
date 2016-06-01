@@ -498,3 +498,4 @@ C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\AS
 C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.dll
 C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.pdb
 >>>>>>> master
+C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\obj\Debug\ASP_WEB.Migrations.initdb.resources
