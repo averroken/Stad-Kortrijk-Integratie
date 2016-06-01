@@ -8,9 +8,11 @@ namespace ASP_WEB.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Data.SqlClient;
+    using System.Diagnostics;
     using System.IO;
     using System.Linq;
-
+    using System.Net;
+    using System.Text;
     internal sealed class Configuration : DbMigrationsConfiguration<ASP_WEB.DAL.Context.IntegratieContext>
     {
         public Configuration()
@@ -32,12 +34,12 @@ namespace ASP_WEB.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
+            if (!Debugger.IsAttached) Debugger.Launch();
             AddData(context);
         }
         private void AddData(IntegratieContext context)
         {
-            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\ThemaCSV1.txt"))
+            using (StreamReader sr = new StreamReader(@"C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\ThemaCSV1.txt"))
             {
                 string line;
                 sr.ReadLine();
@@ -49,7 +51,7 @@ namespace ASP_WEB.Migrations
                 context.SaveChanges();
             }
 
-            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\DienstCSV1.txt"))
+            using (StreamReader sr = new StreamReader(@"C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\DienstCSV1.txt"))
             {
                 string line;
                 sr.ReadLine();
@@ -73,36 +75,9 @@ namespace ASP_WEB.Migrations
                 }
                 context.SaveChanges();
             }
-            
-            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\DienstSubthemaCSV1.txt"))
-            {
-                string line;
-                string CONNECTIONSTRING = ConfigurationManager.ConnectionStrings["IntegratieContext"].ConnectionString;
-                
-                sr.ReadLine();
-                while ((line = sr.ReadLine()) != null)
-                {
-                    string[] linesplit = line.Split(';');
-                    using (SqlConnection connection = new SqlConnection(CONNECTIONSTRING))
-                    {
-                        connection.Open();
-                        using (SqlCommand command = new SqlCommand())
-                        {
-                            command.Connection = connection;
-                            string sql = "INSERT INTO OfficeSubthemes VALUES (@Office_OfficeID, @Subtheme_SubthemeID);select @@IDENTITY";
-                            command.CommandText = sql;
 
-                            command.Parameters.AddWithValue("@Office_OfficeID", Convert.ToInt32(linesplit[1]));
-                            command.Parameters.AddWithValue("@Subtheme_SubthemeID", Convert.ToInt32(linesplit[2]));
-                            object result = command.ExecuteScalar();
-                            //return int.Parse(result.ToString());
-                        }
-                    }
-                }
-
-            }
-            
-            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\SubthemaCSV1.txt"))
+            Encoding targetEncoding = Encoding.GetEncoding(1252);         
+            using (StreamReader sr = new StreamReader(@"C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\SubthemaCSV1.txt", targetEncoding))
             {
                 string line;
                 sr.ReadLine();
@@ -128,14 +103,41 @@ namespace ASP_WEB.Migrations
                     context.Subtheme.AddOrUpdate<Subtheme>(o => o.ThemeID, new Subtheme()
                     {
                         ThemeID = Convert.ToInt32(linesplit[1]),
-                        Name = linesplit[2],
-                        Description = linesplit[3],
+                        Name = WebUtility.HtmlEncode(linesplit[2]),
+                        Description = WebUtility.HtmlEncode(linesplit[3]),
                         OfficeID = col,
                         FotoURL = linesplit[5]
                     });
                 }
                 context.SaveChanges();
             }
+
+            /*using (StreamReader sr = new StreamReader(@"C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\DienstSubthemaCSV1.txt"))
+            {
+                string line;
+                string CONNECTIONSTRING = ConfigurationManager.ConnectionStrings["IntegratieContext"].ConnectionString;
+
+                sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] linesplit = line.Split(';');
+                    using (SqlConnection connection = new SqlConnection(CONNECTIONSTRING))
+                    {
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand())
+                        {
+                            command.Connection = connection;
+                            string sql = "INSERT INTO OfficeSubthemes VALUES (@Office_OfficeID, @Subtheme_SubthemeID);select @@IDENTITY";
+                            command.CommandText = sql;
+
+                            command.Parameters.AddWithValue("@Office_OfficeID", Convert.ToInt32(linesplit[1]));
+                            command.Parameters.AddWithValue("@Subtheme_SubthemeID", Convert.ToInt32(linesplit[2]));
+                            object result = command.ExecuteScalar();
+                            //return int.Parse(result.ToString());
+                        }
+                    }
+                }
+            }*/
         }
     }
 }

@@ -214,9 +214,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605311144423_Init2.cs" />
-    <Compile Include="Migrations\201605311144423_Init2.Designer.cs">
-      <DependentUpon>201605311144423_Init2.cs</DependentUpon>
+    <Compile Include="Helper\Roles.cs" />
+    <Compile Include="Migrations\201606010753259_initdb.cs" />
+    <Compile Include="Migrations\201606010753259_initdb.Designer.cs">
+      <DependentUpon>201606010753259_initdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="Models\Subtheme.cs" />
     <Compile Include="Models\SubthemesEditViewModel.cs" />
     <Compile Include="Models\Theme.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -269,6 +271,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="SeedAntoon30-05.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -323,6 +326,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\CreateSubtheme.cshtml" />
     <Content Include="Views\Admin\DetailsFaq.cshtml" />
+    <Content Include="Views\Admin\GetAllUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -333,8 +337,8 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605311144423_Init2.resx">
-      <DependentUpon>201605311144423_Init2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606010753259_initdb.resx">
+      <DependentUpon>201606010753259_initdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
