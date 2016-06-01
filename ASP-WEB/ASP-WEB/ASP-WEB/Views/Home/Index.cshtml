@@ -4,38 +4,59 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Content/css")
+@Scripts.Render("~/bundles/scripts")
+<div class="wrapper">
+    <div class="banner">
+        <img src="https://integratiekortrijk.blob.core.windows.net/images/Kortrijk_logo_rgb_klein.jpg" alt="" class="imageBanner">
+    </div>
+    <div class="content">
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'nl', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+    <div class="input-group inputSearch">
+        <input type="text" class="form-control" placeholder="Zoek voor...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Zoeken!</button>
+        </span>
+    </div><!-- /input-group -->
+    <div class="container-fluid">
+        <div class="row imgSocial">
+            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/iconFacebook.png" alt="">
+            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/iconGooglemaps.png" alt="">
+            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/iconTwitter.png" alt="">
+        </div>
+    </div>
+    <div id="homepageP1">
+    </div>
+    <div id="containerIcons">
+        <div class="rijIcons row">
+            @foreach (var item in Model)
+            {
+                <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
+                    <img class="thumbnail img-responsive" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto">
+                    <div class="caption">
+                        <p>@item.Name</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <footer style="font-size: 0.8em;">
+        <div style="height: 1px; background-color:black;">
 
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FotoURL)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <img src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name" />
-            </td>
-            <td>
-                @*Html.ActionLink("Edit", "Edit", new { id=item.ThemeID }) |*@
-                @Html.ActionLink("Details", "Details", new { id = item.ThemeID })
-                @*Html.ActionLink("Delete", "Delete", new { id=item.ThemeID })*@
-            </td>
-        </tr>
-    }
-
-</table>
+        </div>
+        <p>Stad Kortrijk - Grote Markt 54 - 8500 Kortrijk</p>
+        <p>1777@kortrijk.be</p>
+        <p>1777 (gratis)</p>
+        <img src="#" alt="Alternate Text" />
+        <img src="#" alt="Alternate Text" />
+    </footer>
+</div>
