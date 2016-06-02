@@ -10,12 +10,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace ASP_WEB.Controllers
 {
     //[Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
+        private const int pageSize = 5;
+
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
         GenericRepository<Office> repoOffice = new GenericRepository<Office>();
         SubthemeRepository repoSubtheme = new SubthemeRepository();
@@ -31,12 +34,13 @@ namespace ASP_WEB.Controllers
         {
             return View();
         }
-        //DONE
+
         #region Themes
-        public ActionResult Themes()
+        public ActionResult Themes(int? page)
         {
             IEnumerable<Theme> themes = repoTheme.All();
-            return View(themes);
+            int pageNumber = (page ?? 1);
+            return View(themes.OrderBy(i => i.ThemeID).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult EditTheme(int? id)
@@ -86,16 +90,25 @@ namespace ASP_WEB.Controllers
         {
             Theme theme = new Theme();
             theme.Name = frm["name"];
-            string[] url = file.FileName.Split('.');
-            theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+            if (file != null)
+            {
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
+                container.CreateIfNotExists();
+
+                string[] url = file.FileName.Split('.');
+                //oude fotourl
+                if (theme.FotoURL == null) theme.FotoURL = "123";
+                CloudBlockBlob oudeBlob = container.GetBlockBlobReference(theme.FotoURL);
+                oudeBlob.DeleteIfExists();
+                //nieuwe fotourl
+                theme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
+                blockBlob.UploadFromStream(file.InputStream);
+            }
             repoTheme.Insert(theme);
             repoTheme.SaveChanges();
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("images");
-            container.CreateIfNotExists();
-
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(theme.FotoURL);
-            blockBlob.UploadFromStream(file.InputStream);
             return RedirectToAction("Themes");
         }
         public ActionResult DetailsTheme(int? id)
@@ -135,10 +148,11 @@ namespace ASP_WEB.Controllers
         #endregion
 
         #region Subthemes
-        public ActionResult Subthemes()
+        public ActionResult Subthemes(int? page)
         {
             IEnumerable<Subtheme> subthemes = repoSubtheme.All();
-            return View(subthemes);
+            int pageNumber = (page ?? 1);
+            return View(subthemes.OrderBy(i => i.SubthemeID).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult EditSubtheme(int? id)
@@ -155,7 +169,6 @@ namespace ASP_WEB.Controllers
             vm.themes = repoTheme.All().ToList();
             return View(vm);
         }
-        //TODO EditSubtheme
         [HttpPost]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
@@ -163,6 +176,7 @@ namespace ASP_WEB.Controllers
             vm.subtheme = new Subtheme();
             vm.subtheme.OfficeID = new List<int>();
             vm.subtheme.SubthemeID = Convert.ToInt32(frm[nameof(vm.subtheme.SubthemeID)]);
+            #region Foto Bijwerken
             if (file != null)
             {
 
@@ -179,18 +193,20 @@ namespace ASP_WEB.Controllers
                 blockBlob.UploadFromStream(file.InputStream);
 
             }
-
+            #endregion
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
             foreach (int item in frm["OfficeID[]"])
             {
                 vm.subtheme.OfficeID.Add(item);
             }
+
             if (vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
             foreach (var item in vm.subtheme.OfficeID)
             {
                 vm.subtheme.Office.Add(repoOffice.GetByID(item));
             }
+
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
             repoSubtheme.Update(vm.subtheme);
 
@@ -201,7 +217,7 @@ namespace ASP_WEB.Controllers
 
 
         }
-        //TODO Check
+
         public ActionResult CreateSubtheme()
         {
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
@@ -214,13 +230,9 @@ namespace ASP_WEB.Controllers
         [HttpPost]
         public ActionResult CreateSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
-
-
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
             vm.subtheme = new Subtheme();
             vm.subtheme.OfficeID = new List<int>();
-            string[] url = file.FileName.Split('.');
-            vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             foreach (int item in frm[nameof(vm.subtheme.OfficeID)])
@@ -228,19 +240,29 @@ namespace ASP_WEB.Controllers
                 vm.subtheme.OfficeID.Add(item);
             }
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
+            #region Foto Bijwerken
+            if (file != null)
+            {
+
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
+                container.CreateIfNotExists();
+                if (vm.subtheme.FotoURL == null) vm.subtheme.FotoURL = "123";
+                CloudBlockBlob oudeBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+                oudeBlob.DeleteIfExists();
+
+                string[] url = file.FileName.Split('.');
+                vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+                blockBlob.UploadFromStream(file.InputStream);
+
+            }
+            #endregion
             repoSubtheme.Insert(vm.subtheme);
             repoSubtheme.SaveChanges();
-
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("images");
-            container.CreateIfNotExists();
-
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
-            blockBlob.UploadFromStream(file.InputStream);
-
             return RedirectToAction(nameof(Subthemes));
         }
-        //TODO Check
+
         public ActionResult DetailsSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -251,8 +273,7 @@ namespace ASP_WEB.Controllers
             Subtheme subtheme = repoSubtheme.GetByID(ID);
             return View(subtheme);
         }
-        //TODO Check
-        [HttpPost]
+
         public ActionResult DeleteSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -278,10 +299,12 @@ namespace ASP_WEB.Controllers
         #endregion
 
         #region Office
-        public ActionResult Offices()
+        public ActionResult Offices(int? page)
         {
             IEnumerable<Office> offices = repoOffice.All();
-            return View(offices);
+            int pageNumber = (page ?? 1);
+
+            return View(offices.OrderBy(i => i.OfficeID).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult EditOffice(int? id)
@@ -365,9 +388,11 @@ namespace ASP_WEB.Controllers
 
         #region FAQ
 
-        public ActionResult Faqs()
+        public ActionResult Faqs(int? page)
         {
-            return View(repoFaq.All());
+            IEnumerable<Faq> Faq = repoFaq.All();
+            int pageNumber = (page ?? 1);
+            return View(Faq.OrderBy(f => f.FaqID).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult CreateFaq()
@@ -405,7 +430,7 @@ namespace ASP_WEB.Controllers
             return View(vm);
 
         }
-
+        [HttpPost]
         public ActionResult EditFaq(FormCollection frm)
         {
             Faq faq = new Faq();
@@ -415,7 +440,7 @@ namespace ASP_WEB.Controllers
             faq.SubthemeID = Convert.ToInt32(frm[nameof(faq.SubthemeID)]);
             faq.ThemeID = Convert.ToInt32(frm[nameof(faq.ThemeID)]);
             repoFaq.Update(faq);
-
+            repoFaq.SaveChanges();
             return RedirectToAction(nameof(Faqs));
         }
         public ActionResult DeleteFaq(int? id)
@@ -426,8 +451,21 @@ namespace ASP_WEB.Controllers
             }
             int ID = (int)id;
             repoFaq.Delete(ID);
+            repoFaq.SaveChanges();
 
             return RedirectToAction(nameof(Faqs));
+        }
+
+        public ActionResult DetailsFaq(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(Faqs));
+            }
+            int ID = (int)id;
+            Faq faq = new Faq();
+            faq = repoFaq.GetByID(ID);
+            return View(faq);
         }
         #endregion
 
@@ -459,7 +497,7 @@ namespace ASP_WEB.Controllers
                 if (inrole) user.IsAdmin = true;
                 else user.IsAdmin = false;
                 if (!String.IsNullOrWhiteSpace(gebruiker.PasswordHash)) vm.Add(user);
-                
+
             }
             return View(vm);
         }
@@ -479,7 +517,7 @@ namespace ASP_WEB.Controllers
             {
                 IdentityResult removeFromRole = UserManager.RemoveFromRole(id, Roles.USER.ToString());
                 UserManager.AddToRole(id, Roles.ADMINISTRATOR.ToString());
-                
+
             }
             return RedirectToAction(nameof(Users));
         }

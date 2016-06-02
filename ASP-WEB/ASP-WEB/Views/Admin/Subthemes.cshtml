@@ -1,5 +1,7 @@
-﻿@model IEnumerable<ASP_WEB.Models.Subtheme>
+﻿@model PagedList.IPagedList<ASP_WEB.Models.Subtheme>
+@using PagedList.Mvc;
 
+@Styles.Render("~/Content/PagedList")
 @{
     ViewBag.Title = "Subthemes";
 }
@@ -12,40 +14,42 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Theme.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Theme.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FotoURL)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().FotoURL)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Theme.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FotoURL)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditSubtheme", new { id=item.SubthemeID }) |
-            @Html.ActionLink("Details", "DetailsSubtheme", new { id=item.SubthemeID }) |
-            @Html.ActionLink("Delete", "DeleteSubtheme", new { id=item.SubthemeID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Theme.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FotoURL)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditSubtheme", new { id = item.SubthemeID }) |
+                @Html.ActionLink("Details", "DetailsSubtheme", new { id = item.SubthemeID }) |
+                @Html.ActionLink("Delete", "DeleteSubtheme", new { id = item.SubthemeID })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager(Model, page => Url.Action("Subthemes", new { page }))

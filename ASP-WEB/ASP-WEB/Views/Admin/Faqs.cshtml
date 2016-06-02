@@ -1,5 +1,6 @@
-﻿@model IEnumerable<ASP_WEB.Models.Faq>
-
+﻿@model PagedList.IPagedList<ASP_WEB.Models.Faq>
+@using PagedList.Mvc;
+@Styles.Render("~/Content/PagedList")
 @{
     ViewBag.Title = "Faqs";
 }
@@ -12,40 +13,42 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Theme.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Theme.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Subtheme.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Subtheme.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Question)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Question)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Answer)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Answer)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Theme.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subtheme.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Question)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Answer)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FaqID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FaqID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FaqID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Theme.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtheme.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FaqID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FaqID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FaqID })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager(Model, page => Url.Action("Faqs", new { page }))
