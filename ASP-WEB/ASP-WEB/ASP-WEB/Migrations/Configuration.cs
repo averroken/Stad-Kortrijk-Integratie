@@ -1,6 +1,8 @@
 namespace ASP_WEB.Migrations
 {
     using DAL.Context;
+    using Helper;
+    using Microsoft.AspNet.Identity;
     using Models;
     using System;
     using System.Collections.Generic;
@@ -138,6 +140,7 @@ namespace ASP_WEB.Migrations
                     }
                 }
             }*/
+
         }
     }
 }
