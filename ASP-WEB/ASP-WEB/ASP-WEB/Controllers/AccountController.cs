@@ -10,6 +10,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ASP_WEB.Models;
 using ASP_WEB.Helper;
+using System.Configuration;
+using System.Data.SqlClient;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ASP_WEB.Controllers
 {
@@ -156,6 +159,19 @@ namespace ASP_WEB.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+                    if (!roleManager.RoleExists(Roles.GEBRUIKER))
+                    {
+                        var role = new IdentityRole();
+                        role.Name = Roles.GEBRUIKER;
+                        roleManager.Create(role);
+                    }
+                    if (!roleManager.RoleExists(Roles.ADMINISTRATOR))
+                    {
+                        var role = new IdentityRole();
+                        role.Name = Roles.ADMINISTRATOR;
+                        roleManager.Create(role);
+                    }
                     UserManager.AddToRole(user.Id, Roles.GEBRUIKER);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

@@ -37,5 +37,10 @@ namespace ASP_WEB.Controllers
             return View(subtheme);
 
         }
+
+        public ActionResult Edit(int? id)
+        {
+            return View();
+        }
     }
 }
