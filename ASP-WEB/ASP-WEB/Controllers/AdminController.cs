@@ -196,11 +196,18 @@ namespace ASP_WEB.Controllers
             #endregion
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
-            foreach (int item in frm["OfficeID[]"])
-            {
-                vm.subtheme.OfficeID.Add(item);
-            }
 
+            if (frm["OfficeIDs"] != null)
+            {
+                foreach (int item in frm["OfficeIDs"])
+                {
+                    vm.subtheme.OfficeID.Add(item);
+                }
+            }
+            else
+            {
+                vm.subtheme.OfficeID = new List<int>();
+            }
             if (vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
             foreach (var item in vm.subtheme.OfficeID)
             {

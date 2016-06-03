@@ -46,8 +46,12 @@ namespace ASP_WEB.Controllers
 
         public ActionResult FAQ()
         {
-            IEnumerable<Faq> faq = repoFaq.All().OrderBy(f => f.SubthemeID).OrderBy(f=>f.Theme);
-            return View(faq);
+            FaqSubtheme vm = new FaqSubtheme();
+            List<Faq> faq = repoFaq.All().OrderBy(f => f.SubthemeID).OrderBy(f=>f.Theme).ToList();
+            vm.Faq = faq;
+            List<Theme> themes = repoTheme.All().ToList();
+            vm.Theme = themes;
+            return View(vm);
         }
 
         public ActionResult Search(string searchString)

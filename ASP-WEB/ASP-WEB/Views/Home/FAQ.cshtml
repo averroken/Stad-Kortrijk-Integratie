@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ASP_WEB.Models.Faq>
+﻿@model ASP_WEB.Models.FaqSubtheme
 
 @{
     ViewBag.Title = "FAQ";
@@ -12,26 +12,27 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Theme)
+            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().ThemeID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Subtheme)
+            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().SubthemeID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Question)
+            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().Question)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Answer)
+            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().Answer)
         </th>
         <th></th>
     </tr>
-@foreach (var item in Model) {
+
+@foreach (var item in Model.Faq) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Theme.Name)
+            @Html.DisplayFor(modelItem => item.ThemeID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Subtheme.Name)
+            @Html.DisplayFor(modelItem => item.SubthemeID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Question)
