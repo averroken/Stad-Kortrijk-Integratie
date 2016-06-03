@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" id="navigatieBalk">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,26 +17,57 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="banner">
+                    <img src="~/Content/Kortrijk_logo_rgb_klein.png" alt="" class="imageBanner">
+                </div>
+                <!--             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })-->
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse navText">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Thema's", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Stadsplan", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Veelgestelde vragen", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <div class="col-md-4 mediaSocial">
+                    <div class="row">
+                        <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" alt="">
+                        <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/facebookCircle.png" alt="">
+                        <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/twitterCircle.png" alt="">
+                    </div>
+                </div>
+                <div class="vertalen">
+                    <div id="google_translate_element"></div>
+                </div>
+                @*html.Partial("_LoginPartial")*@
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
-
+    <footer style="font-size: 0.8em;">
+        <div class="container">
+            <div>
+                <p>Stad Kortrijk - Grote Markt 54 - 8500 Kortrijk</p>
+            </div>
+            <div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="footerContact">
+                            <p>1777@kortrijk.be</p>
+                            <img src="#" alt="Alternate Text" class="footerImages" />
+                        </div>
+                        <div class="footerContact">
+                            <img src="#" alt="Alternate Text" class="footerImages" />
+                            <p>1777 (gratis)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

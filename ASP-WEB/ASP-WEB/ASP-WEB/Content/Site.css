@@ -1,9 +1,50 @@
-﻿/*.banner {
-    text-align: center;
+﻿/*#region first page*/
+.thumbnail {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border: none;
+    padding: 0;
+    background-color: none;
+    box-shadow: 2px 2px 5px #888888;
 }
 
+    .thumbnail:hover {
+        background-color: #626350;
+    }
+
 body {
-    background: url(/Content/assets/bgPattern.png);
+    background: url(/Content/bgPattern.png);
+}
+
+.wrapper {
+    margin-top: 70px;
+}
+
+.thumbnail p {
+    margin: 0 auto;
+}
+
+.themaIcons {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+    .themaIcons p {
+        margin: 10px 0 10px;
+    }
+
+.banner {
+    text-align: center;
+    box-shadow: 0 4px 4px -5px #333;
+}
+
+    .banner img {
+        width: 120px;
+        height: 40px;
+    }
+
+body {
 }
 
 .input-group {
@@ -11,112 +52,87 @@ body {
 }
 
 .content {
+    height: 5px;
     text-align: center;
 }
 
-.imgSocial {
-    text-align: center;
+.navbar-nav > li > a {
+    padding-top: 23px;
+    padding-bottom: 15px;
+}
+
+.imageBanner {
+    margin-top: 11px;
 }
 
 .mediaImages {
-    height: 25px;
+    float: left;
+    margin: 2px;
+}
+.goog-te-gadget {
+    white-space: normal;
+}
+.navText {
+    color: #626250;
+    font-weight: bold;
+}
+
+.mediaSocial {
+    height: 70px;
+    float: right;
+    margin-top: 19px;
+}
+
+.vertalen {
+    margin: 0;
+    float: right;
+}
+
+.mediaImages {
+    width: 15px;
+    height: 15px;
     margin: 5px;
 }
 
-.row {
-    text-align: center;
+.rowSocial {
+    width: 223px;
+    height: 30px;
 }
 
-.navbar {
-    display: none;
+.footerContent {
+    height: 50px;
+    background-color: #e8eddc;
 }
 
-.content div {
-    margin: 0 auto;
-    margin: 10px;
+.footerImages {
+    width: 15px;
+    height: 15px;
+    float: left;
+}
+
+.footerContent p {
+}
+
+.footerContact p {
+    float: right;
+}
+
+.footerContact {
+    width: 250px;
 }
 
 footer {
     text-align: center;
     color: black;
     font-size: 1.0em;
+    box-shadow: 0 -4px 4px -5px #333;
 }
 
-#homepageP1 {
-    background-color: black;
-    height: 1px;
-    width: 100%;
+.inputSearch span button {
+    background-color: #E32119;
+    color: white;
 }
-
-.themaIcons {
-    float: left;
-}
-
-    .themaIcons p {
-        margin-bottom: 10px;
-    }
-
-    .themaIcons img {
-        margin: 0 auto;
-    }
-
-#containerIcons {
-    text-align: center;
-    margin: 10px;
-    width: auto;
-    display: block;
-}
-
-.rijIcons {
-    display: inline-block;
-}
-
-.thumbnail {
-    margin: 15px;
-    width: 50px;
-}
-
-.themaIcons {
-    margin: 15px;
-    height: auto;
-    width: 80px;
-    font-size: 0.9em;
-}
-
-.caption {
-    font-size: 0.8em;
-    width: auto;
-    height: auto;
-}
-
-.onderwerpTekst {
-    font-size: 0.8em;
-    width: auto;
-    height: auto;
-}
-
-.contentOnderwerp {
-    width: auto;
-    height: 310px;
-}
-
-.onderwerpImage {
-    width: 100px;
-    height: 100px;
-}
-
-.onderwerpContent {
-    width: 250px;
-    height: auto;
-    float: left;
-    margin: 10px;
-}
-
-.onderwerkTekst {
-    width: auto;
-    height: auto;
-}
-
+/*#endregion*/
 #nav {
     float: left;
     width: 100%;
@@ -131,6 +147,7 @@ footer {
             padding: 10px 15px;
             text-decoration: none;
             color: #000;
+            box-shadow: 2px 2px 5px #888888;
             border: 1px solid grey;
             border-radius: 5px 5px 0 0;
         }
@@ -168,7 +185,6 @@ footer {
 
     .themes ul {
         list-style-type: none;
-        border: 1px solid grey;
         padding: 0;
     }
 
@@ -196,205 +212,6 @@ footer {
     margin: 0 auto;
 }
 
-@media (max-width: 550px) {
-    .imageBanner {
-        width: 100%;
-    }
-}
-
-@media(min-width: 500px) {
-    .themaIcons {
-        margin: 34px;
-    }
-}
-
-@media(min-width: 650px) {
-    .onderwerpTekst {
-        font-size: 1.0em;
-    }
-
-    .onderwerpImage {
-        width: 200px;
-        height: 200px;
-    }
-}
-
-@media(min-width:320px) {
-    .themaIcons {
-        margin: 34px;
-        height: 80px;
-    }
-
-    .imageBanner {
-        width: 120px;
-        height: 40px;
-    }
-}
-
-@media(min-width: 360px) {
-    .themaIcons {
-        margin: 2px;
-    }
-}
-
-@media(min-width:411px) {
-    .themaIcons {
-        margin: 5px;
-    }
-}
-
-@media(min-width: 414px) {
-    .themaIcons {
-        margin: 9px;
-    }
-}
-
-@media(min-width:508px) {
-    .themaIcons {
-        margin: 20px;
-    }
-}
-
-@media(min-width: 550px) {
-    .imageBanner {
-        width: 200px;
-        height: 67px;
-    }
-}
-
-@media(min-width:620px) {
-    .themaIcons {
-        margin: 32px;
-    }
-}
-
-@media(min-width: 740px) {
-    .themaIcons {
-        margin: 38px;
-    }
-}
-
-@media(min-width: 768px) {
-    .imageBanner {
-        margin: 0 auto;
-    }
-
-    .mediaImages {
-        height: 50px;
-        margin: 10px 33px 10px 33px;
-    }
-
-    .themaIcons {
-        font-size: 1.2em;
-    }
-}
-
-@media(min-width:950px) {
-    .themaIcons {
-        width: 110px;
-        margin: 64px;
-    }
-
-    .thumbnail {
-        width: 110px;
-    }
-}
-
-@media (min-width: 992px) {
-    .wrapper {
-        width: 900px;
-        margin: 0 auto;
-    }
-
-    .inputSearch {
-        width: 890px;
-        margin: 0 auto;
-    }
-
-    .col-md-3 {
-        float: none;
-    }
-
-    .themaIcons {
-        width: 110px;
-        height:110px;
-        margin: 55px;
-    }
-
-    .thumbnail {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-@media (min-width: 1200px) {
-}
-
-@media only screen and (min-device-width: 414px) and (max-device-height: 736px)and (orientation : landscape) and (-webkit-device-pixel-ratio: 2) {
-    .themaIcons {
-        margin: 22px;
-    }
-}
-
-/* iPads (portrait and landscape) ----------- */
-/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    /* Styles */
-/* .themaIcons {
-        width: 110px;
-        height: 110px;
-    }
-}*/
-.thumbnail {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
-}
-
-    .thumbnail p {
-        margin: 0 auto;
-    }
-
-.themaIcons {
-    text-align: center;
-    font-size: 0.8em;
-}
-
-.banner {
-    text-align: center;
-}
-
-body {
-    background: url(/Content/assets/bgPattern.png);
-}
-
-.input-group {
-    margin: 0 15px 0 15px;
-}
-
-.content {
-    text-align: center;
-}
-
-.imgSocial {
-    text-align: center;
-}
-
-.mediaImages {
-    width: 25px;
-    margin: 5px;
-}
-
-footer {
-    text-align: center;
-    color: black;
-    font-size: 1.0em;
-}
-
-.inputSearch span button {
-    background-color: #E32119;
-    color: white;
-}
-
 @media (min-width: 768px) {
 }
 
@@ -409,9 +226,19 @@ footer {
     }
 
     .mediaImages {
-        width: 50px;
     }
 }
 
+#navigatieBalk {
+    background-color: #c2d197;
+    margin: 0;
+    height: 70px;
+    background: url(/Content/bgpatternHeader.png);
+    border: none;
+}
+
 @media (min-width: 1200px) {
+    .vertalen {
+        float: none;
+    }
 }

@@ -1,50 +1,63 @@
-﻿@model IEnumerable<ASP_WEB.Models.Faq>
+﻿@model ASP_WEB.Models.FaqSubtheme
 
 @{
     ViewBag.Title = "FAQ";
 }
-
-<h2>FAQ</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Theme)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Subtheme)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Question)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Answer)
-        </th>
-        <th></th>
-    </tr>
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Theme.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subtheme.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Question)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Answer)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FaqID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FaqID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FaqID })
-        </td>
-    </tr>
-}
-
-</table>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Content/css")
+@Scripts.Render("~/bundles/scripts")
+<script type="text/javascript" src="~/Scripts/Script.js"></script>
+<div class="wrapper">
+</div>
+    <div class="wrapperThemes">
+    <div id="containerIcons">
+        <div class="rijIcons row">
+            @foreach (var item in Model.Faq)
+            {
+                <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
+                    <img class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.Theme.FotoURL" alt="@item.Theme.Name Foto"><img class="image_off" src="" />
+                    <div class="caption">
+                        <p>@item.Theme.Name</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="dropdown">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Thema1</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Thema2</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Thema3</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Thema4</a></li>
+    </ul>
+</div>
+<div class="FAQVragen">
+    <ul id="nav">
+        <li style="margin-top: 20px;">
+            <a href="#">Dit is een vraag dat veelgesteld is geweest aan de integratiedienst ?</a>
+            <ul>
+                <li><a href="#">Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag</a></li>
+            </ul>
+        </li>
+        <li style="margin-top: 20px;">
+            <a href="#">Dit is een vraag dat veelgesteld is geweest aan de integratiedienst ?</a>
+            <ul>
+                <li><a href="#">Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag</a></li>
+            </ul>
+        </li>
+        <li style="margin-top: 20px;">
+            <a href="#">Dit is een vraag dat veelgesteld is geweest aan de integratiedienst ?</a>
+            <ul>
+                <li><a href="#">Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag</a></li>
+            </ul>
+        </li>
+        <li style="margin-top: 20px;">
+            <a href="#">Dit is een vraag dat veelgesteld is geweest aan de integratiedienst ?</a>
+            <ul>
+                <li><a href="#">Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

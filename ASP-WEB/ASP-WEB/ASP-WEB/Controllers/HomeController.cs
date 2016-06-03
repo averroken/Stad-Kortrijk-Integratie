@@ -31,14 +31,6 @@ namespace ASP_WEB.Controllers
             return RedirectToAction("Index", "Subtheme", new { id = id });
         }
 
-        public ActionResult List()
-        {
-            IEnumerable<Theme> Themes = new List<Theme>();
-            Themes = repoTheme.All();
-
-            return View(Themes);
-        }
-
         public ActionResult Map()
         {
             return View();
@@ -46,8 +38,12 @@ namespace ASP_WEB.Controllers
 
         public ActionResult FAQ()
         {
-            IEnumerable<Faq> faq = repoFaq.All().OrderBy(f => f.SubthemeID).OrderBy(f=>f.Theme);
-            return View(faq);
+            FaqSubtheme vm = new FaqSubtheme();
+            List<Faq> faq = repoFaq.All().OrderBy(f => f.SubthemeID).OrderBy(f => f.Theme).ToList();
+            vm.Faq = faq;
+            List<Theme> themes = repoTheme.All().ToList();
+            vm.Theme = themes;
+            return View(vm);
         }
 
         public ActionResult Search(string searchString)

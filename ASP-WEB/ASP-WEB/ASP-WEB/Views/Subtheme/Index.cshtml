@@ -3,49 +3,75 @@
 @{
     ViewBag.Title = "Index";
 }
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Content/css")
+@Scripts.Render("~/bundles/scripts")
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div class="wrapper">
+    <div class="content">
+    </div>
+    <div id="homepageP1">
+    </div>
+    <div id="containerIcons">
+        <div class="rijIcons row">
+            @foreach (var item in Model)
+            {
+                <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
+                    <img class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto"><img class="image_off" src="" />
+                    <div class="caption">
+                        <p>@item.Name</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--
+@*
+<h2>FAQ</h2>
 
-<h2>Index</h2>
-
-<!--<p>
+<p>
     @Html.ActionLink("Create New", "Create")
-</p>-->
+</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Theme)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Subtheme)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Theme.Name)
+            @Html.DisplayNameFor(model => model.Question)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FotoURL)
+            @Html.DisplayNameFor(model => model.Answer)
         </th>
         <th></th>
     </tr>
-
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Theme.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FotoURL)
+            @Html.DisplayFor(modelItem => item.Subtheme.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SubthemeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SubthemeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SubthemeID })
+            @Html.DisplayFor(modelItem => item.Question)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Answer)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FaqID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FaqID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FaqID })
         </td>
     </tr>
 }
 
 </table>
+*@    
+-->

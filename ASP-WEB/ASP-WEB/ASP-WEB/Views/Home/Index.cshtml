@@ -8,32 +8,10 @@
 @Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/Content/css")
 @Scripts.Render("~/bundles/scripts")
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <div class="wrapper">
-    <div class="banner">
-        <img src="https://integratiekortrijk.blob.core.windows.net/images/Kortrijk_logo_rgb_klein.jpg" alt="" class="imageBanner">
-    </div>
-    <div class="content">
-        <div id="google_translate_element"></div>
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({ pageLanguage: 'nl', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-            }
-        </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    </div>
-    <div class="input-group inputSearch">
-        <input type="text" class="form-control" placeholder="Zoek voor...">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Zoeken!</button>
-        </span>
-    </div><!-- /input-group -->
-    <div class="container-fluid">
-        <div class="row imgSocial">
-            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/iconFacebook.png" alt="">
-            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/iconGooglemaps.png" alt="">
-            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/iconTwitter.png" alt="">
-        </div>
-    </div>
+     <div class="content">
+     </div>
     <div id="homepageP1">
     </div>
     <div id="containerIcons">
@@ -41,7 +19,7 @@
             @foreach (var item in Model)
             {
                 <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
-                    <img class="thumbnail img-responsive" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto">
+                    <img class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto"><img class="image_off" src="" />
                     <div class="caption">
                         <p>@item.Name</p>
                     </div>
@@ -49,14 +27,4 @@
             }
         </div>
     </div>
-    <footer style="font-size: 0.8em;">
-        <div style="height: 1px; background-color:black;">
-
-        </div>
-        <p>Stad Kortrijk - Grote Markt 54 - 8500 Kortrijk</p>
-        <p>1777@kortrijk.be</p>
-        <p>1777 (gratis)</p>
-        <img src="#" alt="Alternate Text" />
-        <img src="#" alt="Alternate Text" />
-    </footer>
 </div>
