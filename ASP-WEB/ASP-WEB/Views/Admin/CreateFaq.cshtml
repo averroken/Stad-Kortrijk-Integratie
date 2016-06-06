@@ -5,7 +5,7 @@
 }
 
 <h2>CreateFaq</h2>
-
+<!--
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -53,7 +53,31 @@
         </div>
     </div>
 }
+    -->
 
+<form enctype="multipart/form-data" method="post">
+    @Html.AntiForgeryToken()
+    <label for="Question">Vraag</label>
+    <input type="text" name="Question" />
+
+    <label for="Answer">Antwoord</label>
+    <input type="text" name="Answer" value="" />
+
+    <select name="ThemeID">
+        @foreach (var item in Model.Theme)
+        {
+            <option value="@item.ThemeID">@item.Name</option>
+        }
+    </select>
+
+    <select name="SubThemeID">
+        @foreach (var item in Model.Subtheme)
+        {
+            <option value="@item.SubthemeID">@item.Name</option>
+        }
+    </select>
+    <input type="submit" name="submit" value="Submit" />
+</form>
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Faqs")
 </div>

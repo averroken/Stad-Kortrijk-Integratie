@@ -1,4 +1,4 @@
-﻿@model ASP_WEB.Models.Faq
+﻿@model ASP_WEB.Models.FaqSubtheme
 
 @{
     ViewBag.Title = "EditFaq";
@@ -6,7 +6,7 @@
 
 <h2>EditFaq</h2>
 
-@using (Html.BeginForm())
+@*@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
@@ -54,8 +54,45 @@
             </div>
         </div>
     </div>
-}
+}*@
+<form enctype="multipart/form-data" method="post">
+    @Html.AntiForgeryToken()
+    <label for="Question">Vraag</label>
+    <input type="text" name="Question" value="@Model.faqEen.Question"/>
 
+    <label for="Answer">Antwoord</label>
+    <input type="text" name="Answer" value="@Model.faqEen.Answer" />
+
+    <select name="ThemeID">
+        @foreach (var item in Model.Theme)
+        {
+            if (Model.faqEen.ThemeID == item.ThemeID)
+            {
+                <option selected value="@item.ThemeID">@item.Name</option>
+            }
+            else
+            {
+                <option value="@item.ThemeID">@item.Name</option>
+            }
+
+        }
+    </select>
+
+    <select name="SubThemeID">
+        @foreach (var item in Model.Subtheme)
+        {
+            if (Model.faqEen.SubthemeID == item.SubthemeID)
+            {
+                <option selected value="@item.SubthemeID">@item.Name</option>
+            }
+            else
+            {
+                <option value="@item.SubthemeID">@item.Name</option>
+            }
+        }
+    </select>
+    <input type="submit" name="submit" value="Submit" />
+</form>
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Faqs")
 </div>

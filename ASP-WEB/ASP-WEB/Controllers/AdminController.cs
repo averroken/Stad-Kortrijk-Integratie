@@ -407,6 +407,7 @@ namespace ASP_WEB.Controllers
         {
             Faq faq = new Faq();
             faq.Question = frm[nameof(faq.Question)];
+            faq.Answer = frm[nameof(faq.Answer)];
             faq.SubthemeID = Convert.ToInt32(frm[nameof(faq.SubthemeID)]);
             faq.ThemeID = Convert.ToInt32(frm[nameof(faq.ThemeID)]);
             repoFaq.Insert(faq);
