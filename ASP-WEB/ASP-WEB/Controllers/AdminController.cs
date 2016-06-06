@@ -172,10 +172,20 @@ namespace ASP_WEB.Controllers
         [HttpPost]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
-            SubthemesEditViewModel vm = new SubthemesEditViewModel();
-            vm.subtheme = new Subtheme();
-            vm.subtheme.OfficeID = new List<int>();
-            vm.subtheme.SubthemeID = Convert.ToInt32(frm[nameof(vm.subtheme.SubthemeID)]);
+            Subtheme newSubtheme = repoSubtheme.GetByID(frm["SubthemeID"]);
+            newSubtheme.Description = frm["Description"];
+            newSubtheme.Name = frm["Name"];
+            newSubtheme.ThemeID = Convert.ToInt32(frm["ThemeID"]);
+            if (frm.GetValues("OfficeIDs") != null)
+            {
+                newSubtheme.OfficeID = new List<int>();
+                foreach (var item in frm.GetValues("OfficeIDs"))
+                {
+
+                    newSubtheme.OfficeID.Add(Convert.ToInt32(item));
+                }
+            }
+
             #region Foto Bijwerken
             if (file != null)
             {
@@ -183,40 +193,18 @@ namespace ASP_WEB.Controllers
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
                 CloudBlobContainer container = blobClient.GetContainerReference("images");
                 container.CreateIfNotExists();
-                if (vm.subtheme.FotoURL == null) vm.subtheme.FotoURL = "12345678987654321.png";
-                CloudBlockBlob oudeBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+                CloudBlockBlob oudeBlob = container.GetBlockBlobReference(newSubtheme.FotoURL);
                 oudeBlob.DeleteIfExists();
 
                 string[] url = file.FileName.Split('.');
-                vm.subtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
-                CloudBlockBlob blockBlob = container.GetBlockBlobReference(vm.subtheme.FotoURL);
+                newSubtheme.FotoURL = Guid.NewGuid().ToString() + "." + url[1];
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(newSubtheme.FotoURL);
                 blockBlob.UploadFromStream(file.InputStream);
 
             }
             #endregion
-            vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
-            vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
 
-            if (frm["OfficeIDs"] != null)
-            {
-                foreach (int item in frm["OfficeIDs"])
-                {
-                    vm.subtheme.OfficeID.Add(item);
-                }
-            }
-            else
-            {
-                vm.subtheme.OfficeID = new List<int>();
-            }
-            if (vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
-            foreach (var item in vm.subtheme.OfficeID)
-            {
-                vm.subtheme.Office.Add(repoOffice.GetByID(item));
-            }
-
-            vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
-            repoSubtheme.Update(vm.subtheme);
-
+            repoSubtheme.Update(newSubtheme);
             repoSubtheme.SaveChanges();
 
 
@@ -242,9 +230,15 @@ namespace ASP_WEB.Controllers
             vm.subtheme.OfficeID = new List<int>();
             vm.subtheme.ThemeID = Convert.ToInt32(frm[nameof(vm.subtheme.ThemeID)]);
             vm.subtheme.Description = frm[nameof(vm.subtheme.Description)].ToString();
-            foreach (int item in frm[nameof(vm.subtheme.OfficeID)])
+            //foreach (var item in frm.GetValues("OfficeIDs"))
+            //{
+
+            //    newSubtheme.OfficeID.Add(Convert.ToInt32(item));
+            //}
+            if (vm.subtheme.Office == null) vm.subtheme.Office = new List<Office>();
+            foreach (var item in frm.GetValues(nameof(vm.subtheme.OfficeID)))
             {
-                vm.subtheme.OfficeID.Add(item);
+                vm.subtheme.OfficeID.Add(Convert.ToInt32(item));
             }
             vm.subtheme.Name = frm[nameof(vm.subtheme.Name)];
             #region Foto Bijwerken

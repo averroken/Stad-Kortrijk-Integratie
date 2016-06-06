@@ -11,6 +11,7 @@ namespace ASP_WEB.DAL.Repository
 {
     public class SubthemeRepository : GenericRepository<Subtheme>, IGenericRepository<Subtheme>
     {
+
         public List<Subtheme> GetSubthemeByTheme(int themeID)
         {
             using (IntegratieContext context = new IntegratieContext())
@@ -46,74 +47,38 @@ namespace ASP_WEB.DAL.Repository
 
         public override Subtheme Insert(Subtheme subtheme)
         {
-            /*
-             public void AddContact(Contact contact)
-        {
-            using (Labo1Context context = new Labo1Context())
-            {
-
-                if (contact.Departement != null)
-                {
-                    foreach (var dep in contact.Departement)
-                    {
-                        context.Entry<Departement>(dep).State = EntityState.Unchanged;
-                    }
-                }
-                context.Contacts.Add(contact);
-                context.SaveChanges();
-            }
-        }
-             */
             using (IntegratieContext context = new IntegratieContext())
             {
-                if (subtheme.Office != null)
+                GenericRepository<Office> repoOffice = new GenericRepository<Office>(context);
+                foreach (int item in subtheme.OfficeID)
                 {
-                    foreach (var office in subtheme.Office)
-                    {
-                        context.Entry<Office>(office).State = EntityState.Unchanged;
-                    }
+                    subtheme.Office.Add(repoOffice.GetByID(item));
                 }
                 context.Subtheme.Add(subtheme);
                 context.SaveChanges();
             }
             return subtheme;
-            //return base.Insert(entity);
         }
+
         public override void Update(Subtheme subtheme)
         {
-
-            //Volgens voorbeeld van Gunther
             using (IntegratieContext context = new IntegratieContext())
             {
-
                 var currentSubtheme = (from s in context.Subtheme.Include(s => s.Office)
                                        where s.SubthemeID == subtheme.SubthemeID
                                        select s).SingleOrDefault<Subtheme>();
                 currentSubtheme.Office.Clear();
                 context.SaveChanges();
-            }
 
-            using (IntegratieContext context = new IntegratieContext())
-            {
-
-                var currentSubtheme = context.Subtheme.AsNoTracking().Include(s => s.Office).Where(s => s.SubthemeID == subtheme.SubthemeID).FirstOrDefault();
-                foreach (var office in subtheme.Office)
+                GenericRepository<Office> repoOffice = new GenericRepository<Office>(context);
+                foreach (var office in subtheme.OfficeID)
                 {
-                    if (context.Entry<Office>(office).State == EntityState.Detached)
-                    {
-                        //context.objectContext.Detach(office);
-                        context.Office.Attach(office);
-                    }
-
-                    currentSubtheme.Office.Add(office);
-
+                    currentSubtheme.Office.Add(repoOffice.GetByID(office));
                 }
                 context.SaveChanges();
-            }
-            using (IntegratieContext context = new IntegratieContext())
-            {
-                context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
-                context.SaveChanges();
+
+                //context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
+                //context.SaveChanges();
             }
 
             #region Comments
@@ -177,7 +142,6 @@ namespace ASP_WEB.DAL.Repository
                 context.Entry<Subtheme>(subtheme).State = EntityState.Deleted;
                 context.SaveChanges();
             }
-            // base.Delete(entityToDelete);
         }
     }
 }
