@@ -25,7 +25,6 @@ namespace ASP_WEB.Controllers
         FaqRepository repoFaq = new FaqRepository();
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=integratiekortrijk;AccountKey=W0gcFRQX42eNg/msSVLvYydtYY3stHagwjVDaFvsFoaLEUjXuQ4rJHavDn8pwfrggkN8qyZJDMkOyAYIcwJt0Q==");
 
-        // GET: Admin
         /// <summary>
         /// Shows list of different editing and adding possibilities
         /// </summary>

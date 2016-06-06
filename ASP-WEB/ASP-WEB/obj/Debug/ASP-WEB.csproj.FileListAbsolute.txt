@@ -191,6 +191,8 @@ C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\AS
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\Microsoft.WindowsAzure.Storage.dll
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\Newtonsoft.Json.dll
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\Owin.dll
+C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\PagedList.dll
+C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\PagedList.Mvc.dll
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\System.Net.Http.Formatting.dll
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\System.Spatial.dll
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\System.Web.Helpers.dll
@@ -212,6 +214,8 @@ C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\AS
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\Microsoft.WindowsAzure.Storage.pdb
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\Microsoft.WindowsAzure.Storage.xml
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\Newtonsoft.Json.xml
+C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\PagedList.xml
+C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\PagedList.Mvc.xml
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\System.Spatial.xml
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\System.Web.Helpers.xml
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\System.Web.Mvc.xml
@@ -273,12 +277,7 @@ C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\AS
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\ru\System.Spatial.resources.dll
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\zh-Hans\System.Spatial.resources.dll
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\zh-Hant\System.Spatial.resources.dll
-C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.csprojResolveAssemblyReference.cache
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP_WEB.Migrations.InitDB.resources
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.csproj.GenerateResource.Cache
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.dll
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.pdb
-C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\PagedList.dll
-C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\PagedList.Mvc.dll
-C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\PagedList.xml
-C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\PagedList.Mvc.xml

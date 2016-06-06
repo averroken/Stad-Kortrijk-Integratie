@@ -15,7 +15,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @WebUtility.HtmlDecode(Model.Name)
         </dd>
 
         <dt>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Theme.Name)
+            @WebUtility.HtmlDecode(Model.Description)
         </dt>
 
         <dd>

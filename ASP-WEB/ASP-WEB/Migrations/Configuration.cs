@@ -6,8 +6,11 @@ namespace ASP_WEB.Migrations
     using Models;
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Data.SqlClient;
+    using System.Diagnostics;
     using System.IO;
     using System.Linq;
     using System.Net;
@@ -38,7 +41,7 @@ namespace ASP_WEB.Migrations
             //if (!Debugger.IsAttached) Debugger.Launch();
             AddData(context);
 
-            using (ApplicationDbContext userContext = new ApplicationDbContext())
+            /*using (ApplicationDbContext userContext = new ApplicationDbContext())
             {
                 userContext.Roles.AddOrUpdate(r => r.Name,
                     new IdentityRole
@@ -50,23 +53,23 @@ namespace ASP_WEB.Migrations
                         Name = Roles.USER.ToString()
                     }
                 );
-            }
+            }*/
         }
         private void AddData(IntegratieContext context)
         {
-            using (StreamReader sr = new StreamReader(@"C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\ThemaCSV1.txt"))
+            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\CSVfiles\ThemaCSV1.txt"))
             {
                 string line;
                 sr.ReadLine();
                 while ((line = sr.ReadLine()) != null)
                 {
                     string[] linesplit = line.Split(';');
-                    context.Theme.AddOrUpdate<Theme>(new Theme() { Name = linesplit[1], FotoURL = linesplit[2] });
+                    context.Theme.AddOrUpdate<Theme>(t => t.Name, new Theme() { Name = linesplit[1], FotoURL = linesplit[2] });
                 }
                 context.SaveChanges();
             }
 
-            using (StreamReader sr = new StreamReader(@"C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\DienstCSV1.txt"))
+            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\CSVfiles\DienstCSV1.txt"))
             {
                 string line;
                 sr.ReadLine();
@@ -75,7 +78,7 @@ namespace ASP_WEB.Migrations
                     string[] linesplit = line.Split(';');
                     int zip = 0;
                     Int32.TryParse(linesplit[6], out zip);
-                    context.Office.AddOrUpdate<Office>(new Office()
+                    context.Office.AddOrUpdate<Office>(o => o.Name, new Office()
                     {
                         Name = linesplit[1],
                         URL = linesplit[2],
@@ -92,7 +95,7 @@ namespace ASP_WEB.Migrations
             }
 
             Encoding targetEncoding = Encoding.GetEncoding(1252);
-            using (StreamReader sr = new StreamReader(@"C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\SubthemaCSV1.txt", targetEncoding))
+            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\CSVfiles\SubthemaCSV1.txt", targetEncoding))
             {
                 string line;
                 sr.ReadLine();
@@ -115,7 +118,7 @@ namespace ASP_WEB.Migrations
                     {
                         col.Add(Convert.ToInt32(id));
                     }
-                    context.Subtheme.AddOrUpdate<Subtheme>(o => o.ThemeID, new Subtheme()
+                    context.Subtheme.AddOrUpdate<Subtheme>(o => o.Name, new Subtheme()
                     {
                         ThemeID = Convert.ToInt32(linesplit[1]),
                         Name = WebUtility.HtmlEncode(linesplit[2]),
@@ -126,8 +129,9 @@ namespace ASP_WEB.Migrations
                 }
                 context.SaveChanges();
             }
-
-            /*using (StreamReader sr = new StreamReader(@"C:\NMCT\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ASP-WEB\CSVfiles\DienstSubthemaCSV1.txt"))
+            
+            
+            using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\CSVfiles\DienstSubthemaCSV1.txt"))
             {
                 string line;
                 string CONNECTIONSTRING = ConfigurationManager.ConnectionStrings["IntegratieContext"].ConnectionString;
@@ -150,7 +154,7 @@ namespace ASP_WEB.Migrations
                         }
                     }
                 }
-            }*/
+            }
         }
     }
 }
