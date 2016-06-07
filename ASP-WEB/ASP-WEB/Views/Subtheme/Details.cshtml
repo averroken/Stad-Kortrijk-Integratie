@@ -27,11 +27,11 @@
         </dd>
 
         <dt>
-            @WebUtility.HtmlDecode(Model.Description)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Theme.Name)
+            @WebUtility.HtmlDecode(Model.Description)
         </dd>
 
         <dt>
@@ -39,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FotoURL)
+            <img src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" alt="@Model.FotoURL Photo" />
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Office)

@@ -14,6 +14,7 @@ namespace ASP_WEB.DAL.Context
         public DbSet<Subtheme> Subtheme { get; set; }
         public DbSet<Office> Office { get; set; }
         public DbSet<Faq> Faq { get; set; }
+        
 
     }
 }

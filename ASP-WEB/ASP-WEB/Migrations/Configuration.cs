@@ -88,7 +88,7 @@ namespace ASP_WEB.Migrations
                         ZipCode = zip,
                         City = linesplit[7],
                         PhoneNumber = linesplit[8],
-                        OpeningHours = linesplit[9]
+                        //OpeningHours = linesplit[9]
                     });
                 }
                 context.SaveChanges();

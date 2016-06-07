@@ -18,39 +18,31 @@ namespace ASP_WEB.DAL.Repository
         }
         public List<Faq> Search(string searchString)
         {
-            using (IntegratieContext context = new IntegratieContext())
-            {
-                return context.Faq.Where(f => f.Answer.Contains(searchString) || f.Question.Contains(searchString)).Include(f => f.Theme).Include(f => f.Subtheme).ToList<Faq>();
-            }
+
+            return context.Faq.Where(f => f.Answer.Contains(searchString) || f.Question.Contains(searchString)).Include(f => f.Theme).Include(f => f.Subtheme).ToList<Faq>();
+
         }
 
-        public override Faq Insert(Faq entity)
-        {
-            return base.Insert(entity);
-        }
 
         public List<Faq> GetFaqByThemeID(int id)
         {
-            using (IntegratieContext context = new IntegratieContext())
-            {
-                return context.Faq.Where(f => f.ThemeID == id).Include(f => f.Theme).Include(f => f.Subtheme).ToList<Faq>();
-            }
+
+            return context.Faq.Where(f => f.ThemeID == id).Include(f => f.Theme).Include(f => f.Subtheme).ToList<Faq>();
+
         }
 
         public List<Faq> GetFaqBySubthemeID(int id)
         {
-            using (IntegratieContext context = new IntegratieContext())
-            {
-                return context.Faq.Where(f => f.SubthemeID == id).Include(f => f.Theme).Include(f => f.Subtheme).ToList<Faq>();
-            }
+
+            return context.Faq.Where(f => f.SubthemeID == id).Include(f => f.Theme).Include(f => f.Subtheme).ToList<Faq>();
+
         }
         public override Faq GetByID(object id)
         {
-            using (IntegratieContext context = new IntegratieContext())
-            {
-                int ID = Convert.ToInt32(id.ToString());
-                return context.Faq.Where(f => f.FaqID == ID).Include(f => f.Theme).Include(f => f.Subtheme).SingleOrDefault<Faq>();
-            }
+
+            int ID = Convert.ToInt32(id.ToString());
+            return context.Faq.Where(f => f.FaqID == ID).Include(f => f.Theme).Include(f => f.Subtheme).SingleOrDefault<Faq>();
+
         }
     }
 }

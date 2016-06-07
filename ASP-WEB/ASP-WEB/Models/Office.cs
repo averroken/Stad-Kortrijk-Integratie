@@ -18,9 +18,18 @@ namespace ASP_WEB.Models
         public int ZipCode { get; set; }
         public string City { get; set; }
         public string PhoneNumber { get; set; }
-        public string OpeningHours { get; set; }
+        //public string OpeningHours { get; set; }
         //[EmailAddress]
         public string EmailAddress { get; set; }
         public virtual ICollection<Subtheme> Subtheme { get; set; }
+
+        public string Monday { get; set; }
+        public string Tuesday { get; set; }
+        public string Wednesday { get; set; }
+        public string Thursday { get; set; }
+        public string Friday { get; set; }
+        public string Saturday { get; set; }
+        public string Sunday { get; set; }
+
     }
 }

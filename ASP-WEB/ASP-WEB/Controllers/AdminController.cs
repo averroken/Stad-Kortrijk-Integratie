@@ -169,6 +169,7 @@ namespace ASP_WEB.Controllers
             return View(vm);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
             Subtheme newSubtheme = repoSubtheme.GetByID(frm["SubthemeID"]);
@@ -326,7 +327,13 @@ namespace ASP_WEB.Controllers
             office.City = frm[nameof(Office.City)];
             office.EmailAddress = frm[nameof(Office.EmailAddress)];
             office.HouseNumber = frm[nameof(Office.HouseNumber)];
-            office.OpeningHours = frm[nameof(Office.OpeningHours)];
+            office.Monday = frm[nameof(Office.Monday)];
+            office.Tuesday = frm[nameof(Office.Tuesday)];
+            office.Wednesday = frm[nameof(Office.Wednesday)];
+            office.Thursday = frm[nameof(Office.Thursday)];
+            office.Friday = frm[nameof(Office.Friday)];
+            office.Saturday = frm[nameof(Office.Saturday)];
+            office.Sunday = frm[nameof(Office.Sunday)];
             office.PhoneNumber = frm[nameof(Office.PhoneNumber)];
             office.Street = frm[nameof(Office.Street)];
             office.URL = frm[nameof(Office.URL)];
@@ -351,7 +358,13 @@ namespace ASP_WEB.Controllers
             office.City = frm[nameof(Office.City)];
             office.EmailAddress = frm[nameof(Office.EmailAddress)];
             office.HouseNumber = frm[nameof(Office.HouseNumber)];
-            office.OpeningHours = frm[nameof(Office.OpeningHours)];
+            office.Monday = frm[nameof(Office.Monday)];
+            office.Tuesday = frm[nameof(Office.Tuesday)];
+            office.Wednesday = frm[nameof(Office.Wednesday)];
+            office.Thursday = frm[nameof(Office.Thursday)];
+            office.Friday = frm[nameof(Office.Friday)];
+            office.Saturday = frm[nameof(Office.Saturday)];
+            office.Sunday = frm[nameof(Office.Sunday)];
             office.PhoneNumber = frm[nameof(Office.PhoneNumber)];
             office.Street = frm[nameof(Office.Street)];
             office.URL = frm[nameof(Office.URL)];
