@@ -1,0 +1,13 @@
+ID;Naam;FotoURL
+1;Aankomst;aankomst.png
+2;Documenten;documenten.png
+3;Juridisch advies;juridisch.png
+4;Wonen;wonen.png
+5;Nederlands leren;nederlands.png
+6;Kinderen;kinderen.png
+7;Welzijn en gezondheidszorg;welzijngezondheid.png
+8;Vervoer;vervoer.png
+9;Werken;werken.png
+10;Vrije tijd;vrijetijd.png
+11;Geld;geld.png
+12;Winkelen;winkelen.png

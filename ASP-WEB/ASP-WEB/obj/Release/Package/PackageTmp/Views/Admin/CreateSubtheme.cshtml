@@ -1,0 +1,49 @@
+﻿@model ASP_WEB.Models.SubthemesEditViewModel
+
+@{
+    ViewBag.Title = "Maak een subthema";
+}
+@Styles.Render("~/Content/admin")
+<h2>@ViewBag.Title</h2>
+
+<form action="CreateSubtheme" enctype="multipart/form-data" method="post" class="form-horizontal">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" name="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" name="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <select name="ThemeID" class="form-control">
+            @foreach (var item in Model.themes)
+            {
+                <option value="@item.ThemeID">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <select multiple name="OfficeID" class="form-control">
+            @foreach (var item in Model.offices)
+            {
+                <option value="@item.OfficeID">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="file">Kies een foto</label>
+        <input type="file" name="file" class="form-control" id="browse" />
+    <div id="preview"></div>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="submit" value="Submit" class="btn btn-default" id="enabledisable"/>
+        <a href="/Admin/Subthemes">
+            <div class="btn btn-default">
+                Terug naar de subthema's
+            </div>
+        </a>
+    </div>
+</form>

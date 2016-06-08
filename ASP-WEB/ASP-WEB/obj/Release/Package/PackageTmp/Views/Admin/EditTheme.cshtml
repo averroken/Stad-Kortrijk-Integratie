@@ -1,0 +1,33 @@
+﻿@model ASP_WEB.Models.Theme
+
+@{
+    ViewBag.Title = "Bewerk een thema";
+}
+
+<h2>@ViewBag.Title</h2>
+@Styles.Render("~/Content/admin")
+<form action="EditTheme" method="post" enctype="multipart/form-data" class="form-horizontal">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" value="@Model.ThemeID" name="ThemeID" />
+    <div class="form-group">
+        <label for="Name">Naam</label>
+        <input type="text" class="form-control" value="@Model.Name" name="Name" id="Name" />
+    </div>
+
+    <div class="form-group">
+        <label for="file">Foto kiezen</label>
+        <input type="file" id="browse" name="file" class="form-control"/>
+        <div id="preview"></div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Bewerk" id="enabledisable" class="btn btn-default" />
+        <a href="/Admin/Themes">
+            <div class="btn btn-default">
+                Terug naar de thema's
+            </div>
+        </a>
+    </div>
+</form>
+<script src="~/Scripts/photoCheck.js"></script>

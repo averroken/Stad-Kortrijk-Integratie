@@ -1,0 +1,51 @@
+﻿@model ASP_WEB.Models.FaqSubtheme
+
+@{
+    ViewBag.Title = "FAQ";
+}
+
+<h2>FAQ</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().ThemeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().SubthemeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().Question)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().Answer)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Faq) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThemeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubthemeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Question)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Answer)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FaqID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FaqID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FaqID })
+        </td>
+    </tr>
+}
+
+</table>

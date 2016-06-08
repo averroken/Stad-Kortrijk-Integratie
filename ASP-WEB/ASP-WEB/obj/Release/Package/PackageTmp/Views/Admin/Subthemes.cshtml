@@ -1,0 +1,55 @@
+﻿@model PagedList.IPagedList<ASP_WEB.Models.Subtheme>
+@using PagedList.Mvc;
+
+@Styles.Render("~/Content/PagedList")
+@{
+    ViewBag.Title = "Subthema's";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateSubtheme")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Naam
+        </th>
+        <th>
+            Beschrijving
+        </th>
+        <th>
+            Thema
+        </th>
+        <th>
+            Foto
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @WebUtility.HtmlDecode(item.Name)
+            </td>
+            <td>
+                @WebUtility.HtmlDecode(item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Theme.Name)
+            </td>
+            <td>
+                <img src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.FotoURL Photo" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditSubtheme", new { id = item.SubthemeID }) |
+                @Html.ActionLink("Details", "DetailsSubtheme", new { id = item.SubthemeID }) |
+                @Html.ActionLink("Delete", "DeleteSubtheme", new { id = item.SubthemeID })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Subthemes", new { page }))

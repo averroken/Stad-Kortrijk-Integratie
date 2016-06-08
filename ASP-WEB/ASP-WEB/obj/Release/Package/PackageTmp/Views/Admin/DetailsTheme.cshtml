@@ -1,0 +1,34 @@
+﻿@model ASP_WEB.Models.Theme
+
+@{
+    ViewBag.Title = "Details van een thema";
+}
+@Styles.Render("~/Content/admin")
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Theme</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Themanaam
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Foto
+        </dt>
+
+        <dd>
+            <img class="img-responsive" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" alt="@Model.Name Photo" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Bewerk", "EditTheme", new { id = Model.ThemeID }) |
+    @Html.ActionLink("Terug naar de thema's", "Themes")
+</p>

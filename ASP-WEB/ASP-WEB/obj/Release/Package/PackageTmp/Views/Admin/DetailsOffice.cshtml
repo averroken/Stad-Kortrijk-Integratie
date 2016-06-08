@@ -1,0 +1,137 @@
+﻿@model ASP_WEB.Models.Office
+
+@{
+    ViewBag.Title = "Details van een dienst";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Naam
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Website
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+        <dt>
+            Straat
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            Huisnummer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseNumber)
+        </dd>
+
+        <dt>
+            Postcode
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            Gemeente
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            Telefoonnummer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            E-mail
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            Maandag
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monday)
+        </dd>
+
+        <dt>
+            Dinsdag
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tuesday)
+        </dd>
+
+        <dt>
+            Woensdag
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wednesday)
+        </dd>
+
+        <dt>
+            Donderdag
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thursday)
+        </dd>
+
+        <dt>
+            Vrijdag
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Friday)
+        </dd>
+
+        <dt>
+            Zaterdag
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saturday)
+        </dd>
+
+        <dt>
+            Zondag
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sunday)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OfficeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

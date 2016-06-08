@@ -1,0 +1,90 @@
+﻿@model PagedList.IPagedList<ASP_WEB.Models.Office>
+@using PagedList.Mvc;
+@Styles.Render("~/Content/PagedList")
+
+@{
+    ViewBag.Title = "Diensten";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateOffice")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Monday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Tuesday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Wednesday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Thursday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Friday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Saturday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Sunday)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tuesday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wednesday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thursday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Friday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saturday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sunday)
+        </td>
+        <td>
+            @Html.ActionLink("Bewerk dienst", "EditOffice", new { id=item.OfficeID }) |
+            @Html.ActionLink("Details", "DetailsOffice", new { id=item.OfficeID }) |
+            @Html.ActionLink("Verwijder dienst", "DeleteOffice", new { id=item.OfficeID })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Offices", new { page }))

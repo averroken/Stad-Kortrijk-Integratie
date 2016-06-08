@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="integratie" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\NMCT\ 2015-2016\\Project\\Stad\ Kortrijk\ -\ Integratie\\Stad-Kortrijk-Integratie\\ASP-WEB\\ASP-WEB\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\NMCT\ 2015-2016\\Project\\Stad\ Kortrijk\ -\ Integratie\\Stad-Kortrijk-Integratie\\ASP-WEB\\ASP-WEB\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="IntegratieContext-Web.config Connection String" description="" value="Server=tcp:integratiekortrijk.database.windows.net,1433;Data Source=integratiekortrijk.database.windows.net;Initial Catalog=IntegratieKortrijk;Persist Security Info=False;User ID=LGMeersseman;Password=P@ssw0rd;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\NMCT\ 2015-2016\\Project\\Stad\ Kortrijk\ -\ Integratie\\Stad-Kortrijk-Integratie\\ASP-WEB\\ASP-WEB\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='IntegratieContext']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,62 @@
+﻿@model ASP_WEB.Models.FaqSubtheme
+
+@{
+    ViewBag.Title = "Bewerk veelgestelde vragen";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form enctype="multipart/form-data" method="post" class="form-horizontal">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="Question">Vraag</label>
+        <input type="text" name="Question" value="@Model.faqEen.Question" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="Answer">Antwoord</label>
+        <input type="text" name="Answer" value="@Model.faqEen.Answer" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="ThemeID">Thema</label>
+        <select name="ThemeID" class="form-control">
+            @foreach (var item in Model.Theme)
+            {
+                if (Model.faqEen.ThemeID == item.ThemeID)
+                {
+                    <option selected value="@item.ThemeID">@item.Name</option>
+                }
+                else
+                {
+                    <option value="@item.ThemeID">@item.Name</option>
+                }
+
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="SubThemeID">Subthema</label>
+        <select name="SubThemeID" class="form-control">
+            @foreach (var item in Model.Subtheme)
+            {
+                if (Model.faqEen.SubthemeID == item.SubthemeID)
+                {
+                    <option selected value="@item.SubthemeID">@WebUtility.HtmlDecode(item.Name)</option>
+                }
+                else
+                {
+                    <option value="@item.SubthemeID">@WebUtility.HtmlDecode(item.Name)</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="submit" value="Submit" class="btn btn-default"/>
+        <a href="/Admin/Faqs">
+            <div class="btn btn-default">
+                Terug naar de veelgestelde vragen
+            </div>
+        </a>
+    </div>
+</form>
