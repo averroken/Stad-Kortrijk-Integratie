@@ -83,8 +83,9 @@ footer {
     width: 100%;
 }
 
-.txtSearch{
+.txtSearch {
     width: 25%;
+    display: none;
 }
 
 .logoBanner {
@@ -111,10 +112,15 @@ footer {
     margin: 0 auto;
 }
 
-.mediaImages img{
+.mediaImages img {
     width: 20px;
     height: 20px;
     margin: 2px;
+}
+
+.toeleidersTekst {
+    float: left;
+    width: 100%;
 }
 
 .rowSocial {
@@ -174,12 +180,6 @@ footer {
     text-align: center;
 }
 
-.toeleidersFoto {
-    width: 100%;
-    float: right;
-    height: 485px;
-}
-
 .toeleidersPic {
     width: 100px;
     height: 100px;
@@ -193,6 +193,8 @@ footer {
 
 .toeleider h2 {
     text-align: center;
+    font-size: 0.75em;
+    font-weight: bold;
 }
 
 .toeleider {
@@ -200,19 +202,19 @@ footer {
     width: 49%;
 }
 
-.toeleidersTekst {
-    float: left;
-    width: 33%;
-}
-
 .toeleidersFoto h1 {
     text-align: center;
+}
+
+.toeleidersImageSm {
+    text-align: center;
+    width: 100%;
+    height: 30px;
 }
 
 .imagesToeleiders img {
     width: 30px;
     height: 30px;
-    float: left;
 }
 
 .meldpunt {
@@ -286,6 +288,39 @@ footer {
 
 #openingsuren h2 {
     font-size: 12px;
+}
+
+#txtLG {
+    display: none;
+}
+
+#txtSM {
+    font-size: 0.563em;
+}
+
+.contactUS {
+    text-align: center;
+}
+
+    .contactUS img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contactUS p {
+    }
+
+.meldpuntTekst p {
+    font-size: 0.563em;
+}
+
+h3 {
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 1.00em;
 }
 /*#endregion*/
 /*#region FAQ*/
@@ -364,21 +399,23 @@ footer {
             }
 /*#endregion*/
 /*#region Map*/
- #mapContainer{
-        display:inline-block;
-        position:relative;
-        width:100%;
-    }
-    #mapDummy{
-        padding-top: 75%;
-    }
-    #mapElement{
-        position:absolute;
-        top:0;
-        bottom:0;
-        left:0;
-        right:0;
-    }
+#mapContainer {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+#mapDummy {
+    padding-top: 75%;
+}
+
+#mapElement {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 /*#endregion*/
 @media (min-width: 768px) {
     .imageBanner {
@@ -414,18 +451,23 @@ footer {
         float: right;
         margin-top: 17px;
     }
+
     .txtSearch {
-    float: right;
-    width: auto;
-}
-    .mediaImages img{
+        display: block;
+        float: left;
+        width: auto;
+    }
+
+    .mediaImages img {
         width: 20px;
         height: 20px;
         margin: 2px;
     }
-    .mediaImages{
+
+    .mediaImages {
         float: left;
     }
+
     .wrapper {
         margin-top: 70px;
     }
@@ -464,6 +506,14 @@ footer {
         float: right;
         height: 485px;
         padding-left: 65px;
+    }
+
+    #txtLG {
+        display: block;
+    }
+
+    #txtSM {
+        display: none;
     }
 
     .toeleidersPic {
@@ -510,8 +560,12 @@ footer {
     }
 
     .mediaSocial {
-        float: right;
         width: 435px;
+    }
+
+    .toeleidersTekst {
+        float: left;
+        width: 33%;
     }
 }
 
