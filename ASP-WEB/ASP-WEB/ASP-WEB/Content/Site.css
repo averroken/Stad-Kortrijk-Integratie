@@ -22,6 +22,7 @@ body {
 
 .vertalenBig {
     float: none;
+    text-align: center;
 }
 
 .footerImages {
@@ -82,8 +83,8 @@ footer {
     width: 100%;
 }
 
-.txtSearch {
-    float: right;
+.txtSearch{
+    width: 25%;
 }
 
 .logoBanner {
@@ -106,15 +107,14 @@ footer {
 }
 
 .mediaSocial {
-    float: right;
-    width: auto;
+    float: none;
+    margin: 0 auto;
 }
 
-.mediaImages {
+.mediaImages img{
     width: 20px;
     height: 20px;
     margin: 2px;
-    float: right;
 }
 
 .rowSocial {
@@ -414,7 +414,18 @@ footer {
         float: right;
         margin-top: 17px;
     }
-
+    .txtSearch {
+    float: right;
+    width: auto;
+}
+    .mediaImages img{
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+    }
+    .mediaImages{
+        float: left;
+    }
     .wrapper {
         margin-top: 70px;
     }
@@ -484,9 +495,24 @@ footer {
         float: left;
         margin-right: 5px;
     }
-.vertalenBig{
-    width: 33%;
-}
+
+    .vertalenBig {
+        width: 33%;
+    }
+
+    .navText {
+        width: 435px;
+        float: left;
+    }
+
+    #navigatieBalk {
+        height: 120px;
+    }
+
+    .mediaSocial {
+        float: right;
+        width: 435px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -506,8 +532,16 @@ footer {
         width: 49%;
     }
 
+    .vertalenBig {
+        width: 435px;
+    }
+
     .navText {
         width: 435px;
         float: left;
+    }
+
+    #navigatieBalk {
+        height: 70px;
     }
 }
