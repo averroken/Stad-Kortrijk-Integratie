@@ -6,70 +6,76 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" id="navigatieBalk">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="banner">
-                    <img src="~/Content/Kortrijk_logo_rgb_klein.png" alt="" class="imageBanner">
-                </div>
-                <!--             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })-->
-            </div>
-            <div class="navbar-collapse collapse navText">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Thema's", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Stadsplan", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Veelgestelde vragen", "Contact", "Home")</li>
-                </ul>
-                <div class="col-md-4 mediaSocial">
-                    <div class="row">
-                        <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" alt="">
-                        <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/facebookCircle.png" alt="">
-                        <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/twitterCircle.png" alt="">
+    <div class="wrapperAll">
+        <div class="navbar navbar-inverse navbar-fixed-top" id="navigatieBalk">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logoBanner">
+                        <img src="~/Content/Kortrijk_logo_rgb_klein.png" alt="">
                     </div>
+                    <!--             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })-->
                 </div>
-                <div class="vertalen">
+               
+                <div class="navbar-collapse collapse navText">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Thema's", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Stadsplan", "Map", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Veelgestelde vragen", "FAQ", "Home")</li>
+                    </ul>
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({ pageLanguage: 'nl', layout: google.translate.TranslateElement.InlineLayout.VERTICAL }, 'google_translate_element');
+                        }
+                    </script>
+
+                    @*html.Partial("_LoginPartial")*@
+                </div>
+                <div class="vertalenBig">
                     <div id="google_translate_element"></div>
-                </div>
-                @*html.Partial("_LoginPartial")*@
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-    </div>
-    <footer style="font-size: 0.8em;">
-        <div class="container">
-            <div>
-                <p>Stad Kortrijk - Grote Markt 54 - 8500 Kortrijk</p>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="footerContact">
-                            <p>1777@kortrijk.be</p>
-                            <img src="#" alt="Alternate Text" class="footerImages" />
-                        </div>
-                        <div class="footerContact">
-                            <img src="#" alt="Alternate Text" class="footerImages" />
-                            <p>1777 (gratis)</p>
+                    <div class="col-md-4 mediaSocial">
+                        <div class="row">
+                            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/twitterCircle.png" alt="Twitter">
+                            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/facebookCircle.png" alt="Facebook">
+                            <img class="mediaImages" src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" alt="Search">
+                            <form class="txtSearch" action="/Search" method="get">
+                                <input type="search" placeholder="Zoeken..." class="form-control" />
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+        <footer class="navbar-bottom">
+            <div class="container">
+                <div>
+                    <p>Stad Kortrijk - Grote Markt 54 - 8500 Kortrijk</p>
+                </div>
+                <div class="container">
+                    <div class="row"></div>
+                    <div class="footerContact">
+                        <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" alt="Alternate Text" class="footerImages" />
+                        <a href="mailto:1777@kortrijk.be"><p>1777@kortrijk.be</p></a>
+                        <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" alt="Alternate Text" class="footerImages" />
+                        <a href="tel:1777"><p>1777 (gratis)</p></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
 </body>
 </html>

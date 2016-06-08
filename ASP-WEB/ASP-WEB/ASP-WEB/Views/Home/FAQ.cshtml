@@ -3,61 +3,52 @@
 @{
     ViewBag.Title = "FAQ";
 }
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/Content/css")
 @Scripts.Render("~/bundles/scripts")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
 <script type="text/javascript" src="~/Scripts/Script.js"></script>
 <div class="wrapper">
 </div>
-    <div class="wrapperThemes">
-    <div id="containerIcons">
-        <div class="rijIcons row">
-            @foreach (var item in Model.Faq)
+<div id="containerIcons" class="themasFAQ">
+    <div class="rijIcons row">
+        @foreach (var item in Model.Theme)
             {
-                <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
-                    <img class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.Theme.FotoURL" alt="@item.Theme.Name Foto"><img class="image_off" src="" />
-                    <div class="caption">
-                        <p>@item.Theme.Name</p>
-                    </div>
-                </div>
-            }
-        </div>
+            <div class="themaIcons col-md-1 col-xs-3 col-sm-2">
+                <img id="themasFAQ" class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto">
+            </div>
+        }
     </div>
 </div>
-<div class="dropdown">
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Thema1</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Thema2</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Thema3</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Thema4</a></li>
-    </ul>
+<div class="container containerDropdown">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            Kies een thema
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            @foreach (var item in Model.Theme)
+            {
+                <li><a href="#">@item.Name</a></li>
+            }
+        </ul>
+    </div>
 </div>
 <div class="FAQVragen">
     <ul id="nav">
-        <li style="margin-top: 20px;">
-            <a href="#">Dit is een vraag dat veelgesteld is geweest aan de integratiedienst ?</a>
-            <ul>
-                <li><a href="#">Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag</a></li>
-            </ul>
-        </li>
-        <li style="margin-top: 20px;">
-            <a href="#">Dit is een vraag dat veelgesteld is geweest aan de integratiedienst ?</a>
-            <ul>
-                <li><a href="#">Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag</a></li>
-            </ul>
-        </li>
-        <li style="margin-top: 20px;">
-            <a href="#">Dit is een vraag dat veelgesteld is geweest aan de integratiedienst ?</a>
-            <ul>
-                <li><a href="#">Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag</a></li>
-            </ul>
-        </li>
-        <li style="margin-top: 20px;">
-            <a href="#">Dit is een vraag dat veelgesteld is geweest aan de integratiedienst ?</a>
-            <ul>
-                <li><a href="#">Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag Dit is een antwoord op de vraag</a></li>
-            </ul>
-        </li>
+        @foreach (var item in Model.Faq)
+        {
+            <li style="margin-top: 20px;">
+                <a href="#">@WebUtility.HtmlDecode(item.Subtheme.Name) <svg height="30" width="30">
+    <polyline points="0,0 15,15 30,0" style="fill:white;stroke:#c4c4c4;stroke-width:2;float:right;" />
+</svg></a>
+
+                <ul>
+                    <li>
+                        <a href="#">@WebUtility.HtmlDecode(item.Subtheme.Description)</a>
+                    </li>
+                </ul>
+            </li>
+        }
     </ul>
 </div>

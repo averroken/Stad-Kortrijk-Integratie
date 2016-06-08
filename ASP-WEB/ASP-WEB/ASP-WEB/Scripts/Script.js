@@ -29,6 +29,10 @@ $(document).ready(function () {
             $('#nav li a').removeClass('active');
             $(this).addClass('active');
         }
+        else {
+            $('#nav li a').removeClass('active');
+            $('#nav li ul').slideUp();
+        }
     });
     $(".dropdown").on("show.bs.dropdown", function (event) {
         var x = $(event.relatedTarget).text(); // Get the button text
@@ -37,3 +41,36 @@ $(document).ready(function () {
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({ pageLanguage: 'nl', layout: google.translate.TranslateElement.InlineLayout.VERTICAL }, 'google_translate_element');
 }
+var $el, $ps, $up, totalHeight;
+
+$(".sidebar-box .button").click(function () {
+
+    totalHeight = 0
+
+    $el = $(this);
+    $p = $el.parent();
+    $up = $p.parent();
+    $ps = $up.find("p:not('.read-more')");
+
+    // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
+    $ps.each(function () {
+        totalHeight += $(this).outerHeight();
+    });
+
+    $up
+      .css({
+          // Set height to prevent instant jumpdown when max height is removed
+          "height": $up.height(),
+          "max-height": 9999
+      })
+      .animate({
+          "height": totalHeight
+      });
+
+    // fade out read-more
+    $p.fadeOut();
+
+    // prevent jump-down
+    return false;
+
+});

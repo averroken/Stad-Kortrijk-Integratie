@@ -7,7 +7,6 @@
 @Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/Content/css")
 @Scripts.Render("~/bundles/scripts")
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <div class="wrapper">
     <div class="content">
     </div>
@@ -17,12 +16,14 @@
         <div class="rijIcons row">
             @foreach (var item in Model)
             {
-                <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
-                    <img class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto"><img class="image_off" src="" />
-                    <div class="caption">
-                        <p>@item.Name</p>
+                <a href="~/Subtheme/Details/@item.SubthemeID">
+                    <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
+                        <img class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto">
+                        <div class="caption">
+                            <p>@item.Name</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             }
         </div>
     </div>

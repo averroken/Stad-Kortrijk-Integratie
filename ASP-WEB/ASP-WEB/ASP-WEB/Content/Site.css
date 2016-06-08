@@ -1,4 +1,128 @@
-﻿/*#region first page*/
+﻿/*#region LayoutModel*/
+@font-face {
+    font-family: "Myriad Pro Regular";
+    src: url(../fonts/MyriadPro-Regular.otf) format("opentype");
+}
+
+body {
+    background: url(/Content/bgPattern.png);
+    font-family: "Myriad Pro Regular";
+    font-size: 16px;
+}
+
+    body p {
+        color: #626250;
+        text-decoration: none;
+    }
+
+.footerContent {
+    height: 50px;
+    background-color: #e8eddc;
+}
+
+.vertalenBig {
+    float: none;
+}
+
+.footerImages {
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.footerContact img {
+    float: left;
+}
+
+.footerContact {
+    width: 123px;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: black;
+    box-shadow: 0 0 1px 0px #333;
+    background-color: #e8eddc;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+#navigatieBalk {
+    background-color: #c2d197;
+    margin: 0;
+    height: 150px;
+    background: url(/Content/bgpatternHeader.png);
+    border: none;
+}
+
+.wrapper {
+    margin-top: 150px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 23px;
+    padding-bottom: 15px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #626250;
+}
+
+.navbar-nav > li > a:hover {
+    color: black;
+}
+
+.navText {
+    font-weight: bold;
+    width: 100%;
+}
+
+.txtSearch {
+    float: right;
+}
+
+.logoBanner {
+    text-align: center;
+    box-shadow: 0 4px 4px -5px #333;
+}
+
+    .logoBanner img {
+        width: 120px;
+        height: 40px;
+    }
+
+    .logoBanner img {
+        margin-top: 11px;
+        margin-left: 65px;
+    }
+
+.goog-te-banner-frame {
+    display: none;
+}
+
+.mediaSocial {
+    float: right;
+    width: auto;
+}
+
+.mediaImages {
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+    float: right;
+}
+
+.rowSocial {
+    width: 223px;
+    height: 30px;
+}
+/*#endregion*/
+/*#region Index*/
 .thumbnail {
     width: 50px;
     height: 50px;
@@ -7,18 +131,16 @@
     padding: 0;
     background-color: none;
     box-shadow: 2px 2px 5px #888888;
+    background-color: #acd5bb;
 }
 
     .thumbnail:hover {
         background-color: #626350;
     }
 
-body {
-    background: url(/Content/bgPattern.png);
-}
-
-.wrapper {
-    margin-top: 70px;
+.content {
+    height: 5px;
+    text-align: center;
 }
 
 .thumbnail p {
@@ -28,170 +150,159 @@ body {
 .themaIcons {
     text-align: center;
     font-size: 0.8em;
+    text-decoration: none;
+    color: #626250;
 }
 
     .themaIcons p {
         margin: 10px 0 10px;
+        height: 50px;
     }
 
-.banner {
-    text-align: center;
-    box-shadow: 0 4px 4px -5px #333;
+.containerIcons {
+    height: 100%;
 }
 
-    .banner img {
-        width: 120px;
-        height: 40px;
-    }
-
-body {
-}
-
-.input-group {
-    margin: 0 15px 0 15px;
-}
-
-.content {
-    height: 5px;
-    text-align: center;
-}
-
-.navbar-nav > li > a {
-    padding-top: 23px;
-    padding-bottom: 15px;
-}
-
-.imageBanner {
-    margin-top: 11px;
-}
-
-.mediaImages {
-    float: left;
-    margin: 2px;
-}
-.goog-te-gadget {
-    white-space: normal;
-}
-.navText {
-    color: #626250;
-    font-weight: bold;
-}
-
-.mediaSocial {
-    height: 70px;
-    float: right;
-    margin-top: 19px;
-}
-
-.vertalen {
-    margin: 0;
-    float: right;
-}
-
-.mediaImages {
-    width: 15px;
-    height: 15px;
-    margin: 5px;
-}
-
-.rowSocial {
-    width: 223px;
-    height: 30px;
-}
-
-.footerContent {
-    height: 50px;
-    background-color: #e8eddc;
-}
-
-.footerImages {
-    width: 15px;
-    height: 15px;
-    float: left;
-}
-
-.footerContent p {
-}
-
-.footerContact p {
-    float: right;
-}
-
-.footerContact {
-    width: 250px;
-}
-
-footer {
-    text-align: center;
-    color: black;
-    font-size: 1.0em;
-    box-shadow: 0 -4px 4px -5px #333;
-}
-
-.inputSearch span button {
-    background-color: #E32119;
-    color: white;
-}
 /*#endregion*/
-#nav {
-    float: left;
+/*#region Contact*/
+
+.toeleidersTekst h1 {
+    display: none;
+}
+
+.socialSmall {
+    text-align: center;
+}
+
+.toeleidersFoto {
     width: 100%;
+    float: right;
+    height: 485px;
+}
+
+.toeleidersPic {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 80px;
+}
+
+.toeleider div:first-child {
+    text-align: center;
+}
+
+.toeleider h2 {
+    text-align: center;
+}
+
+.toeleider {
+    float: left;
+    width: 49%;
+}
+
+.toeleidersTekst {
+    float: left;
+    width: 33%;
+}
+
+.toeleidersFoto h1 {
+    text-align: center;
+}
+
+.imagesToeleiders img {
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+
+.meldpunt {
+    background: url(/Content/bgpinkPattern.png);
+}
+
+.meldpuntWrapper {
+    width: 100%;
+}
+
+.toeleider div p {
+    text-decoration: none;
+}
+
+    .toeleider div p a {
+        color: #626250;
+    }
+
+.contactContent {
+    color: #626250;
+}
+
+.inputContact img {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: -6px 5px 0 0;
+}
+
+.inputContact h4 {
+    font-size: 14px;
+    margin: 19px;
+    margin-left: 5px;
+}
+
+.inputContact {
+    float: right;
+    width: 51%;
+}
+
+.inputMeldpunt h4 {
+    font-size: 14px;
+}
+
+.form-horizontal {
+    width: 150px;
+}
+
+.inputMeldpunt p {
+    margin-bottom: 2px;
+}
+
+.inputMeldpunt img {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: 5px 5px 0 0;
+}
+
+.inputMeldpunt#1 {
+    float: left;
+}
+
+.inputMeldpunt#2 {
+    float: left;
+}
+
+#openingsuren li {
     list-style-type: none;
 }
 
-    #nav li {
-    }
+#openingsuren h2 {
+    font-size: 12px;
+}
+/*#endregion*/
+/*#region FAQ*/
+#themasFAQ {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
 
-        #nav li a {
-            display: block;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: #000;
-            box-shadow: 2px 2px 5px #888888;
-            border: 1px solid grey;
-            border-radius: 5px 5px 0 0;
-        }
-
-            #nav li a:hover, #nav li a.active {
-            }
-
-        #nav li ul {
-            display: none;
-            list-style-type: none;
-            padding: 0;
-        }
-
-            #nav li ul li a {
-                padding: 10px 25px;
-                background-color: #eeeeee;
-                border-radius: 0 0 5px 5px;
-            }
+.themasFAQ {
+    display: none;
+}
 
 .FAQVragen {
     width: 100%;
     margin: 0 auto;
 }
-
-.themes {
-    width: 200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-    .themes ul li a {
-        text-decoration: none;
-        color: black;
-    }
-
-    .themes ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-        .themes ul ul {
-            display: none;
-            padding: 0;
-        }
 
 .active {
     display: block;
@@ -212,10 +323,93 @@ footer {
     margin: 0 auto;
 }
 
+.containerDropdown {
+    margin: 0 auto;
+}
+
+#nav {
+    float: left;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+    #nav li {
+    }
+
+        #nav li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #000;
+            box-shadow: 2px 2px 5px #888888;
+            border: 1px solid grey;
+            border-radius: 5px 5px 0 0;
+            background-color: white;
+        }
+
+            #nav li a:hover, #nav li a.active {
+            }
+
+        #nav li ul {
+            display: none;
+            list-style-type: none;
+            padding: 0;
+        }
+
+            #nav li ul li a {
+                padding: 10px 25px;
+                background-color: #eeeeee;
+                border-radius: 0 0 5px 5px;
+            }
+/*#endregion*/
 @media (min-width: 768px) {
+    .imageBanner {
+        margin: 0;
+        margin-top: 11px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #626250;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 23px;
+        padding-bottom: 15px;
+    }
+
+    .containerDropdown {
+        display: none;
+    }
+
+    .themasFAQ {
+        display: block;
+    }
+
+    .logoBanner img {
+        margin-left: 0;
+    }
 }
 
 @media (min-width: 992px) {
+    .vertalenBig {
+        width: 500px;
+        float: right;
+        margin-top: 17px;
+    }
+
+    .wrapper {
+        margin-top: 70px;
+    }
+
+    #navigatieBalk {
+        height: 70px;
+    }
+
+    .toeleider div:not(:first-child) {
+        display: block;
+    }
+
     .themaIcons {
         font-size: 1.0em;
     }
@@ -225,20 +419,78 @@ footer {
         height: 100px;
     }
 
-    .mediaImages {
+    .toeleidersTekst h1 {
+        display: block;
     }
-}
 
-#navigatieBalk {
-    background-color: #c2d197;
-    margin: 0;
-    height: 70px;
-    background: url(/Content/bgpatternHeader.png);
-    border: none;
+    .toeleidersFoto h1 {
+        display: none;
+    }
+
+    #google_translate_element {
+        float: right;
+    }
+
+    .toeleidersFoto {
+        width: 66%;
+        float: right;
+        height: 485px;
+        padding-left: 65px;
+    }
+
+    .toeleidersPic {
+        width: 150px;
+        height: 150px;
+        background-color: black;
+        border-radius: 80px;
+    }
+
+    .toeleider {
+        float: left;
+        width: 49%;
+        margin: 3px;
+        margin-top: 62px;
+    }
+
+    .toeleidersTekst {
+        float: left;
+        width: 33%;
+    }
+
+    .toeleider div p {
+        display: block;
+    }
+
+    .imagesToeleiders img {
+        width: 15px;
+        height: 15px;
+        float: left;
+        margin-right: 5px;
+    }
+.vertalenBig{
+
+}
 }
 
 @media (min-width: 1200px) {
-    .vertalen {
-        float: none;
+    .meldpuntTekst {
+        width: 47%;
+        float: left;
+    }
+
+    .meldpuntFormulier {
+        width: 49%;
+        float: right;
+        padding: 41px;
+    }
+
+    .inputMeldpunt {
+        float: left;
+        width: 49%;
+    }
+
+    .navText {
+        width: 435px;
+        float: left;
     }
 }
