@@ -1,17 +1,17 @@
 ﻿@model ASP_WEB.Models.Theme
 
 @{
-    ViewBag.Title = "DetailsTheme";
+    ViewBag.Title = "Details van een thema";
 }
-
-<h2>DetailsTheme</h2>
+@Styles.Render("~/Content/admin")
+<h2>@ViewBag.Title</h2>
 
 <div>
     <h4>Theme</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            Themanaam
         </dt>
 
         <dd>
@@ -19,16 +19,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FotoURL)
+            Foto
         </dt>
 
         <dd>
-            <img src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" alt="@Model.Name Photo" />
+            <img class="img-responsive" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" alt="@Model.Name Photo" />
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "EditTheme", new { id = Model.ThemeID }) |
-    @Html.ActionLink("Back to List", "Themes")
+    @Html.ActionLink("Bewerk", "EditTheme", new { id = Model.ThemeID }) |
+    @Html.ActionLink("Terug naar de thema's", "Themes")
 </p>

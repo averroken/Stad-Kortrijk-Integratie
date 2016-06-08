@@ -1,10 +1,10 @@
 ﻿@model ASP_WEB.Models.Office
 
 @{
-    ViewBag.Title = "EditOffice";
+    ViewBag.Title = "Bewerk een dienst";
 }
 
-<h2>EditOffice</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm())
 {
@@ -145,5 +145,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Offices")
 </div>

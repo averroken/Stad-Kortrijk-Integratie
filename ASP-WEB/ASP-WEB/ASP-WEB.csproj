@@ -223,9 +223,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Roles.cs" />
-    <Compile Include="Migrations\201606061019356_InitDB.cs" />
-    <Compile Include="Migrations\201606061019356_InitDB.Designer.cs">
-      <DependentUpon>201606061019356_InitDB.cs</DependentUpon>
+    <Compile Include="Migrations\201606070741371_InitDB.cs" />
+    <Compile Include="Migrations\201606070741371_InitDB.Designer.cs">
+      <DependentUpon>201606070741371_InitDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -243,6 +243,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -275,6 +276,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\photoCheck.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -345,8 +347,8 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606061019356_InitDB.resx">
-      <DependentUpon>201606061019356_InitDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606070741371_InitDB.resx">
+      <DependentUpon>201606070741371_InitDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

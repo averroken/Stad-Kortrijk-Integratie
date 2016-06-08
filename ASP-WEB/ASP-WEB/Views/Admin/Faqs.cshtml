@@ -2,10 +2,10 @@
 @using PagedList.Mvc;
 @Styles.Render("~/Content/PagedList")
 @{
-    ViewBag.Title = "Faqs";
+    ViewBag.Title = "Veelgestelde vragen";
 }
 
-<h2>Faqs</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "CreateFaq")

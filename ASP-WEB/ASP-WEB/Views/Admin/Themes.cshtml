@@ -1,13 +1,13 @@
 ﻿@model PagedList.IPagedList<ASP_WEB.Models.Theme>
 @using PagedList.Mvc;
 
-@Styles.Render("~/Content/PagedList")
+@Styles.Render("~/Content/admin")
 
 @{
-    ViewBag.Title = "Themes";
+    ViewBag.Title = "Thema's";
 }
 
-<h2>Themes</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "CreateTheme")
@@ -15,10 +15,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+            Naam
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+            Foto
         </th>
         <th></th>
     </tr>

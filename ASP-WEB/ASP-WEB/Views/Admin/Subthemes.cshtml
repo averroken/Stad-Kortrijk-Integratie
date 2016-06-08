@@ -3,10 +3,10 @@
 
 @Styles.Render("~/Content/PagedList")
 @{
-    ViewBag.Title = "Subthemes";
+    ViewBag.Title = "Subthema's";
 }
 
-<h2>Subthemes</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "CreateSubtheme")
@@ -14,16 +14,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+            Naam
         </th>
         <th>
-           @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
+            Beschrijving
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Theme.Name)
+            Thema
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().FotoURL)
+            Foto
         </th>
         <th></th>
     </tr>
@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.Theme.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FotoURL)
+                <img src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.FotoURL Photo" />
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditSubtheme", new { id = item.SubthemeID }) |

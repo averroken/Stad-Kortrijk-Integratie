@@ -1,54 +1,30 @@
 ﻿@model ASP_WEB.Models.Theme
 
 @{
-    ViewBag.Title = "CreateTheme";
+    ViewBag.Title = "Maak een thema";
 }
+@Styles.Render("~/Content/admin")
+<h2>@ViewBag.Title</h2>
 
-<h2>CreateTheme</h2>
-@*
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>Theme</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FotoURL, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FotoURL, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FotoURL, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-    
-*@
-<form action="CreateTheme" method="post" enctype="multipart/form-data">
+<form action="CreateTheme" method="post" enctype="multipart/form-data" class="form-horizontal">
     @Html.AntiForgeryToken()
-    <label for="Name">Naam</label>
-    <input type="text" name="Name" id="Name"/>
+    <div class="form-group">
+        <label for="Name">Naam</label>
+        <input type="text" name="Name" id="Name" class="form-control" />
+    </div>
 
-    <label for="file">Foto kiezen</label>
-    <input type="file" name="file" />
-
-    <input type="submit" value="Create" class="btn btn-default" />
+    <div class="form-group">
+        <label for="file">Foto kiezen</label>
+        <input type="file" name="file" id="browse" class="form-control" />
+        <div id="preview"></div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Maak" class="btn btn-default" id="enabledisable" />
+        <a href="/Admin/Themes">
+            <div class="btn btn-default">
+                Terug naar de thema's
+            </div>
+        </a>
+    </div>
 </form>
-<div>
-    @Html.ActionLink("Back to List", "Themes")
-</div>
+<script src="~/Scripts/photoCheck.js"></script>

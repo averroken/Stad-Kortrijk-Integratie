@@ -5,79 +5,44 @@
 }
 
 <h2>CreateFaq</h2>
-<!--
-@using (Html.BeginForm()) 
-{
+<form enctype="multipart/form-data" method="post" class="form-horizontal">
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Faq</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.faqEen.Theme.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.faqEen.Theme.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.faqEen.Theme.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.faqEen.SubthemeID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.faqEen.SubthemeID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.faqEen.SubthemeID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.faqEen.Question, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.faqEen.Question, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.faqEen.Question, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.faqEen.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.faqEen.Answer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.faqEen.Answer, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+    <div class="form-group">
+        <label for="Question">Vraag</label>
+        <input type="text" name="Question" class="form-control"/>
     </div>
-}
-    -->
 
-<form enctype="multipart/form-data" method="post">
-    @Html.AntiForgeryToken()
-    <label for="Question">Vraag</label>
-    <input type="text" name="Question" />
+    <div class="form-group">
+        <label for="Answer">Antwoord</label>
+        <input type="text" name="Answer" class="form-control" />
+    </div>
 
-    <label for="Answer">Antwoord</label>
-    <input type="text" name="Answer" value="" />
+    <div class="form-group">
+        <label for="ThemeID">Thema</label>
+        <select name="ThemeID" class="form-control">
+            @foreach (var item in Model.Theme)
+            {
+                <option value="@item.ThemeID">@item.Name</option>
+            }
+        </select>
+    </div>
 
-    <select name="ThemeID">
-        @foreach (var item in Model.Theme)
-        {
-            <option value="@item.ThemeID">@item.Name</option>
-        }
-    </select>
+    <div class="form-group">
+        <label for="SubThemeID">Subthema</label>
+        <select name="SubThemeID" class="form-control">
+            @foreach (var item in Model.Subtheme)
+            {
+                <option value="@item.SubthemeID">@WebUtility.HtmlDecode(item.Name)</option>
+            }
+        </select>
+    </div>
 
-    <select name="SubThemeID">
-        @foreach (var item in Model.Subtheme)
-        {
-            <option value="@item.SubthemeID">@item.Name</option>
-        }
-    </select>
-    <input type="submit" name="submit" value="Submit" />
+    <div class="form-group">
+        <input type="submit" name="submit" value="Submit" class="btn btn-default"/>
+        <a href="/Admin/Faqs">
+            <div class="btn btn-default">
+                Terug naar de veelgestelde vragen
+            </div>
+        </a>
+    </div>
 </form>
-<div>
-    @Html.ActionLink("Back to List", "Faqs")
-</div>

@@ -13,7 +13,7 @@ namespace ASP_WEB.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201606061019356_InitDB"; }
+            get { return "201606070741371_InitDB"; }
         }
         
         string IMigrationMetadata.Source

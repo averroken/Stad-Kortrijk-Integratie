@@ -1,98 +1,62 @@
 ﻿@model ASP_WEB.Models.FaqSubtheme
 
 @{
-    ViewBag.Title = "EditFaq";
+    ViewBag.Title = "Bewerk veelgestelde vragen";
 }
 
-<h2>EditFaq</h2>
+<h2>@ViewBag.Title</h2>
 
-@*@using (Html.BeginForm())
-{
+<form enctype="multipart/form-data" method="post" class="form-horizontal">
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Faq</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.FaqID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ThemeID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ThemeID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ThemeID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SubthemeID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SubthemeID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SubthemeID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+    <div class="form-group">
+        <label for="Question">Vraag</label>
+        <input type="text" name="Question" value="@Model.faqEen.Question" class="form-control"/>
     </div>
-}*@
-<form enctype="multipart/form-data" method="post">
-    @Html.AntiForgeryToken()
-    <label for="Question">Vraag</label>
-    <input type="text" name="Question" value="@Model.faqEen.Question"/>
 
-    <label for="Answer">Antwoord</label>
-    <input type="text" name="Answer" value="@Model.faqEen.Answer" />
+    <div class="form-group">
+        <label for="Answer">Antwoord</label>
+        <input type="text" name="Answer" value="@Model.faqEen.Answer" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="ThemeID">Thema</label>
+        <select name="ThemeID" class="form-control">
+            @foreach (var item in Model.Theme)
+            {
+                if (Model.faqEen.ThemeID == item.ThemeID)
+                {
+                    <option selected value="@item.ThemeID">@item.Name</option>
+                }
+                else
+                {
+                    <option value="@item.ThemeID">@item.Name</option>
+                }
 
-    <select name="ThemeID">
-        @foreach (var item in Model.Theme)
-        {
-            if (Model.faqEen.ThemeID == item.ThemeID)
-            {
-                <option selected value="@item.ThemeID">@item.Name</option>
             }
-            else
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="SubThemeID">Subthema</label>
+        <select name="SubThemeID" class="form-control">
+            @foreach (var item in Model.Subtheme)
             {
-                <option value="@item.ThemeID">@item.Name</option>
+                if (Model.faqEen.SubthemeID == item.SubthemeID)
+                {
+                    <option selected value="@item.SubthemeID">@WebUtility.HtmlDecode(item.Name)</option>
+                }
+                else
+                {
+                    <option value="@item.SubthemeID">@WebUtility.HtmlDecode(item.Name)</option>
+                }
             }
+        </select>
+    </div>
 
-        }
-    </select>
-
-    <select name="SubThemeID">
-        @foreach (var item in Model.Subtheme)
-        {
-            if (Model.faqEen.SubthemeID == item.SubthemeID)
-            {
-                <option selected value="@item.SubthemeID">@item.Name</option>
-            }
-            else
-            {
-                <option value="@item.SubthemeID">@item.Name</option>
-            }
-        }
-    </select>
-    <input type="submit" name="submit" value="Submit" />
+    <div class="form-group">
+        <input type="submit" name="submit" value="Submit" class="btn btn-default"/>
+        <a href="/Admin/Faqs">
+            <div class="btn btn-default">
+                Terug naar de veelgestelde vragen
+            </div>
+        </a>
+    </div>
 </form>
-<div>
-    @Html.ActionLink("Back to List", "Faqs")
-</div>

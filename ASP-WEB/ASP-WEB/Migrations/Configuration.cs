@@ -24,38 +24,14 @@ namespace ASP_WEB.Migrations
 
         protected override void Seed(ASP_WEB.DAL.Context.IntegratieContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
-
             //if (!Debugger.IsAttached) Debugger.Launch();
-            AddData(context);
-
-            /*using (ApplicationDbContext userContext = new ApplicationDbContext())
-            {
-                userContext.Roles.AddOrUpdate(r => r.Name,
-                    new IdentityRole
-                    {
-                        Name = Roles.ADMINISTRATOR.ToString()
-                    },
-                    new IdentityRole
-                    {
-                        Name = Roles.USER.ToString()
-                    }
-                );
-            }*/
+            AddThemes(context);
+            AddOffices(context);
+            AddSubthemes(context);
+            AddOfficeSubthemes(context);
         }
-        private void AddData(IntegratieContext context)
+
+        private void AddThemes(IntegratieContext context)
         {
             using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\CSVfiles\ThemaCSV1.txt"))
             {
@@ -68,7 +44,9 @@ namespace ASP_WEB.Migrations
                 }
                 context.SaveChanges();
             }
-
+        }
+        private void AddOffices(IntegratieContext context)
+        {
             using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\CSVfiles\DienstCSV1.txt"))
             {
                 string line;
@@ -88,12 +66,20 @@ namespace ASP_WEB.Migrations
                         ZipCode = zip,
                         City = linesplit[7],
                         PhoneNumber = linesplit[8],
-                        //OpeningHours = linesplit[9]
+                        Monday = linesplit[9],
+                        Tuesday = linesplit[10],
+                        Wednesday = linesplit[11],
+                        Thursday = linesplit[12],
+                        Friday = linesplit[13],
+                        Saturday = linesplit[14],
+                        Sunday = linesplit[15],
                     });
                 }
                 context.SaveChanges();
             }
-
+        }
+        private void AddSubthemes(IntegratieContext context)
+        {
             Encoding targetEncoding = Encoding.GetEncoding(1252);
             using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\CSVfiles\SubthemaCSV1.txt", targetEncoding))
             {
@@ -129,8 +115,9 @@ namespace ASP_WEB.Migrations
                 }
                 context.SaveChanges();
             }
-            
-            
+        }
+        private void AddOfficeSubthemes(IntegratieContext context)
+        {
             using (StreamReader sr = new StreamReader(@"C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\CSVfiles\DienstSubthemaCSV1.txt"))
             {
                 string line;

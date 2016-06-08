@@ -1,7 +1,7 @@
 ﻿@model ASP_WEB.Models.Subtheme
 
 @{
-    ViewBag.Title = "DetailsSubtheme";
+    ViewBag.Title = "Details van een subthema";
 }
 
 <h2>DetailsSubtheme</h2>
@@ -15,7 +15,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @WebUtility.HtmlDecode(Model.Name)
         </dd>
 
         <dt>
@@ -23,11 +23,11 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @WebUtility.HtmlDecode(Model.Description)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Theme.Name)
+            @Html.DisplayNameFor(model => model.Theme)
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
 @foreach (var item in Model.Office)
 {
     <dt>
-        @Html.DisplayNameFor(modelItem => item.Name)
+        @Html.DisplayNameFor(model => model.Office)
     </dt>
     <dd>
         @Html.DisplayFor(modelItem => item.Name)
@@ -53,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "EditSubtheme", new { id = Model.SubthemeID }) |
-    @Html.ActionLink("Back to List", "Subthemes")
+    @Html.ActionLink("Bewerk", "EditSubtheme", new { id = Model.SubthemeID }) |
+    @Html.ActionLink("Terug naar de subthema's", "Subthemes")
 </p>

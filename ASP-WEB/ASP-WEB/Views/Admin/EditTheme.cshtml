@@ -1,113 +1,33 @@
 ﻿@model ASP_WEB.Models.Theme
 
 @{
-    ViewBag.Title = "EditTheme";
+    ViewBag.Title = "Bewerk een thema";
 }
 
-<h2>EditTheme</h2>
-@*
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>Theme</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.ThemeID)
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FotoURL, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FotoURL, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FotoURL, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-*@
-
-<form action="EditTheme" method="post" enctype="multipart/form-data">
+<h2>@ViewBag.Title</h2>
+@Styles.Render("~/Content/admin")
+<form action="EditTheme" method="post" enctype="multipart/form-data" class="form-horizontal">
     @Html.AntiForgeryToken()
+
     <input type="hidden" value="@Model.ThemeID" name="ThemeID" />
-    <label for="Name">Naam</label>
-    <input type="text" value="@Model.Name" name="Name" id="Name" />
+    <div class="form-group">
+        <label for="Name">Naam</label>
+        <input type="text" class="form-control" value="@Model.Name" name="Name" id="Name" />
+    </div>
 
-    <label for="file">Foto kiezen</label>
-    <input type="file" id="browse" name="file" />
-    <div id="preview"></div>
+    <div class="form-group">
+        <label for="file">Foto kiezen</label>
+        <input type="file" id="browse" name="file" class="form-control"/>
+        <div id="preview"></div>
+    </div>
 
-    <input type="submit" value="Create" id="enabledisable" class="btn btn-default" />
+    <div class="form-group">
+        <input type="submit" value="Bewerk" id="enabledisable" class="btn btn-default" />
+        <a href="/Admin/Themes">
+            <div class="btn btn-default">
+                Terug naar de thema's
+            </div>
+        </a>
+    </div>
 </form>
-<div>
-    @Html.ActionLink("Back to List", "Themes")
-</div>
-
-<script>
-    window.URL = window.URL || window.webkitURL;
-    var elBrowse = document.getElementById("browse"),
-            elPreview = document.getElementById("preview"),
-            enabledisable = document.getElementById("enabledisable"),
-            useBlob = false && window.URL; // `true` to use Blob instead of Data-URL
-
-    function readImage(file) {
-        elPreview.innerHTML = "";
-        var reader = new FileReader();
-        reader.addEventListener("load", function () {
-            var image = new Image();
-            image.addEventListener("load", function () {
-                if (file.size > 2048576) {
-                    elPreview.innerHTML += "Foto mag niet groter zijn dan 2MB </br>";
-                    enabledisable.disabled = true;
-                }
-                if (image.width !== 100 || image.height !== 100) {
-                    elPreview.innerHTML += "De foto moet 100 x 100 pixels groot zijn </br>";
-                    enabledisable.disabled = true;
-                }
-                if (elPreview.innerHTML == "") {
-                    enabledisable.disabled = false;
-                }
-            });
-            image.src = useBlob ? window.URL.createObjectURL(file) : reader.result;
-            if (useBlob) {
-                window.URL.revokeObjectURL(file);
-            }
-        });
-        reader.readAsDataURL(file);
-    }
-
-    elBrowse.addEventListener("change", function () {
-        var files = this.files;
-        var errors = "";
-        if (!files) {
-            elPreview.innerHTML += "File upload not supported by your browser.";
-        }
-        if (files && files[0]) {
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                if ((/\.(png|jpeg|jpg|gif)$/i).test(file.name)) {
-                    readImage(file);
-                } else {
-                    elPreview.innerHTML += file.name + " Unsupported Image extension\n";
-                }
-            }
-        }
-        if (errors) {
-            alert(errors);
-        }
-    });
-</script>
+<script src="~/Scripts/photoCheck.js"></script>

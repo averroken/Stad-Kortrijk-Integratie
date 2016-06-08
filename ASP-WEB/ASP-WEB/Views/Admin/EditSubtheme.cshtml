@@ -1,95 +1,59 @@
 ﻿@model ASP_WEB.Models.SubthemesEditViewModel
 
 @{
-    ViewBag.Title = "EditSubtheme";
+    ViewBag.Title = "Bewerk een subthema";
 }
 
-<h2>EditSubtheme</h2>
-@*
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>Subtheme</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.SubthemeID)
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ThemeID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ThemeID, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ThemeID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FotoURL, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FotoURL, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FotoURL, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-*@
+<h2>@ViewBag.Title</h2>
 
 
-<form enctype="multipart/form-data" method="post">
+<form enctype="multipart/form-data" method="post" class="form-horizontal">
     @Html.AntiForgeryToken()
-    <input type="hidden" value="@Model.subtheme.SubthemeID" name="SubthemeID"/>
+    <input type="hidden" value="@Model.subtheme.SubthemeID" name="SubthemeID" />
 
-    <label for="Name">Name</label>
-    <input type="text" value="@Model.subtheme.Name"  name="Name" />
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" value="@WebUtility.HtmlDecode(Model.subtheme.Name)" name="Name" class="form-control" />
+    </div>
 
-    <label for="Description">Description</label>
-    <input type="text" name="Description" value="@Model.subtheme.Description" />
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" rows="3" cols="2" name="Description">@WebUtility.HtmlDecode(Model.subtheme.Description)</textarea>
+        <!--<input type="text" name="Description" value="@Model.subtheme.Description" class="form-control"/>-->
+    </div>
 
-    <select name="ThemeID">
-        @foreach (var item in Model.themes)
-        {
+    <div class="form-group">
+        <select name="ThemeID" class="form-control">
+            @foreach (var item in Model.themes)
+            {
+                <option value="@item.ThemeID">@item.Name</option>
+            }
+        </select>
+    </div>
 
-            <option value="@item.ThemeID">@item.Name</option>
-        }
-    </select>
+    <div class="form-group">
+        <select multiple name="OfficeIDs" class="form-control">
+            @foreach (var item in Model.offices)
+            {
 
-    <select multiple name="OfficeIDs">
-        @foreach (var item in Model.offices)
-        {
+                <option value="@item.OfficeID">@item.Name</option>
+            }
+        </select>
+    </div>
 
-            <option value="@item.OfficeID">@item.Name</option>
-        }
-    </select>
+    <div class="form-group">
+        <label for="file">Kies een foto</label>
+        <input type="file" name="file" id="browse" class="form-control" />
+        <div id="preview"></div>
+    </div>
 
-    <label for="file">Kies een foto</label>
-    <input type="file" name="file" />
-
-
-    <input type="submit" name="submit" value="Submit" />
+    <div class="form-group">
+        <input type="submit" id="enabledisable" name="submit" value="Submit" class="btn btn-default" />
+        <a href="/Admin/Subthemes">
+            <div class="btn btn-default">
+                Terug naar de subthema's
+            </div>
+        </a>
+    </div>
 </form>
-<div>
-    @Html.ActionLink("Back to List", "Subthemes")
-</div>
+<script src="~/Scripts/photoCheck.js"></script>
