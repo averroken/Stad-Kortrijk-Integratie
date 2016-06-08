@@ -2,6 +2,11 @@
 @{
     ViewBag.Title = "Map";
 }
-<div class="wrapper"></div>
 <h2>Map</h2>
-<iframe src="https://www.google.com/maps/d/embed?mid=1p2wnYyCk9DY1HncH4GpNEZyrwhk&hl=nl" width="640" height="480"></iframe>
+<div class="wrapper"></div>
+<div id="mapContainer" class="col-md-12">
+    <div id="mapDummy"></div>
+    <div id="mapElement">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1p2wnYyCk9DY1HncH4GpNEZyrwhk&hl=nl" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+</div>

@@ -363,6 +363,23 @@ footer {
                 border-radius: 0 0 5px 5px;
             }
 /*#endregion*/
+/*#region Map*/
+ #mapContainer{
+        display:inline-block;
+        position:relative;
+        width:100%;
+    }
+    #mapDummy{
+        padding-top: 75%;
+    }
+    #mapElement{
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+    }
+/*#endregion*/
 @media (min-width: 768px) {
     .imageBanner {
         margin: 0;
