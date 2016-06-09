@@ -214,6 +214,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OfficesController.cs" />
     <Compile Include="Controllers\SubthemeController.cs" />
     <Compile Include="DAL\Repository\FaqRepository.cs" />
     <Compile Include="DAL\Repository\GenericRepository.cs" />
