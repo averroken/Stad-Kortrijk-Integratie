@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace ASP_WEB.Controllers
 {
@@ -13,15 +14,19 @@ namespace ASP_WEB.Controllers
         GenericRepository<Subtheme> repoSubtheme = new GenericRepository<Subtheme>();
         GenericRepository<Office> repoOffice = new GenericRepository<Office>();
 
-        public IHttpActionResult GetOfficesBySubthemes(int? id)
+        [HttpGet]
+        public HttpResponseMessage Get(int? id)
         {
+          
             if (!id.HasValue)
             {
-                return Ok(repoOffice.All());
+                HttpResponseMessage responseAll = Request.CreateResponse(HttpStatusCode.OK, repoOffice.All().ToList());
+                return responseAll;
+                //return repoOffice.All().ToList();
             }
-            var offices = repoSubtheme.GetByID(id).Office;
-
-            return Ok(offices);
+            var offices = repoSubtheme.GetByID(id).Office.ToList();
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, offices);
+            return response;
         }
     }
 }
