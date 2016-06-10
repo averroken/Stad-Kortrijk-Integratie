@@ -7,12 +7,10 @@
 @Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/Content/css")
 @Scripts.Render("~/bundles/scripts")
-<div class="wrapper">
-    <div class="content">
-    </div>
+<div class="wrapper"></div>
     <div id="homepageP1">
     </div>
-    <div id="containerIcons">
+    <div class="container">
         <div class="rijIcons row">
             @foreach (var item in Model)
             {
@@ -20,14 +18,14 @@
                     <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
                         <img class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto">
                         <div class="caption">
-                            <p>@item.Name</p>
+                            <p>@WebUtility.HtmlDecode(item.Name)</p>
                         </div>
                     </div>
                 </a>
             }
         </div>
     </div>
-</div>
+
 <!--
 @*
 <h2>FAQ</h2>

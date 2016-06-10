@@ -3,13 +3,9 @@
 @{
     ViewBag.Title = "Index";
 }
-
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/Content/css")
-@Scripts.Render("~/bundles/scripts")
 <div class="wrapper content"></div>
-    <div id="containerIcons">
+<div class="wapper" style="min-height:100%; margin: 0 auto -155px;">
+    <div class="container">
         <div class="rijIcons row">
             @foreach (var item in Model)
             {
@@ -17,7 +13,7 @@
                     <div class="themaIcons col-md-3 col-sm-3 col-xs-6">
                         <img class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto">
                         <div class="caption">
-                            <p>@item.Name</p>
+                            <p>@WebUtility.HtmlDecode(item.Name)</p>
                         </div>
                     </div>
                 </a>
@@ -25,3 +21,6 @@
         </div>
     </div>
 </div>
+<div class="push" style="height: 150px;"></div>
+
+

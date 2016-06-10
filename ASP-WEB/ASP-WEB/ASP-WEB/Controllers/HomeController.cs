@@ -64,5 +64,9 @@ namespace ASP_WEB.Controllers
         {
             return View();
         }
+        public ActionResult TestDesignResultaat()
+        {
+            return View();
+        }
     }
 }

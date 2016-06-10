@@ -206,6 +206,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\APIOfficeController.cs" />
     <Compile Include="Controllers\SubthemeController.cs" />
     <Compile Include="DAL\Repository\FaqRepository.cs" />
     <Compile Include="DAL\Repository\GenericRepository.cs" />
@@ -325,6 +326,7 @@
     <Content Include="Views\Admin\CreateSubtheme.cshtml" />
     <Content Include="Views\Admin\DetailsFaq.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\TestDesignResultaat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

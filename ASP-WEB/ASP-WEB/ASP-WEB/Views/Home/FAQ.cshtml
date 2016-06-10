@@ -3,10 +3,6 @@
 @{
     ViewBag.Title = "FAQ";
 }
-@Scripts.Render("~/Content/css")
-@Scripts.Render("~/bundles/scripts")
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
 <script type="text/javascript" src="~/Scripts/Script.js"></script>
 <div class="wrapper">
 </div>
@@ -14,8 +10,8 @@
     <div class="rijIcons row">
         @foreach (var item in Model.Theme)
             {
-            <div class="themaIcons col-md-1 col-xs-3 col-sm-2">
-                <img id="themasFAQ" class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto">
+            <div class="themaIcons col-md-1 col-xs-3 col-sm-2" >
+                <img id="themasFAQ" class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto" data-toggle="tooltip" data-placement="bottom" title="@item.Name">
             </div>
         }
     </div>

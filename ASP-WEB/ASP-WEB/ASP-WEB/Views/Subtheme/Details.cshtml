@@ -3,9 +3,125 @@
 @{
     ViewBag.Title = "Details";
 }
-<div class="wrapper"></div>
+    <div class="wrapper content"></div>
+    <div class="onderwerpImageSM hidden-md hidden-lg">
+        <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" />
+    </div>
+    <div class="onderwerpLeft">
+        <div class="onderwerpImage hidden-xs hidden-sm">
+            <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL"/>
+        </div>
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+            <div>
+                <div class="subThemaID" data-themeID="@Model.SubthemeID"></div>
+                <p class="hidden-md hidden-lg">@WebUtility.HtmlDecode(Model.Description)</p>
+                @foreach (var item in Model.Office)
+            {
+                    <div role="tab" id="@item.Name">
+                        <div class="onderwerpInfoLine"></div>
+                        <a class="onderwerpInfo" data-toggle="collapse" data-parent="#accordion" href="#@item.OfficeID">
+                            <div class="panel-title">
+                                <img src="https://integratiekortrijk.blob.core.windows.net/images/documentenCircle.png"/>
+                                @item.Name
+                                <svg height="15" width="15">
+                                    <polyline points="0,0 7.5,7.5 15,0" style="fill:transparent;stroke:#c4c4c4;stroke-width:2;float:right;" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="collapse panel-collapse" role="tabpanel" aria-labelledby="@item.Name" id="@item.OfficeID">
+                        <div>
+                            <div class="dienstInfo">
+                                <div>
+                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" />
+                                    <a href="http://maps.apple.com/?q=@item.Street @item.HouseNumber @item.ZipCode @item.City" target="_blank"><h4>@item.Street @item.HouseNumber, @item.ZipCode @item.City</h4></a>
+                                </div>
+                                <div>
+                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
+                                    <a href="tel:@item.PhoneNumber" target="_blank"><h4>@item.PhoneNumber</h4></a>
+                                </div>
+                                <div>
+                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" />
+                                    <a href="mailto:@item.EmailAddress" target="_blank"><h4>@item.EmailAddress</h4></a>
+                                </div>
+                                <div id="openingsuren">
+                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
+                                    <h2>Openingsuren:</h2>
+
+                                    <ul>
+                                        <li>@item.Monday</li>
+                                        <li>@item.Tuesday</li>
+                                        <li>@item.Wednesday</li>
+                                        <li>@item.Thursday</li>
+                                        <li>@item.Friday</li>
+                                        <li>@item.Saturday</li>
+                                        <li>@item.Sunday</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="onderwerpRight">
+        <p class="hidden-xs hidden-sm">@WebUtility.HtmlDecode(Model.Description)</p>
+        <div id="mapContainer" class="col-md-12 hidden-xs hidden-sm">
+            <div id="mapDummy"></div>
+            <div id="mapElement">
+                <script type="text/javascript">
+                    var SubthemaID = $('.subThemaID').attr("data-themeID");
+                    var uri = '/api/Offices/get?id=' + SubthemaID;
+                    var address;
+                    var dataOffices;
+                    var i = 0;
+                    $(document).ready(function () {
+                        $.getJSON(uri)
+                        .done(function (data) {
+                            dataOffices = data;
+                            console.log(dataOffices);
+                        });
+                    });
+                    function initMap() {
+                        var map = new google.maps.Map(document.getElementById('mapElement'), {
+                            zoom: 13,
+                            center: { lat: 50.829485, lng: 3.264681 }
+                        });
+                        var geocoder = new google.maps.Geocoder();
+                        geocodeAddress(geocoder, map);
+                    }
+                    function geocodeAddress(geocoder, resultsMap) {
+                        $.each(function (dataOffices) {
+                            if (i != 0) {
+                                i++;
+                            } else {
+                                i = 0;
+                            }
+                            address = dataOffices[i].Street + '%20' + dataOffices[i].HouseNumber + ',%20' + dataOffices[i].City + '%20' + dataOffices[i].ZipCode;
+                            console.log(address);
+                            geocoder.geocode({ 'address': address }, function (results, status) {
+                                if (status === google.maps.GeocoderStatus.OK) {
+                                    var marker = new google.maps.Marker({
+                                        map: resultsMap,
+                                        position: results[0].geometry.location,
+                                        title: "Stadhuis Kortrijk"
+                                    });
+                                } else {
+                                    alert('Geocode was unsuccesful for this reason: ' + status);
+                                }
+                            });
+                        });
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJiRLwhM5BeM9PkkxvzZLOh4eR5WeaJcg&callback=initMap">
+                </script>
+            </div>
+        </div>
+    </div>
 <!--
-    
+
 @*
 <h2>Details</h2>
 
