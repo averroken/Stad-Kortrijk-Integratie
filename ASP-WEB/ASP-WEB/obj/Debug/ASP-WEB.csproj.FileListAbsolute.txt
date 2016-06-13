@@ -425,4 +425,3 @@ C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\ob
 C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.csproj.GenerateResource.Cache
 C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.dll
 C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.pdb
-C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Debug\ASP-WEB.csprojResolveAssemblyReference.cache

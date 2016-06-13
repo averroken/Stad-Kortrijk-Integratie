@@ -15,6 +15,7 @@ function TranslateForSearch(toTranslate, targetLanguage, userLanguage) {
         });
     });
 }
+$(document).ready(function () {
     $("#btnSearch").click(function () {
         toTranslate = $('#textSearch').val().toString();
         targetLanguage = 'nl';
@@ -36,6 +37,7 @@ function TranslateForSearch(toTranslate, targetLanguage, userLanguage) {
     $(".dropdown").on("show.bs.dropdown", function (event) {
         var x = $(event.relatedTarget).text(); // Get the button text
     });
+});
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({ pageLanguage: 'nl', layout: google.translate.TranslateElement.InlineLayout.VERTICAL }, 'google_translate_element');
 }
@@ -81,6 +83,51 @@ $(".sidebar-box .button").click(function () {
 ga('create', 'UA-78959059-1', 'auto');
 ga('send', 'pageview');
 
+
+$("#leesMinder1").click(function () {
+    var leesmeer = $("#leesMinder1").text();
+    console.log(leesmeer);
+    if (leesmeer == "LEES MEER") {
+        $('#leesMinder1img').css("transform", "rotate(-90deg)")
+        $("#leesMinder1").html("LEES MINDER");
+    } else {
+        $('#leesMinder1img').css("transform", "rotate(90deg)")
+        $("#leesMinder1").html("LEES MEER");
+    }
+});
+$("#leesMinder2").click(function () {
+    var leesmeer = $("#leesMinder2").text();
+    console.log(leesmeer);
+    if (leesmeer == "LEES MEER") {
+        $('#leesMinder2img').css("transform", "rotate(-90deg)")
+        $("#leesMinder2").html("LEES MINDER");
+    } else {
+        $('#leesMinder2img').css("transform", "rotate(90deg)")
+        $("#leesMinder2").html("LEES MEER");
+    }
+});
+$("#leesMinder3").click(function () {
+    var leesmeer = $("#leesMinder3").text();
+    console.log(leesmeer);
+    if (leesmeer == "LEES MEER") {
+        $('#leesMinder3img').css("transform", "rotate(-90deg)")
+        $("#leesMinder3").html("LEES MINDER");
+    } else {
+        $('#leesMinder3img').css("transform", "rotate(90deg)")
+        $("#leesMinder3").html("LEES MEER");
+    }
+});
+$("#leesMinder4").click(function () {
+    var leesmeer = $("#leesMinder4").text();
+    console.log(leesmeer);
+    if (leesmeer == "LEES MEER") {
+        $('#leesMinder4img').css("transform", "rotate(-90deg)")
+        $("#leesMinder4").html("LEES MINDER");
+    } else {
+        $('#leesMinder4img').css("transform", "rotate(90deg)")
+        $("#leesMinder4").html("LEES MEER");
+    }
+});
 var getoond = true;
 $("#navbarToggle").click(function () {
     console.log("jaaaa");
