@@ -244,11 +244,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Admin.css" />
+    <Content Include="Content\bgPattern.png" />
+    <Content Include="Content\bgpatternHeader.png" />
+    <Content Include="Content\bgpinkPattern.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Kortrijk_logo_rgb_klein.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="CSVfiles\DienstCSV1.txt" />
     <Content Include="CSVfiles\DienstSubthemaCSV1.txt" />
@@ -266,6 +269,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\MyriadPro-Regular.otf" />
     <None Include="Properties\PublishProfiles\integratie - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\integratie - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
@@ -284,6 +288,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Script.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -318,7 +323,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Subtheme\Index.cshtml" />
-    <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Subtheme\Details.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
@@ -340,6 +344,8 @@
     <Content Include="Views\Admin\CreateSubtheme.cshtml" />
     <Content Include="Views\Admin\Users.cshtml" />
     <Content Include="Views\Admin\DetailsFaq.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
