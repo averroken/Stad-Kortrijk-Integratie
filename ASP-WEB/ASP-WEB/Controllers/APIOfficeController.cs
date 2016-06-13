@@ -1,4 +1,5 @@
 ﻿using ASP_WEB.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,14 @@ namespace ASP_WEB.Controllers
           
             if (!id.HasValue)
             {
-                HttpResponseMessage responseAll = Request.CreateResponse(HttpStatusCode.OK, repoOffice.All().ToList());
+                var allOffices = repoOffice.All().ToList();
+                JsonConvert.SerializeObject(allOffices);
+                HttpResponseMessage responseAll = Request.CreateResponse(HttpStatusCode.OK, allOffices);
                 return responseAll;
                 //return repoOffice.All().ToList();
             }
             var offices = repoSubtheme.GetByID(id).Office.ToList();
+            JsonConvert.SerializeObject(offices);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, offices);
             return response;
         }

@@ -1,24 +1,959 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿/*#region LayoutModel*/
+@font-face {
+    font-family: "Myriad Pro Regular";
+    src: url(../fonts/MyriadPro-Regular.otf) format("opentype");
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+html, body {
+    background: url(/Content/bgPattern.png);
+    font-family: "Myriad Pro Regular";
+    font-size: 16px;
+    height: 100%;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
+    body p {
+        color: #626250;
+        text-decoration: none;
+    }
+
+.footerContent {
+    height: 50px;
+    background-color: #e8eddc;
+    width: 100%;
+    display: inline-block;
+}
+
+.wrapperAll {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+    display: inline-block;
+}
+
+.vertalenBig {
+    float: none;
+    text-align: center;
+}
+
+.footerImages {
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.footerContact img {
+    float: left;
+}
+
+.footerContact {
+    width: 123px;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: black;
+    box-shadow: 0 0 1px 0 #333;
+    background-color: #e8eddc;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+#navigatieBalk {
+    background-color: #c2d197;
+    margin: 0;
+    height: 150px;
+    background: url(/Content/bgpatternHeader.png);
+    border: none;
+}
+
+.wrapper {
+    height: 160px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 23px;
+    padding-bottom: 15px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    background: url(/Content/bgpatternHeader.png);
+    text-align: center;
+}
+
+.navText {
+    font-weight: bold;
+}
+
+.txtSearch {
+    width: 68%;
+    position: relative;
+    float: left;
+}
+
+#imgSearch {
+    position: absolute;
+    right: 32%;
+}
+
+.logoBanner {
+    text-align: center;
+    box-shadow: 0 4px 4px -5px #333;
+}
+
+    .logoBanner img {
+        width: 120px;
+        height: 40px;
+    }
+
+    .logoBanner img {
+        margin-top: 11px;
+        margin-left: 65px;
+    }
+
+.goog-te-banner-frame {
+    display: none;
+}
+
+.mediaSocial {
+    float: none;
+    margin: 0 auto;
+}
+
+.mediaImages img {
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+    margin-top: 5px;
+    float: left;
+}
+
+.mediaImages {
+    text-align: center;
+}
+
+.toeleidersTekst {
+    float: left;
+    width: 100%;
+}
+
+.rowSocial {
+    width: 223px;
+    height: 30px;
+}
+/*#endregion*/
+/*#region Index*/
+.thumbnail {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border: none;
+    padding: 0;
+    background-color: none;
+    box-shadow: 2px 2px 5px #888888;
+    background-color: #acd5bb;
+}
+
+    .thumbnail:hover {
+        opacity: 0.85;
+        background-color: #626350;
+    }
+
+.content {
+}
+
+.thumbnail p {
+    margin: 0 auto;
+}
+
+.themaIcons {
+    text-align: center;
+    font-size: 0.8em;
+    text-decoration: none;
+    color: #626250;
+}
+
+    .themaIcons p {
+        margin: 10px 0 10px;
+        height: 50px;
+    }
+
+.containerIcons {
+    height: 100%;
+}
+
+/*#endregion*/
+/*#region Contact*/
+
+.toeleidersTekst h1 {
+    display: none;
+}
+
+.socialSmall {
+    text-align: center;
+}
+
+.toeleidersPic {
+    width: 100px;
+    height: 100px;
+}
+
+.toeleider > div:first-child {
+    text-align: center;
+}
+
+.toeleider h2 {
+    text-align: center;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.toeleider {
+    float: left;
+    width: 49%;
+}
+
+.toeleidersFoto h1 {
+    text-align: center;
+}
+
+.toeleidersImageSm {
+    text-align: center;
+    width: 100%;
+    height: 30px;
+}
+
+.imagesToeleiders img {
+    width: 30px;
+    height: 30px;
+}
+
+.imagesToeleiders a {
+    text-decoration: none;
+}
+
+.meldpunt {
+    background: url(/Content/bgpinkPattern.png);
+}
+
+.meldpuntWrapper {
+    width: 100%;
+}
+
+.toeleider div p {
+    text-decoration: none;
+}
+
+    .toeleider div p a {
+        color: #626250;
+    }
+
+.contactContent {
+    color: #626250;
+}
+
+.inputContact img {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: -6px 5px 0 0;
+}
+
+.inputContact h4 {
+    font-size: 14px;
+    margin: 19px;
+    margin-left: 5px;
+}
+
+.meldpuntFormulier a {
+    text-decoration: none;
+}
+
+    .meldpuntFormulier a:hover {
+        color: #626250;
+    }
+
+.inputContact {
+    float: right;
+    width: 51%;
+}
+
+.dienstInfo img {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-left: 5px;
+}
+
+.dienstInfo h4 {
+    font-size: 14px;
+    padding-left: 23px;
+}
+/*
+.dienstInfo h2 {
+    padding-left: 34px;
+    padding-top: 7px;
+}
 */
-.dl-horizontal dt {
-    white-space: normal;
+
+.inputMeldpunt h4 {
+    font-size: 14px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.form-horizontal {
+    width: 150px;
+}
+
+.inputMeldpunt p {
+    margin-bottom: 2px;
+}
+
+.inputMeldpunt img {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: 5px 5px 0 0;
+}
+
+.inputMeldpunt#1 {
+    float: left;
+}
+
+.inputMeldpunt#2 {
+    float: left;
+}
+
+#txtLG {
+    display: none;
+}
+
+#txtSM {
+    font-size: 0.75em;
+}
+
+a {
+    text-decoration: none;
+    color: #626250;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.contactUS {
+    text-align: center;
+}
+
+    .contactUS img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contactUS p {
+        font-size: 0.75em;
+    }
+
+.meldpuntTekst p {
+    font-size: 0.75em;
+}
+
+h3 {
+    font-size: 1.00em;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 1.00em;
+}
+
+.leesmeer {
+    float: right;
+}
+
+    .leesmeer p {
+        font-size: 9px;
+        float: left;
+        margin-bottom: 0;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        margin: 5px;
+    }
+
+    .leesmeer a {
+        color: #626250;
+        text-decoration: none;
+    }
+
+    .leesmeer img {
+        width: 10px;
+        height: 10px;
+        float: right;
+        margin: 5px;
+        transform: rotate(90deg);
+    }
+
+.collapseList ul li {
+    font-size: 0.75em;
+}
+/*#endregion*/
+/*#region FAQ*/
+#themasFAQ {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.themasFAQ {
+    display: none;
+}
+
+.FAQVragen {
+    width: 100%;
+    margin: 0 auto;
+}
+
+    .FAQVragen svg {
+        float: right;
+        margin-top: 3px;
+    }
+
+.active {
+    display: block;
+}
+
+.dropdown button {
+    border: 1px solid grey;
+    color: black;
+    background-color: white;
+}
+
+    .dropdown button:hover {
+        background-color: #626250;
+    }
+
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background-color: #626250;
+}
+
+.btn-primary:focus, .btn-primary.focus, .dropdown-toggle.btn-primary:focus {
+    background-color: #626250;
+}
+
+.open > .dropdown-toggle.btn-primary:hover {
+    background-color: #626250;
+}
+
+.dropdown-toggle.btn-primary:focus {
+    background-color: #626250;
+}
+
+.dropdown {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.containerDropdown {
+    margin: 0 auto;
+}
+
+#nav {
+    float: left;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+    #nav a {
+        font-size: 0.75em;
+    }
+
+    #nav li {
+    }
+
+        #nav li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #000;
+            box-shadow: 2px 2px 5px #888888;
+            border: 1px solid grey;
+            border-radius: 5px 5px 0 0;
+            background-color: white;
+        }
+
+            #nav li a:hover, #nav li a.active {
+            }
+
+        #nav li ul {
+            display: none;
+            list-style-type: none;
+            padding: 0;
+        }
+
+            #nav li ul li a {
+                padding: 10px 25px;
+                background-color: #eeeeee;
+                border-radius: 0 0 5px 5px;
+            }
+/*#endregion*/
+/*#region Resultaat*/
+.resultaatContent {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.resultaatImage {
+    float: left;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+    .resultaatImage img {
+        width: 100px;
+        height: 100px;
+    }
+
+.resultaatLine {
+    margin: 0 auto;
+    width: 500px;
+    height: 1px;
+    background-color: black;
+}
+/*#endregion*/
+/*#region Map*/
+#mapContainer {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+#mapDummy {
+    padding-top: 75%;
+}
+
+#mapElement {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+/*#endregion*/
+/*#region Onderwerp*/
+.onderwerpInfo img {
+    width: 15px;
+    height: 15px;
+    margin-bottom: 4px;
+}
+
+.onderwerpInfo svg {
+    padding-top: 6px;
+}
+
+.onderwerpInfo div {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.00em;
+}
+
+.onderwerpInfo:link {
+    color: #626250;
+}
+
+.onderwerpInfo:hover {
+    color: #626250;
+}
+
+.onderwerpInfo:active {
+    color: #626250;
+}
+
+.onderwerpInfoLine {
+    height: 1px;
+    background-color: black;
+    width: 100%;
+}
+
+.onderwerpInfoSMP {
+    font-size: 0.75em;
+}
+
+.dienstInfoContact {
+}
+
+#openingsuren {
+    margin-top: 5px;
+    width: 214px;
+    margin: 0 auto;
+    padding-top: 3px;
+
+}
+
+    #openingsuren li {
+        list-style-type: none;
+        font-size: 0.75em;
+    }
+
+    #openingsuren h2 {
+        font-size: 0.75em;
+        margin-left: 25px;
+        margin-top: 0px;
+            padding-top: 6px;
+    padding-left: 9px;
+    }
+
+    #openingsuren img {
+        width: 15px;
+        height: 15px;
+        float: left;
+    }
+    #openingsurenDiff{
+        padding: 0;
+        padding-top: 3px;
+    }
+
+.onderwerpImage img {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    background-color: #acd5bb;
+}
+
+.onderwerpImageSM img {
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    background-color: #acd5bb;
+}
+
+.dienstInfoContact {
+    width: 213px;
+    margin: 0 auto;
+}
+
+    .dienstInfoContact img {
+        width: 15px;
+        height: 15px;
+    }
+
+.onderwerpImageSM {
+    text-align: center;
+}
+
+.onderwerpImage {
+    text-align: center;
+}
+
+.onderwerpLeft {
+    width: 100%;
+}
+
+.onderwerpRight {
+    width: 100%;
+}
+
+    .onderwerpRight p {
+        padding: 10px;
+    }
+
+.panelTitle {
+    text-align: center;
+}
+/*#endregion*/
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    background-color: #ecefe4;
+    color: rgba(98,98,80,0.6);
+}
+
+@media (min-width: 768px) {
+    .imageBanner {
+        margin: 0;
+        margin-top: 11px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        background-color: transparent;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 23px;
+        padding-bottom: 15px;
+    }
+
+    .containerDropdown {
+        display: none;
+    }
+
+    .themasFAQ {
+        display: block;
+    }
+
+    .logoBanner img {
+        margin-left: 0;
+        display: none;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        background-color: transparent;
+    }
+}
+
+@media (min-width: 992px) {
+    .toeleider h2 {
+        font-size: 1.313em;
+    }
+
+    .panelTitle {
+        text-align: left;
+    }
+
+    .dienstInfo h4 {
+        font-size: 14px;
+        padding-left: 34px;
+        padding-top: 7px;
+    }
+
+    .dienstInfoContact {
+        float: none;
+        margin: 0;
+        width: 100%;
+    }
+
+        .dienstInfoContact img {
+            width: 25px;
+            height: 25px;
+        }
+
+    #openingsuren {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+
+        #openingsuren img {
+            width: 25px;
+            height: 25px;
+        }
+
+    .meldpuntTekst p {
+        font-size: 1.00em;
+    }
+
+    .vertalenBig {
+        width: 500px;
+        float: right;
+        margin-top: 17px;
+    }
+
+    .txtSearch {
+        float: left;
+        width: auto;
+    }
+
+    .mediaImages img {
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
+    .mediaImages {
+        float: left;
+    }
+
+    #navigatieBalk {
+        height: 70px;
+    }
+
+    .toeleider div:not(:first-child) {
+        display: block;
+    }
+
+    .themaIcons {
+        font-size: 1.0em;
+    }
+
+    .thumbnail {
+        width: 100px;
+        height: 100px;
+    }
+    #google_translate_element {
+        float: right;
+        margin-right: 97px;
+    }
+
+    .toeleidersFoto {
+        width: 66%;
+        float: right;
+        height: 485px;
+    }
+
+    #txtLG {
+        display: block;
+    }
+
+    #txtSM {
+        display: none;
+    }
+
+    .toeleidersPic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .toeleider {
+        float: left;
+        width: 49%;
+        margin: 3px;
+        margin-top: 62px;
+    }
+
+    .toeleidersTekst {
+        float: left;
+        width: 33%;
+    }
+
+    .toeleider div p {
+        display: block;
+    }
+
+    .toeleidersImageLG {
+        margin-left: 91px;
+    }
+
+    .imagesToeleiders img {
+        width: 15px;
+        height: 15px;
+        float: left;
+        margin-right: 5px;
+        margin-top: 4px;
+        margin-bottom: 10px;
+    }
+
+    .vertalenBig {
+        width: 33%;
+    }
+
+    .navText {
+        border: none;
+        width: 435px;
+        float: left;
+    }
+
+    #navigatieBalk {
+        height: 120px;
+    }
+
+    .mediaSocial {
+        width: 435px;
+    }
+
+    .toeleidersTekst {
+        float: left;
+        width: 33%;
+    }
+
+    .logoBanner img {
+        display: block;
+    }
+
+    .toeleidersTekst h1 {
+        display: block;
+    }
+
+    h1 {
+        font-size: 2.000em;
+    }
+
+    .toeleidersFoto h1 {
+        display: none;
+    }
+
+    .inputMeldpunt {
+        width: 49%;
+        float: left;
+        padding: 20px;
+    }
+
+    .inputContact {
+        padding: 20px;
+    }
+
+    .onderwerpLeft {
+        width: 33%;
+        float: left;
+    }
+
+    .onderwerpRight {
+        width: 66%;
+        float: right;
+    }
+
+    .dienstInfo img {
+        margin-top: 0;
+    }
+
+    #imgSearch {
+        left: 128px;
+    }
+
+    #nav a {
+        font-size: 1.00em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .meldpuntTekst {
+        width: 47%;
+        float: left;
+    }
+
+    .wrapper {
+        height: 110px;
+    }
+
+    .meldpuntFormulier {
+        width: 49%;
+        float: right;
+        padding: 41px;
+    }
+
+    .inputMeldpunt {
+        float: left;
+        width: 49%;
+    }
+
+    .vertalenBig {
+        width: 435px;
+    }
+
+    .navText {
+        width: 435px;
+        float: left;
+    }
+
+    #navigatieBalk {
+        height: 70px;
+    }
+
+    #google_translate_element {
+        margin-right: 0;
+    }
+
+    .toeleidersFoto {
+        padding-left: 65px;
+    }
 }

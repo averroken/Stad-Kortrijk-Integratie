@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace ASP_WEB.Models
         //public string OpeningHours { get; set; }
         //[EmailAddress]
         public string EmailAddress { get; set; }
+
+        [JsonIgnore]
         public virtual ICollection<Subtheme> Subtheme { get; set; }
 
         public string Monday { get; set; }

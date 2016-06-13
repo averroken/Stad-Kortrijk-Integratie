@@ -1,51 +1,49 @@
 ﻿@model ASP_WEB.Models.FaqSubtheme
-
 @{
     ViewBag.Title = "FAQ";
 }
-
-<h2>FAQ</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().ThemeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().SubthemeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().Question)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Faq.FirstOrDefault().Answer)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model.Faq) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThemeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubthemeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Question)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Answer)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FaqID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FaqID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FaqID })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="wrapper">
+</div>
+<div id="containerIcons" class="themasFAQ">
+    <div class="rijIcons row">
+        @foreach (var item in Model.Theme)
+            {
+            <div class="themaIcons col-md-1 col-xs-3 col-sm-2">
+                <img id="themasFAQ" class="thumbnail img-responsive image_on" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto" data-toggle="tooltip" data-placement="bottom" title="@item.Name">
+            </div>
+        }
+    </div>
+</div>
+<div class="container containerDropdown">
+    <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+            Kies een thema
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            @foreach (var item in Model.Theme)
+            {
+                <li><a href="#">@item.Name</a></li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="FAQVragen">
+    <ul id="nav">
+        @foreach (var item in Model.Faq)
+        {
+            <li style="margin-top: 20px;">
+                <a href="#">
+                    @WebUtility.HtmlDecode(item.Subtheme.Name) <svg height="30" width="30">
+                    <polyline points="0,0 15,15 30,0" style="fill:white;stroke:#c4c4c4;stroke-width:2;float:right;" />
+                </svg>
+            </a>
+            <ul>
+                <li>
+                    <a href="#">@WebUtility.HtmlDecode(item.Subtheme.Description)</a>
+                </li>
+            </ul>
+        </li>
+        }
+    </ul>
+</div>

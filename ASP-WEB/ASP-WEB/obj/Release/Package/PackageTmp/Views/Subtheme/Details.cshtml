@@ -1,9 +1,128 @@
 ﻿@model ASP_WEB.Models.Subtheme
-
 @{
     ViewBag.Title = "Details";
 }
+<div class="wrapper content"></div>
+<div class="onderwerpImageSM hidden-md hidden-lg">
+    <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" />
+</div>
+<div class="onderwerpLeft">
+    <div class="onderwerpImage hidden-xs hidden-sm">
+        <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" />
+    </div>
+    <div id="accordion" role="tablist" aria-multiselectable="true">
+        <div>
+            <div class="subThemaID" data-themeID="@Model.SubthemeID"></div>
+            <p class="hidden-md hidden-lg onderwerpInfoSMP">@WebUtility.HtmlDecode(Model.Description)</p>
+            @foreach (var item in Model.Office)
+            {
+                <div role="tab" id="@item.Name" class="dienstDiv">
+                    <div class="onderwerpInfoLine"></div>
+                    <a class="onderwerpInfo" data-toggle="collapse" data-parent="#accordion" href="#@item.OfficeID">
+                        <div class="panel-title panelTitle">
+                            <img src="https://integratiekortrijk.blob.core.windows.net/images/documentenCircle.png" />
+                            @item.Name
+                            <svg height="15" width="15">
+                                <polyline points="0,0 7.5,7.5 15,0" style="fill:transparent;stroke:#c4c4c4;stroke-width:2;float:right;" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                    <div class="collapse panel-collapse" role="tabpanel" aria-labelledby="@item.Name" id="@item.OfficeID">
+                        <div>
+                            <div class="dienstInfo">
+                                <div class="dienstInfoContact">
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" />
+                                        <a href="http://maps.apple.com/?q=@item.Street @item.HouseNumber @item.ZipCode @item.City" target="_blank"><h4>@item.Street @item.HouseNumber, @item.ZipCode @item.City</h4></a>
+                                    </div>
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
+                                        <a href="tel:@item.PhoneNumber" target="_blank"><h4>@item.PhoneNumber</h4></a>
+                                    </div>
+                                    @if (!item.EmailAddress.IsEmpty())
+                                    {
+                                        <div>
+                                            <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" />
+                                            <a href="mailto:@item.EmailAddress" target="_blank"><h4>@item.EmailAddress</h4></a>
+                                        </div>
+                                    }
+                                </div>
+                                <div id="openingsuren">
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
+                                        <h2 id="openingsurenDiff">Openingsuren:</h2>
+                                    </div>
+                                    <ul>
+                                        <li>Maandag: @item.Monday</li>
+                                        <li>Dinsdag: @item.Tuesday</li>
+                                        <li>Woensdag: @item.Wednesday</li>
+                                        <li>Donerdag: @item.Thursday</li>
+                                        <li>Vrijdag: @item.Friday</li>
+                                        <li>Zaterdag: @item.Saturday</li>
+                                        <li>Zondag: @item.Sunday</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="onderwerpRight">
+    <p class="hidden-xs hidden-sm">@WebUtility.HtmlDecode(Model.Description)</p>
+    <div id="mapContainer" class="col-md-12 hidden-xs hidden-sm">
+        <div id="mapDummy"></div>
+        <div id="mapElement">
+            <script type="text/javascript">
+                    var SubthemaID = $('.subThemaID').attr("data-themeID");
+                    var uri = '/api/Offices/get?id=' + SubthemaID;
+                    var address;
+                    var dataOffices;
+                    var i = 0;
+                    function initMap() {
+                        $.getJSON(uri)
+.done(function (data) {
+    dataOffices = data;
+    console.log(dataOffices);
 
+                        var map = new google.maps.Map(document.getElementById('mapElement'), {
+                            zoom: 13,
+                            center: { lat: 50.829485, lng: 3.264681 }
+                        });
+                        var geocoder = new google.maps.Geocoder();
+                        geocodeAddress(geocoder, map);
+});
+                    }
+                    function geocodeAddress(geocoder, resultsMap) {
+                        $.each(dataOffices, function (key, value) {
+                            console.log(key);
+                            console.log(value);
+                            address = value.Street + '%20' + value.HouseNumber + ',%20' + value.City + '%20' + value.ZipCode;
+                            geocoder.geocode({ 'address': address }, function (results, status) {
+                                if (status === google.maps.GeocoderStatus.OK) {
+                                    var marker = new google.maps.Marker({
+                                        map: resultsMap,
+                                        position: results[0].geometry.location,
+                                        title: value.Name
+                                    });
+                                } else {
+                                    alert('Geocode was unsuccesful for this reason: ' + status);
+                                }
+                            });
+                        });
+                    }
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJiRLwhM5BeM9PkkxvzZLOh4eR5WeaJcg&callback=initMap">
+            </script>
+        </div>
+    </div>
+</div>
+<!--
+
+@*
 <h2>Details</h2>
 
 <div>
@@ -15,7 +134,7 @@
         </dt>
 
         <dd>
-            @WebUtility.HtmlDecode(Model.Name)
+            @Html.DisplayFor(model => model.Name)
         </dd>
 
         <dt>
@@ -27,11 +146,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Theme.Name)
         </dt>
 
         <dd>
-            @WebUtility.HtmlDecode(Model.Description)
+            @Html.DisplayFor(model => model.Theme.Name)
         </dd>
 
         <dt>
@@ -39,7 +158,7 @@
         </dt>
 
         <dd>
-            <img src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" alt="@Model.FotoURL Photo" />
+            @Html.DisplayFor(model => model.FotoURL)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Office)
@@ -56,3 +175,5 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.SubthemeID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+    *@
+    -->
