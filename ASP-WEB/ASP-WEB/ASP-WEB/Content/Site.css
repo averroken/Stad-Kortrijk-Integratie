@@ -83,19 +83,23 @@ footer {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: #626250;
-    background-color: rgba(98,98,80,0.4);
+    background: url(/Content/bgpatternHeader.png);
+    text-align: center;
 }
 
 .navText {
     font-weight: bold;
-    width: 100%;
 }
 
 .txtSearch {
-    width: 25%;
+    width: 68%;
     position: relative;
-    display: none;
+    float: left;
+}
+
+#imgSearch {
+    position: absolute;
+    right: 32%;
 }
 
 .logoBanner {
@@ -126,6 +130,12 @@ footer {
     width: 20px;
     height: 20px;
     margin: 2px;
+    margin-top: 5px;
+    float: left;
+}
+
+.mediaImages {
+    text-align: center;
 }
 
 .toeleidersTekst {
@@ -151,6 +161,7 @@ footer {
 }
 
     .thumbnail:hover {
+        opacity: 0.85;
         background-color: #626350;
     }
 
@@ -222,7 +233,8 @@ footer {
     width: 30px;
     height: 30px;
 }
-.imagesToeleiders a{
+
+.imagesToeleiders a {
     text-decoration: none;
 }
 
@@ -259,6 +271,14 @@ footer {
     margin-left: 5px;
 }
 
+.meldpuntFormulier a {
+    text-decoration: none;
+}
+
+    .meldpuntFormulier a:hover {
+        color: #626250;
+    }
+
 .inputContact {
     float: right;
     width: 51%;
@@ -273,13 +293,15 @@ footer {
 
 .dienstInfo h4 {
     font-size: 14px;
+    padding-left: 23px;
+}
+/*
+.dienstInfo h2 {
     padding-left: 34px;
     padding-top: 7px;
 }
-.dienstInfo h2{
-    padding-left: 34px;
-    padding-top: 7px;
-}
+*/
+
 .inputMeldpunt h4 {
     font-size: 14px;
 }
@@ -307,15 +329,6 @@ footer {
     float: left;
 }
 
-#openingsuren li {
-    list-style-type: none;
-    font-size: 0.75em;
-}
-
-#openingsuren h2 {
-    font-size: 0.75em;
-}
-
 #txtLG {
     display: none;
 }
@@ -323,42 +336,20 @@ footer {
 #txtSM {
     font-size: 0.75em;
 }
-a{
+
+a {
     text-decoration: none;
-        color: #626250;
+    color: #626250;
 }
-.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus{
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
     background-color: transparent;
 }
+
 .navbar-inverse .navbar-toggle .icon-bar {
     background-color: black;
 }
-.onderwerpInfo img{
-    width: 15px;
-    height: 15px;
-    margin-bottom: 4px;
-}
-.onderwerpInfo svg{
-    padding-top: 6px;
-}
-.onderwerpInfo div{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.onderwerpInfo:link {
-    color: #626250;
-}
-.onderwerpInfo:hover {
-    color: #626250;
-}
-.onderwerpInfo:active {
-    color: #626250;
-}
-.onderwerpInfoLine{
-    height: 1px;
-    background-color: black;
-    width: 100%;
-}
+
 .contactUS {
     text-align: center;
 }
@@ -409,6 +400,7 @@ h1 {
         height: 10px;
         float: right;
         margin: 5px;
+        transform: rotate(90deg);
     }
 
 .collapseList ul li {
@@ -447,8 +439,24 @@ h1 {
 }
 
     .dropdown button:hover {
-        background-color: #6A1B5A;
+        background-color: #626250;
     }
+
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background-color: #626250;
+}
+
+.btn-primary:focus, .btn-primary.focus, .dropdown-toggle.btn-primary:focus {
+    background-color: #626250;
+}
+
+.open > .dropdown-toggle.btn-primary:hover {
+    background-color: #626250;
+}
+
+.dropdown-toggle.btn-primary:focus {
+    background-color: #626250;
+}
 
 .dropdown {
     width: 100px;
@@ -465,6 +473,10 @@ h1 {
     list-style-type: none;
     padding: 0;
 }
+
+    #nav a {
+        font-size: 0.75em;
+    }
 
     #nav li {
     }
@@ -500,16 +512,19 @@ h1 {
     width: 500px;
     margin: 0 auto;
 }
-.resultaatImage{
+
+.resultaatImage {
     float: left;
     margin-right: 15px;
     margin-top: 5px;
 }
-.resultaatImage img{
-    width: 100px;
-    height: 100px;
-}
-.resultaatLine{
+
+    .resultaatImage img {
+        width: 100px;
+        height: 100px;
+    }
+
+.resultaatLine {
     margin: 0 auto;
     width: 500px;
     height: 1px;
@@ -536,20 +551,106 @@ h1 {
 }
 /*#endregion*/
 /*#region Onderwerp*/
+.onderwerpInfo img {
+    width: 15px;
+    height: 15px;
+    margin-bottom: 4px;
+}
+
+.onderwerpInfo svg {
+    padding-top: 6px;
+}
+
+.onderwerpInfo div {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.00em;
+}
+
+.onderwerpInfo:link {
+    color: #626250;
+}
+
+.onderwerpInfo:hover {
+    color: #626250;
+}
+
+.onderwerpInfo:active {
+    color: #626250;
+}
+
+.onderwerpInfoLine {
+    height: 1px;
+    background-color: black;
+    width: 100%;
+}
+
+.onderwerpInfoSMP {
+    font-size: 0.75em;
+}
+
+.dienstInfoContact {
+}
+
+#openingsuren {
+    margin-top: 5px;
+    width: 214px;
+    margin: 0 auto;
+    padding-top: 3px;
+
+}
+
+    #openingsuren li {
+        list-style-type: none;
+        font-size: 0.75em;
+    }
+
+    #openingsuren h2 {
+        font-size: 0.75em;
+        margin-left: 25px;
+        margin-top: 0px;
+            padding-top: 6px;
+    padding-left: 9px;
+    }
+
+    #openingsuren img {
+        width: 15px;
+        height: 15px;
+        float: left;
+    }
+    #openingsurenDiff{
+        padding: 0;
+        padding-top: 3px;
+    }
+
 .onderwerpImage img {
     width: 200px;
     height: 200px;
     margin: 20px;
     background-color: #acd5bb;
 }
-.onderwerpImageSM img{
+
+.onderwerpImageSM img {
     width: 180px;
     height: 180px;
     margin: 10px;
+    background-color: #acd5bb;
 }
-.onderwerpImageSM{
+
+.dienstInfoContact {
+    width: 213px;
+    margin: 0 auto;
+}
+
+    .dienstInfoContact img {
+        width: 15px;
+        height: 15px;
+    }
+
+.onderwerpImageSM {
     text-align: center;
 }
+
 .onderwerpImage {
     text-align: center;
 }
@@ -565,6 +666,10 @@ h1 {
     .onderwerpRight p {
         padding: 10px;
     }
+
+.panelTitle {
+    text-align: center;
+}
 /*#endregion*/
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
@@ -610,6 +715,38 @@ h1 {
         font-size: 1.313em;
     }
 
+    .panelTitle {
+        text-align: left;
+    }
+
+    .dienstInfo h4 {
+        font-size: 14px;
+        padding-left: 34px;
+        padding-top: 7px;
+    }
+
+    .dienstInfoContact {
+        float: none;
+        margin: 0;
+        width: 100%;
+    }
+
+        .dienstInfoContact img {
+            width: 25px;
+            height: 25px;
+        }
+
+    #openingsuren {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+
+        #openingsuren img {
+            width: 25px;
+            height: 25px;
+        }
+
     .meldpuntTekst p {
         font-size: 1.00em;
     }
@@ -621,7 +758,6 @@ h1 {
     }
 
     .txtSearch {
-        display: block;
         float: left;
         width: auto;
     }
@@ -630,6 +766,8 @@ h1 {
         width: 20px;
         height: 20px;
         margin: 2px;
+        margin-top: 5px;
+        margin-left: 5px;
     }
 
     .mediaImages {
@@ -652,7 +790,6 @@ h1 {
         width: 100px;
         height: 100px;
     }
-
     #google_translate_element {
         float: right;
         margin-right: 97px;
@@ -693,11 +830,17 @@ h1 {
         display: block;
     }
 
+    .toeleidersImageLG {
+        margin-left: 91px;
+    }
+
     .imagesToeleiders img {
         width: 15px;
         height: 15px;
         float: left;
         margin-right: 5px;
+        margin-top: 4px;
+        margin-bottom: 10px;
     }
 
     .vertalenBig {
@@ -705,6 +848,7 @@ h1 {
     }
 
     .navText {
+        border: none;
         width: 435px;
         float: left;
     }
@@ -747,15 +891,28 @@ h1 {
     .inputContact {
         padding: 20px;
     }
-    .onderwerpLeft {
-    width: 33%;
-    float: left;
-}
 
-.onderwerpRight {
-    width: 66%;
-    float: right;
-}
+    .onderwerpLeft {
+        width: 33%;
+        float: left;
+    }
+
+    .onderwerpRight {
+        width: 66%;
+        float: right;
+    }
+
+    .dienstInfo img {
+        margin-top: 0;
+    }
+
+    #imgSearch {
+        left: 128px;
+    }
+
+    #nav a {
+        font-size: 1.00em;
+    }
 }
 
 @media (min-width: 1200px) {

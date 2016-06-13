@@ -8,33 +8,26 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
 </head>
 <body>
-    <script type="text/javascript">
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-78959059-1', 'auto');
-        ga('send', 'pageview');
-    </script>
     <div class="wrapperAll">
         <div class="navbar navbar-inverse navbar-fixed-top" id="navigatieBalk">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <button type="button" class="navbar-toggle" id="navbarToggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <div class="logoBanner">
-                        <img src="~/Content/Kortrijk_logo_rgb_klein.png" alt="">
-                    </div>
+                    <a href="/Home/Index">
+                        <div class="logoBanner">
+                            <img src="~/Content/Kortrijk_logo_rgb_klein.png" alt="">
+                        </div>
+                    </a>
                     <!--             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })-->
-</div>
+                </div>
 
                 <div class="navbar-collapse collapse navText">
                 </div>
@@ -59,12 +52,16 @@
                     <div id="google_translate_element"></div>
                     <div class="col-md-4 mediaSocial">
                         <div class="row mediaImages">
-                            <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" alt="Search">
-                            <img src="https://integratiekortrijk.blob.core.windows.net/images/facebookCircle.png" alt="Facebook">
-                            <img src="https://integratiekortrijk.blob.core.windows.net/images/twitterCircle.png" alt="Twitter">
                             <form class="txtSearch" action="/Search" method="get">
                                 <input type="search" placeholder="Zoeken..." class="form-control" />
                             </form>
+                            <img id="imgSearch" src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" alt="Search">
+                            <a href="https://www.facebook.com/stadkortrijk/?fref=nf" target="_blank">
+                                <img src="https://integratiekortrijk.blob.core.windows.net/images/facebookCircle.png" alt="Facebook">
+                            </a>
+                            <a href="https://twitter.com/8500Kortrijk" target="_blank">
+                                <img src="https://integratiekortrijk.blob.core.windows.net/images/twitterCircle.png" alt="Twitter">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -76,7 +73,9 @@
         <footer class="navbar-bottom">
             <div class="container">
                 <div>
-                    <p>Stad Kortrijk - Grote Markt 54 - 8500 Kortrijk</p>
+                    <a href="http://maps.apple.com/?q=Grote%20Markt%2054,%208500%20Kortrijk">
+                        <p>Stad Kortrijk - Grote Markt 54 - 8500 Kortrijk</p>
+                    </a>
                 </div>
                 <div class="container">
                     <div class="row"></div>
@@ -90,28 +89,5 @@
             </div>
         </footer>
     </div>
-    <script>
-        var body = document.getElementsByTagName("body")[0];
-
-        body.addEventListener("load", init(), false);
-
-        function init() {
-            CheckFooter();
-        };
-
-        if (window.addEventListener) {
-            window.addEventListener('resize', function () {
-                CheckFooter();
-            }, true);
-        }
-
-        function CheckFooter() {
-            if (window.outerWidth == screen.width) {
-                document.getElementById("footer").style.position = "absolute";
-            } else {
-                document.getElementById("footer").style.position = "relative";
-            }
-        }
-    </script>
 </body>
 </html>

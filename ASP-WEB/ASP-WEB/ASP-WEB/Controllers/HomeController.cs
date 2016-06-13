@@ -3,6 +3,8 @@ using ASP_WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -67,6 +69,23 @@ namespace ASP_WEB.Controllers
         public ActionResult TestDesignResultaat()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Contact(FormCollection frm)
+        {
+            string Name = frm["Name"];
+            string Email = frm["Email"];
+            string Subject = frm["Subject"];
+            string Description = frm["Description"];
+
+            MailMessage o = new MailMessage("matthieu19@msn.com", "louisguy.meersseman19@gmail.com", Subject, "Name: " + Name + "</br> Email: " + Email + "</br> Subject: " + Subject + "</br> Description: " + Description);
+            o.IsBodyHtml = true;
+            NetworkCredential netCred = new NetworkCredential("matthieu19@msn.com", "azeAZE$69");
+            SmtpClient smtpobj = new SmtpClient("smtp.live.com", 587);
+            smtpobj.EnableSsl = true;
+            smtpobj.Credentials = netCred;
+            smtpobj.Send(o);
+            return RedirectToAction(nameof(Contact));
         }
     }
 }

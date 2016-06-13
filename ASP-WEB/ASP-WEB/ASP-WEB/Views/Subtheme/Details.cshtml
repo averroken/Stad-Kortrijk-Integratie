@@ -14,13 +14,13 @@
         <div id="accordion" role="tablist" aria-multiselectable="true">
             <div>
                 <div class="subThemaID" data-themeID="@Model.SubthemeID"></div>
-                <p class="hidden-md hidden-lg">@WebUtility.HtmlDecode(Model.Description)</p>
+                <p class="hidden-md hidden-lg onderwerpInfoSMP">@WebUtility.HtmlDecode(Model.Description)</p>
                 @foreach (var item in Model.Office)
             {
-                    <div role="tab" id="@item.Name">
+                    <div role="tab" id="@item.Name" class="dienstDiv">
                         <div class="onderwerpInfoLine"></div>
                         <a class="onderwerpInfo" data-toggle="collapse" data-parent="#accordion" href="#@item.OfficeID">
-                            <div class="panel-title">
+                            <div class="panel-title panelTitle">
                                 <img src="https://integratiekortrijk.blob.core.windows.net/images/documentenCircle.png"/>
                                 @item.Name
                                 <svg height="15" width="15">
@@ -32,30 +32,35 @@
                     <div class="collapse panel-collapse" role="tabpanel" aria-labelledby="@item.Name" id="@item.OfficeID">
                         <div>
                             <div class="dienstInfo">
-                                <div>
-                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" />
-                                    <a href="http://maps.apple.com/?q=@item.Street @item.HouseNumber @item.ZipCode @item.City" target="_blank"><h4>@item.Street @item.HouseNumber, @item.ZipCode @item.City</h4></a>
-                                </div>
-                                <div>
-                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
-                                    <a href="tel:@item.PhoneNumber" target="_blank"><h4>@item.PhoneNumber</h4></a>
-                                </div>
-                                <div>
-                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" />
-                                    <a href="mailto:@item.EmailAddress" target="_blank"><h4>@item.EmailAddress</h4></a>
+                                <div class="dienstInfoContact">
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" />
+                                        <a href="http://maps.apple.com/?q=@item.Street @item.HouseNumber @item.ZipCode @item.City" target="_blank"><h4>@item.Street @item.HouseNumber, @item.ZipCode @item.City</h4></a>
+                                    </div>
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
+                                        <a href="tel:@item.PhoneNumber" target="_blank"><h4>@item.PhoneNumber</h4></a>
+                                    </div>
+                                    @if(!item.EmailAddress.IsEmpty()) { 
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" />
+                                        <a href="mailto:@item.EmailAddress" target="_blank"><h4>@item.EmailAddress</h4></a>
+                                    </div>
+                                    }
                                 </div>
                                 <div id="openingsuren">
-                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
-                                    <h2>Openingsuren:</h2>
-
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
+                                        <h2 id="openingsurenDiff">Openingsuren:</h2>
+                                    </div>
                                     <ul>
-                                        <li>@item.Monday</li>
-                                        <li>@item.Tuesday</li>
-                                        <li>@item.Wednesday</li>
-                                        <li>@item.Thursday</li>
-                                        <li>@item.Friday</li>
-                                        <li>@item.Saturday</li>
-                                        <li>@item.Sunday</li>
+                                        <li>Maandag: @item.Monday</li>
+                                        <li>Dinsdag: @item.Tuesday</li>
+                                        <li>Woensdag: @item.Wednesday</li>
+                                        <li>Donerdag: @item.Thursday</li>
+                                        <li>Vrijdag: @item.Friday</li>
+                                        <li>Zaterdag: @item.Saturday</li>
+                                        <li>Zondag: @item.Sunday</li>
                                     </ul>
                                 </div>
                             </div>
@@ -76,36 +81,31 @@
                     var address;
                     var dataOffices;
                     var i = 0;
-                    $(document).ready(function () {
-                        $.getJSON(uri)
-                        .done(function (data) {
-                            dataOffices = data;
-                            console.log(dataOffices);
-                        });
-                    });
                     function initMap() {
+                        $.getJSON(uri)
+.done(function (data) {
+    dataOffices = data;
+    console.log(dataOffices);
+
                         var map = new google.maps.Map(document.getElementById('mapElement'), {
                             zoom: 13,
                             center: { lat: 50.829485, lng: 3.264681 }
                         });
                         var geocoder = new google.maps.Geocoder();
                         geocodeAddress(geocoder, map);
+});
                     }
                     function geocodeAddress(geocoder, resultsMap) {
-                        $.each(function (dataOffices) {
-                            if (i != 0) {
-                                i++;
-                            } else {
-                                i = 0;
-                            }
-                            address = dataOffices[i].Street + '%20' + dataOffices[i].HouseNumber + ',%20' + dataOffices[i].City + '%20' + dataOffices[i].ZipCode;
-                            console.log(address);
+                        $.each(dataOffices, function (key, value) {
+                            console.log(key);
+                            console.log(value);
+                            address = value.Street + '%20' + value.HouseNumber + ',%20' + value.City + '%20' + value.ZipCode;
                             geocoder.geocode({ 'address': address }, function (results, status) {
                                 if (status === google.maps.GeocoderStatus.OK) {
                                     var marker = new google.maps.Marker({
                                         map: resultsMap,
                                         position: results[0].geometry.location,
-                                        title: "Stadhuis Kortrijk"
+                                        title: value.Name
                                     });
                                 } else {
                                     alert('Geocode was unsuccesful for this reason: ' + status);

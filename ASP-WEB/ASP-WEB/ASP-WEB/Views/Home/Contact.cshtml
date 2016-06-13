@@ -15,7 +15,7 @@
 
                 <h2>Fatima El Ghazoini</h2>
                 <div class="imagesToeleiders">
-                    <div class="hidden-xs hidden-sm">
+                    <div class="hidden-xs hidden-sm toeleidersImageLG">
                         <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" alt="Telefoon" />
                         <a href="tel:0483038685">
                             <p class="hidden-sm hidden-xs">
@@ -55,7 +55,7 @@
 
                 <h2>Madinat Ozdoeva</h2>
                 <div class="imagesToeleiders">
-                    <div class="hidden-xs hidden-sm">
+                    <div class="hidden-xs hidden-sm toeleidersImageLG">
                         <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" alt="Telefoon" />
                         <p class="hidden-sm hidden-xs">
                             <a href="tel:+32495275953" target="_blank">0495 27 59 53</a>
@@ -101,8 +101,8 @@
                 <p>Toeleiders informeren en motiveren, verwijzen door naar hulp- en dienstverlening, loketten in het stadhuis, projecten, (vrijetijds) organisaties en andere partners en brugfiguren in de stad. Bij dit alles zorgen ze ervoor dat de persoon die ze op weg helpen zelfredzamer wordt.</p>
             </div>
             <div class="leesmeer">
-                <img src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
-                <p><a data-toggle="collapse" href="#collapseTekst">LEES MEER</a></p>
+                <img id="leesMinder1img" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
+                <p><a data-toggle="collapse" href="#collapseTekst" id="leesMinder1">LEES MEER</a></p>
             </div>
         </div>
     </div>
@@ -112,25 +112,25 @@
     <div class="hidden-lg hidden-md contactUS container">
         <div class="row">
             <div class="col-xs-3 col-sm-3">
-                <a href="mailto:toeleiders@kortrijk.be">
+                <a href="mailto:toeleiders@kortrijk.be" target="_blank">
                     <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" alt="Email" />
                     <p>Mail ons</p>
                 </a>
             </div>
             <div class="col-xs-3 col-sm-3">
-                <a href="http://maps.apple.com/?q=Wijngaardstraat%2011,%208500%20Kortrijk">
+                <a href="http://maps.apple.com/?q=Wijngaardstraat%2011,%208500%20Kortrijk" target="_blank">
                     <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" alt="Locatie" />
                     <p>Bezoek ons</p>
                 </a>
             </div>
             <div class="col-xs-3 col-sm-3">
-                <a href="tel:0483038685">
+                <a href="tel:0483038685" target="_blank">
                     <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" alt="Locatie" />
                     <p>Bel ons</p>
                 </a>
             </div>
             <div class="col-xs-3 col-sm-3">
-                <a>
+                <a href="https://play.google.com/store/apps/details?id=be.itidea.app1777" target="_blank">
                     <img src="https://integratiekortrijk.blob.core.windows.net/images/iphoneCircle.png" alt="Telefoon" />
                     <p>Via de app</p>
                 </a>
@@ -180,8 +180,8 @@
             </div>
             <div style="width:100%; height:20px;">
                 <div class="leesmeer">
-                    <img src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
-                    <p><a data-toggle="collapse" href="#collapseTekst2">LEES MEER</a></p>
+                    <img id="leesMinder2img" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
+                    <p><a data-toggle="collapse" href="#collapseTekst2" id="leesMinder2">LEES MEER</a></p>
                 </div>
             </div>
             <h3>Waarvoor kan je terecht bij 1777?</h3>
@@ -214,8 +214,8 @@
                 </div>
                 <div style="width:100%; height:20px;">
                     <div class="leesmeer">
-                        <img src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
-                        <p><a data-toggle="collapse" href="#collapseTekst3">LEES MEER</a></p>
+                        <img id="leesMinder3img" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
+                        <p><a data-toggle="collapse" href="#collapseTekst3" id="leesMinder3">LEES MEER</a></p>
                     </div>
                 </div>
             </div>
@@ -229,16 +229,18 @@
             </div>
             <div style="width:100%; height:20px;">
                 <div class="leesmeer">
-                    <img src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
-                    <p><a data-toggle="collapse" href="#collapseTekst4">LEES MEER</a></p>
+                    <img id="leesMinder4img" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
+                    <p><a data-toggle="collapse" href="#collapseTekst4" id="leesMinder4">LEES MEER</a></p>
                 </div>
             </div>
         </div>
         <div class="meldpuntFormulier hidden-xs hidden-sm">
             <div class="inputMeldpunt">
                 <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" />
-                <h4>Via het meldpunt 1777</h4>
-                <form action="/Home/Contact" method="post" class="form-horizontal">
+                <a href="mailto:1777@kortrijk.be" target="_blank">
+                    <h4>Via het meldpunt 1777</h4>
+                </a>
+                <form action="/Home/Contact" method="post">
                     <div class="form-group">
                         <label for="Name">Naam:</label>
                         <input type="text" name="Name" class="form-control" />
@@ -262,20 +264,28 @@
             </div>
             <div class="inputContact">
                 <div>
-                    <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
-                    <h4>Bel ons op 1777</h4>
+                    <a href="tel:1777" target="_blank">
+                        <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
+                        <h4>Bel ons op 1777</h4>
+                    </a>
                 </div>
                 <div>
-                    <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
-                    <h4>Bel ons op 0032 56 27 72</h4>
+                    <a href="tel:+32562772" target="_blank">
+                        <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
+                        <h4>Bel ons op 0032 56 27 72</h4>
+                    </a>
                 </div>
                 <div>
-                    <img src="https://integratiekortrijk.blob.core.windows.net/images/iphoneCircle.png" />
-                    <h4>Via de 1777 app</h4>
+                    <a href="https://play.google.com/store/apps/details?id=be.itidea.app1777" target="_blank">
+                        <img src="https://integratiekortrijk.blob.core.windows.net/images/iphoneCircle.png" />
+                        <h4>Via de 1777 app</h4>
+                    </a>
                 </div>
                 <div>
-                    <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" />
-                    <h4>Via het onthaal in het stadhuis</h4>
+                    <a href="http://maps.apple.com/?q=Grote%20Markt%2054,%208500%20Kortrijk" target="_blank">
+                        <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" />
+                        <h4>Via het onthaal in het stadhuis</h4>
+                    </a>
                 </div>
                 <div id="openingsuren">
                     <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />

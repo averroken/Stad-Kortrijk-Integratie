@@ -74,3 +74,62 @@ $(".sidebar-box .button").click(function () {
     return false;
 
 });
+(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-78959059-1', 'auto');
+ga('send', 'pageview');
+
+
+$("#leesMinder1").click(function () {
+    var leesmeer = $("#leesMinder1").text();
+    console.log(leesmeer);
+    if (leesmeer == "LEES MEER") {
+        $('#leesMinder1img').css("transform", "rotate(-90deg)")
+        $("#leesMinder1").html("LEES MINDER");
+    } else {
+        $('#leesMinder1img').css("transform", "rotate(90deg)")
+        $("#leesMinder1").html("LEES MEER");
+    }
+});
+$("#leesMinder2").click(function () {
+    var leesmeer = $("#leesMinder2").text();
+    console.log(leesmeer);
+    if (leesmeer == "LEES MEER") {
+        $('#leesMinder2img').css("transform", "rotate(-90deg)")
+        $("#leesMinder2").html("LEES MINDER");
+    } else {
+        $('#leesMinder2img').css("transform", "rotate(90deg)")
+        $("#leesMinder2").html("LEES MEER");
+    }
+});
+$("#leesMinder3").click(function () {
+    var leesmeer = $("#leesMinder3").text();
+    console.log(leesmeer);
+    if (leesmeer == "LEES MEER") {
+        $('#leesMinder3img').css("transform", "rotate(-90deg)")
+        $("#leesMinder3").html("LEES MINDER");
+    } else {
+        $('#leesMinder3img').css("transform", "rotate(90deg)")
+        $("#leesMinder3").html("LEES MEER");
+    }
+});
+$("#leesMinder4").click(function () {
+    var leesmeer = $("#leesMinder4").text();
+    console.log(leesmeer);
+    if (leesmeer == "LEES MEER") {
+        $('#leesMinder4img').css("transform", "rotate(-90deg)")
+        $("#leesMinder4").html("LEES MINDER");
+    } else {
+        $('#leesMinder4img').css("transform", "rotate(90deg)")
+        $("#leesMinder4").html("LEES MEER");
+    }
+});
+var getoond = true;
+$("#navbarToggle").click(function () {
+    console.log("jaaaa");
+    $(".vertalenBig").toggle("display");
+});
