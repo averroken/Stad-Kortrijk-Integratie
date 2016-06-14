@@ -24,6 +24,12 @@ $(document).ready(function () {
         userLanguage = GetSelectedLanguage();
         TranslateForSearch(toTranslate, targetLanguage, userLanguage);
     });
+    $(".link").click(function (e) {
+        $(".active").hide();
+        $(".active").removeClass("active");
+        $("." + e.currentTarget.id).addClass("active");
+        $("." + e.currentTarget.id).show();
+    });
 });
     $('#nav > li > a').click(function () {
         if ($(this).attr('class') != 'active') {
@@ -37,6 +43,7 @@ $(document).ready(function () {
             $('#nav li ul').slideUp();
         }
     });
+
     $(".dropdown").on("show.bs.dropdown", function (event) {
         var x = $(event.relatedTarget).text(); // Get the button text
     });

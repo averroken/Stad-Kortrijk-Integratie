@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Release\Package\PackageTmp" />
-  <setAcl path="C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Release\Package\PackageTmp" />
+  <setAcl path="C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\DarthSwedo\Documents\GitHub\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

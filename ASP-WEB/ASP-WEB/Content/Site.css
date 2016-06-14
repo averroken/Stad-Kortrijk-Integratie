@@ -35,6 +35,14 @@ html, body {
 .vertalenBig {
     float: none;
     text-align: center;
+    background: url(/Content/bgpatternHeader.png);
+    margin: 0 -15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.navbar-nav {
+    margin: 0 -15px;
 }
 
 .footerImages {
@@ -50,6 +58,10 @@ html, body {
 .footerContact {
     width: 123px;
     margin: 0 auto;
+}
+.footerContact p{
+    float: left;
+    margin-left: 5px;
 }
 
 footer {
@@ -74,7 +86,7 @@ footer {
 }
 
 .wrapper {
-    height: 160px;
+    height: 190px;
 }
 
 .navbar-nav > li > a {
@@ -86,9 +98,11 @@ footer {
     background: url(/Content/bgpatternHeader.png);
     text-align: center;
 }
-.navbar-fixed-top .navbar-collapse{
-        padding-left: 0;
+
+.navbar-fixed-top .navbar-collapse {
+    padding-left: 0;
 }
+
 .navText {
     font-weight: bold;
     color: #626250;
@@ -127,6 +141,7 @@ footer {
 .mediaSocial {
     float: none;
     margin: 0 auto;
+    padding-top: 10px;
     padding-left: 26%;
 }
 
@@ -154,8 +169,8 @@ footer {
 /*#endregion*/
 /*#region Index*/
 .thumbnail {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
     border: none;
     padding: 0;
@@ -337,9 +352,40 @@ footer {
     display: none;
 }
 
-#txtSM {
+#leesMinder1 {
     font-size: 0.75em;
 }
+
+#leesMinder1img {
+    margin-top: 9px;
+}
+
+.leesmeer {
+    float: right;
+}
+
+    .leesmeer p {
+        float: left;
+        margin-bottom: 0;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        margin: 5px;
+        font-weight: bold;
+    }
+
+    .leesmeer a {
+        color: #626250;
+        text-decoration: none;
+    }
+
+    .leesmeer img {
+        width: 15px;
+        height: 15px;
+        float: right;
+        margin-top: 5px;
+        transform: rotate(90deg);
+    }
 
 a {
     text-decoration: none;
@@ -380,39 +426,14 @@ h1 {
     font-size: 1.00em;
 }
 
-.leesmeer {
-    float: right;
-}
 
-    .leesmeer p {
-        font-size: 9px;
-        float: left;
-        margin-bottom: 0;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        margin: 5px;
-    }
-
-    .leesmeer a {
-        color: #626250;
-        text-decoration: none;
-    }
-
-    .leesmeer img {
-        width: 10px;
-        height: 10px;
-        float: right;
-        margin: 5px;
-        transform: rotate(90deg);
-    }
 
 .collapseList ul li {
     font-size: 0.75em;
 }
 /*#endregion*/
 /*#region FAQ*/
-#themasFAQ {
+.themasFAQs {
     width: 50px;
     height: 50px;
     margin: 5px;
@@ -510,6 +531,10 @@ h1 {
                 background-color: #eeeeee;
                 border-radius: 0 0 5px 5px;
             }
+
+    #nav > li {
+        margin-top: 20px;
+    }
 /*#endregion*/
 /*#region Map*/
 #mapContainer {
@@ -723,6 +748,10 @@ h1 {
     color: rgba(98,98,80,0.6);
 }
 
+.navbar-collapse {
+    border: none;
+}
+
 @media (min-width: 768px) {
     .resultaatContent {
         width: 500px;
@@ -740,9 +769,11 @@ h1 {
     .navbar-inverse .navbar-nav > li > a {
         background-color: transparent;
     }
-    .navbar-fixed-top .navbar-collapse{
+
+    .navbar-fixed-top .navbar-collapse {
         padding-left: 22.2%;
-}
+    }
+
     .navbar-nav > li > a {
         padding-top: 23px;
         padding-bottom: 15px;
@@ -764,15 +795,29 @@ h1 {
     .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
         background-color: transparent;
     }
+
+    .mediaSocial {
+        padding: 6px 12px;
+        padding-left: 26%;
+    }
+
+    .vertalenBig {
+        background: none;
+        padding-top: 0;
+    }
 }
 
 @media (min-width: 992px) {
     .toeleider h2 {
         font-size: 1.313em;
     }
-    .navbar-fixed-top .navbar-collapse{
-        padding-left: 0;
-}
+    .wrapper{
+        height: 165px;
+    }
+    .navbar-fixed-top .navbar-collapse {
+        padding-left: 20px;
+    }
+
     .panelTitle {
         text-align: left;
     }
@@ -810,9 +855,8 @@ h1 {
     }
 
     .vertalenBig {
-        width: 500px;
+        width: 33%;
         float: right;
-        margin-top: 17px;
     }
 
     .txtSearch {
@@ -902,10 +946,6 @@ h1 {
         margin-bottom: 10px;
     }
 
-    .vertalenBig {
-        width: 33%;
-    }
-
     .navText {
         border: none;
         width: 435px;
@@ -978,7 +1018,6 @@ h1 {
         padding-top: 6px;
         padding-left: 9px;
     }
-
 }
 
 @media (min-width: 1200px) {

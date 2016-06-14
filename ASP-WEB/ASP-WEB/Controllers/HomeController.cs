@@ -42,7 +42,7 @@ namespace ASP_WEB.Controllers
         public ActionResult FAQ()
         {
             FaqSubtheme vm = new FaqSubtheme();
-            List<Faq> faq = repoFaq.All().OrderBy(f => f.SubthemeID).OrderBy(f => f.Theme).ToList();
+            List<Faq> faq = repoFaq.All().OrderBy(f => f.SubthemeID).ToList();
             vm.Faq = faq;
             List<Theme> themes = repoTheme.All().ToList();
             vm.Theme = themes;

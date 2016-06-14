@@ -10,17 +10,21 @@ function TranslateForSearch(toTranslate, targetLanguage, userLanguage) {
             dataType: 'jsonp',
             success: function (data) {
                 translated = data.text;
-                alert("translated: " + translated);
+                $("#btnSearch").val(translated);
+                $("#searchForm").unbind().submit();
             }
         });
     });
 }
-    $("#btnSearch").click(function () {
-        toTranslate = $('#textSearch').val().toString();
-        targetLanguage = 'nl';
+$(document).ready(function () {
+    $("#searchForm").submit(function (e) {
+        e.preventDefault();
+        toTranslate = $("#btnSearch").val().toString();
+        targetLanguage = "nl";
         userLanguage = GetSelectedLanguage();
         TranslateForSearch(toTranslate, targetLanguage, userLanguage);
     });
+});
     $('#nav > li > a').click(function () {
         if ($(this).attr('class') != 'active') {
             $('#nav li ul').slideUp();
@@ -36,53 +40,53 @@ function TranslateForSearch(toTranslate, targetLanguage, userLanguage) {
     $(".dropdown").on("show.bs.dropdown", function (event) {
         var x = $(event.relatedTarget).text(); // Get the button text
     });
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({ pageLanguage: 'nl', layout: google.translate.TranslateElement.InlineLayout.VERTICAL }, 'google_translate_element');
-}
-var $el, $ps, $up, totalHeight;
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'nl', layout: google.translate.TranslateElement.InlineLayout.VERTICAL }, 'google_translate_element');
+    }
+    var $el, $ps, $up, totalHeight;
 
-$(".sidebar-box .button").click(function () {
+    $(".sidebar-box .button").click(function () {
 
-    totalHeight = 0
+        totalHeight = 0
 
-    $el = $(this);
-    $p = $el.parent();
-    $up = $p.parent();
-    $ps = $up.find("p:not('.read-more')");
+        $el = $(this);
+        $p = $el.parent();
+        $up = $p.parent();
+        $ps = $up.find("p:not('.read-more')");
 
-    // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
-    $ps.each(function () {
-        totalHeight += $(this).outerHeight();
+        // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
+        $ps.each(function () {
+            totalHeight += $(this).outerHeight();
+        });
+
+        $up
+          .css({
+              // Set height to prevent instant jumpdown when max height is removed
+              "height": $up.height(),
+              "max-height": 9999
+          })
+          .animate({
+              "height": totalHeight
+          });
+
+        // fade out read-more
+        $p.fadeOut();
+
+        // prevent jump-down
+        return false;
+
     });
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-78959059-1', 'auto');
+    ga('send', 'pageview');
 
-    $up
-      .css({
-          // Set height to prevent instant jumpdown when max height is removed
-          "height": $up.height(),
-          "max-height": 9999
-      })
-      .animate({
-          "height": totalHeight
-      });
-
-    // fade out read-more
-    $p.fadeOut();
-
-    // prevent jump-down
-    return false;
-
-});
-(function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date(); a = s.createElement(o),
-    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-ga('create', 'UA-78959059-1', 'auto');
-ga('send', 'pageview');
-
-var getoond = true;
-$("#navbarToggle").click(function () {
-    console.log("jaaaa");
-    $(".vertalenBig").toggle("display");
-});
+    var getoond = true;
+    $("#navbarToggle").click(function () {
+        console.log("jaaaa");
+        $(".vertalenBig").toggle("display");
+    });

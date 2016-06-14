@@ -86,9 +86,12 @@ footer {
     background: url(/Content/bgpatternHeader.png);
     text-align: center;
 }
-
+.navbar-fixed-top .navbar-collapse{
+        padding-left: 0;
+}
 .navText {
     font-weight: bold;
+    color: #626250;
 }
 
 .txtSearch {
@@ -99,7 +102,7 @@ footer {
 
 #imgSearch {
     position: absolute;
-    right: 32%;
+    right: 24.5%;
 }
 
 .logoBanner {
@@ -124,6 +127,7 @@ footer {
 .mediaSocial {
     float: none;
     margin: 0 auto;
+    padding-left: 26%;
 }
 
 .mediaImages img {
@@ -507,30 +511,6 @@ h1 {
                 border-radius: 0 0 5px 5px;
             }
 /*#endregion*/
-/*#region Resultaat*/
-.resultaatContent {
-    width: 500px;
-    margin: 0 auto;
-}
-
-.resultaatImage {
-    float: left;
-    margin-right: 15px;
-    margin-top: 5px;
-}
-
-    .resultaatImage img {
-        width: 100px;
-        height: 100px;
-    }
-
-.resultaatLine {
-    margin: 0 auto;
-    width: 500px;
-    height: 1px;
-    background-color: black;
-}
-/*#endregion*/
 /*#region Map*/
 #mapContainer {
     display: inline-block;
@@ -597,7 +577,6 @@ h1 {
     width: 214px;
     margin: 0 auto;
     padding-top: 3px;
-
 }
 
     #openingsuren li {
@@ -609,8 +588,6 @@ h1 {
         font-size: 0.75em;
         margin-left: 25px;
         margin-top: 0px;
-            padding-top: 6px;
-    padding-left: 9px;
     }
 
     #openingsuren img {
@@ -618,10 +595,14 @@ h1 {
         height: 15px;
         float: left;
     }
-    #openingsurenDiff{
-        padding: 0;
-        padding-top: 2px;
-    }
+
+#openingsurenDiff {
+    padding-top: 2px;
+}
+
+#openingsurenDiff1 {
+    padding-top: 2px;
+}
 
 .onderwerpImage img {
     width: 200px;
@@ -645,6 +626,10 @@ h1 {
     .dienstInfoContact img {
         width: 15px;
         height: 15px;
+    }
+
+    .dienstInfoContact a:hover {
+        color: #626250;
     }
 
 .onderwerpImageSM {
@@ -671,13 +656,82 @@ h1 {
     text-align: center;
 }
 /*#endregion*/
+/*#region Search*/
+.resultaatContent p {
+    overflow: hidden;
+    height: 70px;
+    font-size: 1.00em;
+}
 
+.resultaatContent img {
+    background-color: #626250;
+    width: 100px;
+    height: 100px;
+}
+
+.resultaatMeer img {
+    width: 15px;
+    height: 15px;
+    float: right;
+    margin: 8px;
+}
+
+.resultaatContent div {
+    float: left;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.resultaatContent {
+    border-bottom: 1px solid black;
+    padding-bottom: 30px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+    .resultaatContent h3 {
+        color: #626250;
+        padding-top: 7px;
+        font-weight: bold;
+    }
+
+.resultaatMeer {
+    width: 100%;
+    height: 20px;
+    float: right;
+}
+
+    .resultaatMeer p {
+        font-size: 1.00em;
+        float: right;
+        margin-bottom: 0;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        margin: 5px;
+        height: auto;
+        font-weight: bold;
+    }
+
+    .resultaatMeer a {
+        color: #626250;
+        text-decoration: none;
+    }
+/*#endregion Search*/
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
     background-color: #ecefe4;
     color: rgba(98,98,80,0.6);
 }
 
 @media (min-width: 768px) {
+    .resultaatContent {
+        width: 500px;
+    }
+
+        .resultaatContent h3 {
+            font-size: 1.313em;
+        }
+
     .imageBanner {
         margin: 0;
         margin-top: 11px;
@@ -686,7 +740,9 @@ h1 {
     .navbar-inverse .navbar-nav > li > a {
         background-color: transparent;
     }
-
+    .navbar-fixed-top .navbar-collapse{
+        padding-left: 22.2%;
+}
     .navbar-nav > li > a {
         padding-top: 23px;
         padding-bottom: 15px;
@@ -714,7 +770,9 @@ h1 {
     .toeleider h2 {
         font-size: 1.313em;
     }
-
+    .navbar-fixed-top .navbar-collapse{
+        padding-left: 0;
+}
     .panelTitle {
         text-align: left;
     }
@@ -790,6 +848,7 @@ h1 {
         width: 100px;
         height: 100px;
     }
+
     #google_translate_element {
         float: right;
         margin-right: 97px;
@@ -859,6 +918,7 @@ h1 {
 
     .mediaSocial {
         width: 435px;
+        padding: 6px 12px;
     }
 
     .toeleidersTekst {
@@ -907,12 +967,18 @@ h1 {
     }
 
     #imgSearch {
-        left: 128px;
+        left: 125px;
     }
 
     #nav a {
         font-size: 1.00em;
     }
+
+    #openingsurenDiff1 {
+        padding-top: 6px;
+        padding-left: 9px;
+    }
+
 }
 
 @media (min-width: 1200px) {
