@@ -23,23 +23,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsAdmin)
-        </td>
-        <td>
-            @Html.ActionLink("Maak admin", "ToAdmin", new { id=item.ID }) |
-            @Html.ActionLink("Maak gebruiker", "ToUser", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "DeleteUser", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAdmin)
+            </td>
+            <td>
+                @if (item.IsAdmin != true)
+                {
+                    @Html.ActionLink("Maak Admin | ", "ToAdmin", new { id = item.ID })
+                }
+                else if (item.IsAdmin == true)
+                {
+                    @Html.ActionLink("Maak Gebruiker | ", "ToUser", new { id = item.ID })
+                }
+                @Html.ActionLink("Delete", "DeleteUser", new { id= item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
