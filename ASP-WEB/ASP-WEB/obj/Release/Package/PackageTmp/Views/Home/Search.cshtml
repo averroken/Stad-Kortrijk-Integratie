@@ -1,9 +1,28 @@
 ﻿@model IEnumerable<ASP_WEB.Models.Subtheme>
-
 @{
     ViewBag.Title = "Search";
 }
+<div class="wrapper"></div>
+@foreach (var item in Model)
+{
+<div class="resultaatContent">
+    <div>
+        <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL"/>
+    </div>
+    <h3>@WebUtility.HtmlDecode(item.Name)</h3>
+    <p>@WebUtility.HtmlDecode(item.Description)</p>
 
+    <div class="resultaatMeer">
+
+            <img class="img-circle" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
+        <a href="/Subtheme/Details/@item.SubthemeID">
+            <p>LEES MEER</p>
+        </a>
+
+    </div>
+</div>
+}
+@*
 <h2>Search</h2>
 
 <p>
@@ -43,3 +62,4 @@
 }
 
 </table>
+*@

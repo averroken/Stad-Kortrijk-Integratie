@@ -24,7 +24,8 @@ namespace ASP_WEB.Migrations
 
         protected override void Seed(ASP_WEB.DAL.Context.IntegratieContext context)
         {
-            //if (!Debugger.IsAttached) Debugger.Launch();
+            if (!Debugger.IsAttached) Debugger.Launch();
+
             AddThemes(context);
             AddOffices(context);
             AddSubthemes(context);

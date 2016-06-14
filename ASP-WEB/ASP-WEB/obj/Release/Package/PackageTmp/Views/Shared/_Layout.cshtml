@@ -4,12 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="https://integratiekortrijk.blob.core.windows.net/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://integratiekortrijk.blob.core.windows.net/images/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="https://integratiekortrijk.blob.core.windows.net/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://integratiekortrijk.blob.core.windows.net/images/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="https://integratiekortrijk.blob.core.windows.net/images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="https://integratiekortrijk.blob.core.windows.net/images/manifest.json">
+    <link rel="mask-icon" href="https://integratiekortrijk.blob.core.windows.net/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="msapplication-TileImage" content="https://integratiekortrijk.blob.core.windows.net/images/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
+    <!-- Hotjar Tracking Code for http://integratie.azurewebsites.net -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:231098,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
 </head>
 <body>
     <div class="wrapperAll">
@@ -52,8 +84,8 @@
                     <div id="google_translate_element"></div>
                     <div class="col-md-4 mediaSocial">
                         <div class="row mediaImages">
-                            <form class="txtSearch" action="/Search" method="get">
-                                <input type="search" placeholder="Zoeken..." class="form-control" />
+                            <form class="txtSearch" id="searchForm" action="/Home/Search" method="get">
+                                <input type="search" name="searchString" id="btnSearch" placeholder="Zoeken..." class="form-control" />
                             </form>
                             <img id="imgSearch" src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" alt="Search">
                             <a href="https://www.facebook.com/stadkortrijk/?fref=nf" target="_blank">
