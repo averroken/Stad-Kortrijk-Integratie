@@ -1,5 +1,6 @@
 ﻿using ASP_WEB.DAL.Repository;
 using ASP_WEB.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,7 @@ namespace ASP_WEB.Controllers
             }
             //TODO: searchstring eventueel bewerken
             List<Subtheme> subthemes = repoSubtheme.Search(searchString);
+
             //List<Faq> faqs = repoFaq.Search(searchString);
             //FaqSubtheme list = new FaqSubtheme();
             //list.Faq = faqs;
