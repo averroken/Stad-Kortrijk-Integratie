@@ -64,7 +64,8 @@ namespace ASP_WEB.Controllers
             //list.Faq = faqs;
             //list.Subtheme = subthemes;
             int pageNumber = (page ?? 1);
-            return View(subthemes.ToPagedList(pageNumber, pageSize));
+            var pagedlist = subthemes.ToPagedList(pageNumber, pageSize);
+            return View(pagedlist);
         }
         public ActionResult Contact()
         {

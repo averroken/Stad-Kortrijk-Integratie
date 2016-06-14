@@ -25,7 +25,7 @@
     </div>
 }
 
-@Html.PagedListPager(Model, page => Url.Action("Subthemes", new { page, searchString = ViewBag.searchString }))
+@Html.PagedListPager(Model, page => Url.Action("Search", new { page, searchString = ViewBag.searchString }))
 @*
     <h2>Search</h2>
 

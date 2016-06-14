@@ -8,7 +8,7 @@
     <div class="rijIcons row">
         @foreach (var item in Model.Theme)
             {
-            <div class="themaIcons col-md-1 col-xs-3 col-sm-2">
+            <div class="themaIcons faqIcons col-md-1 col-xs-3 col-sm-2">
                 <img id="@item.ThemeID" class="link thumbnail img-responsive image_on themasFAQs" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto" data-toggle="tooltip" data-placement="bottom" title="@item.Name">
             </div>
         }
@@ -30,14 +30,7 @@
     </div>
 </div>
 <script>
-    $(".dropdown-menu li a").click(function (e) {
-        var selText = $(this).text();
-        $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-        $(".active").hide();
-        $(".active").removeClass("active");
-        $("." + e.currentTarget.id).addClass("active");
-        $("." + e.currentTarget.id).show();
-    });
+
 </script>
 <div class="FAQVragen">
     <ul id="nav">

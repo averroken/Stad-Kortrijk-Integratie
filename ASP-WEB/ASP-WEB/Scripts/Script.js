@@ -27,6 +27,16 @@ $(document).ready(function () {
     $(".link").click(function (e) {
         $(".active").hide();
         $(".active").removeClass("active");
+        $(".themasFAQs").css("background-color", "#acd5bb");
+        $("." + e.currentTarget.id).addClass("active");
+        $("." + e.currentTarget.id).show();
+        $(e.currentTarget).css("background-color","#626250");
+    });
+    $(".dropdown-menu li a").click(function (e) {
+        var selText = $(this).text();
+        $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        $(".active").hide();
+        $(".active").removeClass("active");
         $("." + e.currentTarget.id).addClass("active");
         $("." + e.currentTarget.id).show();
     });
