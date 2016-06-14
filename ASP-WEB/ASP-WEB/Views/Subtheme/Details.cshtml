@@ -14,13 +14,16 @@
         <div>
             <div class="subThemaID" data-themeID="@Model.SubthemeID"></div>
             <p class="hidden-md hidden-lg onderwerpInfoSMP">@WebUtility.HtmlDecode(Model.Description)</p>
-            @foreach (var item in Model.Office)
+           @{int i = 0; }
+             @foreach (var item in Model.Office)
             {
+                 i++;
+                 string iStr = i.ToString() + ".png";
                 <div role="tab" id="@item.Name" class="dienstDiv">
                     <div class="onderwerpInfoLine"></div>
                     <a class="onderwerpInfo" data-toggle="collapse" data-parent="#accordion" href="#@item.OfficeID">
                         <div class="panel-title panelTitle">
-                            <img src="https://integratiekortrijk.blob.core.windows.net/images/documentenCircle.png" />
+                            <img src="https://integratiekortrijk.blob.core.windows.net/images/@iStr" />
                             @item.Name
                             <svg height="15" width="15">
                                 <polyline points="0,0 7.5,7.5 15,0" style="fill:transparent;stroke:#c4c4c4;stroke-width:2;float:right;" />
@@ -97,13 +100,17 @@
                     }
                     function geocodeAddress(geocoder, resultsMap) {
                         $.each(dataOffices, function (key, value) {
-                            console.log(key);
-                            console.log(value);
+                            i++;
+                            var image = {
+                                url: "https://integratiekortrijk.blob.core.windows.net/images/"+i+".png",
+                                scaledSize: new google.maps.Size(25, 25)
+                            }
                             address = value.Street + '%20' + value.HouseNumber + ',%20' + value.City + '%20' + value.ZipCode;
                             geocoder.geocode({ 'address': address }, function (results, status) {
                                 if (status === google.maps.GeocoderStatus.OK) {
                                     var marker = new google.maps.Marker({
                                         map: resultsMap,
+                                        icon: image,
                                         position: results[0].geometry.location,
                                         title: value.Name
                                     });
