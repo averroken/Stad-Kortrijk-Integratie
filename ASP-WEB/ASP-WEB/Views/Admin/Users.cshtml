@@ -38,11 +38,11 @@
             <td>
                 @if (item.IsAdmin != true)
                 {
-                    @Html.ActionLink("Maak Admin", "ToAdmin", new { id = item.ID })
+                    @Html.ActionLink("Maak Admin | ", "ToAdmin", new { id = item.ID })
                 }
                 else if (item.IsAdmin == true)
                 {
-                    @Html.ActionLink("Maak Gebruiker", "ToUser", new { id = item.ID })
+                    @Html.ActionLink("Maak Gebruiker | ", "ToUser", new { id = item.ID })
                 }
                 @Html.ActionLink("Delete", "DeleteUser", new { id= item.ID })
             </td>
