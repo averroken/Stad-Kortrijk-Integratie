@@ -49,7 +49,7 @@ namespace ASP_WEB.Controllers
             return View(vm);
         }
 
-        public ActionResult Search(string searchString)
+        public ActionResult Search(string searchString, int? page)
         {
             if (String.IsNullOrWhiteSpace(searchString))
             {
@@ -57,12 +57,14 @@ namespace ASP_WEB.Controllers
             }
             //TODO: searchstring eventueel bewerken
             List<Subtheme> subthemes = repoSubtheme.Search(searchString);
-
+            ViewBag.searchString = searchString;
+            int pageSize = 5;
             //List<Faq> faqs = repoFaq.Search(searchString);
             //FaqSubtheme list = new FaqSubtheme();
             //list.Faq = faqs;
             //list.Subtheme = subthemes;
-            return View(subthemes);
+            int pageNumber = (page ?? 1);
+            return View(subthemes.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult Contact()
         {

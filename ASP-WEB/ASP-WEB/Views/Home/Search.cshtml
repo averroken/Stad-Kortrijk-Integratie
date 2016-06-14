@@ -1,65 +1,69 @@
-﻿@model IEnumerable<ASP_WEB.Models.Subtheme>
+﻿@model PagedList.IPagedList<ASP_WEB.Models.Subtheme>
+@using PagedList.Mvc;
+
 @{
     ViewBag.Title = "Search";
 }
 <div class="wrapper"></div>
 @foreach (var item in Model)
 {
-<div class="resultaatContent">
-    <div>
-        <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL"/>
-    </div>
-    <h3>@WebUtility.HtmlDecode(item.Name)</h3>
-    <p>@WebUtility.HtmlDecode(item.Description)</p>
+    <div class="resultaatContent">
+        <div>
+            <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" />
+        </div>
+        <h3>@WebUtility.HtmlDecode(item.Name)</h3>
+        <p>@WebUtility.HtmlDecode(item.Description)</p>
 
-    <div class="resultaatMeer">
+        <div class="resultaatMeer">
 
             <img class="img-circle" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
-        <a href="/Subtheme/Details/@item.SubthemeID">
-            <p>LEES MEER</p>
-        </a>
+            <a href="/Subtheme/Details/@item.SubthemeID">
+                <p>LEES MEER</p>
+            </a>
 
+        </div>
     </div>
-</div>
 }
+
+@Html.PagedListPager(Model, page => Url.Action("Subthemes", new { page, searchString = ViewBag.searchString }))
 @*
-<h2>Search</h2>
+    <h2>Search</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ThemeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FotoURL)
-        </th>
-    </tr>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThemeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FotoURL)
+            </th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThemeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FotoURL)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThemeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FotoURL)
+            </td>
+        </tr>
+    }
 
-</table>
+    </table>
 *@
