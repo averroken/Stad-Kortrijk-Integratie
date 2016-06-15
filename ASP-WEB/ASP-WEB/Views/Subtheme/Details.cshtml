@@ -14,11 +14,11 @@
         <div>
             <div class="subThemaID" data-themeID="@Model.SubthemeID"></div>
             <p class="hidden-md hidden-lg onderwerpInfoSMP">@WebUtility.HtmlDecode(Model.Description)</p>
-           @{int i = 0; }
-             @foreach (var item in Model.Office)
+            @{int i = 0; }
+            @foreach (var item in Model.Office)
             {
-                 i++;
-                 string iStr = i.ToString() + ".png";
+                i++;
+                string iStr = i.ToString() + ".png";
                 <div role="tab" id="@item.Name" class="dienstDiv">
                     <div class="onderwerpInfoLine"></div>
                     <a class="onderwerpInfo" data-toggle="collapse" data-parent="#accordion" href="#@item.OfficeID">
@@ -26,54 +26,55 @@
                             <img src="https://integratiekortrijk.blob.core.windows.net/images/@iStr" />
                             @item.Name
                             <svg height="15" width="15" class="svgDetails">
-                                <polyline points="0,0 7.5,7.5 15,0" style="fill:transparent;stroke:#c4c4c4;stroke-width:2;"/>
+                                <polyline points="0,0 7.5,7.5 15,0" style="fill:transparent;stroke:#c4c4c4;stroke-width:2;" />
                             </svg>
                         </div>
                     </a>
                 </div>
-                    <div class="collapse panel-collapse" role="tabpanel" aria-labelledby="@item.Name" id="@item.OfficeID">
-                        <div>
-                            <div class="dienstInfo">
-                                <div class="dienstInfoContact">
-                                    @if (!item.HouseNumber.IsEmpty() || !item.Street.IsEmpty() || !item.City.IsEmpty())
-                                    {
+                <div class="collapse panel-collapse" role="tabpanel" aria-labelledby="@item.Name" id="@item.OfficeID">
+                    <div>
+                        <div class="dienstInfo">
+                            <div class="dienstInfoContact">
+                                @if (!item.HouseNumber.IsEmpty() || !item.Street.IsEmpty() || !item.City.IsEmpty())
+                                {
                                     <div>
                                         <img src="https://integratiekortrijk.blob.core.windows.net/images/mapMarkerCircle.png" />
                                         <a href="http://maps.apple.com/?q=@item.Street @item.HouseNumber @item.ZipCode @item.City" target="_blank"><h4>@item.Street @item.HouseNumber, @item.ZipCode @item.City</h4></a>
                                     </div>
-                                    }
-                                    @if (item.PhoneNumber.IsEmpty()) { 
-                                        <div>
+                                }
+                                @if (!item.PhoneNumber.IsEmpty())
+                                {
+                                    <div>
                                         <img src="https://integratiekortrijk.blob.core.windows.net/images/phoneCircle.png" />
                                         <a href="tel:@item.PhoneNumber" target="_blank"><h4>@item.PhoneNumber</h4></a>
                                     </div>
-                                    }
-                                    @if (!item.EmailAddress.IsEmpty())
-                                    {
-                                        <div>
-                                            <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" />
-                                            <a href="mailto:@item.EmailAddress" target="_blank"><h4>@item.EmailAddress</h4></a>
-                                        </div>
-                                    }
-                                </div>
-                                <div id="openingsuren">
+                                }
+                                @if (!item.EmailAddress.IsEmpty())
+                                {
                                     <div>
-                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
-                                        <h2 id="openingsurenDiff1">Openingsuren:</h2>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/emailCircle.png" />
+                                        <a href="mailto:@item.EmailAddress" target="_blank"><h4>@item.EmailAddress</h4></a>
                                     </div>
-                                    <ul>
-                                        <li>Maandag: @item.Monday</li>
-                                        <li>Dinsdag: @item.Tuesday</li>
-                                        <li>Woensdag: @item.Wednesday</li>
-                                        <li>Donerdag: @item.Thursday</li>
-                                        <li>Vrijdag: @item.Friday</li>
-                                        <li>Zaterdag: @item.Saturday</li>
-                                        <li>Zondag: @item.Sunday</li>
-                                    </ul>
+                                }
+                            </div>
+                            <div id="openingsuren">
+                                <div>
+                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
+                                    <h2 id="openingsurenDiff1">Openingsuren:</h2>
                                 </div>
+                                <ul>
+                                    <li><span>Maandag:  </span> @item.Monday</li>
+                                    <li><span>Dinsdag:  </span> @item.Tuesday</li>
+                                    <li><span>Woensdag: </span> @item.Wednesday</li>
+                                    <li><span>Donerdag: </span> @item.Thursday</li>
+                                    <li><span>Vrijdag:  </span> @item.Friday</li>
+                                    <li><span>Zaterdag: </span> @item.Saturday</li>
+                                    <li><span>Zondag:   </span> @item.Sunday</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                </div>
             }
         </div>
     </div>
@@ -84,47 +85,47 @@
         <div id="mapDummy"></div>
         <div id="mapElement">
             <script type="text/javascript">
-                    var SubthemaID = $('.subThemaID').attr("data-themeID");
-                    var uri = '/api/Offices/get?id=' + SubthemaID;
-                    var address;
-                    var dataOffices;
-                    var i = 0;
-                    function initMap() {
-                        $.getJSON(uri)
+                var SubthemaID = $('.subThemaID').attr("data-themeID");
+                var uri = '/api/Offices/get?id=' + SubthemaID;
+                var address;
+                var dataOffices;
+                var i = 0;
+                function initMap() {
+                    $.getJSON(uri)
 .done(function (data) {
     dataOffices = data;
     console.log(dataOffices);
 
-                        var map = new google.maps.Map(document.getElementById('mapElement'), {
-                            zoom: 13,
-                            center: { lat: 50.829485, lng: 3.264681 }
-                        });
-                        var geocoder = new google.maps.Geocoder();
-                        geocodeAddress(geocoder, map);
+    var map = new google.maps.Map(document.getElementById('mapElement'), {
+        zoom: 13,
+        center: { lat: 50.829485, lng: 3.264681 }
+    });
+    var geocoder = new google.maps.Geocoder();
+    geocodeAddress(geocoder, map);
 });
-                    }
-                    function geocodeAddress(geocoder, resultsMap) {
-                        $.each(dataOffices, function (key, value) {
-                            i++;
-                            var image = {
-                                url: "https://integratiekortrijk.blob.core.windows.net/images/"+i+".png",
-                                scaledSize: new google.maps.Size(25, 25)
+                }
+                function geocodeAddress(geocoder, resultsMap) {
+                    $.each(dataOffices, function (key, value) {
+                        i++;
+                        var image = {
+                            url: "https://integratiekortrijk.blob.core.windows.net/images/" + i + ".png",
+                            scaledSize: new google.maps.Size(25, 25)
+                        }
+                        address = value.Street + '%20' + value.HouseNumber + ',%20' + value.City + '%20' + value.ZipCode;
+                        geocoder.geocode({ 'address': address }, function (results, status) {
+                            if (status === google.maps.GeocoderStatus.OK) {
+                                var marker = new google.maps.Marker({
+                                    map: resultsMap,
+                                    icon: image,
+                                    position: results[0].geometry.location,
+                                    title: value.Name
+                                });
+                            } else {
+                                alert('Geocode was unsuccesful for this reason: ' + status);
                             }
-                            address = value.Street + '%20' + value.HouseNumber + ',%20' + value.City + '%20' + value.ZipCode;
-                            geocoder.geocode({ 'address': address }, function (results, status) {
-                                if (status === google.maps.GeocoderStatus.OK) {
-                                    var marker = new google.maps.Marker({
-                                        map: resultsMap,
-                                        icon: image,
-                                        position: results[0].geometry.location,
-                                        title: value.Name
-                                    });
-                                } else {
-                                    alert('Geocode was unsuccesful for this reason: ' + status);
-                                }
-                            });
                         });
-                    }
+                    });
+                }
             </script>
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJiRLwhM5BeM9PkkxvzZLOh4eR5WeaJcg&callback=initMap">
