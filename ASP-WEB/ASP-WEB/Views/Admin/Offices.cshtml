@@ -5,7 +5,10 @@
 @{
     ViewBag.Title = "Diensten";
 }
-
+<div class="wrapper"></div>
+<script>
+    $(".body-content").css("width", "100%");
+</script>
 <h2>@ViewBag.Title</h2>
 
 <p>
@@ -79,9 +82,9 @@
             @Html.DisplayFor(modelItem => item.Sunday)
         </td>
         <td>
-            @Html.ActionLink("Bewerk dienst", "EditOffice", new { id=item.OfficeID }) |
-            @Html.ActionLink("Details", "DetailsOffice", new { id=item.OfficeID }) |
-            @Html.ActionLink("Verwijder dienst", "DeleteOffice", new { id=item.OfficeID })
+            @Html.ActionLink("Edit", "EditOffice", new { id=item.OfficeID })
+            @Html.ActionLink("Details", "DetailsOffice", new { id=item.OfficeID })
+            @Html.ActionLink("Delete", "DeleteOffice", new { id=item.OfficeID })
         </td>
     </tr>
 }

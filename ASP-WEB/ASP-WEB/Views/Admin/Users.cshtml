@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<ASP_WEB.Models.User>
 
 @{
-    ViewBag.Title = "Gebruikersbeheer";
+    ViewBag.Title = "User Management";
 }
-
+<div class="wrapper"></div>
 <h2>@ViewBag.Title  </h2>
 
 <p>
@@ -38,11 +38,11 @@
             <td>
                 @if (item.IsAdmin != true)
                 {
-                    @Html.ActionLink("Maak Admin | ", "ToAdmin", new { id = item.ID })
+                    @Html.ActionLink("Create Admin | ", "ToAdmin", new { id = item.ID })
                 }
                 else if (item.IsAdmin == true)
                 {
-                    @Html.ActionLink("Maak Gebruiker | ", "ToUser", new { id = item.ID })
+                    @Html.ActionLink("Create User | ", "ToUser", new { id = item.ID })
                 }
                 @Html.ActionLink("Delete", "DeleteUser", new { id= item.ID })
             </td>

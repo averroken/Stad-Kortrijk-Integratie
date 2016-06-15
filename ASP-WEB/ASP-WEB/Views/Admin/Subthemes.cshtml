@@ -5,7 +5,10 @@
 @{
     ViewBag.Title = "Subthema's";
 }
-
+<div class="wrapper"></div>
+<script>
+    $(".body-content").css("width", "100%");
+</script>
 <h2>@ViewBag.Title</h2>
 
 <p>
@@ -44,8 +47,8 @@
                 <img src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.FotoURL Photo" />
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditSubtheme", new { id = item.SubthemeID }) |
-                @Html.ActionLink("Details", "DetailsSubtheme", new { id = item.SubthemeID }) |
+                @Html.ActionLink("Edit", "EditSubtheme", new { id = item.SubthemeID })
+                @Html.ActionLink("Details", "DetailsSubtheme", new { id = item.SubthemeID })
                 @Html.ActionLink("Delete", "DeleteSubtheme", new { id = item.SubthemeID })
             </td>
         </tr>

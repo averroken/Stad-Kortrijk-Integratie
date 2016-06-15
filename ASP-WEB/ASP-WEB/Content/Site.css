@@ -25,11 +25,7 @@ html, body {
 
 .wrapperAll {
     min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto;
-    width: 100%;
-    display: inline-block;
+    position: relative;
 }
 
 .vertalenBig {
@@ -71,11 +67,16 @@ footer {
     color: black;
     box-shadow: 0 0 1px 0 #333;
     background-color: #e8eddc;
-    position: relative;
+    position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
     padding-top: 15px;
     margin-top: 15px;
+}
+
+.body-content {
+    padding-bottom: 100px;
 }
 
 #navigatieBalk {
@@ -117,7 +118,7 @@ footer {
 
 #imgSearch {
     position: absolute;
-    right: 24.9%;
+    right: 27.3%;
     margin-top: 9px;
     width: 15px;
     height: 15px;
@@ -146,7 +147,7 @@ footer {
     float: none;
     margin: 0 auto;
     padding-top: 10px;
-    padding-left: 26%;
+    padding-left: 22%;
 }
 
 .mediaImages img {
@@ -263,6 +264,7 @@ footer {
 
 .meldpunt {
     background: url(/Content/bgpinkPattern.png);
+    margin-bottom: 70px;
 }
 
 .meldpuntWrapper {
@@ -271,10 +273,10 @@ footer {
 
 
 
-    .toeleider div p a {
-        color: #626250;
-    }
-    
+.toeleider div p a {
+    color: #626250;
+}
+
 .contactContent {
     color: #626250;
 }
@@ -455,8 +457,13 @@ h1 {
     }
 
 .faqIcons img {
-    width: 50px;
-    height: 50px;
+    width: 67.5px;
+    height: 67.5px;
+}
+
+.faqIcons {
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .active {
@@ -555,6 +562,7 @@ h1 {
 
 #mapElement {
     position: absolute;
+    margin-bottom: 70px;
     top: 0;
     bottom: 0;
     left: 0;
@@ -684,9 +692,10 @@ h1 {
         padding: 10px;
     }
 
-.panelTitle {
-    text-align: center;
+.svgDetails {
+    float: right;
 }
+
 /*#endregion*/
 /*#region Search*/
 .resultaatContent p {
@@ -753,7 +762,39 @@ h1 {
 .pagination-container {
     text-align: center;
 }
+
+.pagination > .active > a {
+    background-color: #626250;
+}
+
+    .pagination > .active > a:hover {
+        background-color: rgba(98, 98, 80, 0.8);
+    }
+
+.pagination > li > a {
+    color: #626250;
+}
+
+    .pagination > li > a:hover {
+        color: #626250;
+    }
 /*#endregion Search*/
+/*#region Backend*/
+.form-horizontal {
+    width: auto;
+    padding: 20px;
+}
+
+.table img {
+    background-color: #acd5bb;
+    border-radius: 10%;
+}
+
+.dl-horizontal img {
+    background-color: #acd5bb;
+    border-radius: 10%;
+}
+/*#endregion*/
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
     background-color: #ecefe4;
     color: rgba(98,98,80,0.6);
@@ -763,14 +804,38 @@ h1 {
     border: none;
 }
 
+.toeleider div p:hover {
+    text-decoration: underline;
+}
+
+.footerContact p:hover {
+    text-decoration: underline;
+}
+
+.meldpuntFormulier a:hover {
+    text-decoration: underline;
+}
+
+.meldpunt h3 {
+    margin-top: 35px;
+}
+
 @media (min-width: 768px) {
     .resultaatContent {
         width: 750px;
     }
 
-        .resultaatContent h3 {
-            font-size: 1.313em;
-        }
+    #imgSearch {
+        right: 24.9%;
+    }
+
+    .resultaatContent h3 {
+        font-size: 1.313em;
+    }
+
+    .panelTitle {
+        margin: 0 auto;
+    }
 
     .imageBanner {
         margin: 0;
@@ -1031,6 +1096,10 @@ h1 {
         padding-top: 6px;
         padding-left: 9px;
     }
+    .faqIcons img {
+    width: 50px;
+    height: 50px;
+}
 }
 
 @media (min-width: 1200px) {
@@ -1075,4 +1144,8 @@ h1 {
     .toeleidersFoto {
         padding-left: 65px;
     }
+    .faqIcons img {
+    width: 67.5px;
+    height: 67.5px;
+}
 }
