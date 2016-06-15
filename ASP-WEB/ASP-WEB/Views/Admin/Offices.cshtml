@@ -1,6 +1,5 @@
 ﻿@model PagedList.IPagedList<ASP_WEB.Models.Office>
 @using PagedList.Mvc;
-@Styles.Render("~/Content/PagedList")
 
 @{
     ViewBag.Title = "Diensten";
@@ -12,7 +11,7 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateOffice")
+    @Html.ActionLink("Maak dienst aan", "CreateOffice")
 </p>
 <table class="table">
     <tr>
@@ -82,9 +81,9 @@
             @Html.DisplayFor(modelItem => item.Sunday)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditOffice", new { id=item.OfficeID })
+            @Html.ActionLink("Bewerk", "EditOffice", new { id=item.OfficeID })
             @Html.ActionLink("Details", "DetailsOffice", new { id=item.OfficeID })
-            @Html.ActionLink("Delete", "DeleteOffice", new { id=item.OfficeID })
+            @Html.ActionLink("Verwijder", "DeleteOffice", new { id=item.OfficeID })
         </td>
     </tr>
 }

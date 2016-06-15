@@ -1,8 +1,6 @@
 ﻿@model PagedList.IPagedList<ASP_WEB.Models.Theme>
 @using PagedList.Mvc;
 
-@Styles.Render("~/Content/admin")
-
 @{
     ViewBag.Title = "Thema's";
 }
@@ -10,7 +8,7 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateTheme")
+    @Html.ActionLink("Maak thema", "CreateTheme")
 </p>
 <table class="table">
     <tr>
@@ -32,9 +30,9 @@
             <img src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.FotoURL Photo"/>
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditTheme", new { id=item.ThemeID }) |
+            @Html.ActionLink("Bewerk", "EditTheme", new { id=item.ThemeID }) |
             @Html.ActionLink("Details", "DetailsTheme", new { id=item.ThemeID }) |
-            @Html.ActionLink("Delete", "DeleteTheme", new { id=item.ThemeID })
+            @Html.ActionLink("Verwijder", "DeleteTheme", new { id=item.ThemeID })
         </td>
     </tr>
 }

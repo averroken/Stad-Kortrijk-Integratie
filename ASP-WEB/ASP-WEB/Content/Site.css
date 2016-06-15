@@ -1,4 +1,5 @@
 ﻿/*#region LayoutModel*/
+/*#region Algemeen*/
 @font-face {
     font-family: "Myriad Pro Regular";
     src: url(../fonts/MyriadPro-Regular.otf) format("opentype");
@@ -16,18 +17,20 @@ html, body {
         text-decoration: none;
     }
 
-.footerContent {
-    height: 50px;
-    background-color: #e8eddc;
-    width: 100%;
-    display: inline-block;
-}
-
 .wrapperAll {
     min-height: 100%;
     position: relative;
 }
 
+.body-content {
+    padding-bottom: 100px;
+}
+
+.wrapper {
+    height: 200px;
+}
+/*#endregion*/
+/*#region Navigatie*/
 .vertalenBig {
     float: none;
     text-align: center;
@@ -41,44 +44,6 @@ html, body {
     margin: 0 -15px;
 }
 
-.footerImages {
-    width: 20px;
-    height: 20px;
-    float: left;
-}
-
-.footerContact img {
-    float: left;
-}
-
-.footerContact {
-    width: 123px;
-    margin: 0 auto;
-}
-
-    .footerContact p {
-        float: left;
-        margin-left: 5px;
-    }
-
-footer {
-    text-align: center;
-    font-size: 0.8em;
-    color: black;
-    box-shadow: 0 0 1px 0 #333;
-    background-color: #e8eddc;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding-top: 15px;
-    margin-top: 15px;
-}
-
-.body-content {
-    padding-bottom: 100px;
-}
-
 #navigatieBalk {
     background-color: #c2d197;
     margin: 0;
@@ -87,9 +52,6 @@ footer {
     border: none;
 }
 
-.wrapper {
-    height: 200px;
-}
 
 .navbar-nav > li > a {
     padding-top: 23px;
@@ -162,15 +124,61 @@ footer {
     text-align: center;
 }
 
-.toeleidersTekst {
-    float: left;
-    width: 100%;
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    background-color: #ecefe4;
+    color: rgba(98,98,80,0.6);
 }
 
-.rowSocial {
-    width: 223px;
-    height: 30px;
+.navbar-collapse {
+    border: none;
 }
+/*#endregion*/
+/*#region Footer*/
+.footerContent {
+    height: 50px;
+    background-color: #e8eddc;
+    width: 100%;
+    display: inline-block;
+}
+
+.footerImages {
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.footerContact img {
+    float: left;
+}
+
+.footerContact {
+    width: 123px;
+    margin: 0 auto;
+}
+
+    .footerContact p {
+        float: left;
+        margin-left: 5px;
+    }
+
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: black;
+    box-shadow: 0 0 1px 0 #333;
+    background-color: #e8eddc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.footerContact p:hover {
+    text-decoration: underline;
+}
+/*#endregion*/
 /*#endregion*/
 /*#region Index*/
 .thumbnail {
@@ -214,10 +222,14 @@ footer {
 
 /*#endregion*/
 /*#region Contact*/
-
-.toeleidersTekst h1 {
-    display: none;
+.toeleidersTekst {
+    float: left;
+    width: 100%;
 }
+
+    .toeleidersTekst h1 {
+        display: none;
+    }
 
 .socialSmall {
     text-align: center;
@@ -271,7 +283,17 @@ footer {
     width: 100%;
 }
 
+.toeleider div p:hover {
+    text-decoration: underline;
+}
 
+.meldpuntFormulier a:hover {
+    text-decoration: underline;
+}
+
+.meldpunt h3 {
+    margin-top: 35px;
+}
 
 .toeleider div p a {
     color: #626250;
@@ -429,13 +451,12 @@ h1 {
     font-size: 1.00em;
 }
 
-
-
 .collapseList ul li {
     font-size: 0.75em;
 }
 /*#endregion*/
 /*#region FAQ*/
+/*#region Faqs*/
 .themasFAQs {
     width: 50px;
     height: 50px;
@@ -455,55 +476,6 @@ h1 {
         float: right;
         margin-top: 3px;
     }
-
-.faqIcons img {
-    width: 67.5px;
-    height: 67.5px;
-}
-
-.faqIcons {
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.active {
-    display: block;
-}
-
-.dropdown button {
-    border: 1px solid grey;
-    color: black;
-    background-color: white;
-}
-
-    .dropdown button:hover {
-        background-color: #626250;
-    }
-
-.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background-color: #626250;
-}
-
-.btn-primary:focus, .btn-primary.focus, .dropdown-toggle.btn-primary:focus {
-    background-color: #626250;
-}
-
-.open > .dropdown-toggle.btn-primary:hover {
-    background-color: #626250;
-}
-
-.dropdown-toggle.btn-primary:focus {
-    background-color: #626250;
-}
-
-.dropdown {
-    width: 100px;
-    margin: 0 auto;
-}
-
-.containerDropdown {
-    margin: 0 auto;
-}
 
 #nav {
     float: left;
@@ -548,6 +520,58 @@ h1 {
     #nav > li {
         margin-top: 20px;
     }
+/*#endregion*/
+/*#region Themes*/
+.faqIcons img {
+    width: 67.5px;
+    height: 67.5px;
+}
+
+.faqIcons {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.active {
+    display: block;
+}
+/*#endregion*/
+/*#region Dropdown*/
+.dropdown button {
+    border: 1px solid grey;
+    color: black;
+    background-color: white;
+}
+
+    .dropdown button:hover {
+        background-color: #626250;
+    }
+
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background-color: #626250;
+}
+
+.btn-primary:focus, .btn-primary.focus, .dropdown-toggle.btn-primary:focus {
+    background-color: #626250;
+}
+
+.open > .dropdown-toggle.btn-primary:hover {
+    background-color: #626250;
+}
+
+.dropdown-toggle.btn-primary:focus {
+    background-color: #626250;
+}
+
+.dropdown {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.containerDropdown {
+    margin: 0 auto;
+}
+/*#endregion*/
 /*#endregion*/
 /*#region Map*/
 #mapContainer {
@@ -795,51 +819,11 @@ h1 {
     border-radius: 10%;
 }
 /*#endregion*/
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    background-color: #ecefe4;
-    color: rgba(98,98,80,0.6);
-}
-
-.navbar-collapse {
-    border: none;
-}
-
-.toeleider div p:hover {
-    text-decoration: underline;
-}
-
-.footerContact p:hover {
-    text-decoration: underline;
-}
-
-.meldpuntFormulier a:hover {
-    text-decoration: underline;
-}
-
-.meldpunt h3 {
-    margin-top: 35px;
-}
 
 @media (min-width: 768px) {
-    .resultaatContent {
-        width: 750px;
-    }
-
+    /*#region LayoutModel*/
     #imgSearch {
         right: 24.9%;
-    }
-
-    .resultaatContent h3 {
-        font-size: 1.313em;
-    }
-
-    .panelTitle {
-        margin: 0 auto;
-    }
-
-    .imageBanner {
-        margin: 0;
-        margin-top: 11px;
     }
 
     .navbar-inverse .navbar-nav > li > a {
@@ -855,6 +839,28 @@ h1 {
         padding-bottom: 15px;
     }
 
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        background-color: transparent;
+    }
+    /*#endregion*/
+    /*#region Views*/
+    .resultaatContent {
+        width: 750px;
+    }
+
+        .resultaatContent h3 {
+            font-size: 1.313em;
+        }
+
+    .panelTitle {
+        margin: 0 auto;
+    }
+
+    .imageBanner {
+        margin: 0;
+        margin-top: 11px;
+    }
+
     .containerDropdown {
         display: none;
     }
@@ -867,10 +873,6 @@ h1 {
         margin-left: 0;
     }
 
-    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-        background-color: transparent;
-    }
-
     .mediaSocial {
         padding: 6px 12px;
         padding-left: 26%;
@@ -880,55 +882,17 @@ h1 {
         background: none;
         padding-top: 0;
     }
+    /*#endregion*/
 }
 
 @media (min-width: 992px) {
-    .toeleider h2 {
-        font-size: 1.313em;
-    }
-
+    /*#region LayoutModel*/
     .wrapper {
         height: 170px;
     }
 
     .navbar-fixed-top .navbar-collapse {
         padding-left: 20px;
-    }
-
-    .panelTitle {
-        text-align: left;
-    }
-
-    .dienstInfo h4 {
-        font-size: 14px;
-        padding-left: 34px;
-        padding-top: 7px;
-    }
-
-    .dienstInfoContact {
-        float: none;
-        margin: 0;
-        width: 100%;
-    }
-
-        .dienstInfoContact img {
-            width: 25px;
-            height: 25px;
-        }
-
-    #openingsuren {
-        float: none;
-        width: 100%;
-        margin: 0;
-    }
-
-        #openingsuren img {
-            width: 25px;
-            height: 25px;
-        }
-
-    .meldpuntTekst p {
-        font-size: 1.00em;
     }
 
     .vertalenBig {
@@ -955,25 +919,51 @@ h1 {
     }
 
     #navigatieBalk {
-        height: 70px;
-    }
-
-    .toeleider div:not(:first-child) {
-        display: block;
-    }
-
-    .themaIcons {
-        font-size: 1.0em;
-    }
-
-    .thumbnail {
-        width: 100px;
-        height: 100px;
+        height: 120px;
     }
 
     #google_translate_element {
         float: right;
         margin-right: 97px;
+    }
+
+    .navText {
+        border: none;
+        width: 435px;
+        float: left;
+    }
+
+    .mediaSocial {
+        width: 435px;
+        padding: 6px 12px;
+    }
+    /*#endregion*/
+    /*#region Contact*/
+    .toeleider h2 {
+        font-size: 1.313em;
+    }
+
+    .panelTitle {
+        text-align: left;
+    }
+
+    #openingsuren {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+
+        #openingsuren img {
+            width: 25px;
+            height: 25px;
+        }
+
+    .meldpuntTekst p {
+        font-size: 1.00em;
+    }
+
+    .toeleider div:not(:first-child) {
+        display: block;
     }
 
     .toeleidersFoto {
@@ -1024,33 +1014,14 @@ h1 {
         margin-bottom: 10px;
     }
 
-    .navText {
-        border: none;
-        width: 435px;
-        float: left;
-    }
-
-    #navigatieBalk {
-        height: 120px;
-    }
-
-    .mediaSocial {
-        width: 435px;
-        padding: 6px 12px;
-    }
-
     .toeleidersTekst {
         float: left;
         width: 33%;
     }
 
-    .logoBanner img {
-        display: block;
-    }
-
-    .toeleidersTekst h1 {
-        display: block;
-    }
+        .toeleidersTekst h1 {
+            display: block;
+        }
 
     h1 {
         font-size: 2.000em;
@@ -1069,6 +1040,29 @@ h1 {
     .inputContact {
         padding: 20px;
     }
+    /*#endregion*/
+    /*#region Details*/
+    .dienstInfo h4 {
+        font-size: 14px;
+        padding-left: 34px;
+        padding-top: 7px;
+    }
+
+    .dienstInfoContact {
+        float: none;
+        margin: 0;
+        width: 100%;
+    }
+
+        .dienstInfoContact img {
+            width: 25px;
+            height: 25px;
+        }
+
+    #openingsurenDiff1 {
+        padding-top: 6px;
+        padding-left: 9px;
+    }
 
     .onderwerpLeft {
         width: 33%;
@@ -1083,6 +1077,22 @@ h1 {
     .dienstInfo img {
         margin-top: 0;
     }
+    /*#endregion*/
+    /*#region Index, Nav & Faq*/
+        .themaIcons {
+        font-size: 1.0em;
+    }
+
+    .thumbnail {
+        width: 100px;
+        height: 100px;
+    }
+
+    .logoBanner img {
+        display: block;
+    }
+
+
 
     #imgSearch {
         left: 125px;
@@ -1092,14 +1102,13 @@ h1 {
         font-size: 1.00em;
     }
 
-    #openingsurenDiff1 {
-        padding-top: 6px;
-        padding-left: 9px;
-    }
+
+
     .faqIcons img {
-    width: 50px;
-    height: 50px;
-}
+        width: 50px;
+        height: 50px;
+    }
+    /*#endregion*/
 }
 
 @media (min-width: 1200px) {
@@ -1144,8 +1153,9 @@ h1 {
     .toeleidersFoto {
         padding-left: 65px;
     }
+
     .faqIcons img {
-    width: 67.5px;
-    height: 67.5px;
-}
+        width: 67.5px;
+        height: 67.5px;
+    }
 }

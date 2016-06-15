@@ -1,6 +1,5 @@
 ﻿@model PagedList.IPagedList<ASP_WEB.Models.Faq>
 @using PagedList.Mvc;
-@Styles.Render("~/Content/PagedList")
 @{
     ViewBag.Title = "Veelgestelde vragen";
 }
@@ -8,7 +7,7 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateFaq")
+    @Html.ActionLink("Maak een vraag aan", "CreateFaq")
 </p>
 <table class="table">
     <tr>
@@ -43,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.Answer)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditFaq", new { id = item.FaqID }) |
+                @Html.ActionLink("Bewerk", "EditFaq", new { id = item.FaqID }) |
                 @Html.ActionLink("Details", "DetailsFaq", new { id = item.FaqID }) |
-                @Html.ActionLink("Delete", "DeleteFaq", new { id = item.FaqID })
+                @Html.ActionLink("Verwijder", "DeleteFaq", new { id = item.FaqID })
             </td>
         </tr>
     }
