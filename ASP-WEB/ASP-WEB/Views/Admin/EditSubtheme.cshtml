@@ -7,8 +7,7 @@
 <h2>@ViewBag.Title</h2>
 
 
-<form enctype="multipart/form-data" method="post" class="form-horizontal" action="/Admin/EditSubtheme">
-    @Html.AntiForgeryToken()
+<form enctype="multipart/form-data" method="post" class="form-horizontal">
     <input type="hidden" value="@Model.subtheme.SubthemeID" name="SubthemeID" />
 
     <div class="form-group">
