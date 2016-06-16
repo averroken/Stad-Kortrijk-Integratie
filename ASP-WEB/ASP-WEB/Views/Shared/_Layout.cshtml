@@ -98,6 +98,7 @@
         <div class="container body-content">
             @RenderBody()
         </div>
+
         <footer class="">
             <div class="container">
                 <div>
@@ -117,5 +118,10 @@
             </div>
         </footer>
     </div>
+    <script>
+        $("p").html(function (i, oldHTML) {
+            return oldHTML.replace(/_/g, '<br><br>');
+        });
+    </script>
 </body>
 </html>

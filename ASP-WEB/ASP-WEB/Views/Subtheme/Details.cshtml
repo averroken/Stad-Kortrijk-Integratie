@@ -12,8 +12,8 @@
     </div>
     <div id="accordion" role="tablist" aria-multiselectable="true">
         <div>
-            <div class="subThemaID" data-themeID="@Model.SubthemeID"></div>
-            <p class="hidden-md hidden-lg onderwerpInfoSMP">@WebUtility.HtmlDecode(Model.Description)</p>
+            <p class="subThemaID" data-themeID="@Model.SubthemeID"></p>
+            <p class="hidden-md hidden-lg onderwerpInfoSMP more">@WebUtility.HtmlDecode(Model.Description)</p>
             @{int i = 0; }
             @foreach (var item in Model.Office)
             {
@@ -80,7 +80,7 @@
     </div>
 </div>
 <div class="onderwerpRight">
-    <p class="hidden-xs hidden-sm">@WebUtility.HtmlDecode(Model.Description)</p>
+    <p class="hidden-xs hidden-sm more">@WebUtility.HtmlDecode(Model.Description)</p>
     <div id="mapContainer" class="col-md-12 hidden-xs hidden-sm">
         <div id="mapDummy"></div>
         <div id="mapElement">
@@ -129,6 +129,44 @@
             </script>
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJiRLwhM5BeM9PkkxvzZLOh4eR5WeaJcg&callback=initMap">
+            </script>
+            <script>
+                $(document).ready(function () {
+                    // Configure/customize these variables.
+                    var showChar = 350;  // How many characters are shown by default
+                    var ellipsestext = "...";
+                    var moretext = "Lees meer >";
+                    var lesstext = "Lees minder ^";
+
+
+                    $('.more').each(function () {
+                        var content = $(this).html();
+
+                        if (content.length > showChar) {
+
+                            var c = content.substr(0, showChar);
+                            var h = content.substr(showChar, content.length - showChar);
+
+                            var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+                            $(this).html(html);
+                        }
+
+                    });
+
+                    $(".morelink").click(function () {
+                        if ($(this).hasClass("less")) {
+                            $(this).removeClass("less");
+                            $(this).html(moretext);
+                        } else {
+                            $(this).addClass("less");
+                            $(this).html(lesstext);
+                        }
+                        $(this).parent().prev().toggle();
+                        $(this).prev().toggle();
+                        return false;
+                    });
+                });
             </script>
         </div>
     </div>

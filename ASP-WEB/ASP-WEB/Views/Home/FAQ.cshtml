@@ -52,17 +52,18 @@
     </ul>
 </div>
 <script>
-    $('#nav > li > a').click(function () {
+    $('#nav > li > a').click(function (e) {
         if ($(this).attr('class') != 'active') {
             $('#nav li ul').slideUp();
             $(this).next().slideToggle();
             $('#nav li a').removeClass('active');
             $(this).addClass('active');
+            e.preventDefault();
         }
         else {
             $('#nav li a').removeClass('active');
             $('#nav li ul').slideUp();
+            e.preventDefault();
         }
     });
-
 </script>

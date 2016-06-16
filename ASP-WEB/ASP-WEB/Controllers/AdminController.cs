@@ -14,7 +14,7 @@ using PagedList;
 
 namespace ASP_WEB.Controllers
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "ADMINISTRATOR")]
     public class AdminController : Controller
     {
         private const int pageSize = 5;
