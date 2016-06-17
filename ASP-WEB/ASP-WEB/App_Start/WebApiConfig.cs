@@ -5,6 +5,7 @@ using System.Web.Http;
 
 namespace ASP_WEB
 {
+#pragma warning disable 1591
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)

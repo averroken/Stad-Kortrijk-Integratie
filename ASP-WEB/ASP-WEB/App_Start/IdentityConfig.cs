@@ -14,6 +14,7 @@ using ASP_WEB.Models;
 
 namespace ASP_WEB
 {
+#pragma warning disable 1591
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
