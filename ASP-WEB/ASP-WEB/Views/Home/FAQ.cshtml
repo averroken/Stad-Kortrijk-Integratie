@@ -1,34 +1,30 @@
 ﻿@model ASP_WEB.Models.FaqSubtheme
 @{
     ViewBag.Title = "FAQ";
-}
+
+<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
 <div class="wrapper">
 </div>
+
 <div id="containerIcons" class="themasFAQ">
+    <h2 id="titelfaq">Kies een thema</h2>
     <div class="rijIcons row">
         @foreach (var item in Model.Theme)
             {
             <div class="themaIcons faqIcons col-md-1 col-xs-3 col-sm-2">
-                <img id="@item.ThemeID" class="link thumbnail img-responsive image_on themasFAQs" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto" data-toggle="tooltip" data-placement="bottom" title="@item.Name">
+                <img id="@item.ThemeID" class="linkFaq thumbnail img-responsive image_on themasFAQs" src="https://integratiekortrijk.blob.core.windows.net/images/@item.FotoURL" alt="@item.Name Foto" data-toggle="tooltip" data-placement="bottom" title="@item.Name">
             </div>
         }
     </div>
 </div>
-
-<div class="container containerDropdown">
-    <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
-            Kies een thema
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            @foreach (var item in Model.Theme)
-            {
-                <li><a href="#" id="@item.ThemeID">@item.Name</a></li>
+    <div data-role="fieldcontain" class="dropdown hidden-lg hidden-md hidden-sm">
+        <select name="select-choice-1" id="select-choice-1">
+            <option>---- Kies een thema ----</option>
+            @foreach(var item in Model.Theme) { 
+            <option value="@item.ThemeID" id="@item.ThemeID">@item.Name</option>
             }
-        </ul>
+        </select>
     </div>
-</div>
 <script>
 
 </script>
@@ -36,7 +32,7 @@
     <ul id="nav">
         @foreach (var item in Model.Faq)
         {
-                <li class="@item.ThemeID active">
+                <li class="@item.ThemeID hidden">
                     <a href="#">
                         @WebUtility.HtmlDecode(item.Subtheme.Name) <svg height="15" width="15">
                             <polyline points="0,0 7.5,7.5 15,0" style="fill:white;stroke:#c4c4c4;stroke-width:2;float:right;" />
@@ -67,3 +63,4 @@
         }
     });
 </script>
+}

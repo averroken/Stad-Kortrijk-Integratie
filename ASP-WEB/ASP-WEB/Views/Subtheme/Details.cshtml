@@ -4,10 +4,12 @@
 }
 <div class="wrapper content"></div>
 <div class="onderwerpImageSM hidden-md hidden-lg">
+    <h2>@Model.Name</h2>
     <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" />
 </div>
 <div class="onderwerpLeft">
     <div class="onderwerpImage hidden-xs hidden-sm">
+        <h2>@Model.Name</h2>
         <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" />
     </div>
     <div id="accordion" role="tablist" aria-multiselectable="true">
@@ -58,10 +60,14 @@
                                 }
                             </div>
                             <div id="openingsuren">
+@if (!item.Monday.IsEmpty() || !item.Tuesday.IsEmpty() || !item.Wednesday.IsEmpty() || !item.Thursday.IsEmpty()
+                                                    || !item.Friday.IsEmpty() || !item.Saturday.IsEmpty() || !item.Sunday.IsEmpty())
+{
                                 <div>
                                     <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
                                     <h2 id="openingsurenDiff1">Openingsuren:</h2>
                                 </div>
+
                                 <ul>
                                     <li><span>Maandag:  </span> @item.Monday</li>
                                     <li><span>Dinsdag:  </span> @item.Tuesday</li>
@@ -71,6 +77,14 @@
                                     <li><span>Zaterdag: </span> @item.Saturday</li>
                                     <li><span>Zondag:   </span> @item.Sunday</li>
                                 </ul>
+}
+else
+{
+    <div>
+        <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
+        <h2>Openingsuren niet beschikbaar</h2>
+    </div>
+}
                             </div>
                         </div>
                     </div>

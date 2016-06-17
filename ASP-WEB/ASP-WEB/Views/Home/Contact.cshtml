@@ -98,7 +98,7 @@
                 <p>Toeleiders zijn brugfiguren. zij leggen een brug tussen deze mensen van buitelandse herkomst en diensten en organisaties in Kortrijk. Ze maken deze mensen weg-wijs: ze tonen de weg, zowel online als offline, in documenten en papieren, of door letterlijk mee op stap te gaan naar de verschillende diensten en organisaties in de stad.</p>
                 <p>Toeleiders informeren en motiveren, verwijzen door naar hulp- en dienstverlening, loketten in het stadhuis, projecten, (vrijetijds) organisaties en andere partners en brugfiguren in de stad. Bij dit alles zorgen ze ervoor dat de persoon die ze op weg helpen zelfredzamer wordt.</p>
             </div>
-            <div class="leesmeer">
+            <div class="leesmeer leesmeer1">
                 <img id="leesMinder1img" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
                 <p><a data-toggle="collapse" href="#collapseTekst" id="leesMinder1">LEES MEER</a></p>
             </div>
@@ -178,7 +178,7 @@
                     <p>invullen op de website of de smartphone app gebruiken. Of kom naar de onthaalbalie tijdens de openingsuren van het stadhuis.</p>
                 </div>
                 <div>
-                    <div class="leesmeer">
+                    <div class="leesmeer leesmeer2">
                         <img id="leesMinder2img" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
                         <p><a data-toggle="collapse" href="#collapseTekst2" id="leesMinder2">LEES MEER</a></p>
                     </div>
@@ -212,7 +212,7 @@
                         </ul>
                     </div>
                     <div style="width:100%; height:20px;">
-                        <div class="leesmeer">
+                        <div class="leesmeer leesmeer3">
                             <img id="leesMinder3img" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
                             <p><a data-toggle="collapse" href="#collapseTekst3" id="leesMinder3">LEES MEER</a></p>
                         </div>
@@ -227,7 +227,7 @@
                     </p>
                 </div>
                 <div style="width:100%; height:20px;">
-                    <div class="leesmeer">
+                    <div class="leesmeer leesmeer4">
                         <img id="leesMinder4img" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" />
                         <p><a data-toggle="collapse" href="#collapseTekst4" id="leesMinder4">LEES MEER</a></p>
                     </div>
@@ -290,13 +290,13 @@
                         <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
                         <h2 id="openingsurenDiff">Openingsuren:</h2>
                         <ul>
-                            <li>Maandag: 11.00 - 18.00    </li>
-                            <li>Dinsdag: 11.00 - 18.00    </li>
-                            <li>Woensdag: 11.00 - 18.00   </li>
-                            <li>Donderdag: 11.00 - 18.00  </li>
-                            <li>Vrijdag: 11.00 - 18.00    </li>
-                            <li>Zaterdag: 11.00 - 18.00   </li>
-                            <li>Zondag: gesloten          </li>
+                            <li><span>Maandag:  </span> 11.00 - 18.00 </li>
+                            <li><span>Dinsdag:  </span> 11.00 - 18.00 </li>
+                            <li><span>Woensdag: </span> 11.00 - 18.00 </li>
+                            <li><span>Donerdag: </span> 11.00 - 18.00 </li>
+                            <li><span>Vrijdag:  </span> 11.00 - 18.00 </li>
+                            <li><span>Zaterdag: </span> 11.00 - 18.00 </li>
+                            <li><span>Zondag:   </span> gesloten</li>
                         </ul>
                     </div>
                 </div>
@@ -305,7 +305,7 @@
     </div>
 </div>
 <script>
-    $("#leesMinder1").click(function () {
+    $(".leesmeer1").click(function () {
         var leesmeer = $("#leesMinder1").text();
         console.log(leesmeer);
         if (leesmeer == "LEES MEER") {
@@ -316,7 +316,7 @@
             $("#leesMinder1").html("LEES MEER");
         }
     });
-    $("#leesMinder2").click(function () {
+    $(".leesmeer2").click(function () {
         var leesmeer = $("#leesMinder2").text();
         console.log(leesmeer);
         if (leesmeer == "LEES MEER") {
@@ -327,7 +327,7 @@
             $("#leesMinder2").html("LEES MEER");
         }
     });
-    $("#leesMinder3").click(function () {
+    $(".leesmeer3").click(function () {
         var leesmeer = $("#leesMinder3").text();
         console.log(leesmeer);
         if (leesmeer == "LEES MEER") {
@@ -338,7 +338,7 @@
             $("#leesMinder3").html("LEES MEER");
         }
     });
-    $("#leesMinder4").click(function () {
+    $(".leesmeer4").click(function () {
         var leesmeer = $("#leesMinder4").text();
         console.log(leesmeer);
         if (leesmeer == "LEES MEER") {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Integratie Kortrijk</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://integratiekortrijk.blob.core.windows.net/images/apple-touch-icon-60x60.png">
@@ -43,10 +43,10 @@
         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
 </head>
-<body>
+<body id="top">
     <div class="wrapperAll">
         <div class="navbar navbar-inverse navbar-fixed-top" id="navigatieBalk">
-            <div class="container">
+            <div class="container" id="jump_to_me">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" id="navbarToggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
@@ -115,7 +115,7 @@
 </g>
 </svg>
             </a>
-            <footer class="">
+            <footer>
                 <div class="container">
                     <div>
                         <a href="http://maps.apple.com/?q=Grote%20Markt%2054,%208500%20Kortrijk">
@@ -138,27 +138,10 @@
         $("p").html(function (i, oldHTML) {
             return oldHTML.replace(/_/g, '<br><br>');
         });
+        $('.back-to-top').click(function () {
+            window.scrollTo(0, screen.height);
+        });
 
-        if ($('.back-to-top').length) {
-            var scrollTrigger = 100, // px
-                backToTop = function () {
-                    var scrollTop = $(window).scrollTop();
-                    if (scrollTop > scrollTrigger) {
-                        $('.back-to-top').addClass('show');
-                    } else {
-                        $('.back-to-top').removeClass('show');
-                    }
-                };
-            backToTop();
-            $(window).on('scroll', function () {
-                backToTop();
-            });
-            $('.back-to-top').on('click', function (e) {
-                $('html').animate({
-                    scrollTop: 0
-                }, 700);
-            });
-        }
     </script>
 </body>
 </html>

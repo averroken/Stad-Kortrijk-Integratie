@@ -71,63 +71,22 @@ namespace ASP_WEB.DAL.Repository
                 context.SaveChanges();
 
                 GenericRepository<Office> repoOffice = new GenericRepository<Office>(context);
+                GenericRepository<Theme> repoTheme = new GenericRepository<Theme>(context);
                 foreach (var office in subtheme.OfficeID)
                 {
                     currentSubtheme.Office.Add(repoOffice.GetByID(office));
                 }
-                context.SaveChanges();
-
-                //context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
+                //currentSubtheme.Office.Clear();
                 //context.SaveChanges();
+                currentSubtheme.Name = subtheme.Name;
+                currentSubtheme.FotoURL = subtheme.FotoURL;
+                currentSubtheme.Description = subtheme.Description;
+                currentSubtheme.Theme = repoTheme.GetByID(subtheme.ThemeID);
+
+                context.Entry<Subtheme>(currentSubtheme).State = EntityState.Modified;
+
+                context.SaveChanges();
             }
-
-            #region Comments
-
-            //     public void UpdateContact(Contact contact)
-            //{
-            //    using (Labo1Context context = new Labo1Context())
-            //    {
-            //        var currentContact = (from c in context.Contacts.Include(c => c.Departement)
-            //                              where c.ContactId == contact.ContactId
-            //                              select c).SingleOrDefault<Contact>();
-            //        currentContact.Departement.Clear();
-            //        context.SaveChanges();
-            //using (IntegratieContext context = new IntegratieContext())
-            //{
-            //    var currentSubtheme = (from c in context.Subtheme.Include(c => c.Office)
-            //                           where c.SubthemeID == subtheme.SubthemeID
-            //                           select c).SingleOrDefault<Subtheme>();
-            //    currentSubtheme.Office.Clear();
-            //    context.SaveChanges();
-            //}
-            //if (subtheme.Office != null)
-            //{
-            //    using (IntegratieContext context = new IntegratieContext())
-            //    {
-            //        //if (subtheme.Office == null) subtheme.Office = new List<Office>();
-            //        foreach (var dep in subtheme.Office)
-            //        {
-            //            context.Entry<Office>(dep).State = EntityState.Added;
-            //            context.Entry<Subtheme>(subtheme).State = EntityState.Modified;
-            //            context.SaveChanges();
-            //        }
-            //    }
-
-            //    }
-
-            //    using (Labo1Context context = new Labo1Context())
-            //    {
-            //        foreach (var dep in contact.Departement)
-            //            context.Entry<Departement>(dep).State = EntityState.Added;
-            //        context.Entry<Contact>(contact).State = EntityState.Modified;
-            //        context.SaveChanges();
-            //    }
-
-            //}
-            //         base.Update(entityToUpdate);
-            //    }
-            //}
-            #endregion
         }
 
         public override void Delete(object id)

@@ -1,6 +1,7 @@
 ﻿/*#region LayoutModel*/
 /*#region Algemeen*/
 @import url('bootstrap-theme.css');
+
 @font-face {
     font-family: "Myriad Pro Regular";
     src: url(../fonts/MyriadPro-Regular.otf) format("opentype");
@@ -12,13 +13,15 @@ html, body {
     font-size: 16px;
     height: 100%;
     margin: 0;
-    overflow-x: hidden;
 }
 
-    body p {
-        color: #626250;
-        text-decoration: none;
-    }
+.contactContent {
+}
+
+body p {
+    color: #626250;
+    text-decoration: none;
+}
 
 .wrapperAll {
     min-height: 100%;
@@ -32,15 +35,7 @@ html, body {
 .wrapper {
     height: 200px;
 }
-/*
-.back-to-top{
-    width: 30px;
-    height: 30px;
-    right: 20px;
-    bottom: 120px;
-    z-index: 9999;
-    position: fixed;
-}*/
+
 .back-to-top {
     position: fixed;
     bottom: 120px;
@@ -48,12 +43,23 @@ html, body {
     z-index: 9999;
     width: 30px;
     height: 30px;
-    text-decoration: none;
-    opacity: 1;
 }
 
-.back-to-top.show {
-    opacity: 1;
+    .back-to-top.show {
+        opacity: 1;
+    }
+
+#gototop {
+    visibility: hidden;
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    color: #999;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 10px;
 }
 /*#endregion*/
 /*#region Navigatie*/
@@ -248,11 +254,12 @@ footer {
 
 /*#endregion*/
 /*#region Contact*/
-.meldpuntWrapper{
+.meldpuntWrapper {
     background: url(/Content/bgpinkPattern.png);
-    width: 100vw;
+    width: 99.55vw;
     margin-left: calc(-50vw + 50%);
 }
+
 .toeleidersTekst {
     float: left;
     width: 100%;
@@ -455,7 +462,7 @@ footer {
         width: 15px;
         height: 15px;
         float: right;
-        margin-top: 5px;
+        margin-top: 9px;
         transform: rotate(90deg);
     }
 
@@ -523,6 +530,10 @@ h1 {
         margin-top: 3px;
     }
 
+#titelfaq {
+    text-align: center;
+}
+
 #nav {
     float: left;
     width: 100%;
@@ -534,34 +545,31 @@ h1 {
         font-size: 0.75em;
     }
 
-    #nav li {
+    #nav li a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #000;
+        box-shadow: 2px 2px 5px #888888;
+        border: 1px solid grey;
+        border-radius: 5px 5px 0 0;
+        background-color: white;
     }
 
-        #nav li a {
-            display: block;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: #000;
-            box-shadow: 2px 2px 5px #888888;
-            border: 1px solid grey;
-            border-radius: 5px 5px 0 0;
-            background-color: white;
+        #nav li a:hover, #nav li a.active {
         }
 
-            #nav li a:hover, #nav li a.active {
-            }
+    #nav li ul {
+        display: none;
+        list-style-type: none;
+        padding: 0;
+    }
 
-        #nav li ul {
-            display: none;
-            list-style-type: none;
-            padding: 0;
+        #nav li ul li a {
+            padding: 10px 25px;
+            background-color: #eeeeee;
+            border-radius: 0 0 5px 5px;
         }
-
-            #nav li ul li a {
-                padding: 10px 25px;
-                background-color: #eeeeee;
-                border-radius: 0 0 5px 5px;
-            }
 
     #nav > li {
         margin-top: 20px;
@@ -583,34 +591,9 @@ h1 {
 }
 /*#endregion*/
 /*#region Dropdown*/
-.dropdown button {
-    border: 1px solid grey;
-    color: black;
-    background-color: white;
-}
-
-    .dropdown button:hover {
-        background-color: #626250;
-    }
-
-.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background-color: #626250;
-}
-
-.btn-primary:focus, .btn-primary.focus, .dropdown-toggle.btn-primary:focus {
-    background-color: #626250;
-}
-
-.open > .dropdown-toggle.btn-primary:hover {
-    background-color: #626250;
-}
-
-.dropdown-toggle.btn-primary:focus {
-    background-color: #626250;
-}
 
 .dropdown {
-    width: 100px;
+    width: 215px;
     margin: 0 auto;
 }
 
@@ -685,7 +668,7 @@ h1 {
 #openingsuren {
     margin-top: 5px;
     width: 214px;
-    margin: 0 auto;
+    margin-left: 24px;
     padding-top: 3px;
 }
 
@@ -734,7 +717,7 @@ h1 {
 
 .dienstInfoContact {
     width: 213px;
-    margin: 0 auto;
+    margin-left: 11px;
 }
 
     .dienstInfoContact img {
@@ -769,16 +752,19 @@ h1 {
 .svgDetails {
     float: right;
 }
-.morecontent span{
+
+.morecontent span {
     display: none;
 }
+
 .morelink {
     display: block;
 }
-.morelink a{
-    text-decoration: none;
-    color: #626250;
-}
+
+    .morelink a {
+        text-decoration: none;
+        color: #626250;
+    }
 /*#endregion*/
 /*#region Search*/
 .resultaatContent p {
@@ -901,10 +887,11 @@ h1 {
     .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
         background-color: transparent;
     }
-    .meldpunt{
-            width: 690px;
-    padding-left: 15px;
-    padding-right: 15px;
+
+    .meldpunt {
+        width: 690px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     /*#endregion*/
     /*#region Views*/
@@ -967,7 +954,7 @@ h1 {
 
     .txtSearch {
         float: left;
-        width: auto;
+        width: 74%;
     }
 
     .mediaImages img {
@@ -980,6 +967,7 @@ h1 {
 
     .mediaImages {
         float: left;
+        width: 53%;
     }
 
     #navigatieBalk {
@@ -1010,14 +998,17 @@ h1 {
     .panelTitle {
         text-align: left;
     }
-    .meldpunt{
-width: 940px;
+
+    .meldpunt {
+        width: 940px;
     }
+
     #openingsuren {
         float: none;
         width: 100%;
         margin: 0;
     }
+
         #openingsuren img {
             width: 25px;
             height: 25px;
@@ -1182,6 +1173,10 @@ width: 940px;
         float: left;
     }
 
+    .navbar-nav {
+        width: 200%;
+    }
+
     .wrapper {
         height: 130px;
     }
@@ -1191,10 +1186,12 @@ width: 940px;
         float: right;
         padding: 41px;
     }
-            .meldpunt{
+
+    .meldpunt {
         width: 1140px;
         padding: 10px;
     }
+
     .inputMeldpunt {
         float: left;
         width: 49%;
@@ -1226,5 +1223,4 @@ width: 940px;
         width: 67.5px;
         height: 67.5px;
     }
-
 }

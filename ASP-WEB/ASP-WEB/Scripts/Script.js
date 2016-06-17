@@ -24,35 +24,33 @@ $(document).ready(function () {
         userLanguage = GetSelectedLanguage();
         TranslateForSearch(toTranslate, targetLanguage, userLanguage);
     });
-    $(".link").click(function (e) {
-        $(".active").hide();
+    $(".linkFaq").click(function (e) {
+        var titelfaq = document.getElementById('titelfaq');
+        var titel = document.getElementById(e.currentTarget.id);
+        titelfaq.innerHTML = titel.getAttribute("title");
+        $("." + e.currentTarget.id).removeClass("hidden");
+        $('.active').addClass("hidden");
         $(".active").removeClass("active");
+        $('#nav > li > a').removeClass("hidden");
+        $('#nav li ul').slideUp();
         $(".themasFAQs").css("background-color", "#acd5bb");
         $("." + e.currentTarget.id).addClass("active");
         $("." + e.currentTarget.id).show();
-        $(e.currentTarget).css("background-color","#626250");
+        $(e.currentTarget).css("background-color", "#626250");
+
     });
-    $(".dropdown-menu li a").click(function (e) {
-        var selText = $(this).text();
-        $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-        $(".active").hide();
+    $(".dropdown select").change(function (e) {
+        var value = $(this).val();
+        $("." + value).removeClass("hidden");
+        $('.active').addClass("hidden");
         $(".active").removeClass("active");
-        $("." + e.currentTarget.id).addClass("active");
-        $("." + e.currentTarget.id).show();
+        $('#nav > li > a').removeClass("hidden");
+        $('#nav li ul').slideUp();
+        $("." +value).addClass("active");
+        $("." + value).show();
     });
 });
-    $('#nav > li > a').click(function () {
-        if ($(this).attr('class') != 'active') {
-            $('#nav li ul').slideUp();
-            $(this).next().slideToggle();
-            $('#nav li a').removeClass('active');
-            $(this).addClass('active');
-        }
-        else {
-            $('#nav li a').removeClass('active');
-            $('#nav li ul').slideUp();
-        }
-    });
+
 
     $(".dropdown").on("show.bs.dropdown", function (event) {
         var x = $(event.relatedTarget).text(); // Get the button text
@@ -104,6 +102,6 @@ $(document).ready(function () {
 
     var getoond = true;
     $("#navbarToggle").click(function () {
-        console.log("jaaaa");
         $(".vertalenBig").toggle("display");
     });
+
