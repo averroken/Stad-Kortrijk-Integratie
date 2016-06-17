@@ -9,6 +9,7 @@ using ASP_WEB.Models;
 
 namespace ASP_WEB
 {
+#pragma warning disable 1591
     public partial class Startup
     {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864

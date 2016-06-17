@@ -1,0 +1,773 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ASP-WEB</name>
+    </assembly>
+    <members>
+        <member name="T:ASP_WEB.Controllers.AdminController">
+            <summary>
+            Admincontroller to manage the content
+            </summary>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.Index">
+            <summary>
+            Shows list of different editing and adding possibilities
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.Themes(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view with all the themes
+            </summary>
+            <param name="page">PageNumber</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.EditTheme(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view to edit a theme
+            </summary>
+            <param name="id">ThemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.EditTheme(System.Web.Mvc.FormCollection,System.Web.HttpPostedFileBase)">
+            <summary>
+            Edits a theme with the data from the form and the image
+            </summary>
+            <param name="frm">FormData</param>
+            <param name="file">Image</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.CreateTheme">
+            <summary>
+            Returns a view to create a theme
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.CreateTheme(System.Web.Mvc.FormCollection,System.Web.HttpPostedFileBase)">
+            <summary>
+            Creates a theme with the data from the form and the image
+            </summary>
+            <param name="frm">FormData</param>
+            <param name="file">Image</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DetailsTheme(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view with the details of a theme
+            </summary>
+            <param name="id">ThemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DeleteTheme(System.Nullable{System.Int32})">
+            <summary>
+            Deletes a theme
+            </summary>
+            <param name="id">ThemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.Subthemes(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view with a list of all subthemes
+            </summary>
+            <param name="page">PageNumber</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.EditSubtheme(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view to edit a subtheme
+            </summary>
+            <param name="id">SubthemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.EditSubtheme(System.Web.Mvc.FormCollection,System.Web.HttpPostedFileBase)">
+            <summary>
+            Edits a subtheme with the data from the form and the image
+            </summary>
+            <param name="frm">FormData</param>
+            <param name="file">Image</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.CreateSubtheme">
+            <summary>
+            Returns a view to create a subtheme
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.CreateSubtheme(System.Web.Mvc.FormCollection,System.Web.HttpPostedFileBase)">
+            <summary>
+            Creates a subtheme with the data from the form and the uploaded image
+            </summary>
+            <param name="frm">FormData</param>
+            <param name="file">Image</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DetailsSubtheme(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view with the details of a subtheme
+            </summary>
+            <param name="id">SubthemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DeleteSubtheme(System.Nullable{System.Int32})">
+            <summary>
+            Deletes a subtheme
+            </summary>
+            <param name="id">SubthemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.Offices(System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.EditOffice(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view to edit an office, if no OfficeID is given returns to the list of all offices
+            </summary>
+            <param name="id">OfficeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.EditOffice(System.Web.Mvc.FormCollection)">
+            <summary>
+            Edits an office with the data from the form
+            </summary>
+            <param name="frm">FormData</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.CreateOffice">
+            <summary>
+            Returns a view to create an office
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.CreateOffice(System.Web.Mvc.FormCollection)">
+            <summary>
+            Creates an office with the data from the form
+            </summary>
+            <param name="frm">FormData</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DetailsOffice(System.Nullable{System.Int32})">
+            <summary>
+            Shows the details of an office
+            </summary>
+            <param name="id">OfficeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DeleteOffice(System.Nullable{System.Int32})">
+            <summary>
+            Deletes a office
+            </summary>
+            <param name="id">OfficeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.Faqs(System.Nullable{System.Int32})">
+            <summary>
+            Shows a list of all FAQs
+            </summary>
+            <param name="page">PageNumber</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.CreateFaq">
+            <summary>
+            Returns a view to create a FAQ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.CreateFaq(System.Web.Mvc.FormCollection)">
+            <summary>
+            Creates a FAQ with data from the form
+            </summary>
+            <param name="frm">FormData</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.EditFaq(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view to edit a FAQ
+            </summary>
+            <param name="id">FaqID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.EditFaq(System.Web.Mvc.FormCollection)">
+            <summary>
+            Edits a FAQ with data from the form
+            </summary>
+            <param name="frm">FormData</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DeleteFaq(System.Nullable{System.Int32})">
+            <summary>
+            Deletes a FAQ
+            </summary>
+            <param name="id">FaqID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DetailsFaq(System.Nullable{System.Int32})">
+            <summary>
+            Returns the details of a FAQ
+            </summary>
+            <param name="id">FaqID</param>
+            <returns></returns>
+        </member>
+        <member name="P:ASP_WEB.Controllers.AdminController.UserManager">
+            <summary>
+            Makes the UserManager
+            </summary>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.Users">
+            <summary>
+            Returns a view with all the registered users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.DeleteUser(System.String)">
+            <summary>
+            Deletes a user by removing their password hash
+            </summary>
+            <param name="id">UserID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.ToAdmin(System.String)">
+            <summary>
+            Gives a user the admin role
+            </summary>
+            <param name="id">UserID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.AdminController.ToUser(System.String)">
+            <summary>
+            Gives a user the user role
+            </summary>
+            <param name="id">UserID</param>
+            <returns></returns>
+        </member>
+        <member name="T:ASP_WEB.Controllers.HomeController">
+            <summary>
+            HomeController
+            </summary>
+        </member>
+        <member name="M:ASP_WEB.Controllers.HomeController.Index">
+            <summary>
+            Returns a view with all the themes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.HomeController.Details(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view with the details of a subtheme
+            </summary>
+            <param name="id">SubthemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.HomeController.Map">
+            <summary>
+            Returns the map view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.HomeController.FAQ">
+            <summary>
+            Returns a view with all FAQs and all themes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.HomeController.Search(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Shows the search results of a given page
+            </summary>
+            <param name="searchString">SearchString in Dutch</param>
+            <param name="page">PageNumber</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.HomeController.Contact">
+            <summary>
+            Returns teh Contact View
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.HomeController.Contact(System.Web.Mvc.FormCollection)">
+            <summary>
+            Sends a mail with the content of the contact form
+            </summary>
+            <param name="frm">FormData</param>
+            <returns></returns>
+        </member>
+        <member name="T:ASP_WEB.Controllers.OfficesController">
+            <summary>
+            API Controller for offices
+            </summary>
+        </member>
+        <member name="M:ASP_WEB.Controllers.OfficesController.Get(System.Nullable{System.Int32})">
+            <summary>
+            Returns all offices of a subtheme if ID is given, else returns all offices
+            </summary>
+            <param name="id">SubthemeID</param>
+            <returns></returns>
+        </member>
+        <member name="T:ASP_WEB.Controllers.SubthemeController">
+            <summary>
+            SubthemeController
+            </summary>
+        </member>
+        <member name="M:ASP_WEB.Controllers.SubthemeController.Index(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view with all Subthemes of a theme
+            </summary>
+            <param name="id">ThemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.Controllers.SubthemeController.Details(System.Nullable{System.Int32})">
+            <summary>
+            Returns a view with the details of a subtheme
+            </summary>
+            <param name="id">SubthemeID</param>
+            <returns></returns>
+        </member>
+        <member name="T:ASP_WEB.DAL.Repository.FaqRepository">
+            <summary>
+            Repository for FAQs
+            </summary>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.FaqRepository.All">
+            <summary>
+            Gets all FAQs
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.FaqRepository.GetFaqByThemeID(System.Int32)">
+            <summary>
+            Gets all FAQs of a theme
+            </summary>
+            <param name="id">ThemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.FaqRepository.GetFaqBySubthemeID(System.Int32)">
+            <summary>
+            Gets all FAQs of a subtheme
+            </summary>
+            <param name="id">SubthemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.FaqRepository.GetByID(System.Object)">
+            <summary>
+            Gets a FAQ by ID
+            </summary>
+            <param name="id">FaqID</param>
+            <returns></returns>
+        </member>
+        <member name="T:ASP_WEB.DAL.Repository.SubthemeRepository">
+            <summary>
+            Repository for subthemes
+            </summary>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.SubthemeRepository.GetSubthemeByTheme(System.Int32)">
+            <summary>
+            Gets all subthemes of a theme
+            </summary>
+            <param name="themeID">ThemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.SubthemeRepository.All">
+            <summary>
+            Gets all subthemes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.SubthemeRepository.GetByID(System.Object)">
+            <summary>
+            Gets a subtheme
+            </summary>
+            <param name="id">SubthemeID</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.SubthemeRepository.Search(System.String)">
+            <summary>
+            Searches if searchString is in the description or the name of a subtheme
+            </summary>
+            <param name="searchString">searchString in Dutch</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.SubthemeRepository.Insert(ASP_WEB.Models.Subtheme)">
+            <summary>
+            Inserts a subtheme
+            </summary>
+            <param name="subtheme">Subthema</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.SubthemeRepository.Update(ASP_WEB.Models.Subtheme)">
+            <summary>
+            Updates a subtheme
+            </summary>
+            <param name="subtheme">Subtheme</param>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.SubthemeRepository.Delete(System.Object)">
+            <summary>
+            Deletes a subtheme
+            </summary>
+            <param name="id">SubthemeID</param>
+        </member>
+        <member name="M:ASP_WEB.DAL.Repository.SubthemeRepository.Delete(ASP_WEB.Models.Subtheme)">
+            <summary>
+            Deletes a subtheme
+            </summary>
+            <param name="subtheme">Subtheme</param>
+        </member>
+        <member name="T:ASP_WEB.DAL.Context.IntegratieContext">
+            <summary>
+            Context used in this project
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.DAL.Context.IntegratieContext.Theme">
+            <summary>
+            Theme DbSet
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.DAL.Context.IntegratieContext.Subtheme">
+            <summary>
+            Subtheme DbSet
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.DAL.Context.IntegratieContext.Office">
+            <summary>
+            Office DbSet
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.DAL.Context.IntegratieContext.Faq">
+            <summary>
+            Faq DbSet
+            </summary>
+        </member>
+        <member name="T:ASP_WEB.Helpers.Roles">
+            <summary>
+            Enumeration class of all the roles
+            </summary>
+        </member>
+        <member name="T:ASP_WEB.Models.Faq">
+            <summary>
+            FAQ class
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Faq.FaqID">
+            <summary>
+            ID Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Faq.ThemeID">
+            <summary>
+            ThemeID Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Faq.Theme">
+            <summary>
+            Theme Navigation Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Faq.SubthemeID">
+            <summary>
+            SubthemeID Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Faq.Subtheme">
+            <summary>
+            Subtheme Navigation Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Faq.Question">
+            <summary>
+            Question Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Faq.Answer">
+            <summary>
+            Answer Property
+            </summary>
+        </member>
+        <member name="T:ASP_WEB.Models.FaqSubtheme">
+            <summary>
+            ViewModel to create, edit and view the FAQS
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.FaqSubtheme.Faq">
+            <summary>
+            List of all FAQs
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.FaqSubtheme.Subtheme">
+            <summary>
+            List of all subthemes
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.FaqSubtheme.Theme">
+            <summary>
+            List of all themes
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.FaqSubtheme.faqEen">
+            <summary>
+            FAQ Property
+            </summary>
+        </member>
+        <member name="T:ASP_WEB.Models.Office">
+            <summary>
+            Office Class
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.OfficeID">
+            <summary>
+            ID Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Name">
+            <summary>
+            Name Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.URL">
+            <summary>
+            URL Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Street">
+            <summary>
+            Street Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.HouseNumber">
+            <summary>
+            HouseNumber Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.ZipCode">
+            <summary>
+            ZipCode Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.City">
+            <summary>
+            City Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.PhoneNumber">
+            <summary>
+            PhoneNumber Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.EmailAddress">
+            <summary>
+            EmailAddress Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Subtheme">
+            <summary>
+            Subtheme Navigation Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Monday">
+            <summary>
+            Monday Opening Hours Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Tuesday">
+            <summary>
+            Tuesday Opening Hours Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Wednesday">
+            <summary>
+            Wednseday Opening Hours Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Thursday">
+            <summary>
+            Thursday Opening Hours Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Friday">
+            <summary>
+            Friday Opening Hours Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Saturday">
+            <summary>
+            Saturday Opening Hours Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Office.Sunday">
+            <summary>
+            Sunday Opening Hours Property
+            </summary>
+        </member>
+        <member name="T:ASP_WEB.Models.Subtheme">
+            <summary>
+            Subtheme Class
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Subtheme.SubthemeID">
+            <summary>
+            ID Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Subtheme.Name">
+            <summary>
+            Name Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Subtheme.Description">
+            <summary>
+            Description Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Subtheme.Office">
+            <summary>
+            Office Collection Navigation Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Subtheme.OfficeID">
+            <summary>
+            OfficeID Collection Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Subtheme.Theme">
+            <summary>
+            Theme Navigation Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Subtheme.ThemeID">
+            <summary>
+            ThemeID property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Subtheme.FotoURL">
+            <summary>
+            Name of the photo Property
+            </summary>
+        </member>
+        <member name="T:ASP_WEB.Models.SubthemesEditViewModel">
+            <summary>
+            ViewModel to edit the subthemes
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.SubthemesEditViewModel.themes">
+            <summary>
+            List of al themes
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.SubthemesEditViewModel.subtheme">
+            <summary>
+            Subtheme to edit
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.SubthemesEditViewModel.offices">
+            <summary>
+            List of all offices
+            </summary>
+        </member>
+        <member name="T:ASP_WEB.Models.Theme">
+            <summary>
+            Theme Class
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Theme.ThemeID">
+            <summary>
+            ID Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Theme.Name">
+            <summary>
+            Name Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.Theme.FotoURL">
+            <summary>
+            Name of the photo Property
+            </summary>
+        </member>
+        <member name="T:ASP_WEB.Models.User">
+            <summary>
+            (View)Model used to manage the users
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.User.ID">
+            <summary>
+            ID property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.User.UserName">
+            <summary>
+            UserName Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.User.Email">
+            <summary>
+            Email Property
+            </summary>
+        </member>
+        <member name="P:ASP_WEB.Models.User.IsAdmin">
+            <summary>
+            IsAdmin Property
+            </summary>
+        </member>
+        <member name="T:GenericRepository`1">
+            <summary>
+            GenericRepository
+            </summary>
+            <typeparam name="TEntity">Type of Object to handle</typeparam>
+        </member>
+        <member name="M:GenericRepository`1.#ctor">
+            <summary>
+            Constructor without context
+            </summary>
+        </member>
+        <member name="M:GenericRepository`1.#ctor(ASP_WEB.DAL.Context.IntegratieContext)">
+            <summary>
+            Constructor with context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:GenericRepository`1.All">
+            <summary>
+            Gets all
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GenericRepository`1.GetByID(System.Object)">
+            <summary>
+            Gets one byID
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:GenericRepository`1.Insert(`0)">
+            <summary>
+            Inserts
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GenericRepository`1.Delete(System.Object)">
+            <summary>
+            Deletes by ID
+            </summary>
+            <param name="id">ID</param>
+        </member>
+        <member name="M:GenericRepository`1.Delete(`0)">
+            <summary>
+            Deletes by Object
+            </summary>
+            <param name="entityToDelete">Object</param>
+        </member>
+        <member name="M:GenericRepository`1.Update(`0)">
+            <summary>
+            Update
+            </summary>
+            <param name="entityToUpdate"></param>
+        </member>
+        <member name="M:GenericRepository`1.SaveChanges">
+            <summary>
+            Saves Changes in Context
+            </summary>
+        </member>
+    </members>
+</doc>

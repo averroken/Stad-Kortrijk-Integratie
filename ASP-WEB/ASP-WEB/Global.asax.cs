@@ -9,6 +9,7 @@ using System.Web.Routing;
 
 namespace ASP_WEB
 {
+#pragma warning disable 1591
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

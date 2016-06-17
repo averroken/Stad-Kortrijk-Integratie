@@ -2,7 +2,7 @@ namespace ASP_WEB.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+#pragma warning disable 1591
     public partial class InitDB : DbMigration
     {
         public override void Up()
