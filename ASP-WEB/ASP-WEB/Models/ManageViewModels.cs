@@ -5,6 +5,7 @@ using Microsoft.Owin.Security;
 
 namespace ASP_WEB.Models
 {
+#pragma warning disable 1591
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }

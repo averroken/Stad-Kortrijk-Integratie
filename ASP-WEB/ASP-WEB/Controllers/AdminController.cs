@@ -14,6 +14,9 @@ using PagedList;
 
 namespace ASP_WEB.Controllers
 {
+    /// <summary>
+    /// Admincontroller to manage the content
+    /// </summary>
     [Authorize(Roles = "ADMINISTRATOR")]
     public class AdminController : Controller
     {
@@ -35,13 +38,22 @@ namespace ASP_WEB.Controllers
         }
 
         #region Themes
+        /// <summary>
+        /// Returns a view with all the themes
+        /// </summary>
+        /// <param name="page">PageNumber</param>
+        /// <returns></returns>
         public ActionResult Themes(int? page)
         {
             IEnumerable<Theme> themes = repoTheme.All();
             int pageNumber = (page ?? 1);
             return View(themes.OrderBy(i => i.ThemeID).ToPagedList(pageNumber, pageSize));
         }
-
+        /// <summary>
+        /// Returns a view to edit a theme
+        /// </summary>
+        /// <param name="id">ThemeID</param>
+        /// <returns></returns>
         public ActionResult EditTheme(int? id)
         {
             if (!id.HasValue)
@@ -53,6 +65,12 @@ namespace ASP_WEB.Controllers
             return View(theme);
 
         }
+        /// <summary>
+        /// Edits a theme with the data from the form and the image
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <param name="file">Image</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult EditTheme(FormCollection frm, HttpPostedFileBase file)
         {
@@ -80,10 +98,20 @@ namespace ASP_WEB.Controllers
             repoTheme.SaveChanges();
             return RedirectToAction("Themes");
         }
+        /// <summary>
+        /// Returns a view to create a theme
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreateTheme()
         {
             return View();
         }
+        /// <summary>
+        /// Creates a theme with the data from the form and the image
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <param name="file">Image</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CreateTheme(FormCollection frm, HttpPostedFileBase file)
         {
@@ -110,6 +138,11 @@ namespace ASP_WEB.Controllers
             repoTheme.SaveChanges();
             return RedirectToAction("Themes");
         }
+        /// <summary>
+        /// Returns a view with the details of a theme
+        /// </summary>
+        /// <param name="id">ThemeID</param>
+        /// <returns></returns>
         public ActionResult DetailsTheme(int? id)
         {
             if (!id.HasValue)
@@ -120,6 +153,11 @@ namespace ASP_WEB.Controllers
             Theme theme = repoTheme.GetByID(ID);
             return View(theme);
         }
+        /// <summary>
+        /// Deletes a theme
+        /// </summary>
+        /// <param name="id">ThemeID</param>
+        /// <returns></returns>
         public ActionResult DeleteTheme(int? id)
         {
             if (!id.HasValue)
@@ -147,13 +185,22 @@ namespace ASP_WEB.Controllers
         #endregion
 
         #region Subthemes
+        /// <summary>
+        /// Returns a view with a list of all subthemes
+        /// </summary>
+        /// <param name="page">PageNumber</param>
+        /// <returns></returns>
         public ActionResult Subthemes(int? page)
         {
             IEnumerable<Subtheme> subthemes = repoSubtheme.All();
             int pageNumber = (page ?? 1);
             return View(subthemes.OrderBy(i => i.SubthemeID).ToPagedList(pageNumber, pageSize));
         }
-
+        /// <summary>
+        /// Returns a view to edit a subtheme
+        /// </summary>
+        /// <param name="id">SubthemeID</param>
+        /// <returns></returns>
         public ActionResult EditSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -168,6 +215,12 @@ namespace ASP_WEB.Controllers
             vm.themes = repoTheme.All().ToList();
             return View(vm);
         }
+        /// <summary>
+        /// Edits a subtheme with the data from the form and the image
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <param name="file">Image</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult EditSubtheme(FormCollection frm, HttpPostedFileBase file)
@@ -212,7 +265,10 @@ namespace ASP_WEB.Controllers
 
 
         }
-
+        /// <summary>
+        /// Returns a view to create a subtheme
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreateSubtheme()
         {
             SubthemesEditViewModel vm = new SubthemesEditViewModel();
@@ -222,6 +278,12 @@ namespace ASP_WEB.Controllers
 
             return View(vm);
         }
+        /// <summary>
+        /// Creates a subtheme with the data from the form and the uploaded image
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <param name="file">Image</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CreateSubtheme(FormCollection frm, HttpPostedFileBase file)
         {
@@ -263,7 +325,11 @@ namespace ASP_WEB.Controllers
             repoSubtheme.SaveChanges();
             return RedirectToAction(nameof(Subthemes));
         }
-
+        /// <summary>
+        /// Returns a view with the details of a subtheme
+        /// </summary>
+        /// <param name="id">SubthemeID</param>
+        /// <returns></returns>
         public ActionResult DetailsSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -274,7 +340,11 @@ namespace ASP_WEB.Controllers
             Subtheme subtheme = repoSubtheme.GetByID(ID);
             return View(subtheme);
         }
-
+        /// <summary>
+        /// Deletes a subtheme
+        /// </summary>
+        /// <param name="id">SubthemeID</param>
+        /// <returns></returns>
         public ActionResult DeleteSubtheme(int? id)
         {
             if (!id.HasValue)
@@ -300,6 +370,11 @@ namespace ASP_WEB.Controllers
         #endregion
 
         #region Office
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
         public ActionResult Offices(int? page)
         {
             IEnumerable<Office> offices = repoOffice.All();
@@ -307,7 +382,11 @@ namespace ASP_WEB.Controllers
 
             return View(offices.OrderBy(i => i.OfficeID).ToPagedList(pageNumber, pageSize));
         }
-
+        /// <summary>
+        /// Returns a view to edit an office, if no OfficeID is given returns to the list of all offices
+        /// </summary>
+        /// <param name="id">OfficeID</param>
+        /// <returns></returns>
         public ActionResult EditOffice(int? id)
         {
             if (!id.HasValue)
@@ -319,6 +398,11 @@ namespace ASP_WEB.Controllers
             return View(office);
 
         }
+        /// <summary>
+        /// Edits an office with the data from the form
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult EditOffice(FormCollection frm)
         {
@@ -344,12 +428,19 @@ namespace ASP_WEB.Controllers
 
             return RedirectToAction(nameof(Offices));
         }
-
+        /// <summary>
+        /// Returns a view to create an office
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreateOffice()
         {
             return View();
         }
-
+        /// <summary>
+        /// Creates an office with the data from the form
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CreateOffice(FormCollection frm)
         {
@@ -374,7 +465,11 @@ namespace ASP_WEB.Controllers
 
             return RedirectToAction(nameof(Offices));
         }
-
+        /// <summary>
+        /// Shows the details of an office
+        /// </summary>
+        /// <param name="id">OfficeID</param>
+        /// <returns></returns>
         public ActionResult DetailsOffice(int? id)
         {
             if (!id.HasValue)
@@ -385,7 +480,11 @@ namespace ASP_WEB.Controllers
             Office office = repoOffice.GetByID(ID);
             return View(office);
         }
-
+        /// <summary>
+        /// Deletes a office
+        /// </summary>
+        /// <param name="id">OfficeID</param>
+        /// <returns></returns>
         public ActionResult DeleteOffice(int? id)
         {
             if (!id.HasValue)
@@ -400,14 +499,21 @@ namespace ASP_WEB.Controllers
         #endregion
 
         #region FAQ
-
+        /// <summary>
+        /// Shows a list of all FAQs
+        /// </summary>
+        /// <param name="page">PageNumber</param>
+        /// <returns></returns>
         public ActionResult Faqs(int? page)
         {
             IEnumerable<Faq> Faq = repoFaq.All();
             int pageNumber = (page ?? 1);
             return View(Faq.OrderBy(f => f.FaqID).ToPagedList(pageNumber, pageSize));
         }
-
+        /// <summary>
+        /// Returns a view to create a FAQ
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreateFaq()
         {
             FaqSubtheme vm = new FaqSubtheme();
@@ -415,6 +521,11 @@ namespace ASP_WEB.Controllers
             vm.Theme = repoTheme.All().ToList();
             return View(vm);
         }
+        /// <summary>
+        /// Creates a FAQ with data from the form
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CreateFaq(FormCollection frm)
         {
@@ -427,6 +538,11 @@ namespace ASP_WEB.Controllers
             repoFaq.SaveChanges();
             return RedirectToAction(nameof(Faqs));
         }
+        /// <summary>
+        /// Returns a view to edit a FAQ
+        /// </summary>
+        /// <param name="id">FaqID</param>
+        /// <returns></returns>
         public ActionResult EditFaq(int? id)
         {
             if (!id.HasValue)
@@ -444,6 +560,11 @@ namespace ASP_WEB.Controllers
             return View(vm);
 
         }
+        /// <summary>
+        /// Edits a FAQ with data from the form
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult EditFaq(FormCollection frm)
         {
@@ -457,6 +578,11 @@ namespace ASP_WEB.Controllers
             repoFaq.SaveChanges();
             return RedirectToAction(nameof(Faqs));
         }
+        /// <summary>
+        /// Deletes a FAQ
+        /// </summary>
+        /// <param name="id">FaqID</param>
+        /// <returns></returns>
         public ActionResult DeleteFaq(int? id)
         {
             if (!id.HasValue)
@@ -469,7 +595,11 @@ namespace ASP_WEB.Controllers
 
             return RedirectToAction(nameof(Faqs));
         }
-
+        /// <summary>
+        /// Returns the details of a FAQ
+        /// </summary>
+        /// <param name="id">FaqID</param>
+        /// <returns></returns>
         public ActionResult DetailsFaq(int? id)
         {
             if (!id.HasValue)
@@ -485,6 +615,9 @@ namespace ASP_WEB.Controllers
 
         #region Users and Roles
         private ApplicationUserManager _userManager;
+        /// <summary>
+        /// Makes the UserManager
+        /// </summary>
         public ApplicationUserManager UserManager
         {
             get
@@ -496,7 +629,10 @@ namespace ASP_WEB.Controllers
                 _userManager = value;
             }
         }
-
+        /// <summary>
+        /// Returns a view with all the registered users
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Users()
         {
             List<User> vm = new List<User>();
@@ -515,7 +651,11 @@ namespace ASP_WEB.Controllers
             }
             return View(vm);
         }
-
+        /// <summary>
+        /// Deletes a user by removing their password hash
+        /// </summary>
+        /// <param name="id">UserID</param>
+        /// <returns></returns>
         public ActionResult DeleteUser(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))
@@ -524,7 +664,11 @@ namespace ASP_WEB.Controllers
             }
             return RedirectToAction(nameof(Users));
         }
-
+        /// <summary>
+        /// Gives a user the admin role
+        /// </summary>
+        /// <param name="id">UserID</param>
+        /// <returns></returns>
         public ActionResult ToAdmin(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))
@@ -535,7 +679,11 @@ namespace ASP_WEB.Controllers
             }
             return RedirectToAction(nameof(Users));
         }
-
+        /// <summary>
+        /// Gives a user the user role
+        /// </summary>
+        /// <param name="id">UserID</param>
+        /// <returns></returns>
         public ActionResult ToUser(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))

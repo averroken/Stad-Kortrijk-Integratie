@@ -10,6 +10,7 @@ using ASP_WEB.Models;
 
 namespace ASP_WEB.Controllers
 {
+#pragma warning disable 1591
     [Authorize]
     public class ManageController : Controller
     {
