@@ -14,6 +14,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ASP_WEB.Controllers
 {
+#pragma warning disable 1591
     [Authorize]
     public class AccountController : Controller
     {

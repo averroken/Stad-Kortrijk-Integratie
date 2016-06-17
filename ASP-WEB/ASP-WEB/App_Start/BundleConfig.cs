@@ -3,6 +3,7 @@ using System.Web.Optimization;
 
 namespace ASP_WEB
 {
+#pragma warning disable 1591
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862

@@ -11,12 +11,18 @@ using System.Web.Mvc;
 
 namespace ASP_WEB.Controllers
 {
+    /// <summary>
+    /// HomeController
+    /// </summary>
     public class HomeController : Controller
     {
         GenericRepository<Theme> repoTheme = new GenericRepository<Theme>();
         FaqRepository repoFaq = new FaqRepository();
         SubthemeRepository repoSubtheme = new SubthemeRepository();
-
+        /// <summary>
+        /// Returns a view with all the themes
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             IEnumerable<Theme> Themes = new List<Theme>();
@@ -24,7 +30,11 @@ namespace ASP_WEB.Controllers
 
             return View(Themes);
         }
-
+        /// <summary>
+        /// Returns a view with the details of a subtheme
+        /// </summary>
+        /// <param name="id">SubthemeID</param>
+        /// <returns></returns>
         public ActionResult Details(int? id)
         {
             if (!id.HasValue)
@@ -33,12 +43,18 @@ namespace ASP_WEB.Controllers
             }
             return RedirectToAction("Index", "Subtheme", new { id = id });
         }
-
+        /// <summary>
+        /// Returns the map view
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Map()
         {
             return View();
         }
-
+        /// <summary>
+        /// Returns a view with all FAQs and all themes
+        /// </summary>
+        /// <returns></returns>
         public ActionResult FAQ()
         {
             FaqSubtheme vm = new FaqSubtheme();
@@ -48,7 +64,12 @@ namespace ASP_WEB.Controllers
             vm.Theme = themes;
             return View(vm);
         }
-
+        /// <summary>
+        /// Shows the search results of a given page
+        /// </summary>
+        /// <param name="searchString">SearchString in Dutch</param>
+        /// <param name="page">PageNumber</param>
+        /// <returns></returns>
         public ActionResult Search(string searchString, int? page)
         {
             if (String.IsNullOrWhiteSpace(searchString))
@@ -67,10 +88,19 @@ namespace ASP_WEB.Controllers
             var pagedlist = subthemes.ToPagedList(pageNumber, pageSize);
             return View(pagedlist);
         }
+        /// <summary>
+        /// Returns teh Contact View
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Contact()
         {
             return View();
         }
+        /// <summary>
+        /// Sends a mail with the content of the contact form
+        /// </summary>
+        /// <param name="frm">FormData</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Contact(FormCollection frm)
         {

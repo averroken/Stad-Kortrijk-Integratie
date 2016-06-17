@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+#pragma warning disable 1591
 public interface IGenericRepository<TEntity>
       where TEntity : class {
         IEnumerable<TEntity> All();

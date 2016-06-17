@@ -10,11 +10,18 @@ using System.Web.Http.Results;
 
 namespace ASP_WEB.Controllers
 {
+    /// <summary>
+    /// API Controller for offices
+    /// </summary>
     public class OfficesController : ApiController
     {
         GenericRepository<Subtheme> repoSubtheme = new GenericRepository<Subtheme>();
         GenericRepository<Office> repoOffice = new GenericRepository<Office>();
-
+        /// <summary>
+        /// Returns all offices of a subtheme if ID is given, else returns all offices
+        /// </summary>
+        /// <param name="id">SubthemeID</param>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage Get(int? id)
         {

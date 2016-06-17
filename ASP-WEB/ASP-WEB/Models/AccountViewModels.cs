@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ASP_WEB.Models
 {
+#pragma warning disable 1591
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
