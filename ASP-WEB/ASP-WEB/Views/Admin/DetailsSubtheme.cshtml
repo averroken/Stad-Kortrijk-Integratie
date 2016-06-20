@@ -1,25 +1,17 @@
 ﻿@model ASP_WEB.Models.Subtheme
 
 @{
-    ViewBag.Title = "Details van een subthema";
+    ViewBag.Title = "Details van";
 }
 <div class="wrapper"></div>
-<h2>DetailsSubtheme</h2>
+<h2>@ViewBag.Title @Model.Name</h2>
 
 <div>
-    <h4>Subtheme</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @WebUtility.HtmlDecode(Model.Name)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Beschrijving
         </dt>
 
         <dd>
@@ -27,21 +19,22 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Theme)
+            Thema
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Theme.Name)
         </dd>
-@foreach (var item in Model.Office)
-{
-    <dt>
-        @Html.DisplayNameFor(model => model.Office)
-    </dt>
-    <dd>
-        @Html.DisplayFor(modelItem => item.Name)
-    </dd>
-}
+        <dt>
+            Dienst(en)
+        </dt>
+        @foreach (var item in Model.Office)
+        {
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Name)
+            </dd>
+        }
         <dt>
             Foto
         </dt>

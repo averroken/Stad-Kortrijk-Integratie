@@ -6,18 +6,19 @@
 <div class="wrapper"></div>
 <h2>@ViewBag.Title</h2>
 
-<form action="CreateSubtheme" enctype="multipart/form-data" method="post" class="form-horizontal">
+<form action="CreateSubtheme" enctype="multipart/form-data" method="post" class="form createForms">
     @Html.AntiForgeryToken()
     <div class="form-group">
-        <label for="Name">Name</label>
+        <label for="Name">Naam</label>
         <input type="text" name="Name" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label for="Description">Description</label>
+        <label for="Description">Beschrijving</label>
         <input type="text" name="Description" class="form-control" />
     </div>
     <div class="form-group">
+        <label for="ThemeID">Thema</label>
         <select name="ThemeID" class="form-control">
             @foreach (var item in Model.themes)
             {
@@ -26,6 +27,7 @@
         </select>
     </div>
     <div class="form-group">
+        <label for="OfficeID">Dienst</label>
         <select multiple name="OfficeID" class="form-control">
             @foreach (var item in Model.offices)
             {

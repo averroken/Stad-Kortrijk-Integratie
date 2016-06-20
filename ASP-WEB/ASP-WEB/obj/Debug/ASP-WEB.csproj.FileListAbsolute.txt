@@ -573,3 +573,4 @@ C:\Users\DarthSwedo\Documents\GitHubCopy\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WE
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\ASP-WEB.XML
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\ASP-WEB.dll.CodeAnalysisLog.xml
 C:\NMCT 2015-2016\Project\Stad Kortrijk - Integratie\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\ASP-WEB.dll.lastcodeanalysissucceeded
+C:\Users\DarthSwedo\Documents\GitHubCopy\Stad-Kortrijk-Integratie\ASP-WEB\ASP-WEB\bin\ASP-WEB.XML

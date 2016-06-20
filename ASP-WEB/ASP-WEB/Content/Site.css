@@ -33,7 +33,11 @@ body p {
 }
 
 .wrapper {
-    height: 200px;
+    height: 180px;
+}
+
+.wrapperAll {
+    overflow-x: hidden;
 }
 
 .back-to-top {
@@ -61,6 +65,10 @@ body p {
     background: #eee;
     padding: 10px;
 }
+
+.createForms {
+    width: 60%;
+}
 /*#endregion*/
 /*#region Navigatie*/
 .vertalenBig {
@@ -72,16 +80,13 @@ body p {
     padding-top: 5px;
 }
 
-.navbar-nav {
-    margin: 0 -15px;
-}
-
 #navigatieBalk {
     background-color: #c2d197;
     margin: 0;
     height: 150px;
     background: url(/Content/bgpatternHeader.png);
     border: none;
+    z-index: 1;
 }
 
 
@@ -102,6 +107,7 @@ body p {
 .navText {
     font-weight: bold;
     color: #626250;
+    width: 120%;
 }
 
 .txtSearch {
@@ -112,7 +118,7 @@ body p {
 
 #imgSearch {
     position: absolute;
-    right: 26.3%;
+    right: 27%;
     margin-top: 9px;
     width: 15px;
     height: 15px;
@@ -142,6 +148,7 @@ body p {
     margin: 0 auto;
     padding-top: 10px;
     padding-left: 22%;
+    margin-bottom: 15px;
 }
 
 .mediaImages img {
@@ -314,7 +321,6 @@ footer {
 
 .meldpunt {
     position: relative;
-    margin-bottom: 70px;
     margin-right: auto;
     margin-left: auto;
     padding-left: 40px;
@@ -390,10 +396,6 @@ footer {
 
 .inputMeldpunt h4 {
     font-size: 14px;
-}
-
-.form-horizontal {
-    width: 150px;
 }
 
 .inputMeldpunt p {
@@ -668,7 +670,7 @@ h1 {
 #openingsuren {
     margin-top: 5px;
     width: 214px;
-    margin-left: 24px;
+    margin-left: 12px;
     padding-top: 3px;
 }
 
@@ -757,14 +759,24 @@ h1 {
     display: none;
 }
 
-.morelink {
-    display: block;
+.morecontent {
+    text-decoration: none;
 }
 
-    .morelink a {
-        text-decoration: none;
-        color: #626250;
+    .morecontent img {
+        float: right;
+        width: 15px;
+        height: 15px;
+        margin: 4px;
     }
+
+    .morecontent a {
+        float: right;
+    }
+
+        .morecontent a:hover {
+            opacity: 0.8;
+        }
 /*#endregion*/
 /*#region Search*/
 .resultaatContent p {
@@ -797,6 +809,8 @@ h1 {
     padding-bottom: 30px;
     width: 100%;
     margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
     .resultaatContent h3 {
@@ -848,8 +862,7 @@ h1 {
         color: #626250;
     }
 /*#endregion Search*/
-/*#region Backend*/
-.form-horizontal {
+/*#region Backend*/ S .form-horizontal {
     width: auto;
     padding: 20px;
 }
@@ -862,6 +875,20 @@ h1 {
 .dl-horizontal img {
     background-color: #acd5bb;
     border-radius: 10%;
+}
+
+.btnsAdmin a {
+    background-color: #acd5bb;
+    color: white;
+}
+
+    .btnsAdmin a:hover {
+        background-color: #626250;
+        color: white;
+    }
+
+.btnsAdmin {
+    text-align: center;
 }
 /*#endregion*/
 
@@ -939,7 +966,7 @@ h1 {
 @media (min-width: 992px) {
     /*#region LayoutModel*/
     .wrapper {
-        height: 170px;
+        height: 150px;
     }
 
     .navbar-fixed-top .navbar-collapse {
@@ -981,7 +1008,7 @@ h1 {
 
     .navText {
         border: none;
-        width: 435px;
+        width: 50%;
         float: left;
     }
 
@@ -1012,6 +1039,12 @@ h1 {
         #openingsuren img {
             width: 25px;
             height: 25px;
+        }
+
+        #openingsuren h2 {
+            margin-bottom: 17px;
+            padding-top: 6px;
+            padding-left: 10px;
         }
 
     .meldpuntTekst p {
@@ -1151,7 +1184,7 @@ h1 {
 
 
     #imgSearch {
-        left: 125px;
+        left: 130px;
     }
 
     #nav a {
@@ -1178,7 +1211,7 @@ h1 {
     }
 
     .wrapper {
-        height: 130px;
+        height: 100px;
     }
 
     .meldpuntFormulier {

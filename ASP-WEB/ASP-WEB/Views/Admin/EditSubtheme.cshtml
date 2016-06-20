@@ -7,22 +7,23 @@
 <h2>@ViewBag.Title</h2>
 
 
-<form enctype="multipart/form-data" method="post" class="form-horizontal" action="/Admin/EditSubtheme">
+<form enctype="multipart/form-data" method="post" class="form" action="/Admin/EditSubtheme">
     @Html.AntiForgeryToken()
     <input type="hidden" value="@Model.subtheme.SubthemeID" name="SubthemeID" />
 
     <div class="form-group">
-        <label for="Name">Name</label>
+        <label for="Name">Naam</label>
         <input type="text" value="@WebUtility.HtmlDecode(Model.subtheme.Name)" name="Name" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label for="Description">Description</label>
+        <label for="Description">Beschrijving</label>
         <textarea class="form-control" rows="3" cols="2" name="Description">@WebUtility.HtmlDecode(Model.subtheme.Description)</textarea>
         <!--<input type="text" name="Description" value="@Model.subtheme.Description" class="form-control"/>-->
     </div>
 
     <div class="form-group">
+        <label for="ThemeID">Thema</label>
         <select name="ThemeID" class="form-control">
             @foreach (var item in Model.themes)
             {
@@ -32,6 +33,7 @@
     </div>
 
     <div class="form-group">
+        <label for="OfficeIDs">Diensten</label>
         <select multiple name="OfficeIDs" class="form-control">
             @foreach (var item in Model.offices)
             {
@@ -48,7 +50,7 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" id="enabledisable" name="submit" value="Submit" class="btn btn-default" />
+        <input type="submit" id="enabledisable" name="submit" value="Bevestig" class="btn btn-default" />
         <a href="/Admin/Subthemes">
             <div class="btn btn-default">
                 Terug naar de subthema's

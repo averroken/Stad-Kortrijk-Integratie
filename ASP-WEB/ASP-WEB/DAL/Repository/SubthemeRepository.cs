@@ -97,9 +97,12 @@ namespace ASP_WEB.DAL.Repository
 
                 GenericRepository<Office> repoOffice = new GenericRepository<Office>(context);
                 GenericRepository<Theme> repoTheme = new GenericRepository<Theme>(context);
-                foreach (var office in subtheme.OfficeID)
+                if (subtheme.OfficeID != null)
                 {
-                    currentSubtheme.Office.Add(repoOffice.GetByID(office));
+                    foreach (var office in subtheme.OfficeID)
+                    {
+                        currentSubtheme.Office.Add(repoOffice.GetByID(office));
+                    }
                 }
                 //currentSubtheme.Office.Clear();
                 //context.SaveChanges();

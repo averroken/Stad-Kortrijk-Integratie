@@ -4,12 +4,12 @@
 }
 <div class="wrapper content"></div>
 <div class="onderwerpImageSM hidden-md hidden-lg">
-    <h2>@Model.Name</h2>
+    <h2>@WebUtility.HtmlDecode(Model.Name)</h2>
     <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" />
 </div>
 <div class="onderwerpLeft">
     <div class="onderwerpImage hidden-xs hidden-sm">
-        <h2>@Model.Name</h2>
+        <h2>@WebUtility.HtmlDecode(Model.Name)</h2>
         <img class="img-rounded" src="https://integratiekortrijk.blob.core.windows.net/images/@Model.FotoURL" />
     </div>
     <div id="accordion" role="tablist" aria-multiselectable="true">
@@ -60,31 +60,31 @@
                                 }
                             </div>
                             <div id="openingsuren">
-@if (!item.Monday.IsEmpty() || !item.Tuesday.IsEmpty() || !item.Wednesday.IsEmpty() || !item.Thursday.IsEmpty()
-                                                    || !item.Friday.IsEmpty() || !item.Saturday.IsEmpty() || !item.Sunday.IsEmpty())
-{
-                                <div>
-                                    <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
-                                    <h2 id="openingsurenDiff1">Openingsuren:</h2>
-                                </div>
+                                @if (!item.Monday.IsEmpty() || !item.Tuesday.IsEmpty() || !item.Wednesday.IsEmpty() || !item.Thursday.IsEmpty()
+                                    || !item.Friday.IsEmpty() || !item.Saturday.IsEmpty() || !item.Sunday.IsEmpty())
+                                {
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
+                                        <h2 id="openingsurenDiff1">Openingsuren:</h2>
+                                    </div>
 
-                                <ul>
-                                    <li><span>Maandag:  </span> @item.Monday</li>
-                                    <li><span>Dinsdag:  </span> @item.Tuesday</li>
-                                    <li><span>Woensdag: </span> @item.Wednesday</li>
-                                    <li><span>Donerdag: </span> @item.Thursday</li>
-                                    <li><span>Vrijdag:  </span> @item.Friday</li>
-                                    <li><span>Zaterdag: </span> @item.Saturday</li>
-                                    <li><span>Zondag:   </span> @item.Sunday</li>
-                                </ul>
-}
-else
-{
-    <div>
-        <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
-        <h2>Openingsuren niet beschikbaar</h2>
-    </div>
-}
+                                    <ul>
+                                        <li><span>Maandag:  </span> @item.Monday</li>
+                                        <li><span>Dinsdag:  </span> @item.Tuesday</li>
+                                        <li><span>Woensdag: </span> @item.Wednesday</li>
+                                        <li><span>Donerdag: </span> @item.Thursday</li>
+                                        <li><span>Vrijdag:  </span> @item.Friday</li>
+                                        <li><span>Zaterdag: </span> @item.Saturday</li>
+                                        <li><span>Zondag:   </span> @item.Sunday</li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/calendarCircle.png" />
+                                        <h2>Openingsuren niet beschikbaar</h2>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -126,6 +126,7 @@ else
                             scaledSize: new google.maps.Size(25, 25)
                         }
                         address = value.Street + '%20' + value.HouseNumber + ',%20' + value.City + '%20' + value.ZipCode;
+                        console.log(address);
                         geocoder.geocode({ 'address': address }, function (results, status) {
                             if (status === google.maps.GeocoderStatus.OK) {
                                 var marker = new google.maps.Marker({
@@ -135,7 +136,7 @@ else
                                     title: value.Name
                                 });
                             } else {
-                                alert('Geocode was unsuccesful for this reason: ' + status);
+                                //alert('Geocode was unsuccesful for this reason: ' + status);
                             }
                         });
                     });
@@ -149,8 +150,8 @@ else
                     // Configure/customize these variables.
                     var showChar = 350;  // How many characters are shown by default
                     var ellipsestext = "...";
-                    var moretext = "Lees meer >";
-                    var lesstext = "Lees minder ^";
+                    var moretext = "Lees meer";
+                    var lesstext = "Lees minder";
 
 
                     $('.more').each(function () {
@@ -161,13 +162,12 @@ else
                             var c = content.substr(0, showChar);
                             var h = content.substr(showChar, content.length - showChar);
 
-                            var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+                            var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink" style="text-decoration: none">' + moretext + '</a><img class="img-circle" src="https://integratiekortrijk.blob.core.windows.net/images/arrowRightCircle.png" alt="Locatie" /></span>';
 
                             $(this).html(html);
                         }
 
                     });
-
                     $(".morelink").click(function () {
                         if ($(this).hasClass("less")) {
                             $(this).removeClass("less");

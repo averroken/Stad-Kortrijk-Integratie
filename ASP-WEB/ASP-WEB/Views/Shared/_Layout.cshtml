@@ -45,7 +45,7 @@
 </head>
 <body id="top">
     <div class="wrapperAll">
-        <div class="navbar navbar-inverse navbar-fixed-top" id="navigatieBalk">
+        <div class="navbar navbar-inverse navbar-top" id="navigatieBalk">
             <div class="container" id="jump_to_me">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" id="navbarToggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -63,7 +63,7 @@
                 <div class="navbar-collapse collapse navText">
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Thema's", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Stadsplan", "Map", "Home")</li>
+                        <li id="stadsPlan">@Html.ActionLink("Stadsplan", "Map", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Veelgestelde vragen", "FAQ", "Home")</li>
                     </ul>
@@ -104,10 +104,10 @@
 <g>
             <g>
             <g>
-            <path style="fill:#010002;" d="M237.32,0.016C106.249,0.016,0,106.233,0,237.336s106.281,237.288,237.32,237.288
+            <path style="fill:#626250;" d="M237.32,0.016C106.249,0.016,0,106.233,0,237.336s106.281,237.288,237.32,237.288
 				s237.32-106.249,237.32-237.32S368.391,0.016,237.32,0.016z M237.32,442.841c-113.336,0-205.537-92.169-205.537-205.569
 				S123.983,31.735,237.32,31.735s205.537,92.233,205.537,205.537S350.688,442.841,237.32,442.841z" />
-            <path style="fill:#010002;" d="M247.554,161.534c-3.115-3.115-7.183-4.608-11.283-4.608s-8.168,1.494-11.283,4.608
+            <path style="fill:#626250;" d="M247.554,161.534c-3.115-3.115-7.183-4.608-11.283-4.608s-8.168,1.494-11.283,4.608
 				L121.918,264.605c-6.198,6.198-6.198,16.273,0,22.47c6.198,6.198,16.273,6.198,22.47,0l91.883-91.883l91.883,91.883
 				c6.198,6.198,16.273,6.198,22.47,0c6.198-6.198,6.198-16.273,0-22.47L247.554,161.534z" />
 		</g>
@@ -138,8 +138,38 @@
         $("p").html(function (i, oldHTML) {
             return oldHTML.replace(/_/g, '<br><br>');
         });
+        $(".alinea").html(function (i, oldHTML) {
+            return oldHTML.replace(/_/g, '<br><br>');
+        });
         $('.back-to-top').click(function () {
             window.scrollTo(0, screen.height);
+        });
+        function effectiveDeviceWidth() {
+            var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+            if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
+                deviceWidth = deviceWidth / window.devicePixelRatio;
+            }
+            return deviceWidth;
+        }
+        $(document).ready(function () {
+            var stadsplan = $('#stadsPlan a');
+            var deviceWidth = effectiveDeviceWidth();
+            console.log(deviceWidth);
+            if (deviceWidth < 768) {
+                stadsplan.attr("href", "https://www.google.com/maps/d/embed?mid=1p2wnYyCk9DY1HncH4GpNEZyrwhk&hl=nl");
+            }
+            else {
+                stadsplan.href = "/Home/Map";
+            }
+            if (deviceWidth < 200) {
+                $('.navbar').removeClass('navbar-fixed-top');
+                $('.navbar').addClass('navbar-top')
+            }
+            else {
+                $('.navbar').removeClass('navbar-top');
+                $('.navbar').addClass('navbar-fixed-top')
+
+            }
         });
 
     </script>
