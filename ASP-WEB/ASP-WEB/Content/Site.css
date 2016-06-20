@@ -689,6 +689,7 @@ h1 {
         width: 15px;
         height: 15px;
         float: left;
+        margin-top: 10px;
     }
 
     #openingsuren ul li span {
@@ -767,15 +768,18 @@ h1 {
         float: right;
         width: 15px;
         height: 15px;
-        margin: 4px;
+        margin-right: 3px;
+        margin-top: 2px;
     }
 
     .morecontent a {
         float: right;
+        margin-top: 2px;
+        color: #626250;
     }
 
         .morecontent a:hover {
-            opacity: 0.8;
+            color: #626250;
         }
 /*#endregion*/
 /*#region Search*/
@@ -1043,7 +1047,7 @@ h1 {
 
         #openingsuren h2 {
             margin-bottom: 17px;
-            padding-top: 6px;
+            padding-top: 17px;
             padding-left: 10px;
         }
 
@@ -1165,6 +1169,10 @@ h1 {
 
     .dienstInfo img {
         margin-top: 0;
+    }
+
+    .morecontent img {
+        margin: 4px;
     }
     /*#endregion*/
     /*#region Index, Nav & Faq*/

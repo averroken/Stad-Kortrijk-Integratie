@@ -58,6 +58,13 @@
                                         <a href="mailto:@item.EmailAddress" target="_blank"><h4>@item.EmailAddress</h4></a>
                                     </div>
                                 }
+                                @if (!item.URL.IsEmpty())
+                                {
+                                    <div>
+                                        <img src="https://integratiekortrijk.blob.core.windows.net/images/documentenCircle.png" />
+                                        <a href="@item.URL" target="_blank"><h4>@item.URL</h4></a>
+                                    </div>
+                                }
                             </div>
                             <div id="openingsuren">
                                 @if (!item.Monday.IsEmpty() || !item.Tuesday.IsEmpty() || !item.Wednesday.IsEmpty() || !item.Thursday.IsEmpty()
